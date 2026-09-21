@@ -1,29 +1,25 @@
 import os
 import pandas as pd
-from speechbrain.inference.interfaces import foreign_class
+from funasr import AutoModel
 
 df = pd.read_csv("data/processed/mustard_prepared.csv")
 audio_dir = "data/processed/audio"
 output_path = "data/processed/audio_valence.csv"
 
-classificador = foreign_class(
-    source="speechbrain/emotion-recognition-wav2vec2-IEMOCAP",
-    pymodule_file="custom_interface.py",
-    classname="CustomEncoderWav2vec2Classifier",
-)
-indice_para_rotulo = classificador.hparams.label_encoder.ind2lab
-print("Rotulos do classificador:", indice_para_rotulo)
+# emotion2vec+ (Ma et al., ACL 2024 Findings) -- reconhece 9 categorias,
+# ao contrario do classificador anterior (SpeechBrain/IEMOCAP, so 4)
+classificador = AutoModel(model="iic/emotion2vec_plus_large", hub="hf")
 
-POSITIVAS = {"hap"}
-NEGATIVAS = {"ang", "sad"}
+POSITIVAS = {"happy"}
+NEGATIVAS = {"angry", "disgusted", "fearful", "sad"}
 
 # Traducao dos rotulos nativos para o vocabulario padrao do projeto --
 # usada so na hora de montar a linha salva no csv
 MAPA_ROTULOS = {
-    "ang": "angry",
-    "hap": "happy",
-    "neu": "neutral",
-    "sad": "sad",
+    "disgusted": "disgust",
+    "fearful": "fear",
+    "surprised": "surprise",
+    "<unk>": "unknown",
 }
 
 if os.path.exists(output_path):
@@ -35,6 +31,7 @@ else:
 novos_resultados = []
 total_processadas = len(keys_processadas)
 total_sem_audio = 0
+rotulos_impressos = False
 
 for _, row in df.iterrows():
     key = str(row["KEY"])
@@ -46,9 +43,21 @@ for _, row in df.iterrows():
         total_sem_audio += 1
         continue
     try:
-        out_prob, score, index, text_lab = classificador.classify_file(audio_path)
-        probs = out_prob.squeeze().tolist()
-        probs_por_rotulo = {indice_para_rotulo[i]: probs[i] for i in range(len(probs))}
+        saida = classificador.generate(
+            audio_path, granularity="utterance", extract_embedding=False
+        )[0]
+        # o modelo devolve rotulos bilingues (ex.: "开心/happy"); ficamos
+        # so com a parte em ingles -- "<unk>" nao tem "/" e fica como esta
+        rotulos_nativos = [
+            rotulo.split("/")[-1] if "/" in rotulo else rotulo
+            for rotulo in saida["labels"]
+        ]
+        probs_por_rotulo = dict(zip(rotulos_nativos, saida["scores"]))
+
+        if not rotulos_impressos:
+            print("Rotulos do classificador:", list(probs_por_rotulo.keys()))
+            rotulos_impressos = True
+
         emocao_predominante = max(probs_por_rotulo, key=probs_por_rotulo.get)
         p_positiva = sum(probs_por_rotulo.get(c, 0.0) for c in POSITIVAS)
         p_negativa = sum(probs_por_rotulo.get(c, 0.0) for c in NEGATIVAS)

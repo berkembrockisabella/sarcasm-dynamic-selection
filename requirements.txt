@@ -1,6 +1,6 @@
 pandas
 scikit-learn
 transformers
-speechbrain
+funasr
 torch
 torchaudio
