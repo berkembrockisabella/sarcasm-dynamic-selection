@@ -7,7 +7,6 @@ audio_dir = "data/processed/audio"
 output_path = "data/processed/audio_valence.csv"
 
 # emotion2vec+ (Ma et al., ACL 2024 Findings) -- reconhece 9 categorias,
-# ao contrario do classificador anterior (SpeechBrain/IEMOCAP, so 4)
 classificador = AutoModel(model="iic/emotion2vec_plus_large", hub="hf")
 
 POSITIVAS = {"happy"}

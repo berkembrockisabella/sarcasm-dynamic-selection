@@ -4,19 +4,20 @@ from transformers import pipeline
 # Le o dataset preparado
 df = pd.read_csv("data/processed/mustard_prepared.csv")
 
-# Classificador de emocao categorica: 6 emocoes basicas de Ekman + neutro
+# Classificador de emocao categorica: DeBERTa-v3-large fine-tuned em
+# GoEmotions + ISEAR + DAIR-AI (mesclados/aumentados) -- substitui o
+# classificador anterior (distilroberta, j-hartmann), mantendo o mesmo
+# vocabulario de 7 emocoes (6 basicas de Ekman + neutro)
 classificador = pipeline(
     "text-classification",
-    model="j-hartmann/emotion-english-distilroberta-base",
+    model="Tanneru/Emotion-Classification-DeBERTa-v3-Large",
     top_k=None,
 )
 
 # Traduz os rotulos nativos do classificador para o vocabulario padrao do
-# projeto (o mesmo ja usado na expressao facial)
+# projeto (o mesmo ja usado na expressao facial) -- so "anger" difere
 MAPA_ROTULOS = {
     "anger": "angry",
-    "joy": "happy",
-    "sadness": "sad",
 }
 
 EMOCOES = ["angry", "disgust", "fear", "happy", "neutral", "sad", "surprise"]

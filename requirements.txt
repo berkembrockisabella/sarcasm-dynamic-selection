@@ -4,3 +4,4 @@ transformers
 funasr
 torch
 torchaudio
+sentencepiece

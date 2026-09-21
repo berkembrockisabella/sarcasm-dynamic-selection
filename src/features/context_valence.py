@@ -10,18 +10,19 @@ for scene, grupo in bruto.groupby("SCENE"):
     linhas_contexto = linhas_contexto.sort_values("KEY")
     contexto_por_scene[scene] = " ".join(linhas_contexto["SENTENCE"].astype(str))
 
+# DeBERTa-v3-large fine-tuned em GoEmotions + ISEAR + DAIR-AI -- mesmo
+# classificador usado em text_valence.py, para manter o vocabulario de
+# emocoes consistente entre os dois
 classificador = pipeline(
     "text-classification",
-    model="j-hartmann/emotion-english-distilroberta-base",
+    model="Tanneru/Emotion-Classification-DeBERTa-v3-Large",
     top_k=None,
 )
 
 # Mesma traducao de rotulos usada em text_valence.py, para manter o
-# vocabulario de emocoes consistente entre os dois
+# vocabulario de emocoes consistente entre os dois -- so "anger" difere
 MAPA_ROTULOS = {
     "anger": "angry",
-    "joy": "happy",
-    "sadness": "sad",
 }
 
 EMOCOES = ["angry", "disgust", "fear", "happy", "neutral", "sad", "surprise"]
