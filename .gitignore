@@ -1,0 +1,40 @@
+# Dados brutos pesados do MUStARD++ (videos e anotacoes originais) --
+# nao versionados por serem grandes (~3.6 GB) e external ao repositorio;
+# quem for rodar o projeto baixa do dataset original
+data/raw/MUStarARD_raw/
+data/raw/all_videos-MUStarARD/
+
+# Audio extraido dos videos (gerado por src/data/extract_audio.py,
+# pode ser recriado a qualquer momento, ~170 MB)
+data/processed/audio/
+
+# Cache de modelos baixados (HuggingFace Hub / SpeechBrain / wav2vec2),
+# baixados automaticamente na primeira execucao dos scripts (~700 MB)
+wav2vec2_checkpoints/
+pretrained_models/
+.cache/
+
+# Python
+__pycache__/
+*.py[cod]
+*.egg-info/
+*.egg
+
+# Ambientes virtuais
+venv/
+.venv/
+env/
+
+# Jupyter
+.ipynb_checkpoints/
+
+# Editores/IDEs
+.vscode/
+.idea/
+
+# Sistema operacional
+.DS_Store
+Thumbs.db
+
+# Variaveis de ambiente / segredos (ex.: HF_TOKEN)
+.env

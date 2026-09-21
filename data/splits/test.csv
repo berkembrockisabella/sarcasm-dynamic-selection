@@ -1,0 +1,148 @@
+SCENE,KEY,SENTENCE,END_TIME,SPEAKER,SHOW,Sarcasm,Sarcasm_Type,Implicit_Emotion,Explicit_Emotion,Valence,Arousal
+1_10004,1_10004_u,"And of those few months, how long have you been a demented sex pervert?",0:07,SHELDON,BBT,0.0,NONE,Anger,Anger,2.0,7.0
+1_10190,1_10190_u,"Well, now that I've given up string theory, I'm struggling to find my next area of focus. So, in your professional opinion, which of these areas do you think is the most promising?",0:11,SHELDON,BBT,0.0,NONE,Neutral,Neutral,5.0,5.0
+1_10496,1_10496_u,"- You and... Oh, sure. And while we're at it, why don't we get engaged, too? Why don't we get a little house, start a family? Enjoy our sunset years together? Do you hear yourself, woman?!",0:14,SHELDON,BBT,1.0,PRO,Frustration,Happiness,2.0,8.0
+1_105,1_105_u,I'm just inferring this is a couch because the evidence suggests the coffee table is having a tiny garage sale.,0:06,SHELDON,BBT,1.0,EMB,Disgust,Neutral,2.0,6.0
+1_10810,1_10810_u,I'll give you a plan right now. Step one: open comic book store. Step two: start rumor this comic book store gives you genital warts.,0:1,SHELDON,BBT,0.0,NONE,Neutral,Neutral,5.0,5.0
+1_10829,1_10829_u,"On the bright side, that Oxford study was right. One friend down. I wonder who you're going to lose next.",0:1,SHELDON,BBT,1.0,EMB,Disgust,Happiness,3.0,4.0
+1_11120,1_11120_u,"Next time I might be in a rush, it's good to have a few in the bank.",0:04,SHELDON,BBT,0.0,NONE,Neutral,Neutral,5.0,5.0
+1_11177,1_11177_u,I'm listening to you snore. I'm wondering how I'll ever sleep without it.,0:05,SHELDON,BBT,1.0,EMB,Frustration,Sadness,4.0,7.0
+1_11236,1_11236_u,"Oh, you're hardly out of the woods, no. You still run the risk of infection, a blood clot, the possibility that an inattentive surgeon let a barn spider lay eggs in your nose.",0:12,SHELDON,BBT,0.0,NONE,Anger,Anger,3.0,7.0
+1_11253,1_11253_u,"So as they say, all good things must come to an end.",0:07,SHELDON,BBT,0.0,NONE,Happiness,Happiness,6.0,6.0
+1_1144,1_1144_u,"Notify the editors of the Oxford English Dictionary. The word ""plenty"" has been redefined to mean ""two.""",0:07,SHELDON,BBT,1.0,PRO,Disgust,Neutral,4.0,6.0
+1_11526,1_11526_u,"As you may know, I've been experimenting with elevated anxiety levels, and I thought, what better way to increase my discomfort than to subject myself to an evening of tasteless uncensored crotch talk?",0:13,SHELDON,BBT,0.0,NONE,Happiness,Happiness,6.0,6.0
+1_11529,1_11529_u,"And how difficult it is to do when she's bloated, cranky and crampy?",0:05,SHELDON,BBT,0.0,NONE,Neutral,Neutral,5.0,5.0
+1_1180,1_1180_u,"Oh, please. The only way she could make a contribution to science would be if they resumed sending chimps into space.",0:7,SHELDON,BBT,1.0,PRO,Frustration,Sadness,3.0,9.0
+1_1189,1_1189_u,"I'm sorry, I am not going back to the Renaissance fair.",0:04,SHELDON,BBT,0.0,NONE,Frustration,Frustration,3.0,7.0
+1_11901,1_11901_u,"Yeah, good for you, Leonard. That's a lovely little notion. Kind of like, I wish I could talk to my uncle in Chicago. Yeah, now stand back while I invent the telephone. Hello? Oh, hold on. Leonard, it's your uncle. He says you just got burned.",0:16,SHELDON,BBT,1.0,PRO,Disgust,Happiness,2.0,8.0
+1_12002,1_12002_u,Then buckle up; you're in for a cranky night.,0:04,SHELDON,BBT,0.0,NONE,Frustration,Frustration,3.0,7.0
+1_1262,1_1262_u,You were very clear. As was everyone else at the table.,0:04,SHELDON,BBT,0.0,NONE,Neutral,Neutral,5.0,5.0
+1_1466,1_1466_u,"Maybe when I publish it, I'll include an inhaler.",0:04,SHELDON,BBT,1.0,PRO,Ridicule,Neutral,3.0,6.0
+1_1484,1_1484_u,The big deal is that nobody touches food on my plate.,0:04,SHELDON,BBT,0.0,NONE,Anger,Anger,3.0,7.0
+1_1560,1_1560_u,How nice. Maybe they can carpool when they visit you in federal prison.,0:04,SHELDON,BBT,1.0,PRO,Disgust,Happiness,3.0,7.0
+1_1722,1_1722_u,My aunt Marion gave them to me for my 12th birthday.,0:03,SHELDON,BBT,0.0,NONE,Neutral,Neutral,5.0,5.0
+1_175,1_175_u,"If you're compiling a mix CD for a double suicide. Oh, I hope that scratching post is for you.",0:07,SHELDON,BBT,1.0,PRO,Disgust,Neutral,4.0,7.0
+1_182,1_182_u,No. The dark crescent-shaped patterns under your arms conceal it nicely.,0:05,SHELDON,BBT,1.0,PRO,Disgust,Happiness,3.0,7.0
+1_213,1_213_u,"How's this? ""Pleased to meet you, Dr. Gablehauser. ""How fortunate for you that the university's ""chosen to hire you, despite the fact ""that you've done no original research in 25 years, ""and instead have written a series of popular books ""that reduce the great concepts of science ""to a series of anecdotes, ""each one dumbed down to accommodate the duration ""of an average bowel movement.",0:2,SHELDON,BBT,1.0,EMB,Frustration,Happiness,2.0,8.0
+1_2198,1_2198_u,"Assuming I can keep up this pace, three hours, 11 minutes. Plus however long it takes to conclude this fairly pointless conversation.",0:08,SHELDON,BBT,1.0,PRO,Anger,Neutral,4.0,6.0
+1_2354,1_2354_u,"So? Do cocaine smugglers write ""cocaine"" on the box?",0:04,SHELDON,BBT,1.0,PRO,Frustration,Neutral,3.0,6.0
+1_2423,1_2423_u,Provided he has already read and is familiar with the reestablishment of the DC multiverse.,0:07,SHELDON,BBT,0.0,NONE,Disgust,Disgust,4.0,6.0
+1_2575,1_2575_u,"You don't really believe in that superstition, do you?",0:03,SHELDON,BBT,0.0,NONE,Surprise,Surprise,6.0,6.0
+1_2797,1_2797_u,It's an iCal download. She can put it right in her phone.,0:04,SHELDON,BBT,1.0,PRO,Anger,Neutral,3.0,6.0
+1_2819,1_2819_u,"You know, I've always wanted to go to a Goth nightclub.",0:04,SHELDON,BBT,1.0,ILL,Disgust,Excitement,3.0,6.0
+1_2853,1_2853_u,"Obviously, waitressing at The Cheese Cake Factory is a complex socio-economic activity that requires a great deal of analysis and planning.",0:1,SHELDON,BBT,1.0,EMB,Frustration,Neutral,3.0,7.0
+1_3064,1_3064_u,When I have enough to destroy all the human toast on the Battlestar known as Galactica.,0:05,SHELDON,BBT,1.0,PRO,Ridicule,Neutral,4.0,7.0
+1_3069,1_3069_u,Seems like an awful lot of trouble to go through for intercourse.,0:04,SHELDON,BBT,0.0,NONE,Frustration,Frustration,4.0,5.0
+1_3287,1_3287_u,"Oh, sure. And while we're at it, why don't we put our hands behind our backs, have an old-fashioned eating contest?",0:05,SHELDON,BBT,1.0,PRO,Frustration,Happiness,2.0,7.0
+1_3293,1_3293_u,Leonard's work is nearly as amazing as third graders growing lima beans in wet paper towels.,0:06,SHELDON,BBT,1.0,LIK,Disgust,Happiness,3.0,7.0
+1_3837,1_3837_u,"Excuse me, I'm thirsty, so I'm going to go to the refrigerator and get myself a refreshing beverage.",0:08,SHELDON,BBT,0.0,NONE,Neutral,Neutral,5.0,5.0
+1_3840,1_3840_u,"I read a study online that walking after a meal not only aids in digestion, but increases serotonin, and you know me, if there's one thing I like more than a refreshing beverage, it's serotonin. Bye-bye.",0:12,SHELDON,BBT,0.0,NONE,Neutral,Neutral,5.0,5.0
+1_4031,1_4031_u,"In 1917, when Albert Einstein established the theoretic foundation for the laser in his paper <i>""Zur Quantentheorie der</i> <i>Strahlung,""</i> his fondest hope was that the resultant device be bitchin'.",0:12,SHELDON,BBT,1.0,PRO,Disgust,Neutral,3.0,8.0
+1_427,1_427_u,"Well, I'm sorry, too, but there's just no room for you in my wallet.",0:04,SHELDON,BBT,1.0,PRO,Frustration,Sadness,4.0,7.0
+1_4286,1_4286_u,"All right, all right. He can buy his own desk.",0:04,SHELDON,BBT,0.0,NONE,Disgust,Disgust,3.0,7.0
+1_4352,1_4352_u,He does it all the time. He's a cornucopia of social awkwardness.,0:07,SHELDON,BBT,0.0,NONE,Sadness,Sadness,3.0,7.0
+1_467,1_467_u,That woman looks exactly like the pictures of Princess Panchali in the book. How often does one see a beloved fictional character come to life?,0:09,SHELDON,BBT,0.0,NONE,Happiness,Happiness,6.0,6.0
+1_4760,1_4760_u,"In the bedrooms of ten-year- old girls, where they belong.",0:05,SHELDON,BBT,1.0,PRO,Disgust,Neutral,4.0,6.0
+1_4792,1_4792_u,"Obviously, we're no longer a Justice League. We have no choice but to switch to our Muppet Baby costumes.",0:09,SHELDON,BBT,0.0,NONE,Sadness,Sadness,4.0,6.0
+1_4850,1_4850_u,I understand. Your loyalty is admirable. But what if I were to up the ante?,0:07,SHELDON,BBT,0.0,NONE,Neutral,Neutral,5.0,5.0
+1_4995,1_4995_u,"Hey, you taught me something. Who would have thought it?",0:06,SHELDON,BBT,1.0,PRO,Disgust,Happiness,4.0,6.0
+1_5058,1_5058_u,"An entire dinner to talk about your research? Where you going, the drive-thru at Jack in the Box?",0:09,SHELDON,BBT,1.0,EMB,Disgust,Surprise,3.0,7.0
+1_506,1_506_u,Not to mention you'd have to power down on saturdays.,0:04,SHELDON,BBT,0.0,NONE,Sadness,Sadness,4.0,6.0
+1_507,1_507_u,"Well, there's always the possibility that a trash can spontaneously formed around the letter but Occam's rasor would suggest that someone threw it out.",0:09,SHELDON,BBT,1.0,EMB,Frustration,Neutral,3.0,7.0
+1_536,1_536_u,Just the latest copy of Applied Particle Physics quarterly.,0:08,SHELDON,BBT,1.0,PRO,Frustration,Neutral,4.0,5.0
+1_5571,1_5571_u,"Yes, I'd like a seven-day course of penicillin, some, uh, syrup of ipecac-- to induce vomiting-- and a mint.",0:07,SHELDON,BBT,1.0,PRO,Disgust,Excitement,3.0,8.0
+1_5572,1_5572_u,"He drank from Leonard's glass. ""He drank from Leonard's glass""-- the words they'll be carving into my tombstone.",0:06,SHELDON,BBT,1.0,PRO,Disgust,Neutral,3.0,9.0
+1_5581,1_5581_u,I gargled with tequila and may have swallowed a teeny bit.,0:04,SHELDON,BBT,0.0,NONE,Sadness,Sadness,4.0,6.0
+1_5679,1_5679_u,"I'd like to respond to that sarcastically: Yes, I relish the thought of a stranger covering my body with oil and rubbing it.",0:09,SHELDON,BBT,1.0,EMB,Frustration,Neutral,3.0,8.0
+1_5699,1_5699_u,"Congratulations and welcome temporarily aboard. Here's your I.D. card, your key and your lapel pin. Which Leonard was too cool to wear.",0:13,SHELDON,BBT,1.0,EMB,Anger,Happiness,2.0,8.0
+1_5786,1_5786_u,"All right, so technically it's not a dinner date. I suppose you could call it a, uh, dinfast date. But if you did, you'd open yourself to peer-based mocking, such as, ""Hey, Leonard, how was your dinfast with Priya last night?""",0:15,SHELDON,BBT,0.0,NONE,Neutral,Neutral,5.0,5.0
+1_5919,1_5919_u,"Because you don't have a girlfriend? Well, good Lord, if that becomes a reason not to play Dungeons & Dragons, this game's in serious trouble.",0:08,SHELDON,BBT,0.0,NONE,Frustration,Frustration,4.0,6.0
+1_60,1_60_u,It's just a privilege to watch your mind at work.,0:04,SHELDON,BBT,1.0,ILL,Disgust,Excitement,2.0,7.0
+1_6020,1_6020_u,You just got off the list. Would you like back on it? This'll just take a moment. It's on a five and a quarter inch floppy.,0:11,SHELDON,BBT,1.0,PRO,Anger,Neutral,3.0,8.0
+1_6032,1_6032_u,"You see betrayal in others, but not yourself.",0:05,SHELDON,BBT,1.0,PRO,Disgust,Excitement,2.0,8.0
+1_6065,1_6065_u,"Frankly, Mom, I'm encouraged to see how advanced your group has become-- willing to sail out into the ocean without fear of falling off the edge.",0:09,SHELDON,BBT,1.0,EMB,Disgust,Surprise,3.0,7.0
+1_6134,1_6134_u,"No, I'm just allergic to people who get Nobel Prizes for no good reason.",0:06,SHELDON,BBT,1.0,PRO,Anger,Neutral,3.0,8.0
+1_6165,1_6165_u,"Yes, there's nothing quite like the slightly widened eyes of mildly startled.",0:07,SHELDON,BBT,1.0,PRO,Anger,Excitement,4.0,7.0
+1_6211,1_6211_u,"No. You mean this was all a ruse? Oh, how could I be so stu...",0:06,SHELDON,BBT,0.0,NONE,Fear,Fear,2.0,8.0
+1_6370,1_6370_u,"Oh, of course he is. She's very interesting. Did you know, when she was 14, she severed the webbing between her own toes?",0:09,SHELDON,BBT,1.0,EMB,Frustration,Happiness,3.0,7.0
+1_6426,1_6426_u,"You know, the holidays are just around the corner. Maybe he wants to see if he can lodge the other testicle up there.",0:06,SHELDON,BBT,1.0,EMB,Disgust,Neutral,3.0,7.0
+1_6472,1_6472_u,You'd think a winner could make a decent cup of cocoa.,0:04,SHELDON,BBT,1.0,PRO,Disgust,Neutral,4.0,6.0
+1_6504,1_6504_u,"Oh, I see why you're confused. No, her news sounded important, but what you're forgetting is, it was an achievement in the field of biology. That's all about yucky, squishy things.",0:12,SHELDON,BBT,1.0,PRO,Disgust,Neutral,3.0,7.0
+1_6534,1_6534_u,"No, but maybe she wants a man with a pocket watch.",0:05,SHELDON,BBT,0.0,NONE,Excitement,Excitement,6.0,6.0
+1_6645,1_6645_u,"Well, that wady took high-wes pictures of my junk wast night for Cwaigswist.",0:07,PERSON1,BBT,0.0,NONE,Anger,Anger,3.0,7.0
+1_672,1_672_u,Do you think Penny will come here and take care of us?,0:04,SHELDON,BBT,0.0,NONE,Sadness,Sadness,4.0,6.0
+1_6766,1_6766_u,Maybe that's because I'm not being challenged. It's the same reason Einstein failed math.,0:05,SHELDON,BBT,0.0,NONE,Neutral,Neutral,5.0,5.0
+1_6860,1_6860_u,"I'm sorry, it's the bad boy attitude that comes with this hair.",0:04,SHELDON,BBT,0.0,NONE,Neutral,Neutral,5.0,5.0
+1_7281,1_7281_u,"Darn. If you weren't busy, I'd ask you to join us.",0:05,SHELDON,BBT,1.0,PRO,Disgust,Sadness,4.0,8.0
+1_7341,1_7341_u,I am talking to a man in space. If you don't have the (walkie-talkie static) then he might as well be at the Coffee Bean over on Lake Street.,0:07,SHELDON,BBT,0.0,NONE,Neutral,Neutral,5.0,5.0
+1_7442,1_7442_u,"The original title was ""A Rederivation of Maxwell's Equations Regarding Electromagnetism"""" I dumbed it down because some of the more religious people in town were starting to say I was a witch.",0:11,SHELDON,BBT,0.0,NONE,Sadness,Sadness,3.0,6.0
+1_7593,1_7593_u,"Amy, I can't just ask Wil Wheaton to leave. He's a minor celebrity. Once you explain who he is, many people recognize him.",0:11,SHELDON,BBT,0.0,NONE,Happiness,Happiness,6.0,6.0
+1_7661,1_7661_u,"Yeah, that was five weeks ago. How much longer is he gonna milk that cow?",0:04,SHELDON,BBT,0.0,NONE,Frustration,Frustration,3.0,7.0
+1_7722,1_7722_u,Exactly what it was half an hour ago. It's like you're not even trying to get better.,0:08,SHELDON,BBT,1.0,PRO,Sadness,Neutral,4.0,6.0
+1_80,1_80_u,"Since it's not bee season, you can have my epinephrine.",0:04,SHELDON,BBT,0.0,NONE,Disgust,Excitement,4.0,6.0
+1_8407,1_8407_u,"Oh, sure, what a wonderful idea. And after that, I'll make up my own rules of oral hygiene. You know, instead of flossing, I'll rub pudding on my gums. I'm going to get the number of the SyFy Channel and give them what for.",0:13,SHELDON,BBT,1.0,EMB,Frustration,Excitement,3.0,8.0
+1_8837,1_8837_u,"Not as relieved as I'm about to be. It's a brave new world, little lady.",0:08,SHELDON,BBT,0.0,NONE,Excitement,Excitement,6.0,6.0
+1_90,1_90_u,"Lois Lane is falling, accelerating at an initial rate of 32 feet per second per second. Superman swoops down to save her by reaching out two arms of steel. Miss Lane, who is now traveling at approximately 120 miles an hour, hits them and is immediately sliced into three equal pieces.",0:15,SHELDON,BBT,0.0,NONE,Excitement,Excitement,6.0,7.0
+1_9003,1_9003_u,"I'm not going to bother him, I'm going to talk to him.",0:03,SHELDON,BBT,0.0,NONE,Happiness,Happiness,7.0,7.0
+1_9009,1_9009_u,"- No, no, no. I'm really good at this. All right, give me a hint. Does it involve difficulty initiating a stream of anything?",0:09,SHELDON,BBT,0.0,NONE,Excitement,Excitement,6.0,6.0
+1_9245,1_9245_u,Can we talk about something else? Do you know that I yodel?,0:06,SHELDON,BBT,0.0,NONE,Frustration,Frustration,4.0,5.0
+1_9594,1_9594_u,I can't believe we wasted all that time on our Hulk costumes.,0:06,SHELDON,BBT,0.0,NONE,Sadness,Sadness,4.0,6.0
+1_9668,1_9668_u,"People usually start a meeting with a joke, but you go ahead-- end with one.",0:06,SHELDON,BBT,0.0,NONE,Neutral,Neutral,5.0,5.0
+1_S09E01_368,1_S09E01_368_u,"Wow! Well, marriage must agree with you. Well, you are just glowing.",0:11.04499,SHELDON,BBT,1.0,PRO,Disgust,Happiness,4.0,8.0
+1_S09E02_078,1_S09E02_078_u,"Well, if you want to see less of me, maybe we should go out again.",0:04.436000,SHELDON,BBT,0.0,NONE,Anger,Anger,3.0,6.0
+1_S09E02_178,1_S09E02_178_u,"Oh, of course. Wouldn't want to intrude.",0:03.502000,SHELDON,BBT,0.0,NONE,Anger,Anger,3.0,7.0
+1_S09E02_424,1_S09E02_424_u,She watched it.,0:01.199000,SHELDON,BBT,0.0,NONE,Happiness,Neutral,6.0,5.0
+1_S09E03_056,1_S09E03_056_u,It runs on syphilis?,0:2.903000,SHELDON,BBT,1.0,PRO,Anger,Surprise,3.0,6.0
+1_S09E04_207,1_S09E04_207_u,"But I met with 11 people, and they all walked out.",0:04.168000,SHELDON,BBT,0.0,NONE,Frustration,Frustration,4.0,7.0
+1_S09E04_382,1_S09E04_382_u,"How can you say that? Amy's gone, and you two are married now, so it's only a matter of time before you're gone, too.",0:06.338000,SHELDON,BBT,0.0,NONE,Anger,Anger,2.0,6.0
+1_S09E05_278,1_S09E05_278_u,I'm doing all right. I tried fencing today.,0:03.796000,SHELDON,BBT,0.0,NONE,Happiness,Happiness,7.0,6.0
+1_S09E05_291,1_S09E05_291_u,I've been told it's a good way to move on.,0:01.835000,SHELDON,BBT,0.0,NONE,Sadness,Neutral,4.0,4.0
+1_S09E18_147,1_S09E18_147_u,"Great, so they own my idea for a T-shirt that says ""Dumb as a Bag of Geologists.""",0:5.539,SHELDON,BBT,1.0,EMB,Anger,Happiness,2.0,8.0
+1_S09E20_029,1_S09E20_029_u,You may need this more than I do.,0:5.439,SHELDON,BBT,1.0,ILL,Disgust,Excitement,3.0,7.0
+1_S10E01_075,1_S10E01_075_u,It was nice of her to show us playing dumb with an example.,0:3.458,SHELDON,BBT,1.0,ILL,Ridicule,Neutral,3.0,7.0
+1_S10E02_327,1_S10E02_327_u,"But I'm mad at him, too, so lemon bars it is.",0:03.249000,SHELDON,BBT,0.0,NONE,Happiness,Happiness,7.0,7.0
+1_S10E03_177,1_S10E03_177_u,"Gentlemen, I am ready to work. To quote The Martian, ""Let's science the feces out of this!"" That's The Martian the book and The Martian the movie, not Marvin the Martian.",0:08.292000,SHELDON,BBT,0.0,NONE,Excitement,Excitement,7.0,7.0
+1_S10E03_224,1_S10E03_224_u,My head hurts and I'm more tired than ever.,0:04.376000,SHELDON,BBT,0.0,NONE,Frustration,Frustration,4.0,3.0
+1_S10E04_043,1_S10E04_043_u,I don't know. What if living together kills the romance?,0:05.001000,SHELDON,BBT,0.0,NONE,Fear,Fear,4.0,6.0
+1_S10E04_057,1_S10E04_057_u,Don't try luring me in with sexy talk.,0:03.334000,SHELDON,BBT,0.0,NONE,Fear,Neutral,4.0,6.0
+1_S10E04_177,1_S10E04_177_u,"Oh, excited, concerned, a little scared. All the same emotions",0:05.801000,SHELDON,BBT,0.0,NONE,Fear,Neutral,4.0,6.0
+1_S10E04_307,1_S10E04_307_u,"Okay, well, I am sorry. I'm just worried that my sensitivity to temperature could make this a rough night.",0:05.402000,SHELDON,BBT,0.0,NONE,Fear,Fear,4.0,6.0
+1_S10E05_319,1_S10E05_319_u,"No. No, if we both like it, I'll spend the rest of my life opening the freezer and going, ""Aw, no strawberry.""",0:07.671000,SHELDON,BBT,0.0,NONE,Disgust,Disgust,4.0,7.0
+1_S10E09_021,1_S10E09_021_u,"Oh, good, maybe he can build a nicer bridge to live under.",0:3.369999,SHELDON,BBT,1.0,PRO,Anger,Happiness,4.0,8.0
+1_S10E10_009,1_S10E10_009_u,"You know, I have always thought that this couch would look fantastic on the curb in front of the building.",0:6.672999,SHELDON,BBT,1.0,EMB,Ridicule,Neutral,4.0,7.0
+1_S10E21_200,1_S10E21_200_u,"What'd you do, delete your photo?",0:2.502999,SHELDON,BBT,1.0,PRO,Ridicule,Surprise,3.0,8.0
+1_S11E01_446,1_S11E01_446_u,"H-Hey, her eyes are up there.",0:02.300000,SHELDON,BBT,0.0,NONE,Happiness,Happiness,6.0,6.0
+1_S11E02_030,1_S11E02_030_u,Really? You?,0:1.740000,SHELDON,BBT,1.0,ILL,Disgust,Surprise,3.0,6.0
+1_S11E05_099,1_S11E05_099_u,"Based on that ring on your finger, I'd say you're pretty good at controlling robots.",0:5.08,SHELDON,BBT,1.0,ILL,Ridicule,Neutral,3.0,6.0
+1_S11E05_448,1_S11E05_448_u,"In the book this is based on, that man's the killer.",0:05.540000,SHELDON,BBT,0.0,NONE,Neutral,Neutral,5.0,5.0
+1_S11E06_448,1_S11E06_448_u,"Well, don't worry. He's now on my enemies list forever. He's totally cut off.",0:05.900000,SHELDON,BBT,0.0,NONE,Anger,Anger,3.0,6.0
+1_S11E07_026,1_S11E07_026_u,"It does, but it's still geology.",0:02.800000,SHELDON,BBT,0.0,NONE,Neutral,Neutral,5.0,5.0
+1_S11E07_153,1_S11E07_153_u,"Just a minute, I want to make sure Leonard can't hear us.",0:02.835000,SHELDON,BBT,0.0,NONE,Fear,Fear,4.0,4.0
+1_S11E08_428,1_S11E08_428_u,"Well, that doesn't help at all.",0:02.670000,SHELDON,BBT,0.0,NONE,Neutral,Neutral,5.0,5.0
+1_S12E03_286,1_S12E03_286_u,"Grape Nuts for breakfast, quiet car ride, things are really breaking my way today.",0:5.613999,SHELDON,BBT,1.0,PRO,Ridicule,Neutral,4.0,7.0
+1_S12E06_248,1_S12E06_248_u,And I don't understand what's going on because I went to MIT.,0:5.306000,SHELDON,BBT,1.0,EMB,Ridicule,Neutral,4.0,8.0
+1_S12E12_371,1_S12E12_371_u,They wanted you?,0:2.088999,SHELDON,BBT,1.0,PRO,Disgust,Surprise,3.0,8.0
+1_S12E15_273,1_S12E15_273_u,"I told you, if we left pizza on the counter,",0:1.579000,SHELDON,BBT,1.0,PRO,Disgust,Neutral,2.0,8.0
+1_S12E19_143,1_S12E19_143_u,Numb your brain with alcohol and watch a reality show where wealthy people pick fake arguments with each other?,0:4.972,SHELDON,BBT,1.0,PRO,Disgust,Surprise,3.0,7.0
+1_S12E21_167,1_S12E21_167_u,"Yes, but it may just be the Indian accent.",0:3.917000,SHELDON,BBT,1.0,PRO,Ridicule,Sadness,4.0,7.0
+1_S12E23_576,1_S12E23_576_u,Welcome to my life.,0:2.370000,SHELDON,BBT,1.0,ILL,Frustration,Happiness,3.0,9.0
+2_123,2_123_u,Nooo!,0:02,MODERATOR,SARCASMOHOLICS,1.0,ILL,Ridicule,Sadness,4.0,7.0
+2_140,2_140_u,Sarcastic? Us? Nooo.,0:04,MODERATOR,SARCASMOHOLICS,1.0,ILL,Ridicule,Sadness,4.0,8.0
+2_190,2_190_u,Well scott I am sure we are all really really looking forward to hear your story.,0:06,MODERATOR,SARCASMOHOLICS,1.0,PRO,Ridicule,Excitement,3.0,8.0
+2_259,2_259_u,"I wasn't by myself. I had a doctor, a nurse, and a helper guy. So, did you see who won the game?",0:09,PERSON1,FRIENDS,0.0,NONE,Excitement,Excitement,7.0,7.0
+2_271,2_271_u,Sarcasm? Noo.,0:04,MODERATOR,SARCASMOHOLICS,1.0,ILL,Ridicule,Surprise,4.0,6.0
+2_306,2_306_u,"No, no no, I just mediate the gorup. I just give up every Tuesday of my life to help these screwups for the good of my health",0:09,MODERATOR,SARCASMOHOLICS,1.0,ILL,Frustration,Neutral,3.0,7.0
+2_338,2_338_u,And I am sure every person here really really wants you to join our group.,0:07,MODERATOR,SARCASMOHOLICS,1.0,ILL,Ridicule,Excitement,4.0,6.0
+2_381,2_381_u,Noo..,0:01,MODERATOR,SARCASMOHOLICS,1.0,ILL,Anger,Sadness,2.0,6.0
+2_42,2_42_u,"Look, please, please don't go anywhere, okay?",0:02,PERSON1,FRIENDS,0.0,NONE,Sadness,Sadness,3.0,7.0
+2_485,2_485_u,You got off to a really good start with the group.,0:04,MEMBER-BOY,SARCASMOHOLICS,1.0,ILL,Ridicule,Neutral,4.0,7.0
+2_526,2_526_u,"Ah well, this is the living room.",0:02,PERSON1,FRIENDS,0.0,NONE,Neutral,Neutral,5.0,5.0
+2_596,2_596_u,Noooo. Really?,0:02,MEMBER-BOY,SARCASMOHOLICS,1.0,ILL,Ridicule,Neutral,4.0,7.0
+3_S01E02_324,3_S01E02_324_u,"Listen, we all love Big Head. But the truth is, he's not as good of a coder as I am, not as good at system architecture as Gilfoyle, not as good at being a prick as you, no offense.",0:9.043,DINESH,SV,1.0,EMB,Ridicule,Neutral,4.0,8.0
+3_S01E03_056,3_S01E03_056_u,"""Placeholder"" would honestly be a better name than Pied Piper.",0:3.278999,DINESH,SV,1.0,PRO,Disgust,Happiness,4.0,7.0
+3_S01E03_249,3_S01E03_249_u,"We might as well have interns, we hire illegal aliens.",0:2.474,DINESH,SV,1.0,EMB,Ridicule,Neutral,4.0,8.0
+3_S02E03_370,3_S02E03_370_u,Because we're negotiating against each other.,0:02.209000,DINESH,SV,0.0,NONE,Neutral,Neutral,5.0,5.0
+3_S03E01_185,3_S03E01_185_u,No.,0:01.132000,DINESH,SV,0.0,NONE,Neutral,Neutral,5.0,5.0
+3_S03E03_012,3_S03E03_012_u,I can't believe you suggested the idea of building a fucking appliance.,0:02.918000,DINESH,SV,0.0,NONE,Disgust,Disgust,3.0,7.0
+3_S05E01_120,3_S05E01_120_u,"He was oddly tall, don't you think?",0:02.417000,DINESH,SV,0.0,NONE,Sadness,Sadness,3.0,7.0
+3_S06E07_272,3_S06E07_272_u,That you're an alcoholic?,0:1.459000,DINESH,SV,1.0,ILL,Ridicule,Surprise,4.0,6.0

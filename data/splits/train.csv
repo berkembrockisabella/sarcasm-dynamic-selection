@@ -1,0 +1,898 @@
+SCENE,KEY,SENTENCE,END_TIME,SPEAKER,SHOW,Sarcasm,Sarcasm_Type,Implicit_Emotion,Explicit_Emotion,Valence,Arousal
+1_10009,1_10009_u,"Let the dead man talk. So, why do you think that?",0:05,PENNY,BBT,0.0,NONE,Happiness,Happiness,6.0,5.0
+1_1001,1_1001_u,"What else? Sell it on eBay as ""slightly used.""",0:04,RAJ,BBT,0.0,NONE,Excitement,Excitement,6.0,5.0
+1_1003,1_1003_u,"Good idea, sit with her. Hold her, comfort her. And if the moment feels right, see if you can cop a feel.",0:08,HOWARD,BBT,1.0,PRO,Anger,Sadness,3.0,6.0
+1_10462,1_10462_u,"You know, if you're really serious about that, I hear there are some exciting opportunities in home care for the old and fat.",0:09,HOWARD,BBT,1.0,PRO,Disgust,Excitement,4.0,6.0
+1_10495,1_10495_u,"And if it turns out you don't... - you and I could live together. - You and... Oh, sure.",0:07,AMY,BBT,1.0,ILL,Disgust,Neutral,3.0,7.0
+1_10748,1_10748_u,"There they go, fighting again. You'd never hear her talk that way to Sauvignon Blanc.",0:07,AMY,BBT,1.0,PRO,Disgust,Sadness,3.0,7.0
+1_10797,1_10797_u,"I'm with him three years, nothing. She's with two minutes, and he's taking his pants off.",0:07,AMY,BBT,0.0,NONE,Frustration,Frustration,4.0,6.0
+1_10849,1_10849_u,That's how much buying a comic book store means to me.,0:05,HOWARD,BBT,0.0,NONE,Excitement,Excitement,6.0,6.0
+1_10853,1_10853_u,"Okay, sit down. Listen, Emily, what happened between me and Raj was a long time ago. It was,",0:05,PENNY,BBT,0.0,NONE,Sadness,Sadness,4.0,6.0
+1_10857,1_10857_u,It's true-- you're both gorgeous. Kind of says something about the man who could bed you both.,0:07,RAJ,BBT,0.0,NONE,Happiness,Happiness,6.0,7.0
+1_10859,1_10859_u,I don't need a reason-- it's my house.,0:03,HOWARD,BBT,0.0,NONE,Frustration,Frustration,4.0,5.0
+1_10890,1_10890_u,"Boy, when you met Bernadette, the field of robotics really took a hit.",0:06,RAJ,BBT,1.0,PRO,Disgust,Happiness,3.0,6.0
+1_10977,1_10977_u,Let's not talk about this in front of our friends.,0:04,HOWARD,BBT,0.0,NONE,Sadness,Sadness,4.0,5.0
+1_11006,1_11006_u,Maybe it's a good thing we came here. It's like a lesson in what not to do.,0:04,PENNY,BBT,1.0,PRO,Disgust,Happiness,3.0,6.0
+1_11021,1_11021_u,"Same as all of us, getting out of a car without underwear.",0:05,PENNY,BBT,1.0,PRO,Ridicule,Neutral,4.0,6.0
+1_11046,1_11046_u,"Wow, he really went where no man has gone before.",0:05,HOWARD,BBT,0.0,NONE,Happiness,Surprise,6.0,6.0
+1_11051,1_11051_u,"Well, he said it was a tribble. It could be a toupee, but either way, it's pretty cool.",0:07,PERSON,BBT,0.0,NONE,Happiness,Happiness,6.0,6.0
+1_11055,1_11055_u,"Ah, that's a good question. Apparently someone was being awfully flirty while not wearing their engagement ring, causing another someone to show up here thinking the first someone might be available.",0:12,LEONARD,BBT,1.0,PRO,Disgust,Neutral,3.0,7.0
+1_11201,1_11201_u,"He probably got a new one. Finish your breakfast. Look, there's an entire section of my dashboard that doesn't have any syrup on it.",0:07,AMY,BBT,0.0,NONE,Fear,Fear,4.0,6.0
+1_11224,1_11224_u,And here I am in the trap. You just keep talking. I'm gonna chew my leg off.,0:1,HOWARD,BBT,1.0,EMB,Sadness,Sadness,3.0,8.0
+1_11243,1_11243_u,I love that you're too good to pee in the kitchen sink.,0:05,HOWARD,BBT,1.0,PRO,Anger,Happiness,3.0,7.0
+1_11257,1_11257_u,Doesn't Professor Abbott's family want any of this stuff?,0:04,HOWARD,BBT,0.0,NONE,Sadness,Sadness,4.0,5.0
+1_11306,1_11306_u,"I guess the sad truth is, not everyone will accomplish something great. Some of us may just have to find meaning in the little moments that make up life.",0:15,HOWARD,BBT,0.0,NONE,Sadness,Sadness,4.0,6.0
+1_11322,1_11322_u,"You know what? That was almost on topic. I'm gonna say, ""Good job, Sheldon.""",0:06,PENNY,BBT,1.0,PRO,Disgust,Happiness,4.0,7.0
+1_11378,1_11378_u,Are you sure a dummy like me can handle something as complicated as a blanket?,0:06,HOWARD,BBT,1.0,LIK,Anger,Neutral,4.0,6.0
+1_11439,1_11439_u,"No, you're right, we should do what you do. Have our mom send us pants from the Walmart in Houston.",0:07,PENNY,BBT,1.0,PRO,Disgust,Neutral,3.0,7.0
+1_11485,1_11485_u,Is that why you had to take him to Office Depot last night?,0:04,PENNY,BBT,0.0,NONE,Disgust,Disgust,4.0,6.0
+1_11609,1_11609_u,"I've, uh, created some other user accounts so I can post positive comments about their paper.",0:06,RAJ,BBT,0.0,NONE,Happiness,Happiness,6.0,5.0
+1_11697,1_11697_u,The answer's in this puzzle box. Let's see if you can open it.,0:05,PENNY,BBT,1.0,ILL,Anger,Happiness,3.0,8.0
+1_11699,1_11699_u,"No, Stuart picked out those throw pillows all on his own.",0:04,RAJ,BBT,1.0,PRO,Ridicule,Sadness,4.0,7.0
+1_11723,1_11723_u,"Not much, but he seemed to be in a pretty good place.",0:04,RAJ,BBT,0.0,NONE,Sadness,Sadness,4.0,5.0
+1_11736,1_11736_u,"I don't know, perhaps somebody took it off the carousel by mistake?",0:03,PERSON,BBT,0.0,NONE,Sadness,Sadness,4.0,6.0
+1_11773,1_11773_u,This is why I've been saying we should keep champagne on ice.,0:06,PENNY,BBT,1.0,PRO,Sadness,Excitement,2.0,8.0
+1_1185,1_1185_u,I think tonight was a very good start.,0:03,LEONARD,BBT,0.0,NONE,Happiness,Happiness,6.0,7.0
+1_11885,1_11885_u,"Yeah, turns out half a dozen menorahs really sets a mood.",0:05,PERSON,BBT,1.0,PRO,Ridicule,Neutral,4.0,6.0
+1_11913,1_11913_u,It's why my people wandered the desert for 40 years. Took that long to walk it off.,0:07,HOWARD,BBT,1.0,PRO,Ridicule,Sadness,4.0,6.0
+1_11924,1_11924_u,"All right, Amy's in charge of pricing and being 75.",0:05,HOWARD,BBT,1.0,PRO,Ridicule,Neutral,4.0,6.0
+1_11928,1_11928_u,"And if I had a friend, they might have told me that.",0:04,AMY,BBT,0.0,NONE,Sadness,Sadness,4.0,3.0
+1_12083,1_12083_u,"Oh, just put it in your mouth and pop it like a zit.",0:04,HOWARD,BBT,0.0,NONE,Happiness,Happiness,6.0,7.0
+1_12202,1_12202_u,"No need to. As soon as she flies into California airspace, I'll feel a disturbance in the Force.",0:06,LEONARD,BBT,1.0,PRO,Sadness,Neutral,3.0,7.0
+1_12275,1_12275_u,"Uh, no. I overheard Bernadette tell Howard she was making him a meat loaf, and you don't have to not ask me twice.",0:08,PERSON,BBT,0.0,NONE,Sadness,Sadness,4.0,6.0
+1_12320,1_12320_u,"Oh, yes, we've got the moon and the trees and... Elizabeth McNulty, who apparently died when she was the same age I am.",0:11,RAJ,BBT,0.0,NONE,Fear,Fear,3.0,8.0
+1_12331,1_12331_u,"Wow, there's a Denny's in Vegas you can actually get married in.",0:04,PENNY,BBT,0.0,NONE,Surprise,Surprise,6.0,6.0
+1_1296,1_1296_u,"They gave him an assistant? If I want a new pen, I have to go to the bank with wire cutters.",0:06,HOWARD,BBT,1.0,EMB,Frustration,Surprise,3.0,7.0
+1_1470,1_1470_u,I don't know. It just died. I'm getting a bunch of static.,0:03,PENNY,BBT,0.0,NONE,Sadness,Sadness,3.0,6.0
+1_1478,1_1478_u,"Sadly, Mrs. Giselle Wolowitz is sensitive to chlorine. Lucky for her I like my fashion models pruny and bug-eyed.",0:11,HOWARD,BBT,1.0,EMB,Sadness,Happiness,2.0,6.0
+1_1549,1_1549_u,On a dusty highway just outside Bakersfield. Where do you think? On Mars!,0:05,HOWARD,BBT,1.0,PRO,Disgust,Neutral,2.0,8.0
+1_162,1_162_u,"Sheldon, if you were a robot, and I knew and you didn't...",0:06,HOWARD,BBT,0.0,NONE,Neutral,Neutral,5.0,5.0
+1_1627,1_1627_u,"What do you think I did? I discreetly slipped off the other earring, put it in my pocket and then got the hell out of there!",0:08,PERSON,BBT,0.0,NONE,Excitement,Excitement,6.0,7.0
+1_1638,1_1638_u,The blunt instrument that will be the focus of my murder trial?,0:04,LEONARD,BBT,1.0,PRO,Frustration,Neutral,3.0,8.0
+1_1666,1_1666_u,Would it work if I just punched you in the face?,0:03,LEONARD,BBT,0.0,NONE,Frustration,Frustration,3.0,7.0
+1_1678,1_1678_u,Answering the question once and for all why Wolowitz bailed out of medical school.,0:05,RAJ,BBT,0.0,NONE,Disgust,Disgust,3.0,6.0
+1_1732,1_1732_u,You were right. Your larynx is terribly inflamed. I've never seen anything like it.,0:06,PERSON,BBT,1.0,ILL,Ridicule,Surprise,3.0,8.0
+1_1772,1_1772_u,"""Dave."" Sounds like Leonard's got a new BFF.",0:05,HOWARD,BBT,1.0,PRO,Anger,Excitement,3.0,8.0
+1_1798,1_1798_u,"If you don't like this stuff, let's go next door and build her a bear.",0:04,RAJ,BBT,1.0,PRO,Anger,Sadness,3.0,7.0
+1_1803,1_1803_u,"- Maybe I heard you wrong. A lot of words sound like ""yoga.""",0:06,LEONARD,BBT,1.0,PRO,Sadness,Neutral,2.0,7.0
+1_1931,1_1931_u,Why don't you just lie down on the floor and swim there?,0:05,LEONARD,BBT,1.0,PRO,Disgust,Neutral,4.0,6.0
+1_1973,1_1973_u,I hope I'm a waitress at the Cheesecake Factory for my whole life.,0:05,PENNY,BBT,1.0,PRO,Frustration,Happiness,4.0,7.0
+1_1987,1_1987_u,"When I didn't pay my bill, the Department of Water and Power thought I would enjoy the ambience.",0:06,PENNY,BBT,1.0,EMB,Sadness,Happiness,4.0,6.0
+1_2075,1_2075_u,There's no hurry. Tell them more about their secret love for each other.,0:04,LEONARD,BBT,0.0,NONE,Excitement,Excitement,6.0,6.0
+1_2119,1_2119_u,"Kind of makes you feel more alive, doesn't it?",0:04,PERSON,BBT,1.0,PRO,Disgust,Excitement,3.0,8.0
+1_2216,1_2216_u,"Excuse me, but what about me? Why don't I get a shot?",0:04,LEONARD,BBT,0.0,NONE,Surprise,Surprise,6.0,7.0
+1_2361,1_2361_u,Thank you so much for giving me the opportunity to help.,0:04,LEONARD,BBT,0.0,NONE,Happiness,Happiness,6.0,7.0
+1_2420,1_2420_u,You know this can go on all night. Why don't you just come with us?,0:04,LEONARD,BBT,0.0,NONE,Neutral,Neutral,5.0,5.0
+1_2464,1_2464_u,"You think ""coffee,"" means coffee. That is so sweet.",0:04,PENNY,BBT,1.0,PRO,Frustration,Happiness,4.0,7.0
+1_2580,1_2580_u,"Okay, here's an idea. What if I change my name and go live with my cousin and her husband, Avi, in Israel?",0:06,HOWARD,BBT,1.0,PRO,Frustration,Excitement,3.0,7.0
+1_2614,1_2614_u,Hardly a day goes by when I don't think about it.,0:04,LEONARD,BBT,1.0,PRO,Frustration,Neutral,4.0,6.0
+1_2616,1_2616_u,"Sure, maybe a tableau of me trying to pummel you to death.",0:05,LEONARD,BBT,1.0,PRO,Frustration,Excitement,3.0,8.0
+1_2664,1_2664_u,"Terrific, it's just that... I don't think Penny wants me to go.",0:05,LEONARD,BBT,0.0,NONE,Sadness,Sadness,3.0,7.0
+1_2669,1_2669_u,What did you mean when you said you were going to miss me?,0:04,LEONARD,BBT,0.0,NONE,Surprise,Surprise,6.0,6.0
+1_276,1_276_u,"Yeah, my parents felt that naming me Leonard and putting me in Advanced Placement classes wasn't getting me beaten up enough.",0:08,LEONARD,BBT,1.0,PRO,Frustration,Neutral,3.0,8.0
+1_2778,1_2778_u,"Ooh, big talk from a man who was once treed by a chicken.",0:05,RAJ,BBT,1.0,PRO,Disgust,Neutral,2.0,8.0
+1_2792,1_2792_u,"No, I mean, we can always go back to being friends.",0:03,PENNY,BBT,0.0,NONE,Neutral,Neutral,5.0,5.0
+1_2830,1_2830_u,"No, I'm behind on my Wiki-reading. I'm kind of on a John Grisham kick right now.",0:06,RAJ,BBT,0.0,NONE,Sadness,Sadness,4.0,6.0
+1_2837,1_2837_u,"- Chocolate? - No, I don't want any chocolate!",0:04,LEONARD,BBT,0.0,NONE,Frustration,Frustration,3.0,8.0
+1_2842,1_2842_u,"Oh, you know, Goth stuff. Goth magazines, Goth music.",0:05,HOWARD,BBT,0.0,NONE,Excitement,Excitement,6.0,7.0
+1_3125,1_3125_u,"But if she dumps you, she'll have a new boyfriend by tomorrow morning and you'll have a new girlfriend when you figure out how to build one.",0:07,HOWARD,BBT,1.0,EMB,Disgust,Neutral,3.0,8.0
+1_3177,1_3177_u,"Not a great movie, but look at that beautiful desert.",0:05,RAJ,BBT,0.0,NONE,Happiness,Happiness,4.0,6.0
+1_3204,1_3204_u,Right. That was so good! Sweety and meaty at the same time.,0:08,RAJ,BBT,0.0,NONE,Sadness,Sadness,6.0,7.0
+1_3256,1_3256_u,"I'm sorry, fiddling with yourself in the bathtub is a real class act.",0:05,PERSON,BBT,1.0,PRO,Disgust,Happiness,3.0,8.0
+1_3259,1_3259_u,"No, I mean Princess Leia. Of course I mean Bernadette. She's a wonderful girl and she really likes you.",0:09,PERSON,BBT,1.0,PRO,Disgust,Neutral,4.0,8.0
+1_3333,1_3333_u,"Okay, I got a bone to pick with you.",0:04,HOWARD,BBT,0.0,NONE,Anger,Anger,4.0,6.0
+1_3371,1_3371_u,"I was going to ask Leonard to do it, but he seemed a bit emotionally unstable and you don't want someone like that operating heavy machinery.",0:09,PERSON,BBT,0.0,NONE,Disgust,Disgust,4.0,6.0
+1_340,1_340_u,"Sure, cut the foreigner in half. There's a billion more where he came from.",0:06,RAJ,BBT,1.0,PRO,Frustration,Neutral,3.0,7.0
+1_3419,1_3419_u,"Oh, we don't need to talk about that anymore. Leonard covered it pretty well in the car.",0:05,PENNY,BBT,1.0,PRO,Disgust,Neutral,4.0,6.0
+1_3476,1_3476_u,Don't you think looking for a new city to live in is a bit of an overreaction?,0:05,LEONARD,BBT,0.0,NONE,Surprise,Surprise,6.0,7.0
+1_3545,1_3545_u,"I understand your point, but given a choice, Jews always go with Chinese food.",0:07,HOWARD,BBT,1.0,PRO,Disgust,Neutral,4.0,6.0
+1_3573,1_3573_u,"Well, I always figured it was to study us, discover our weaknesses, and report back to your alien overlords.",0:07,PENNY,BBT,1.0,EMB,Disgust,Excitement,3.0,7.0
+1_3599,1_3599_u,Why don't you keep that stuff in the bathroom?,0:05,HOWARD,BBT,0.0,NONE,Surprise,Surprise,4.0,6.0
+1_3649,1_3649_u,"Oh, no, no, I said I'm inviting you to come with me to Stan Lee's house.",0:04,PENNY,BBT,0.0,NONE,Neutral,Neutral,5.0,5.0
+1_3660,1_3660_u,There a new girlfriend in there? 'Cause you might need one.,0:03,PENNY,BBT,1.0,PRO,Frustration,Neutral,2.0,8.0
+1_3707,1_3707_u,"Oh, I'm so glad you asked it like that. You.",0:03,LEONARD,BBT,1.0,PRO,Disgust,Happiness,4.0,7.0
+1_3766,1_3766_u,Can we please talk about something else? Maybe something vaguely related to life as we know it on this planet?,0:06,LEONARD,BBT,1.0,PRO,Frustration,Neutral,4.0,5.0
+1_3842,1_3842_u,"So what, you're just gonna walk up and down the stairs?",0:05,HOWARD,BBT,0.0,NONE,Surprise,Surprise,4.0,6.0
+1_3911,1_3911_u,"That's very thoughtful, but I think I'll finish my coffee first.",0:04,PERSON,BBT,0.0,NONE,Happiness,Happiness,4.0,5.0
+1_410,1_410_u,"Leonard, may I present, live from New Delhi, Dr. and Mrs. V. M. Koothrappali.",0:05,RAJ,BBT,0.0,NONE,Excitement,Excitement,6.0,6.0
+1_4145,1_4145_u,A lot of people are working on that research. So what is all this?,0:06,LEONARD,BBT,1.0,PRO,Frustration,Neutral,4.0,6.0
+1_4281,1_4281_u,It was the kind of thing that makes it kind of hard to face her now.,0:05,HOWARD,BBT,0.0,NONE,Sadness,Sadness,4.0,5.0
+1_4290,1_4290_u,I just have a question. Does Bernadette ever talk about me?,0:05,HOWARD,BBT,0.0,NONE,Neutral,Neutral,5.0,5.0
+1_430,1_430_u,"I've got some feelers out. In the meantime, listen to this.",0:05,RAJ,BBT,0.0,NONE,Excitement,Excitement,7.0,7.0
+1_4477,1_4477_u,I just want to ask you a few questions about Howard Wolowitz.,0:06,PERSON,BBT,0.0,NONE,Frustration,Frustration,4.0,5.0
+1_4544,1_4544_u,"Yes. In fact, our menses are synchronized. Penny. Bernadette tells me you're planning a girls' night.",0:13,AMY,BBT,0.0,NONE,Neutral,Neutral,5.0,5.0
+1_4552,1_4552_u,"...so anyway, to make a long story short, turns out I have an unusually firm cervix.",0:06,AMY,BBT,0.0,NONE,Neutral,Neutral,5.0,5.0
+1_4576,1_4576_u,"Bernadette dared me to tell a dirty story. ""The Miller's Tale"" by Chaucer is the dirtiest story I know. It would have been hidden in sock drawers if people in the 14th century had worn socks.",0:14,AMY,BBT,0.0,NONE,Neutral,Neutral,5.0,5.0
+1_4603,1_4603_u,Is it possible that she was going for your cheek and you moved and she accidentally got lip? That happens with me and my mom all the time.,0:09,HOWARD,BBT,0.0,NONE,Sadness,Sadness,4.0,6.0
+1_4639,1_4639_u,"Well, I'm just glad you finally found yourself a keeper.",0:04,PERSON,BBT,0.0,NONE,Happiness,Happiness,6.0,7.0
+1_4743,1_4743_u,"Oh, and the science dudes want to talk science with you. What do you want to talk about-- rocks, dinosaurs, our friend the beaver?",0:12,HOWARD,BBT,1.0,PRO,Disgust,Happiness,3.0,7.0
+1_4789,1_4789_u,"I don't know. Somebody bigger and... Yeah, sure. Why not you?",0:06,PERSON,BBT,1.0,PRO,Ridicule,Surprise,2.0,6.0
+1_4949,1_4949_u,"Certainly. I'd like to raise two points. Number one, I think they <i>are</i> talking about penises. And number two, these mimosas are kicking my little brown ass.",0:14,RAJ,BBT,0.0,NONE,Happiness,Happiness,6.0,7.0
+1_4967,1_4967_u,We might be starting to zero in on your problem.,0:05,LEONARD,BBT,1.0,PRO,Disgust,Neutral,3.0,6.0
+1_5109,1_5109_u,"Yeah, but you were just sleeping, because I forboded you to have sex.",0:05,RAJ,BBT,0.0,NONE,Anger,Anger,4.0,6.0
+1_5134,1_5134_u,"Oh, yeah, yeah. It's real great. Today I drove to Van Nuys for an audition I thought was going to be for a cat food commercial. Turned out to be porn.",0:08,PENNY,BBT,1.0,PRO,Disgust,Happiness,3.0,6.0
+1_5156,1_5156_u,"That's got to be fun for you, huh? Watching Hofstadter suck the saliva out of your sister's mouth?",0:09,HOWARD,BBT,1.0,EMB,Disgust,Happiness,3.0,7.0
+1_5166,1_5166_u,"Yeah, it's a great time to be alive, isn't it?",0:04,PENNY,BBT,1.0,PRO,Disgust,Happiness,2.0,7.0
+1_5169,1_5169_u,I'm not saying that you're not fun. You're the most fun person I know.,0:05,AMY,BBT,0.0,NONE,Excitement,Excitement,6.0,6.0
+1_5211,1_5211_u,"Saying that while holding a snowflake is a bit heavy-handed, don't you think?",0:05,AMY,BBT,1.0,PRO,Disgust,Neutral,3.0,6.0
+1_5212,1_5212_u,"I'm sorry, Sheldon bought a loom and learned how to weave?",0:05,PERSON3,BBT,0.0,NONE,Surprise,Surprise,6.0,6.0
+1_533,1_533_u,"Technically, yes. But, if you'll notice... It's reversible!",0:07,LEONARD,BBT,0.0,NONE,Neutral,Neutral,5.0,5.0
+1_537,1_537_u,"Oh, you know, that is so weird that yours came and mine didn't.",0:04,PENNY,BBT,1.0,PRO,Ridicule,Sadness,4.0,7.0
+1_5496,1_5496_u,"Okay, Amy, you're being silly. I'm not concerned about who hangs out with who. And I certainly don't have a problem with Leonard's new girlfriend who wears way too much makeup. Ooh, these are cute. Of course if I buy them, I'll have to rent my womb out to a gay couple.",0:18,PENNY,BBT,1.0,EMB,Anger,Neutral,3.0,8.0
+1_5580,1_5580_u,"Right, right, whereas Jewish mothers take a casual, la-di-da approach to their sons.",0:06,HOWARD,BBT,1.0,PRO,Anger,Happiness,3.0,8.0
+1_5617,1_5617_u,Thanks for clearing that up,0:04,PENNY,BBT,1.0,PRO,Disgust,Happiness,3.0,8.0
+1_5627,1_5627_u,"Your girlfriend and your ex-girlfriend are hanging out together? Oh, yeah, that can only be good for you.",0:04,RAJ,BBT,1.0,PRO,Disgust,Happiness,3.0,7.0
+1_5758,1_5758_u,"Oh, I could so see you being the face of hemorrhoids.",0:05,AMY,BBT,1.0,PRO,Disgust,Neutral,3.0,7.0
+1_5880,1_5880_u,"When you're done copping a feel, that goes on my wrist.",0:04,AMY,BBT,1.0,PRO,Disgust,Excitement,4.0,7.0
+1_5953,1_5953_u,Here's some other fun news on the Raj/Emily front. He gave her a pair of diamond earrings and leased her a car.,0:07,HOWARD,BBT,0.0,NONE,Happiness,Happiness,6.0,6.0
+1_5964,1_5964_u,Smart. Whisper so the deaf chick can't hear you.,0:04,HOWARD,BBT,1.0,PRO,Disgust,Happiness,4.0,7.0
+1_6092,1_6092_u,"We don't say that, either. I'll make you a list. Oh, that would be mighty white of you.",0:09,LEONARD,BBT,0.0,NONE,Neutral,Neutral,5.0,5.0
+1_6113,1_6113_u,"So, this spring, I get to go to the International Space Station. Oh, my word, a trip to the heavens.",0:09,HOWARD,BBT,0.0,NONE,Surprise,Surprise,7.0,7.0
+1_6183,1_6183_u,You have a thing of paper clips right there.,0:04,RAJ,BBT,0.0,NONE,Neutral,Neutral,5.0,5.0
+1_6188,1_6188_u,"Oh, my God, that's where I know you from.",0:04,PENNY,BBT,1.0,PRO,Disgust,Surprise,4.0,6.0
+1_6355,1_6355_u,"said horrible things about each other in public... all in all, a pretty magical night.",0:11,LEONARD,BBT,1.0,EMB,Sadness,Neutral,2.0,7.0
+1_6427,1_6427_u,Hmm. That's too bad. We could have spent New Year's Eve waiting for the ball to drop.,0:06,PENNY,BBT,1.0,EMB,Disgust,Sadness,3.0,8.0
+1_6428,1_6428_u,Sure. You want to see what all the scientists are wearing this year.,0:06,LEONARD,BBT,1.0,PRO,Ridicule,Neutral,4.0,6.0
+1_6627,1_6627_u,"Well, yeah, sex with you is pretty great. Have you ever tried it?",0:07,LEONARD,BBT,0.0,NONE,Happiness,Happiness,6.0,6.0
+1_6648,1_6648_u,You mean for a person whose neck massages feel like an eagle is trying to carry you to its nest?,0:06,LEONARD,BBT,1.0,PRO,Sadness,Neutral,3.0,6.0
+1_6683,1_6683_u,"Yeah, terrific. The other astronauts would love to go hurtling through space with a guy named ""Crash.""",0:06,HOWARD,BBT,1.0,EMB,Disgust,Happiness,3.0,8.0
+1_6769,1_6769_u,"Hope your hands are steady. It's the width of a single hair. But this is just biology, so I'm sure it's no problem for a genius like you.",0:07,AMY,BBT,1.0,PRO,Disgust,Neutral,3.0,7.0
+1_6835,1_6835_u,"Oh, screw her. She's just lucky we let her hang out with us.",0:04,AMY,BBT,0.0,NONE,Neutral,Neutral,5.0,5.0
+1_70,1_70_u,I don't think I'll be able to stop thinking about it.,0:04,PENNY,BBT,1.0,ILL,Disgust,Happiness,4.0,6.0
+1_7047,1_7047_u,"Also instead of just living in your mother's house, you could actually live inside her body.",0:06,LEONARD,BBT,1.0,EMB,Disgust,Neutral,3.0,7.0
+1_7082,1_7082_u,"...to all the good times we had, like, uh, when we went camping and spent that night telling each other all our secrets. I told him I'm addicted to pedicures and he told me he lost his virginity to his cousin.",0:13,RAJ,BBT,0.0,NONE,Happiness,Happiness,7.0,7.0
+1_7186,1_7186_u,"Not exactly. Listen, if you don't mind, I'm not really up for chatting. I'm just going to sit here quietly and let my life flash before my eyes.",0:11,HOWARD,BBT,0.0,NONE,Neutral,Neutral,5.0,5.0
+1_7357,1_7357_u,I'm starting to get a sense of it.,0:05,LEONARD,BBT,1.0,PRO,Frustration,Neutral,4.0,7.0
+1_7395,1_7395_u,"Well, if that's all it takes, it's a good thing you don't have a dog.",0:04,AMY,BBT,1.0,PRO,Disgust,Neutral,3.0,8.0
+1_7400,1_7400_u,"Of course, it is... it's been in the news. And it's a very famous boson.",0:07,PENNY,BBT,0.0,NONE,Excitement,Excitement,7.0,7.0
+1_7402,1_7402_u,I didn't know they gave Nobel prizes for making boom-boom in the potty.,0:05,LEONARD,BBT,1.0,EMB,Disgust,Neutral,4.0,7.0
+1_7443,1_7443_u,We've kind of been involved in a five-year experiment.,0:05,PENNY,BBT,0.0,NONE,Neutral,Neutral,5.0,5.0
+1_7445,1_7445_u,My limbic system wants to take your pants off.,0:04,PENNY,BBT,0.0,NONE,Excitement,Excitement,6.0,6.0
+1_7449,1_7449_u,"Okay, the NASA Web site says Howard's final descent has begun.",0:06,RAJ,BBT,0.0,NONE,Neutral,Neutral,5.0,5.0
+1_7487,1_7487_u,"Yeah, well, Bernadette's a little under the weather and my mom's kind of under my dentist.",0:09,HOWARD,BBT,0.0,NONE,Sadness,Sadness,4.0,5.0
+1_7490,1_7490_u,"It's okay, you know, we space cowboys don't do what we do for glory and fame. We leave that to your rock stars and your athletes and your Howie Mandels.",0:14,HOWARD,BBT,0.0,NONE,Frustration,Frustration,3.0,6.0
+1_7494,1_7494_u,that sounds a little funny to an American ear.,0:05,PERSON,BBT,0.0,NONE,Disgust,Disgust,4.0,6.0
+1_7504,1_7504_u,"""To Stuart, your comic book store is out of this world. Just like the guy in this picture was.""",0:07,PERSON,BBT,0.0,NONE,Neutral,Neutral,5.0,5.0
+1_7575,1_7575_u,"You're right, the party's fantastic. Please, tell me more. I haven't heard enough about it all week because hearing about that never gets old!",0:07,HOWARD,BBT,1.0,PRO,Anger,Excitement,2.0,9.0
+1_7641,1_7641_u,"She was just so sad all the time. Yeah, I was the only person who could cheer her up. Well, me and Ben and Jerry.",0:1,HOWARD,BBT,0.0,NONE,Sadness,Sadness,4.0,4.0
+1_7675,1_7675_u,"Anyway, to this day, I still can't see a box of crayons without crossing my legs.",0:06,PENNY,BBT,0.0,NONE,Neutral,Neutral,5.0,5.0
+1_7894,1_7894_u,I did. The guy at the liquor store said this stuff tastes great in coffee.,0:07,RAJ,BBT,0.0,NONE,Excitement,Excitement,6.0,6.0
+1_7938,1_7938_u,"Come on, let's just start walking. There's got to be a gas station or something nearby.",0:06,LEONARD,BBT,0.0,NONE,Frustration,Frustration,4.0,6.0
+1_7953,1_7953_u,Why don't you ask Scotty to beam you up?,0:04,PERSON,BBT,1.0,PRO,Disgust,Neutral,4.0,5.0
+1_8042,1_8042_u,"No, just me, her and a couple of the big wigs. It's part of a bonus she got.",0:05,HOWARD,BBT,0.0,NONE,Neutral,Neutral,5.0,5.0
+1_8045,1_8045_u,"Dumped her? What, did he use a forklift?",0:03,RAJ,BBT,1.0,PRO,Disgust,Neutral,3.0,7.0
+1_8052,1_8052_u,Like Burt and Ernie. You guys even teach me stuff about words and numbers.,0:08,PENNY,BBT,1.0,ILL,Ridicule,Excitement,4.0,7.0
+1_8078,1_8078_u,"Trust me, you're not Jewish. That's how they get you.",0:03,HOWARD,BBT,0.0,NONE,Frustration,Frustration,3.0,7.0
+1_8136,1_8136_u,"Yeah, I'm really looking forward to it. In fact, there's no place I would rather be than here.",0:06,PERSON,BBT,1.0,PRO,Sadness,Happiness,3.0,7.0
+1_8159,1_8159_u,And I'm cool with surprises. But nothing on a Jumbotron. I don't want to cry on a big screen like that.,0:08,LEONARD,BBT,0.0,NONE,Neutral,Neutral,5.0,5.0
+1_8217,1_8217_u,"Go out with me on one date, and I promise you, you'll see.",0:06,RAJ,BBT,0.0,NONE,Excitement,Excitement,6.0,6.0
+1_8417,1_8417_u,"Oh, I think we were looking at creepy in the rearview mirror when I put up that camera.",0:06,HOWARD,BBT,0.0,NONE,Sadness,Sadness,4.0,4.0
+1_8452,1_8452_u,I think I'm gonna go. Thank you for the burrito and the pork rinds and the 20-minute lecture on why monster trucks are better than regular trucks.,0:11,PERSON,BBT,1.0,PRO,Frustration,Neutral,3.0,7.0
+1_8505,1_8505_u,"A lane frequented by liars. Like you, you big liar!",0:04,RAJ,BBT,0.0,NONE,Anger,Anger,3.0,7.0
+1_8746,1_8746_u,"I enjoyed it. When you told me I was going to be ""losing my virginity,"" I didn't think you meant showing me "" Raiders of the Lost Ark "" for the first time.",0:09,AMY,BBT,1.0,EMB,Frustration,Sadness,2.0,8.0
+1_8749,1_8749_u,It was very entertaining... despite the glaring story problem.,0:06,AMY,BBT,1.0,EMB,Disgust,Happiness,4.0,7.0
+1_8827,1_8827_u,How do you not tear off his clothes and take him right here on this table?,0:05,PENNY,BBT,1.0,PRO,Frustration,Neutral,3.0,8.0
+1_9087,1_9087_u,"Why? Because I got an ugly, itchy sweater, and my brother got a car? No, I was her favorite.",0:07,LEONARD,BBT,1.0,PRO,Anger,Neutral,2.0,8.0
+1_971,1_971_u,"- Now?! - No, after my tongue has swollen to the size of a brisket!",0:05,HOWARD,BBT,1.0,PRO,Anger,Neutral,3.0,7.0
+1_9963,1_9963_u,What do you think I was gonna do at home?,0:03,PERSON,BBT,0.0,NONE,Excitement,Excitement,6.0,6.0
+1_9971,1_9971_u,I was gonna say we pick up a cake or a pie. But an insult to her faith is always thoughtful.,0:07,HOWARD,BBT,1.0,PRO,Disgust,Happiness,3.0,7.0
+1_9972,1_9972_u,"Ooh, I'm gonna check the fridge, and see if there are any clues inside a beer.",0:05,PENNY,BBT,1.0,PRO,Frustration,Happiness,3.0,7.0
+1_9993,1_9993_u,"Well, my beer isn't flat and my rack's not saggy. So far, the future's great.",0:05,PENNY,BBT,1.0,PRO,Frustration,Happiness,4.0,7.0
+1_S09E01_027,1_S09E01_027_u,Whatever. Put us on the Internet. I've always wanted a wedding with a comment section.,0:4.538,PENNY,BBT,1.0,ILL,Ridicule,Excitement,4.0,6.0
+1_S09E01_379,1_S09E01_379_u,Oh. That's so sweet of you.,0:01.699000,PENNY,BBT,0.0,NONE,Happiness,Happiness,7.0,6.0
+1_S09E01_403,1_S09E01_403_u,That's ridiculous.,0:01.566000,PENNY,BBT,0.0,NONE,Frustration,Frustration,3.0,8.0
+1_S09E01_439,1_S09E01_439_u,I don't know. Sounds pretty bad. Penny's back in her apartment all by herself.,0:05.070000,HOWARD,BBT,0.0,NONE,Sadness,Sadness,2.0,4.0
+1_S09E02_002,1_S09E02_002_u,"How am I supposed to sleep? I've been married less than 24 hours, and my wife isn't speaking to me.",0:05.137000,LEONARD,BBT,0.0,NONE,Sadness,Sadness,3.0,5.0
+1_S09E02_064,1_S09E02_064_u,Because we're broken up.,0:02.100000,AMY,BBT,0.0,NONE,Frustration,Frustration,2.0,6.0
+1_S09E02_215,1_S09E02_215_u,"Yeah, well, maybe she has interest in you.",0:01.500000,PENNY,BBT,0.0,NONE,Anger,Anger,3.0,6.0
+1_S09E02_271,1_S09E02_271_u,"Dude, just because we're best friends doesn't mean that I have to tell you everything that goes on.",0:04.502000,HOWARD,BBT,0.0,NONE,Anger,Neutral,3.0,6.0
+1_S09E02_371,1_S09E02_371_u,"Okay, that is the lamest excuse you could've possibly come up with.",0:04.269000,PENNY,BBT,0.0,NONE,Anger,Anger,3.0,6.0
+1_S09E02_386,1_S09E02_386_u,That sounds nice.,0:02.767000,PENNY,BBT,0.0,NONE,Happiness,Happiness,6.0,6.0
+1_S09E02_392,1_S09E02_392_u,"Oh. Oh, my God, that is the most beautiful thing anyone's ever said to me. Yeah?",0:05.504000,PENNY,BBT,0.0,NONE,Surprise,Surprise,7.0,8.0
+1_S09E03_072,1_S09E03_072_u,India.,0:3.269999,LEONARD,BBT,1.0,PRO,Ridicule,Neutral,4.0,6.0
+1_S09E03_120,1_S09E03_120_u,We don't have any of those.,0:02.868000,RAJ,BBT,0.0,NONE,Neutral,Neutral,5.0,5.0
+1_S09E03_125,1_S09E03_125_u,"If there was a hidden compartment, don't you think you'd be stuffed in it by now?",0:6.138999,LEONARD,BBT,1.0,EMB,Frustration,Happiness,3.0,7.0
+1_S09E03_143,1_S09E03_143_u,"Fine, I guess. I've been focusing on me.",0:03.335000,AMY,BBT,0.0,NONE,Neutral,Neutral,5.0,5.0
+1_S09E03_170,1_S09E03_170_u,"I've done it, like, a dozen times.",0:01.433000,PENNY,BBT,0.0,NONE,Neutral,Neutral,5.0,5.0
+1_S09E03_233,1_S09E03_233_u,How long do you think you can keep it from him?,0:01.666000,AMY,BBT,0.0,NONE,Fear,Fear,2.0,4.0
+1_S09E03_241,1_S09E03_241_u,Every self-respecting gentleman should know how in case he comes across a damsel in distress by the side of the road.,0:06.171000,HOWARD,BBT,0.0,NONE,Neutral,Neutral,5.0,5.0
+1_S09E03_359,1_S09E03_359_u,"I'll bet there's something around here that could be a ""lehver.""",0:02.834000,HOWARD,BBT,0.0,NONE,Neutral,Neutral,5.0,5.0
+1_S09E03_476,1_S09E03_476_u,We got a flat and couldn't get the tire off.,0:02.701000,LEONARD,BBT,0.0,NONE,Sadness,Sadness,2.0,6.0
+1_S09E04_015,1_S09E04_015_u,"now that Leonard and I are married, it kind of makes sense that we actually live together.",0:04.569000,PENNY,BBT,0.0,NONE,Neutral,Neutral,5.0,5.0
+1_S09E04_074,1_S09E04_074_u,How could Archie defeat Predator?,0:02.634000,HOWARD,BBT,0.0,NONE,Surprise,Surprise,6.0,7.0
+1_S09E04_088,1_S09E04_088_u,"Well, it could be fun to try a little acoustic thing.",0:02.334000,HOWARD,BBT,0.0,NONE,Excitement,Excitement,6.0,7.0
+1_S09E04_106,1_S09E04_106_u,Footprints on the Moon.,0:02.835000,HOWARD,BBT,0.0,NONE,Neutral,Neutral,5.0,5.0
+1_S09E04_230,1_S09E04_230_u,"Well, it's Thai food night.",0:01.166000,LEONARD,BBT,0.0,NONE,Neutral,Neutral,5.0,5.0
+1_S09E04_267,1_S09E04_267_u,"No, of course not. I-I just feel bad. Well, so do I,",0:02.534000,LEONARD,BBT,0.0,NONE,Sadness,Sadness,3.0,6.0
+1_S09E04_288,1_S09E04_288_u,You really should've gone on the Internet and checked how long that kind of thing lives,0:5.037999,AMY,BBT,1.0,PRO,Disgust,Neutral,3.0,7.0
+1_S09E04_342,1_S09E04_342_u,Who cares? I thought the whole point of Footprints on the Moon was to write songs that make people think.,0:06.004000,HOWARD,BBT,0.0,NONE,Neutral,Neutral,5.0,5.0
+1_S09E04_351,1_S09E04_351_u,I still love it. I just think there's room for improvement.,0:03.369000,RAJ,BBT,0.0,NONE,Neutral,Neutral,5.0,5.0
+1_S09E05_022,1_S09E05_022_u,What are you saying? We're not coordinated enough to play sports?,0:02.961000,LEONARD,BBT,0.0,NONE,Anger,Anger,2.0,4.0
+1_S09E05_213,1_S09E05_213_u,"Why? You never thought you'd end up in a relationship, and then you met Amy. Maybe there's someone else out there for you.",0:04.922000,RAJ,BBT,0.0,NONE,Neutral,Neutral,5.0,5.0
+1_S09E05_222,1_S09E05_222_u,Whoa! Walking up to a strange woman in a bar usually doesn't work.,0:05.171000,RAJ,BBT,0.0,NONE,Disgust,Disgust,3.0,6.0
+1_S09E05_284,1_S09E05_284_u,"Actually, he already did.",0:01.501000,AMY,BBT,0.0,NONE,Neutral,Neutral,5.0,5.0
+1_S09E06_055,1_S09E06_055_u,Sounds like you on Cinco de Mayo.,0:3.37,HOWARD,BBT,1.0,PRO,Ridicule,Neutral,3.0,8.0
+1_S09E06_168,1_S09E06_168_u,"Uh, he's Indian. We've already got one of those.",0:3.537000,RAJ,BBT,1.0,PRO,Ridicule,Neutral,2.0,8.0
+1_S09E07_054,1_S09E07_054_u,And I'm laughing like I did the first time I heard it.,0:2.503,PENNY,BBT,1.0,ILL,Frustration,Neutral,3.0,6.0
+1_S09E07_135,1_S09E07_135_u,When is your visa up?,0:2.085,HOWARD,BBT,1.0,ILL,Anger,Surprise,3.0,7.0
+1_S09E07_285,1_S09E07_285_u,"Fine, I'll leave. But it sounds like somebody needs a fresh diaper.",0:7.340999,RAJ,BBT,1.0,ILL,Disgust,Neutral,3.0,8.0
+1_S09E08_255,1_S09E08_255_u,"No, pinch me!",0:2.753,AMY,BBT,1.0,ILL,Frustration,Excitement,4.0,7.0
+1_S09E10_065,1_S09E10_065_u,"I told you if we were patient, he'd figure it out for himself.",0:3.17,PENNY,BBT,1.0,PRO,Ridicule,Neutral,3.0,6.0
+1_S09E10_208,1_S09E10_208_u,Nobody knows. That's why he's number one.,0:3.369999,PENNY,BBT,1.0,PRO,Frustration,Happiness,4.0,7.0
+1_S09E11_045,1_S09E11_045_u,"Oh, that's nice. Put that on her cake.",0:4.270999,PENNY,BBT,1.0,PRO,Disgust,Happiness,3.0,8.0
+1_S09E12_369,1_S09E12_369_u,"Yeah, he's as real as the fine I get when I use too much toilet paper.",0:5.756,PENNY,BBT,1.0,LIK,Frustration,Happiness,2.0,8.0
+1_S09E13_024,1_S09E13_024_u,Glad to hear it.,0:3.503,HOWARD,BBT,1.0,ILL,Disgust,Happiness,3.0,7.0
+1_S09E14_045,1_S09E14_045_u,Really? The old Asian man is not your Meemaw?,0:1.968,LEONARD,BBT,1.0,EMB,Frustration,Surprise,3.0,8.0
+1_S09E14_455,1_S09E14_455_u,"He never disappoints, does he?",0:5.605,LEONARD,BBT,1.0,ILL,Disgust,Happiness,4.0,6.0
+1_S09E16_101,1_S09E16_101_u,"Relax, there's room for two babies in this group.",0:2.836000,LEONARD,BBT,1.0,ILL,Ridicule,Neutral,4.0,6.0
+1_S09E16_189,1_S09E16_189_u,Maybe you should get a new doctor.,0:3.235999,AMY,BBT,1.0,PRO,Frustration,Neutral,4.0,7.0
+1_S09E18_033,1_S09E18_033_u,Oh. Is the impression that your first name is Pee-Wee?,0:3.135999,HOWARD,BBT,1.0,PRO,Ridicule,Surprise,3.0,7.0
+1_S09E18_357,1_S09E18_357_u,Is there a switch on the back of his neck we don't know about?,0:4.204,LEONARD,BBT,1.0,PRO,Ridicule,Surprise,4.0,8.0
+1_S09E19_044,1_S09E19_044_u,so we brought you some lunch and we are gonna go look for 'em.,0:3.502999,PENNY,BBT,1.0,PRO,Ridicule,Neutral,3.0,6.0
+1_S09E20_127,1_S09E20_127_u,I'm surprised he let us conceive without him.,0:3.503,HOWARD,BBT,1.0,PRO,Frustration,Surprise,2.0,7.0
+1_S09E20_156,1_S09E20_156_u,Astronauts saw him carrying that.,0:2.968999,HOWARD,BBT,1.0,ILL,Frustration,Neutral,3.0,7.0
+1_S09E20_179,1_S09E20_179_u,No. You'll wish it would kill you.,0:1.834999,LEONARD,BBT,1.0,PRO,Ridicule,Neutral,3.0,7.0
+1_S09E20_237,1_S09E20_237_u,She's trying to think of something She's never done before. This could take a while.,0:4.771999,AMY,BBT,1.0,ILL,Ridicule,Neutral,3.0,8.0
+1_S09E20_354,1_S09E20_354_u,"No, I do, and that's why I hid it.",0:2.535999,LEONARD,BBT,1.0,PRO,Disgust,Neutral,4.0,6.0
+1_S09E21_024,1_S09E21_024_u,You mean like through their window from behind a bush?,0:3.403000,LEONARD,BBT,1.0,PRO,Ridicule,Neutral,3.0,7.0
+1_S09E21_255,1_S09E21_255_u,Interesting. Maybe my male cycle synced up with raj's actual period.,0:7.807999,HOWARD,BBT,1.0,EMB,Ridicule,Neutral,2.0,8.0
+1_S09E21_401,1_S09E21_401_u,Better than watching a guy in a fur cloak Ride a girl's bike? Nope.,0:5.706000,LEONARD,BBT,1.0,PRO,Ridicule,Excitement,2.0,7.0
+1_S09E22_015,1_S09E22_015_u,I'm sure that would pair nicely with your fried nuggets of chicken.,0:3.103000,LEONARD,BBT,1.0,ILL,Disgust,Happiness,3.0,6.0
+1_S09E22_075,1_S09E22_075_u,Funny how that worked out.,0:1.168000,RAJ,BBT,1.0,PRO,Ridicule,Neutral,3.0,6.0
+1_S09E23_017,1_S09E23_017_u,"I thought to myself, ""Venn is he gonna stop talking about this diagram?""",0:3.368999,PENNY,BBT,1.0,PRO,Frustration,Neutral,4.0,6.0
+1_S09E23_102,1_S09E23_102_u,Wow. (clears throat) Didn't even make it out of the parking lot.,0:4.338000,PENNY,BBT,1.0,PRO,Frustration,Surprise,3.0,8.0
+1_S09E23_270,1_S09E23_270_u,"So, when the aliens brought you back, they just left the probe in?",0:5.439,LEONARD,BBT,1.0,ILL,Ridicule,Surprise,2.0,7.0
+1_S09E23_420,1_S09E23_420_u,Thank you.,0:4.170999,PENNY,BBT,1.0,ILL,Anger,Happiness,3.0,8.0
+1_S09E24_014,1_S09E24_014_u,Did she think you were choking or...,0:2.168000,LEONARD,BBT,1.0,PRO,Ridicule,Surprise,3.0,7.0
+1_S09E24_152,1_S09E24_152_u,Sure you do.,0:2.868999,OTHER,BBT,1.0,ILL,Frustration,Happiness,3.0,7.0
+1_S10E01_197,1_S10E01_197_u,"Yeah, special, like that.",0:3.917,LEONARD,BBT,1.0,ILL,Sadness,Happiness,3.0,7.0
+1_S10E01_225,1_S10E01_225_u,"Well, he probably buys his illegal drugs from a local vendor.",0:3.5,OTHER,BBT,1.0,PRO,Ridicule,Neutral,3.0,8.0
+1_S10E01_381,1_S10E01_381_u,They're practicing for what's coming later.,0:3.459000,OTHER,BBT,1.0,PRO,Ridicule,Neutral,4.0,7.0
+1_S10E01_474,1_S10E01_474_u,Is he? I never noticed.,0:4.084,PENNY,BBT,1.0,ILL,Ridicule,Surprise,4.0,7.0
+1_S10E02_101,1_S10E02_101_u,"Why? Because I'm Jewish? That's like me saying, ""Hey, you're Indian. Doesn't your cousin work in a call center?""",0:6.833,HOWARD,BBT,1.0,ILL,Anger,Surprise,3.0,8.0
+1_S10E02_123,1_S10E02_123_u,"Oh, my God, it was me, it was me! I'm the one who blabbed she was pregnant!",0:02.417000,PENNY,BBT,0.0,NONE,Fear,Fear,2.0,9.0
+1_S10E02_372,1_S10E02_372_u,Would you stop? We're just gonna be on the other side of campus.,0:04.626000,HOWARD,BBT,0.0,NONE,Neutral,Neutral,5.0,5.0
+1_S10E03_260,1_S10E03_260_u,"I think you were mean before you were pregnant, but it's fine.",0:02.708000,RAJ,BBT,0.0,NONE,Neutral,Neutral,5.0,5.0
+1_S10E03_282,1_S10E03_282_u,Sorry! Sorry!,0:04.292000,RAJ,BBT,0.0,NONE,Fear,Fear,3.0,7.0
+1_S10E03_311,1_S10E03_311_u,"But let's say you do. And don't say you do, because you don't! Now, wouldn't you think that throwing yourself into your work would be the best way to deal with it?",0:09.709000,LEONARD,BBT,0.0,NONE,Disgust,Disgust,4.0,6.0
+1_S10E04_007,1_S10E04_007_u,"Oh, so nothing. Great.",0:3.936,PENNY,BBT,1.0,PRO,Ridicule,Surprise,3.0,7.0
+1_S10E04_021,1_S10E04_021_u,"And we live with Sheldon, so the word ""inconvenience"" has really lost all meaning.",0:04.101000,LEONARD,BBT,0.0,NONE,Neutral,Neutral,5.0,5.0
+1_S10E04_082,1_S10E04_082_u,That's a good question. Maybe just don't come over.,0:03.800000,LEONARD,BBT,0.0,NONE,Disgust,Neutral,4.0,5.0
+1_S10E04_105,1_S10E04_105_u,I'm the son of a gynecologist. I could be helpful.,0:02.500000,RAJ,BBT,0.0,NONE,Neutral,Neutral,5.0,5.0
+1_S10E04_158,1_S10E04_158_u,I'm trying to think of an answer,0:02.200000,LEONARD,BBT,0.0,NONE,Neutral,Neutral,5.0,5.0
+1_S10E04_194,1_S10E04_194_u,"I've never lived with someone, either. This is a lot for me, too.",0:03.500000,AMY,BBT,0.0,NONE,Fear,Fear,4.0,6.0
+1_S10E04_238,1_S10E04_238_u,"Well, Sheldon, I really appreciate that, but these things mean more to you than they do to me, so whatever you want.",0:05.369000,AMY,BBT,0.0,NONE,Neutral,Neutral,5.0,5.0
+1_S10E04_262,1_S10E04_262_u,What if we do this?,0:02.667000,AMY,BBT,0.0,NONE,Neutral,Neutral,5.0,5.0
+1_S10E04_398,1_S10E04_398_u,"Well, I didn't, and it's your fault.",0:03.067000,AMY,BBT,0.0,NONE,Frustration,Frustration,4.0,6.0
+1_S10E04_403,1_S10E04_403_u,The kind who almost put a pillow over your face last night.,0:03.500000,AMY,BBT,0.0,NONE,Anger,Anger,3.0,6.0
+1_S10E05_079,1_S10E05_079_u,"Okay. Well, for starters, there's nothing wrong with keeping our toothbrushes in the same holder.",0:06.603000,AMY,BBT,0.0,NONE,Neutral,Neutral,5.0,5.0
+1_S10E05_120,1_S10E05_120_u,How 'bout we stay here? We don't even have to tell anyone. It'll be like a secret vacation at home.,0:06.837000,HOWARD,BBT,0.0,NONE,Excitement,Neutral,6.0,5.0
+1_S10E05_288,1_S10E05_288_u,"I'm in a hot tub with you, so pretty bad.",0:2.768,RAJ,BBT,1.0,ILL,Disgust,Sadness,3.0,7.0
+1_S10E06_003,1_S10E06_003_u,I got asked to sign autographs there.,0:01.834000,PENNY,BBT,0.0,NONE,Sadness,Neutral,4.0,5.0
+1_S10E06_062,1_S10E06_062_u,I felt a kick. There's a baby in there.,0:05.208000,HOWARD,BBT,0.0,NONE,Happiness,Excitement,7.0,7.0
+1_S10E06_091,1_S10E06_091_u,Are you kidding? I once paid $20 for Theo Sassler's signature.,0:03.542000,LEONARD,BBT,0.0,NONE,Surprise,Neutral,6.0,6.0
+1_S10E06_166,1_S10E06_166_u,I feel like I'm selling candy so our team can get new uniforms.,0:04,PENNY,BBT,0.0,NONE,Disgust,Disgust,4.0,6.0
+1_S10E06_255,1_S10E06_255_u,"Imagine this: you've got the baby in one hand, groceries in the other, and you're thinking, ""How am I gonna open this trunk?""",0:10.042000,HOWARD,BBT,0.0,NONE,Neutral,Neutral,6.0,5.0
+1_S10E07_069,1_S10E07_069_u,"(chuckling): Aw, you think you have an audience, that's funny.",0:3.376000,HOWARD,BBT,1.0,PRO,Disgust,Happiness,3.0,8.0
+1_S10E07_110,1_S10E07_110_u,"Oh. Well, j-just out of curiosity, what registers as odd to you",0:2.208999,HOWARD,BBT,1.0,ILL,Ridicule,Surprise,4.0,7.0
+1_S10E07_140,1_S10E07_140_u,"Oh my God, that's who you look like.",0:2.708000,RAJ,BBT,1.0,PRO,Ridicule,Surprise,4.0,8.0
+1_S10E07_163,1_S10E07_163_u,"I'll take that as a ""Yes."" She's secretly been moving your collectibles into storage a little at a time and you haven't noticed.",0:07.792000,HOWARD,BBT,0.0,NONE,Excitement,Neutral,6.0,6.0
+1_S10E07_187,1_S10E07_187_u,So why don't they just get more drywall?,0:03.333000,PENNY,BBT,0.0,NONE,Neutral,Neutral,5.0,5.0
+1_S10E07_198,1_S10E07_198_u,"Oh, don't worry, I won't.",0:01.417000,PENNY,BBT,0.0,NONE,Neutral,Neutral,5.0,5.0
+1_S10E07_247,1_S10E07_247_u,"Uh, she's enjoyed living with you. It's called being in love.",0:02.499000,PENNY,BBT,0.0,NONE,Happiness,Happiness,6.0,6.0
+1_S10E07_267,1_S10E07_267_u,I told you Penny was hiding his things?! It just came up because we-we were talking about secrets and...,0:06.250000,HOWARD,BBT,0.0,NONE,Neutral,Neutral,5.0,5.0
+1_S10E08_063,1_S10E08_063_u,You think it would be more difficult than that?,0:4.437999,OTHER,BBT,1.0,PRO,Ridicule,Surprise,4.0,8.0
+1_S10E08_131,1_S10E08_131_u,The last green thing I saw you eat was a Skittle.,0:2.768999,LEONARD,BBT,1.0,PRO,Ridicule,Neutral,4.0,7.0
+1_S10E08_140,1_S10E08_140_u,"No, she's right. As long as I've known you, you've always been self-conscious",0:04.037000,HOWARD,BBT,0.0,NONE,Disgust,Disgust,4.0,3.0
+1_S10E09_066,1_S10E09_066_u,"You know what, I've met Bert. Isn't he an indicator of life on other planets?",0:3.571000,PENNY,BBT,1.0,PRO,Ridicule,Surprise,3.0,7.0
+1_S10E09_081,1_S10E09_081_u,Say hello to everybody's little friend-- remote control Stephen Hawking!,0:04.969000,HOWARD,BBT,0.0,NONE,Excitement,Excitement,6.0,7.0
+1_S10E09_100,1_S10E09_100_u,It's like scrolling through the emojis on my phone.,0:04.971000,PENNY,BBT,0.0,NONE,Happiness,Neutral,6.0,6.0
+1_S10E09_169,1_S10E09_169_u,"I wet the bed until college, but I don't think",0:02.634000,LEONARD,BBT,0.0,NONE,Sadness,Sadness,4.0,6.0
+1_S10E09_186,1_S10E09_186_u,Let it fly.,0:01.934000,LEONARD,BBT,0.0,NONE,Happiness,Neutral,6.0,6.0
+1_S10E09_194,1_S10E09_194_u,with his other foot. Wha--?,0:01.666000,LEONARD,BBT,0.0,NONE,Sadness,Sadness,4.0,6.0
+1_S10E09_258,1_S10E09_258_u,What is going on? Did you upgrade his software last night?,0:4.07,HOWARD,BBT,1.0,PRO,Ridicule,Surprise,4.0,7.0
+1_S10E09_324,1_S10E09_324_u,I think I hate all of you nerds.,0:02.401000,PENNY,BBT,0.0,NONE,Frustration,Frustration,4.0,6.0
+1_S10E10_090,1_S10E10_090_u,"Hang on, maybe it's not the worst idea. I mean, he did do a good job taking care of my mother.",0:04.436000,HOWARD,BBT,0.0,NONE,Happiness,Happiness,6.0,5.0
+1_S10E10_158,1_S10E10_158_u,I would like to keep... the official flag of our apartment.,0:04.969000,LEONARD,BBT,0.0,NONE,Neutral,Neutral,5.0,5.0
+1_S10E10_269,1_S10E10_269_u,"Oh, yeah, I read about that on WhoGivesACrap.com",0:4.504,STUART,BBT,1.0,PRO,Anger,Neutral,3.0,8.0
+1_S10E10_376,1_S10E10_376_u,"Well, for me, too. It's not the same with you gone.",0:03.435000,LEONARD,BBT,0.0,NONE,Sadness,Sadness,4.0,6.0
+1_S10E11_321,1_S10E11_321_u,How many times do I have to say I'm sorry?,0:3.770000,PENNY,BBT,1.0,ILL,Ridicule,Sadness,3.0,8.0
+1_S10E12_115,1_S10E12_115_u,Cause at the end I assumed there'd be nurses.,0:2.202,OTHER,BBT,1.0,PRO,Ridicule,Neutral,3.0,8.0
+1_S10E13_135,1_S10E13_135_u,"Oh, no. Good game.",0:4.437999,LEONARD,BBT,1.0,ILL,Frustration,Happiness,4.0,7.0
+1_S10E14_056,1_S10E14_056_u,And you think we can get those guys to reprogram Sheldon? Cool.,0:4.570999,LEONARD,BBT,1.0,PRO,Ridicule,Neutral,3.0,8.0
+1_S10E14_094,1_S10E14_094_u,"Well, when you get the machine, you can find out.",0:3.003,LEONARD,BBT,1.0,PRO,Ridicule,Neutral,3.0,6.0
+1_S10E14_476,1_S10E14_476_u,"Oh, so all we need to do is get Sheldon knocked up.",0:3.670999,PENNY,BBT,1.0,PRO,Ridicule,Excitement,3.0,7.0
+1_S10E16_009,1_S10E16_009_u,"Aw, look at you watching sports.",0:3.070000,PENNY,BBT,1.0,PRO,Ridicule,Surprise,3.0,8.0
+1_S10E17_032,1_S10E17_032_u,"Wait, wait, not shopping for clothes, right? Because look.",0:1.802000,PENNY,BBT,1.0,PRO,Ridicule,Surprise,3.0,6.0
+1_S10E17_096,1_S10E17_096_u,"No. Which will make me miserable, which is usually Sheldon's job.",0:3.902999,LEONARD,BBT,1.0,EMB,Frustration,Neutral,3.0,8.0
+1_S10E17_125,1_S10E17_125_u,You could charge people money to punch you.,0:3.57,HOWARD,BBT,1.0,EMB,Ridicule,Neutral,3.0,8.0
+1_S10E17_287,1_S10E17_287_u,"Yeah, that's working out great for me.",0:2.436000,HOWARD,BBT,1.0,ILL,Disgust,Happiness,3.0,8.0
+1_S10E18_164,1_S10E18_164_u,Maybe we should take them both to the park and let them run around together.,0:5.305,HOWARD,BBT,1.0,PRO,Ridicule,Excitement,3.0,8.0
+1_S10E18_266,1_S10E18_266_u,Do you actually pay for that haircut?,0:1.702000,PENNY,BBT,1.0,ILL,Ridicule,Surprise,3.0,8.0
+1_S10E18_323,1_S10E18_323_u,(sighs) I'll say it again. India.,0:4.071,HOWARD,BBT,1.0,PRO,Frustration,Excitement,2.0,8.0
+1_S10E18_391,1_S10E18_391_u,"Oh, great, it'll be easier for you to look up at the stars without a roof over your head.",0:4.872,STUART,BBT,1.0,EMB,Disgust,Happiness,3.0,7.0
+1_S10E18_423,1_S10E18_423_u,More reasons for you to stay.,0:2.468999,PENNY,BBT,1.0,PRO,Ridicule,Neutral,3.0,6.0
+1_S10E19_015,1_S10E19_015_u,Sure. You're living here for free. I guess I owe you.,0:3.099999,LEONARD,BBT,1.0,EMB,Anger,Excitement,3.0,8.0
+1_S10E19_252,1_S10E19_252_u,You sure you don't fit in? You sound like a catty bitch to me.,0:3.539999,HOWARD,BBT,1.0,PRO,Ridicule,Surprise,3.0,8.0
+1_S10E21_151,1_S10E21_151_u,"Hey, I already set up Howard and Bernadette. It's your turn to ruin some poor girl's life.",0:5.471999,PENNY,BBT,1.0,EMB,Ridicule,Sadness,2.0,8.0
+1_S10E23_165,1_S10E23_165_u,"Oh, sweetie, you might not live that long.",0:3.235999,PENNY,BBT,1.0,PRO,Ridicule,Sadness,3.0,8.0
+1_S11E01_100,1_S11E01_100_u,"Okay, you can stop leading with that part of the story.",0:02.640000,AMY,BBT,0.0,NONE,Disgust,Neutral,4.0,5.0
+1_S11E01_222,1_S11E01_222_u,"Well, you came to the wrong place.",0:02.860000,STUART,BBT,0.0,NONE,Neutral,Neutral,5.0,5.0
+1_S11E01_337,1_S11E01_337_u,"I'm sorry, what?",0:02.540000,PENNY,BBT,0.0,NONE,Neutral,Neutral,5.0,5.0
+1_S11E01_400,1_S11E01_400_u,"Well, Bernadette has to grow a baby inside of her, and Amy has to marry one. My life is great.",0:5.199999,PENNY,BBT,1.0,EMB,Ridicule,Happiness,3.0,8.0
+1_S11E02_008,1_S11E02_008_u,"Yeah, I'm still mad at you. (clears throat)",0:02.670000,PENNY,BBT,0.0,NONE,Neutral,Neutral,5.0,5.0
+1_S11E02_049,1_S11E02_049_u,Thank you for having me. Whoa... (chuckles) Could never get used to hearing myself in headphones. Is that really how I sound?,0:06.030000,LEONARD,BBT,0.0,NONE,Excitement,Excitement,6.0,6.0
+1_S11E02_127,1_S11E02_127_u,Fingers crossed.,0:01.800000,AMY,BBT,0.0,NONE,Surprise,Happiness,6.0,7.0
+1_S11E02_205,1_S11E02_205_u,"Well, that's why I brought the bottle.",0:03.060000,PENNY,BBT,0.0,NONE,Neutral,Neutral,5.0,5.0
+1_S11E03_006,1_S11E03_006_u,I thought we agreed on June 15.,0:02.500000,AMY,BBT,0.0,NONE,Neutral,Neutral,5.0,5.0
+1_S11E03_169,1_S11E03_169_u,"Me, either. What a small world.",0:02.530000,RAJ,BBT,0.0,NONE,Surprise,Surprise,6.0,7.0
+1_S11E03_220,1_S11E03_220_u,"Honey, that's you.",0:01.430000,PENNY,BBT,0.0,NONE,Neutral,Neutral,5.0,5.0
+1_S11E03_250,1_S11E03_250_u,Why should I bow out?,0:01.670000,STUART,BBT,0.0,NONE,Frustration,Frustration,4.0,6.0
+1_S11E03_321,1_S11E03_321_u,What's to worry about?,0:01.430000,OTHER,BBT,0.0,NONE,Neutral,Neutral,5.0,5.0
+1_S11E03_365,1_S11E03_365_u,"Oh, my God, what happened?!",0:02.200000,AMY,BBT,0.0,NONE,Fear,Fear,4.0,7.0
+1_S11E04_005,1_S11E04_005_u,"Oh, that's sweet, but today is all about you.",0:04.610000,HOWARD,BBT,0.0,NONE,Happiness,Happiness,7.0,7.0
+1_S11E04_016,1_S11E04_016_u,"Well, it's a boy.",0:02.130000,OTHER,BBT,0.0,NONE,Neutral,Neutral,5.0,5.0
+1_S11E04_067,1_S11E04_067_u,"Nah, it's worth it.",0:01.760000,LEONARD,BBT,0.0,NONE,Neutral,Neutral,5.0,5.0
+1_S11E04_162,1_S11E04_162_u,It's more of a tradition.,0:02.360000,HOWARD,BBT,0.0,NONE,Neutral,Neutral,5.0,5.0
+1_S11E04_273,1_S11E04_273_u,"Thanks for trying, but you're not gonna be able to cheer me up.",0:03.610000,HOWARD,BBT,0.0,NONE,Neutral,Neutral,5.0,5.0
+1_S11E04_315,1_S11E04_315_u,Okay... I'm pretty sure they're not best friends.,0:06.680000,AMY,BBT,0.0,NONE,Neutral,Neutral,5.0,5.0
+1_S11E04_347,1_S11E04_347_u,What about people distracted by irritating passengers?,0:4.82,HOWARD,BBT,1.0,ILL,Frustration,Surprise,3.0,7.0
+1_S11E05_005,1_S11E05_005_u,"Yeah, which is why it's okay.",0:02.730000,PENNY,BBT,0.0,NONE,Happiness,Happiness,6.0,6.0
+1_S11E05_060,1_S11E05_060_u,Wha... No!,0:02,PENNY,BBT,0.0,NONE,Disgust,Neutral,4.0,6.0
+1_S11E05_156,1_S11E05_156_u,My ride home with you was hellish.,0:3.760000,LEONARD,BBT,1.0,PRO,Frustration,Happiness,3.0,8.0
+1_S11E05_186,1_S11E05_186_u,What do we do when he turns six? Take him to the zoo and leave him there.,0:05.860000,LEONARD,BBT,0.0,NONE,Frustration,Neutral,5.0,5.0
+1_S11E05_253,1_S11E05_253_u,Maybe there's something in the book that will help.,0:02.700000,PENNY,BBT,0.0,NONE,Neutral,Neutral,5.0,5.0
+1_S11E05_306,1_S11E05_306_u,"I used to make it appear in my pants, but HR said I had to stop doing that.",0:04.510000,HOWARD,BBT,0.0,NONE,Happiness,Happiness,6.0,6.0
+1_S11E05_370,1_S11E05_370_u,"Leonard, what are you doing?",0:01,PENNY,BBT,0.0,NONE,Fear,Fear,4.0,4.0
+1_S11E05_429,1_S11E05_429_u,"Yeah, Bernadette texted earlier. Raj is really getting on her nerves.",0:03.950000,HOWARD,BBT,0.0,NONE,Happiness,Happiness,6.0,6.0
+1_S11E06_003,1_S11E06_003_u,"I'm not allowed to eat for 12 hours before my surgery, and I only got two more minutes.",0:04.310000,HOWARD,BBT,0.0,NONE,Fear,Fear,4.0,6.0
+1_S11E06_019,1_S11E06_019_u,"He was cremated, and his remains were put in a baking soda volcano.",0:3.2,HOWARD,BBT,1.0,EMB,Ridicule,Neutral,2.0,7.0
+1_S11E06_060,1_S11E06_060_u,Gift shop.,0:01,HOWARD,BBT,0.0,NONE,Neutral,Neutral,5.0,5.0
+1_S11E06_187,1_S11E06_187_u,"You want to lie down, watch a movie?",0:04.270000,HOWARD,BBT,0.0,NONE,Neutral,Neutral,5.0,5.0
+1_S11E06_249,1_S11E06_249_u,"Well, you're... I can get the baby.",0:02.570000,PENNY,BBT,0.0,NONE,Neutral,Neutral,5.0,5.0
+1_S11E06_391,1_S11E06_391_u,How irresponsible do you all think I am?,0:03.130000,PENNY,BBT,0.0,NONE,Anger,Anger,4.0,6.0
+1_S11E06_410,1_S11E06_410_u,"You were a terrible waitress, and we still asked you to get us a snack.",0:4.41,HOWARD,BBT,1.0,EMB,Ridicule,Fear,3.0,8.0
+1_S11E07_112,1_S11E07_112_u,It doesn't even matter how many all-rounders you have.,0:02.424000,OTHER,BBT,0.0,NONE,Excitement,Neutral,6.0,6.0
+1_S11E07_161,1_S11E07_161_u,I don't know. Poor Bert?,0:2.170000,PENNY,BBT,1.0,PRO,Ridicule,Sadness,3.0,8.0
+1_S11E07_220,1_S11E07_220_u,I should get a haircut; this thing's going south fast.,0:02.200000,STUART,BBT,0.0,NONE,Frustration,Frustration,4.0,6.0
+1_S11E07_265,1_S11E07_265_u,"Sheldon, that was pretty rude.",0:01.600000,LEONARD,BBT,0.0,NONE,Sadness,Neutral,4.0,4.0
+1_S11E07_271,1_S11E07_271_u,No! Get out of here!,0:02.160000,RAJ,BBT,0.0,NONE,Anger,Anger,3.0,7.0
+1_S11E07_381,1_S11E07_381_u,Bert asked for my help.,0:01.370000,LEONARD,BBT,0.0,NONE,Neutral,Neutral,5.0,5.0
+1_S11E07_415,1_S11E07_415_u,Give him a chance. He's gonna get this.,0:02.760000,HOWARD,BBT,0.0,NONE,Excitement,Excitement,5.0,5.0
+1_S11E08_005,1_S11E08_005_u,"Well, according to his text, he was on the second floor, then he stopped to tie his shoe.",0:06.170000,LEONARD,BBT,0.0,NONE,Frustration,Frustration,4.0,6.0
+1_S11E08_113,1_S11E08_113_u,"Yeah, just turn off your brain and let your uterus do its magic.",0:04.060000,RAJ,BBT,0.0,NONE,Happiness,Happiness,6.0,6.0
+1_S11E08_137,1_S11E08_137_u,I don't know. Target practice?,0:3.37,LEONARD,BBT,1.0,PRO,Ridicule,Neutral,3.0,7.0
+1_S11E08_142,1_S11E08_142_u,Great. I want answers and he'd better give them to us.,0:03.300000,HOWARD,BBT,0.0,NONE,Frustration,Frustration,4.0,6.0
+1_S11E08_195,1_S11E08_195_u,I know. It was when I stubbed my toe.,0:04.240000,AMY,BBT,0.0,NONE,Sadness,Sadness,4.0,6.0
+1_S11E08_217,1_S11E08_217_u,"You know what, you like to think that you're just like Tesla, but the truth is you're exactly like Edison.",0:05.740000,LEONARD,BBT,0.0,NONE,Anger,Anger,4.0,6.0
+1_S11E08_283,1_S11E08_283_u,Get to the point! Oh.,0:01.830000,PENNY,BBT,0.0,NONE,Anger,Anger,3.0,7.0
+1_S11E08_305,1_S11E08_305_u,Be even better if he swapped out the helium for xenon.,0:02.924000,LEONARD,BBT,0.0,NONE,Neutral,Neutral,5.0,5.0
+1_S11E08_351,1_S11E08_351_u,Yes. Why don't you run get me a can of Pringles.,0:03.870000,OTHER,BBT,0.0,NONE,Neutral,Neutral,5.0,5.0
+1_S11E10_009,1_S11E10_009_u,"(knocking) Hey, you had unprotected sex with Howard. You deserve to be miserable.",0:05.737000,PENNY,BBT,0.0,NONE,Disgust,Disgust,4.0,6.0
+1_S11E10_062,1_S11E10_062_u,Why not hexadecimal?,0:01.600000,LEONARD,BBT,0.0,NONE,Neutral,Neutral,5.0,5.0
+1_S11E10_143,1_S11E10_143_u,Stop apologizing!,0:01.100000,PENNY,BBT,0.0,NONE,Neutral,Neutral,5.0,5.0
+1_S11E10_228,1_S11E10_228_u,"while we're apart, can I see other needy Indian men?",0:3.603999,HOWARD,BBT,1.0,PRO,Ridicule,Sadness,2.0,8.0
+1_S11E10_240,1_S11E10_240_u,"I forget, which mental hospital are you guys registered at?",0:6.705999,HOWARD,BBT,1.0,ILL,Ridicule,Neutral,3.0,7.0
+1_S11E10_249,1_S11E10_249_u,"(sighs) Well, what's it gonna take? You want half my sandwich?",0:05.438000,HOWARD,BBT,0.0,NONE,Sadness,Sadness,4.0,6.0
+1_S11E10_297,1_S11E10_297_u,"Oh, okay. Sorry. I wasn't ready for it. Try again.",0:03.468000,HOWARD,BBT,0.0,NONE,Sadness,Sadness,4.0,4.0
+1_S11E10_309,1_S11E10_309_u,Then you never saw any other people?,0:2.736000,PENNY,BBT,1.0,PRO,Disgust,Surprise,3.0,7.0
+1_S11E10_337,1_S11E10_337_u,"Wow, this conversation got mean fast.",0:03.135000,STUART,BBT,0.0,NONE,Sadness,Sadness,4.0,6.0
+1_S11E10_432,1_S11E10_432_u,I'll catch up with you guys. Okay.,0:02.001000,LEONARD,BBT,0.0,NONE,Neutral,Neutral,5.0,5.0
+1_S11E10_461,1_S11E10_461_u,"Decaf, genius. (clears throat)",0:02.301000,PENNY,BBT,0.0,NONE,Neutral,Neutral,5.0,4.0
+1_S11E11_024,1_S11E11_024_u,Why are you smoking meat?,0:01.300000,HOWARD,BBT,0.0,NONE,Neutral,Neutral,5.0,5.0
+1_S11E11_055,1_S11E11_055_u,"I have an extra ticket to the opening of The Last Jedi tonight. It was gonna be Howard's, but you can have it.",0:05.170000,RAJ,BBT,0.0,NONE,Anger,Anger,3.0,6.0
+1_S11E11_077,1_S11E11_077_u,I don't know.,0:00.833000,HOWARD,BBT,0.0,NONE,Neutral,Neutral,5.0,5.0
+1_S11E11_098,1_S11E11_098_u,"Aw, the people's pajamas have little horses on them, and the horses' have little people.",0:05.937000,PENNY,BBT,0.0,NONE,Happiness,Neutral,6.0,5.0
+1_S11E11_127,1_S11E11_127_u,Great. Can you bring a few things?,0:02.734000,HOWARD,BBT,0.0,NONE,Neutral,Neutral,5.0,5.0
+1_S11E11_182,1_S11E11_182_u,"Oh, fun. Can I help?",0:02.100000,PENNY,BBT,0.0,NONE,Happiness,Happiness,6.0,6.0
+1_S11E11_217,1_S11E11_217_u,"Great, 'cause it's tomorrow, and I need you to plan it.",0:03.669000,HOWARD,BBT,0.0,NONE,Excitement,Excitement,6.0,7.0
+1_S11E11_301,1_S11E11_301_u,"No, the fern. The one in the bathroom.",0:02.735000,LEONARD,BBT,0.0,NONE,Neutral,Neutral,5.0,5.0
+1_S11E11_343,1_S11E11_343_u,"Oh, grow up.",0:01.033000,HOWARD,BBT,0.0,NONE,Neutral,Neutral,5.0,5.0
+1_S11E11_403,1_S11E11_403_u,"Ooh, I want to see the birthday girl.",0:01.600000,PENNY,BBT,0.0,NONE,Excitement,Excitement,7.0,8.0
+1_S11E12_038,1_S11E12_038_u,That's funny. I always thought Howard was nature's way of saying  the Wolowitz line ends here,0:3.804000,RAJ,BBT,1.0,PRO,Ridicule,Neutral,3.0,7.0
+1_S11E12_237,1_S11E12_237_u,Why can't Amy drive you?,0:01.468000,LEONARD,BBT,0.0,NONE,Neutral,Neutral,5.0,5.0
+1_S11E12_279,1_S11E12_279_u,"Yeah, did Sheldon send it to you?",0:02.637000,LEONARD,BBT,0.0,NONE,Neutral,Neutral,5.0,5.0
+1_S11E12_290,1_S11E12_290_u,I don't think they're acting.,0:2.035999,LEONARD,BBT,1.0,ILL,Ridicule,Surprise,4.0,7.0
+1_S11E13_001,1_S11E13_001_u,Newspapers? Did you find a portal back to the 1990s?,0:3.971,LEONARD,BBT,1.0,PRO,Ridicule,Surprise,4.0,8.0
+1_S11E13_211,1_S11E13_211_u,"Wow, I didn't think anything could top last night's spelling bee, but here comes math.",0:4.871,PENNY,BBT,1.0,EMB,Frustration,Excitement,4.0,7.0
+1_S11E18_206,1_S11E18_206_u,I didn't know that came in a boys' medium.,0:2.602999,RAJ,BBT,1.0,PRO,Ridicule,Surprise,4.0,6.0
+1_S11E19_030,1_S11E19_030_u,"Except for you, Sheldon. You're eating crow.",0:2.802999,RAJ,BBT,1.0,PRO,Ridicule,Neutral,3.0,8.0
+1_S11E19_143,1_S11E19_143_u,The drone or your stupid robot show,0:2.000999,HOWARD,BBT,1.0,PRO,Ridicule,Neutral,4.0,8.0
+1_S11E20_143,1_S11E20_143_u,"Oh, just about who you're marrying.",0:2.603000,PENNY,BBT,1.0,PRO,Ridicule,Neutral,3.0,8.0
+1_S11E20_332,1_S11E20_332_u,And alive?,0:3.137000,HOWARD,BBT,1.0,ILL,Ridicule,Surprise,3.0,8.0
+1_S11E21_080,1_S11E21_080_u,Is it your teen years?,0:2.809999,HOWARD,BBT,1.0,PRO,Ridicule,Neutral,4.0,7.0
+1_S11E22_069,1_S11E22_069_u,"Mm. Well, I've got a push-up bra I can loan you that always gets me free drinks.",0:5.104999,PENNY,BBT,1.0,PRO,Ridicule,Neutral,2.0,8.0
+1_S11E22_149,1_S11E22_149_u,"If there's someone more relentless than you, I'd like to meet them.",0:3.638,HOWARD,BBT,1.0,ILL,Frustration,Excitement,4.0,8.0
+1_S11E22_205,1_S11E22_205_u,No. I'm just sitting here at my desk typing on my computer for nothing.,0:5.239000,LEONARD,BBT,1.0,PRO,Frustration,Neutral,4.0,7.0
+1_S11E22_260,1_S11E22_260_u,Step one is flunk out of art school.,0:3.37,STUART,BBT,1.0,PRO,Ridicule,Neutral,3.0,6.0
+1_S11E24_338,1_S11E24_338_u,"Oh, science? Shocking!",0:3.537,PENNY,BBT,1.0,ILL,Anger,Excitement,3.0,8.0
+1_S12E01_111,1_S12E01_111_u,This is the news. And that was a woman torn between two hunky vampires.,0:05.871000,LEONARD,BBT,0.0,NONE,Neutral,Neutral,5.0,5.0
+1_S12E01_139,1_S12E01_139_u,You happy? You smell like Amy's dad.,0:2.269,PENNY,BBT,1.0,PRO,Disgust,Neutral,3.0,8.0
+1_S12E01_248,1_S12E01_248_u,"You know, I cut you a lot of slack cause you come from another country, but you've been here a long time.",0:6.072999,HOWARD,BBT,1.0,EMB,Disgust,Happiness,4.0,8.0
+1_S12E01_268,1_S12E01_268_u,What are you gonna do? He's from another country.,0:7.339999,HOWARD,BBT,1.0,ILL,Frustration,Happiness,4.0,8.0
+1_S12E01_274,1_S12E01_274_u,Just let it go.,0:01.733000,AMY,BBT,0.0,NONE,Frustration,Frustration,4.0,6.0
+1_S12E01_297,1_S12E01_297_u,for a successful day of ballbusting.,0:3.637000,PENNY,BBT,1.0,EMB,Anger,Happiness,2.0,8.0
+1_S12E01_325,1_S12E01_325_u,You called him Mike Tyson's little sister.,0:03.502000,HOWARD,BBT,0.0,NONE,Disgust,Disgust,4.0,6.0
+1_S12E01_332,1_S12E01_332_u,"Oh, please, you're just the right amount of bearing.",0:3.871000,PENNY,BBT,1.0,PRO,Ridicule,Sadness,4.0,7.0
+1_S12E01_339,1_S12E01_339_u,"Me, too.",0:5.305,PENNY,BBT,1.0,ILL,Disgust,Happiness,4.0,8.0
+1_S12E02_105,1_S12E02_105_u,Are you sure she wasn't trying to breathe life back into him?,0:4.404,HOWARD,BBT,1.0,PRO,Ridicule,Neutral,3.0,7.0
+1_S12E02_118,1_S12E02_118_u,Is she into you or does she just hate her parents?,0:3.102999,HOWARD,BBT,1.0,ILL,Ridicule,Sadness,3.0,8.0
+1_S12E02_204,1_S12E02_204_u,Of course he knows what it is. He's the smartest man in the world.,0:4.571,PENNY,BBT,1.0,ILL,Ridicule,Neutral,4.0,8.0
+1_S12E02_228,1_S12E02_228_u,"If you're asking if you and Amy should spend the next couple days running all over town searching for the next clue, I'm gonna have to say yes.",0:9.509,HOWARD,BBT,1.0,ILL,Ridicule,Neutral,3.0,8.0
+1_S12E02_262,1_S12E02_262_u,Riveting.,0:2.001999,AMY,BBT,1.0,ILL,Frustration,Excitement,3.0,7.0
+1_S12E02_274,1_S12E02_274_u,"Or you can ask me, the geologist who won the MacArthur Genius Grant.",0:3.904,OTHER,BBT,1.0,PRO,Sadness,Excitement,4.0,8.0
+1_S12E02_358,1_S12E02_358_u,Wow. Gentile moms are tough.,0:3.003,HOWARD,BBT,1.0,PRO,Ridicule,Surprise,3.0,8.0
+1_S12E02_385,1_S12E02_385_u," And if not, swing by the chocolate factory and see if they're hiring.",0:5.904999,HOWARD,BBT,1.0,ILL,Ridicule,Neutral,4.0,8.0
+1_S12E02_433,1_S12E02_433_u,- We wrote you a special thank you note. - Oh.,0:03.235000,AMY,BBT,0.0,NONE,Happiness,Happiness,6.0,6.0
+1_S12E02_443,1_S12E02_443_u,I'm no longer happy.,0:02.267000,LEONARD,BBT,0.0,NONE,Sadness,Sadness,4.0,7.0
+1_S12E02_466,1_S12E02_466_u,Do your 63 other crayon friends know you're out?,0:2.036000,OTHER,BBT,1.0,EMB,Ridicule,Neutral,3.0,7.0
+1_S12E02_471,1_S12E02_471_u,"Yeah, I'm in the mood for orange chicken.",0:2.469999,OTHER,BBT,1.0,ILL,Ridicule,Neutral,4.0,7.0
+1_S12E03_061,1_S12E03_061_u,You'’re the one who said you wanted to read more.,0:02.481000,HOWARD,BBT,0.0,NONE,Neutral,Neutral,5.0,5.0
+1_S12E03_095,1_S12E03_095_u,He sent us that Indian marriage questionnaire.,0:02.525000,LEONARD,BBT,0.0,NONE,Neutral,Neutral,5.0,5.0
+1_S12E03_101,1_S12E03_101_u,"Great, so your church is Our Lady of the Stretchy Pants.",0:4.004,LEONARD,BBT,1.0,EMB,Ridicule,Neutral,2.0,8.0
+1_S12E03_118,1_S12E03_118_u,"Well, I did take care of Sheldon for 15 years, and he only bite me once",0:2.480000,LEONARD,BBT,1.0,PRO,Ridicule,Neutral,2.0,9.0
+1_S12E03_174,1_S12E03_174_u,I get that.,0:01.567000,PENNY,BBT,0.0,NONE,Sadness,Sadness,4.0,6.0
+1_S12E03_239,1_S12E03_239_u,"I told him it was dumb, and now he'’s mad at me.",0:04.047000,HOWARD,BBT,0.0,NONE,Sadness,Neutral,4.0,4.0
+1_S12E03_263,1_S12E03_263_u,"No. No. No, no. No, no, no, no, no, no, no, no.",0:02.872000,PENNY,BBT,0.0,NONE,Fear,Fear,3.0,5.0
+1_S12E03_310,1_S12E03_310_u,Although that cinnamon roll does smell good if you'’re open to halfsies.,0:04.309000,RAJ,BBT,0.0,NONE,Neutral,Neutral,5.0,5.0
+1_S12E03_337,1_S12E03_337_u,They will find other friends.,0:02.872000,PENNY,BBT,0.0,NONE,Neutral,Neutral,5.0,5.0
+1_S12E03_338,1_S12E03_338_u,"Oh, sure, '’cause Sheldon'’s DNA plus my DNA equals a kid who knows how to make friends. Grow up!",0:5.309999,AMY,BBT,1.0,PRO,Anger,Happiness,3.0,8.0
+1_S12E03_380,1_S12E03_380_u,Really? We'’re joking about this now?,0:03.395000,LEONARD,BBT,0.0,NONE,Sadness,Sadness,4.0,6.0
+1_S12E03_410,1_S12E03_410_u,Oh. We can'’t use that. That was the theme of my parents'’ divorce.,0:4.57,RAJ,BBT,1.0,PRO,Ridicule,Sadness,3.0,8.0
+1_S12E03_449,1_S12E03_449_u,"Oh, my God. You bought me the Batmobile?!",0:02.524000,LEONARD,BBT,0.0,NONE,Surprise,Surprise,7.0,8.0
+1_S12E04_003,1_S12E04_003_u,"Wait, I'm still in them, right?",0:2.569,AMY,BBT,1.0,PRO,Ridicule,Surprise,4.0,7.0
+1_S12E04_027,1_S12E04_027_u,"I didn't just drink the crazy milk, I bought the crazy cow.",0:7.341999,AMY,BBT,1.0,EMB,Frustration,Sadness,3.0,8.0
+1_S12E04_040,1_S12E04_040_u,Tell us the truth. Did she get you pregnant?,0:2.735,PENNY,BBT,1.0,PRO,Disgust,Surprise,2.0,7.0
+1_S12E04_055,1_S12E04_055_u,"Yeah, so did the koala.",0:02.134000,LEONARD,BBT,0.0,NONE,Neutral,Neutral,5.0,5.0
+1_S12E04_070,1_S12E04_070_u,"Okay, listen, I'm really worried about this whole Raj thing.",0:02.609000,PENNY,BBT,0.0,NONE,Fear,Fear,4.0,6.0
+1_S12E04_076,1_S12E04_076_u,"I looked online. She doesn't have an Instagram, which means she's either 80 or something's wrong with her.",0:4.459999,PENNY,BBT,1.0,PRO,Ridicule,Disgust,3.0,8.0
+1_S12E04_102,1_S12E04_102_u,this is a safe space-- it's okay to be vulnerable.,0:02.701000,HOWARD,BBT,0.0,NONE,Neutral,Neutral,5.0,5.0
+1_S12E04_204,1_S12E04_204_u,"Oh, I've been trying to get in touch with him, but I never heard back. Is he okay?",0:03.335000,OTHER,BBT,0.0,NONE,Neutral,Neutral,5.0,5.0
+1_S12E04_233,1_S12E04_233_u,How did I betray you?,0:01.333000,OTHER,BBT,0.0,NONE,Disgust,Disgust,4.0,6.0
+1_S12E04_242,1_S12E04_242_u,Were there no other kids in Texas?,0:2.168,HOWARD,BBT,1.0,PRO,Disgust,Surprise,4.0,8.0
+1_S12E04_249,1_S12E04_249_u,"You know, I was curious to find out what Tam had done wrong.",0:03.068000,LEONARD,BBT,0.0,NONE,Excitement,Excitement,4.0,6.0
+1_S12E04_276,1_S12E04_276_u,"So, what do you want to know?",0:01.332000,OTHER,BBT,0.0,NONE,Neutral,Neutral,5.0,5.0
+1_S12E04_456,1_S12E04_456_u,All I see is a yellow smudge.,0:02.434000,PENNY,BBT,0.0,NONE,Neutral,Neutral,5.0,5.0
+1_S12E05_030,1_S12E05_030_u,"Hmm, yeah, but somehow, you manage.",0:1.836000,RAJ,BBT,1.0,PRO,Disgust,Neutral,4.0,6.0
+1_S12E05_054,1_S12E05_054_u,"Oh, the helmet will sense that and stop the experiment.",0:02.834000,AMY,BBT,0.0,NONE,Neutral,Neutral,5.0,5.0
+1_S12E05_110,1_S12E05_110_u,Yeah. I already got a man for that.,0:3.904,PENNY,BBT,1.0,PRO,Frustration,Neutral,4.0,7.0
+1_S12E05_134,1_S12E05_134_u,"First of all, I've totally done karaoke with a rock star.",0:04.837000,RAJ,BBT,0.0,NONE,Anger,Anger,3.0,6.0
+1_S12E06_010,1_S12E06_010_u,Did you know the Michael Myers mask from the film was actually a Captain Kirk mask turned inside out?,0:04.202000,LEONARD,BBT,0.0,NONE,Excitement,Neutral,6.0,5.0
+1_S12E06_016,1_S12E06_016_u,Says the man with a giant belt buckle and a dickey.,0:3.370000,LEONARD,BBT,1.0,PRO,Disgust,Neutral,3.0,8.0
+1_S12E06_027,1_S12E06_027_u,All the time? I only remember being invited to one.,0:02.434000,LEONARD,BBT,0.0,NONE,Neutral,Neutral,5.0,5.0
+1_S12E06_088,1_S12E06_088_u,Maybe he's cranky because he's off his bathroom schedule.,0:2.859,RAJ,BBT,1.0,ILL,Ridicule,Neutral,3.0,8.0
+1_S12E06_111,1_S12E06_111_u,"You get that I'm wearing a corset because of you, not because I'm tired of breathing?",0:04.402000,AMY,BBT,0.0,NONE,Disgust,Disgust,4.0,6.0
+1_S12E06_229,1_S12E06_229_u,Really? We're still doing this?,0:01.400000,PENNY,BBT,0.0,NONE,Surprise,Surprise,5.0,6.0
+1_S12E06_287,1_S12E06_287_u,It was. And I'm sorry about earlier.,0:02.700000,LEONARD,BBT,0.0,NONE,Sadness,Sadness,4.0,4.0
+1_S12E06_316,1_S12E06_316_u,"Hmm. Look at you, improving on perfection. How so?",0:4.071000,AMY,BBT,1.0,EMB,Ridicule,Surprise,4.0,7.0
+1_S12E06_412,1_S12E06_412_u,That's what you said about the butterfly pavilion at the zoo.,0:3.537,LEONARD,BBT,1.0,PRO,Ridicule,Neutral,4.0,8.0
+1_S12E07_005,1_S12E07_005_u,"I'm gonna hook up the garden hose, so it has running water.",0:02.600000,HOWARD,BBT,0.0,NONE,Happiness,Happiness,6.0,4.0
+1_S12E07_060,1_S12E07_060_u,You sound like my wife just before she asked me to go to Coachella.,0:5.638999,LEONARD,BBT,1.0,EMB,Disgust,Neutral,3.0,7.0
+1_S12E07_092,1_S12E07_092_u,a little swagger in your step?,0:01.566000,HOWARD,BBT,0.0,NONE,Happiness,Happiness,5.0,5.0
+1_S12E07_105,1_S12E07_105_u,"Should we form a line, or just do it like we're bobbing for apples?",0:3.937000,HOWARD,BBT,1.0,PRO,Ridicule,Neutral,2.0,8.0
+1_S12E07_147,1_S12E07_147_u,"Hmm. But you're not, are you?",0:03.802000,PENNY,BBT,0.0,NONE,Excitement,Excitement,4.0,6.0
+1_S12E07_169,1_S12E07_169_u,"You know, if it's that easy, then why does Leonard have to drive you to work every day?",0:04.102000,PENNY,BBT,0.0,NONE,Disgust,Disgust,4.0,6.0
+1_S12E07_264,1_S12E07_264_u,(whining): It's just so hard!,0:01.533000,LEONARD,BBT,0.0,NONE,Frustration,Frustration,3.0,7.0
+1_S12E07_424,1_S12E07_424_u,What was the case?,0:01.900000,HOWARD,BBT,0.0,NONE,Excitement,Neutral,6.0,6.0
+1_S12E07_443,1_S12E07_443_u,I have no idea.,0:01.399000,LEONARD,BBT,0.0,NONE,Excitement,Excitement,6.0,6.0
+1_S12E08_006,1_S12E08_006_u,"Well, how would you guys feel about going to India for my wedding?",0:03.735000,RAJ,BBT,0.0,NONE,Happiness,Happiness,6.0,6.0
+1_S12E08_023,1_S12E08_023_u,"Yeah. And my mom loves Penny, which is weird, because I never knew she could love.",0:4.771999,LEONARD,BBT,1.0,EMB,Sadness,Happiness,2.0,8.0
+1_S12E08_071,1_S12E08_071_u,It doesn't have to be tonight.,0:02,OTHER,BBT,0.0,NONE,Neutral,Neutral,5.0,5.0
+1_S12E08_098,1_S12E08_098_u,"Yeah, you're gonna need to show your work on that.",0:2.436,AMY,BBT,1.0,PRO,Frustration,Neutral,3.0,7.0
+1_S12E08_103,1_S12E08_103_u,Which is perfect.,0:2.102000,AMY,BBT,1.0,PRO,Frustration,Neutral,4.0,6.0
+1_S12E08_135,1_S12E08_135_u,"He's our friend. What's up, pal?",0:03.535000,HOWARD,BBT,0.0,NONE,Neutral,Neutral,5.0,5.0
+1_S12E08_445,1_S12E08_445_u,(chuckles) Couldn't think of a single reason not to.,0:4.192,AMY,BBT,1.0,ILL,Frustration,Happiness,4.0,7.0
+1_S12E09_005,1_S12E09_005_u,"How about that? There is an ""I"" in ""team.""",0:2.301999,AMY,BBT,1.0,EMB,Anger,Neutral,3.0,8.0
+1_S12E09_081,1_S12E09_081_u,"Well, I am shocked, Sheldon, because I totally believed that the woman you reported for being stingy with the peas couldn't keep her hands off you.",0:8.909,LEONARD,BBT,1.0,ILL,Ridicule,Surprise,2.0,8.0
+1_S12E09_090,1_S12E09_090_u,You mean the last two minutes or the last 20 years?,0:2.769,LEONARD,BBT,1.0,PRO,Frustration,Neutral,3.0,8.0
+1_S12E09_103,1_S12E09_103_u,It just got more fun.,0:1.667999,LEONARD,BBT,1.0,PRO,Ridicule,Happiness,3.0,7.0
+1_S12E09_175,1_S12E09_175_u,"All right, great, can we go?",0:01.233000,PENNY,BBT,0.0,NONE,Excitement,Excitement,6.0,6.0
+1_S12E09_207,1_S12E09_207_u,Okay.,0:01.833000,HOWARD,BBT,0.0,NONE,Neutral,Neutral,5.0,5.0
+1_S12E09_307,1_S12E09_307_u,"What, the alphabet?",0:2.335000,OTHER,BBT,1.0,PRO,Anger,Surprise,4.0,8.0
+1_S12E09_369,1_S12E09_369_u,"All right, well, they're already dead. There's nothing we can do.",0:2.628999,PENNY,BBT,1.0,ILL,Ridicule,Sadness,3.0,8.0
+1_S12E09_413,1_S12E09_413_u,Like I don't care at all.,0:03.301000,PENNY,BBT,0.0,NONE,Sadness,Sadness,4.0,3.0
+1_S12E10_076,1_S12E10_076_u,You or the steak?,0:02.568000,PENNY,BBT,0.0,NONE,Surprise,Neutral,5.0,5.0
+1_S12E10_195,1_S12E10_195_u,Why is it all in the living room?,0:03.234000,HOWARD,BBT,0.0,NONE,Neutral,Neutral,5.0,5.0
+1_S12E10_245,1_S12E10_245_u,"And when I was little and my dog died, my mom sat me down and very gently told me that she wished the truck had hit my dad instead.",0:6.740000,LEONARD,BBT,1.0,EMB,Disgust,Neutral,2.0,9.0
+1_S12E11_002,1_S12E11_002_u,- A waste of champagne?,0:3.002999,PENNY,BBT,1.0,PRO,Disgust,Neutral,4.0,8.0
+1_S12E11_072,1_S12E11_072_u,"No offense, worker bees.",0:1.801000,OTHER,BBT,1.0,ILL,Disgust,Neutral,4.0,7.0
+1_S12E11_190,1_S12E11_190_u,"Well, you really managed to capture my voice.",0:4.771000,AMY,BBT,1.0,ILL,Frustration,Happiness,3.0,7.0
+1_S12E11_199,1_S12E11_199_u,"""Pretty well""?",0:2.335999,RAJ,BBT,1.0,ILL,Disgust,Surprise,4.0,7.0
+1_S12E12_043,1_S12E12_043_u,"I open the door and say, ""Hey, Raj.""",0:3.09,HOWARD,BBT,1.0,PRO,Disgust,Excitement,4.0,7.0
+1_S12E12_266,1_S12E12_266_u,You went to college.,0:2.742000,LEONARD,BBT,1.0,ILL,Disgust,Surprise,4.0,7.0
+1_S12E12_281,1_S12E12_281_u,but... thank you for saying it out loud.,0:3.742999,PENNY,BBT,1.0,ILL,Disgust,Happiness,3.0,7.0
+1_S12E13_088,1_S12E13_088_u,"Well, I know how to do the dishes. Just, sometimes I'm tired.",0:3.737,PENNY,BBT,1.0,PRO,Ridicule,Neutral,3.0,7.0
+1_S12E13_224,1_S12E13_224_u," Yeah, who remembers the guy who was trying to find India and discovered America instead?",0:4.926000,HOWARD,BBT,1.0,PRO,Ridicule,Surprise,4.0,8.0
+1_S12E14_125,1_S12E14_125_u,"including the rare ""DayQuilt"" misprint from 1996.",0:3.336999,OTHER,BBT,1.0,PRO,Disgust,Excitement,3.0,8.0
+1_S12E14_152,1_S12E14_152_u,It's nice they found each other.,0:5.405000,RAJ,BBT,1.0,ILL,Disgust,Happiness,3.0,7.0
+1_S12E15_013,1_S12E15_013_u,"Yeah, and we don't find it weird at all.",0:2.669000,PENNY,BBT,1.0,ILL,Disgust,Excitement,4.0,7.0
+1_S12E15_064,1_S12E15_064_u,"Oh, yeah, I would have forgotten, except for those nonrefundable airline tickets to India I bought.",0:5.872000,HOWARD,BBT,1.0,PRO,Ridicule,Sadness,3.0,8.0
+1_S12E15_351,1_S12E15_351_u,"Well, I took a nap next to Hot Dog on a Stick. What do you think?",0:3.671000,PENNY,BBT,1.0,PRO,Frustration,Neutral,4.0,7.0
+1_S12E15_420,1_S12E15_420_u,"Really? Well, I did not see that coming.",0:4.638,HOWARD,BBT,1.0,ILL,Ridicule,Surprise,3.0,7.0
+1_S12E16_140,1_S12E16_140_u,"Oh, no, this is the rest of our lives.",0:4.371000,AMY,BBT,1.0,PRO,Frustration,Excitement,4.0,8.0
+1_S12E17_085,1_S12E17_085_u,Was one of the options the option to never come back?,0:2.935999,LEONARD,BBT,1.0,PRO,Ridicule,Neutral,3.0,8.0
+1_S12E17_124,1_S12E17_124_u,"What do you call that, Bishops Be Crazy?",0:2.703000,RAJ,BBT,1.0,ILL,Ridicule,Neutral,4.0,7.0
+1_S12E17_195,1_S12E17_195_u,Maybe she's basing that on your poor husbanding skills.,0:4.003999,LEONARD,BBT,1.0,PRO,Disgust,Neutral,2.0,8.0
+1_S12E17_336,1_S12E17_336_u,"No, by opening the door to a hangar and letting the airplane fly in.",0:4.871999,HOWARD,BBT,1.0,PRO,Frustration,Neutral,3.0,7.0
+1_S12E18_030,1_S12E18_030_u,"Yeah, you should've seen her take down John Krasinski last week. Got him to admit he loved his wife. It was brutal.",0:7.107999,PENNY,BBT,1.0,PRO,Ridicule,Sadness,3.0,6.0
+1_S12E18_159,1_S12E18_159_u,"Honey, remember, she's my child, too.",0:3.137000,HOWARD,BBT,1.0,PRO,Ridicule,Happiness,4.0,7.0
+1_S12E18_198,1_S12E18_198_u,"And I'm supposed to be living on my own at this age, but here we are.",0:6.907,STUART,BBT,1.0,PRO,Ridicule,Sadness,4.0,7.0
+1_S12E18_225,1_S12E18_225_u,"No. ""Unfortunately, Sheldon..."" that's all you got to say.",0:3.103000,PENNY,BBT,1.0,EMB,Frustration,Excitement,3.0,7.0
+1_S12E18_290,1_S12E18_290_u,But the time machine thing is probably more likely.,0:3.804000,LEONARD,BBT,1.0,PRO,Ridicule,Neutral,4.0,7.0
+1_S12E18_303,1_S12E18_303_u,No. (chuckles) It's great. I just don't want anyone to ever see it or read it or know it exists.,0:4.672,HOWARD,BBT,1.0,PRO,Disgust,Happiness,4.0,8.0
+1_S12E19_354,1_S12E19_354_u,"Well, I don't see what else you could've done.",0:5.038,PENNY,BBT,1.0,ILL,Disgust,Sadness,4.0,8.0
+1_S12E20_378,1_S12E20_378_u,I speak a little Russian. Will you take nyet for an answer?,0:4.351999,OTHER,BBT,1.0,ILL,Ridicule,Excitement,3.0,7.0
+1_S12E21_261,1_S12E21_261_u,Other than Bernadette? That does not sound right.,0:3.525000,RAJ,BBT,1.0,ILL,Disgust,Happiness,3.0,7.0
+1_S12E21_285,1_S12E21_285_u,You sure you're not thinking about your husband?,0:3.176999,PENNY,BBT,1.0,PRO,Ridicule,Surprise,3.0,8.0
+1_S12E22_004,1_S12E22_004_u,Never? Isn't that usually when you go to the gym?,0:5.807,PENNY,BBT,1.0,EMB,Ridicule,Surprise,4.0,8.0
+1_S12E22_066,1_S12E22_066_u,"Apparently, a guy who wants to have his feelings hurt.",0:2.469000,HOWARD,BBT,1.0,PRO,Ridicule,Neutral,4.0,8.0
+1_S12E22_188,1_S12E22_188_u,"I can see why she would say that, but why do you?",0:2.803,HOWARD,BBT,1.0,PRO,Ridicule,Surprise,4.0,7.0
+1_S12E22_211,1_S12E22_211_u,"So, you're an Indian giver?",0:5.973000,HOWARD,BBT,1.0,ILL,Ridicule,Neutral,3.0,8.0
+1_S12E23_209,1_S12E23_209_u,So not Mr. and Mrs. Wackadoodle?,0:2.001999,HOWARD,BBT,1.0,ILL,Ridicule,Sadness,4.0,7.0
+1_S12E23_350,1_S12E23_350_u,maybe 300 tiny haircuts over a ten-year period.,0:4.170999,AMY,BBT,1.0,PRO,Frustration,Neutral,4.0,7.0
+1_S12E23_389,1_S12E23_389_u,"Heck, you've had sex almost as many times as I have fingers.",0:4.603999,PENNY,BBT,1.0,EMB,Ridicule,Excitement,2.0,8.0
+1_S12E23_470,1_S12E23_470_u,"This might be the glue talking, but that was a very pleasurable 139 and a half hours.",0:7.040000,LEONARD,BBT,1.0,ILL,Frustration,Happiness,4.0,7.0
+1_S12E23_488,1_S12E23_488_u,I stand by my statement.,0:2.903000,AMY,BBT,1.0,PRO,Disgust,Excitement,4.0,7.0
+1_S12E23_539,1_S12E23_539_u,"It was her, right?",0:1.902000,HOWARD,BBT,1.0,ILL,Ridicule,Surprise,3.0,7.0
+1_S12E23_600,1_S12E23_600_u,(quietly): I told you these tickets weren't free.,0:2.769999,HOWARD,BBT,1.0,ILL,Frustration,Neutral,4.0,6.0
+2_1,2_1_u,"Yes you can. You're thinking about time, you can't go back in time.",0:04,CHANDLER,FRIENDS,0.0,NONE,Neutral,Neutral,5.0,5.0
+2_103,2_103_u,"No, this is just part of a daredevil game that I play called wait until last moment before I burst and die",0:07,CHANDLER,FRIENDS,1.0,ILL,Frustration,Excitement,4.0,7.0
+2_104,2_104_u,Was that place the sun?,0:04,CHANDLER,FRIENDS,1.0,PRO,Disgust,Neutral,2.0,8.0
+2_105,2_105_u,Why? You never look down in the shower?  Oh please I am allowed one joke in the monkey is penis genre.,0:07,CHANDLER,FRIENDS,1.0,PRO,Ridicule,Neutral,2.0,9.0
+2_107,2_107_u,You'd better act surprised.,0:01,JOEY,FRIENDS,0.0,NONE,Fear,Fear,3.0,7.0
+2_109,2_109_u,"I thought if I littered, that crying Indian might come by and save us.",0:04,CHANDLER,FRIENDS,1.0,PRO,Ridicule,Neutral,4.0,7.0
+2_112,2_112_u,I think this is probably why Damone smokes in his cell alone.,0:07,CHANDLER,FRIENDS,1.0,ILL,Ridicule,Neutral,3.0,7.0
+2_113,2_113_u,"No, no the actual cartoon character .. Of course the baloon.",0:06,CHANDLER,FRIENDS,1.0,PRO,Frustration,Excitement,3.0,8.0
+2_114,2_114_u,Spanish midgets wrestling Julie! Okay yes I see how they got there.,0:1,CHANDLER,FRIENDS,1.0,PRO,Ridicule,Neutral,4.0,7.0
+2_115,2_115_u,"I am sorry, we donÕt have your sheep.",0:03,CHANDLER,FRIENDS,1.0,ILL,Ridicule,Sadness,4.0,7.0
+2_119,2_119_u,Yeah. What-what should I do?,0:01,ROSS,FRIENDS,0.0,NONE,Sadness,Sadness,4.0,6.0
+2_12,2_12_u,I studied for a year in Barcelona.,0:03,PERSON,FRIENDS,0.0,NONE,Happiness,Happiness,6.0,6.0
+2_120,2_120_u,"You know some might find it amusing, I myself find it regular.",0:04,CHANDLER,FRIENDS,1.0,ILL,Frustration,Happiness,3.0,7.0
+2_124,2_124_u,I am so confused as to what we have been doing so far.,0:13,CHANDLER,FRIENDS,1.0,PRO,Ridicule,Sadness,4.0,8.0
+2_125,2_125_u,I mean if you hadn't initiated it I-I-I know I would've.,0:03,ROSS,FRIENDS,0.0,NONE,Sadness,Sadness,4.0,6.0
+2_127,2_127_u,"When? Today? Some, not a lot.",0:06,JOEY,FRIENDS,0.0,NONE,Neutral,Neutral,5.0,5.0
+2_128,2_128_u,You building a post office?,0:02,CHANDLER,FRIENDS,1.0,PRO,Ridicule,Neutral,4.0,7.0
+2_131,2_131_u,I really don't wanna sit with Allen Iverson over there .,0:01,CHANDLER,FRIENDS,0.0,NONE,Sadness,Sadness,3.0,6.0
+2_134,2_134_u,Paper cut!,0:01,CHANDLER,FRIENDS,0.0,NONE,Sadness,Sadness,3.0,7.0
+2_137,2_137_u,"Okay, but If he asks, I am not going to lie.",0:04,CHANDLER,FRIENDS,0.0,NONE,Neutral,Neutral,5.0,5.0
+2_141,2_141_u,We think it was trying to spell out monkey.,0:05,CHANDLER,FRIENDS,1.0,ILL,Ridicule,Neutral,3.0,6.0
+2_147,2_147_u,"Well, we're trying to find someone to perform our wedding and they're all either boring or annoying or y'know, can't stop staring at the ladies.",0:06,MONICA,FRIENDS,0.0,NONE,Frustration,Frustration,4.0,6.0
+2_148,2_148_u,"Hey, that's Joincidence with a C",0:04,CHANDLER,FRIENDS,1.0,PRO,Ridicule,Excitement,4.0,8.0
+2_149,2_149_u,Thank you.,0:1,MONICA,FRIENDS,0.0,NONE,Neutral,Neutral,5.0,5.0
+2_15,2_15_u,I'm sorry man there is never a good time to have to .. Stop catching on fire.,0:08,CHANDLER,FRIENDS,1.0,EMB,Ridicule,Sadness,3.0,7.0
+2_150,2_150_u,"Take your shirt off, and let's see what we're dealing with here.  What are you doing?",0:07,PERSON,FRIENDS,0.0,NONE,Neutral,Neutral,5.0,5.0
+2_151,2_151_u,"Yeah, I mean, it would be rude to them for us to leave now.",0:02,CHANDLER,FRIENDS,1.0,PRO,Anger,Happiness,3.0,7.0
+2_152,2_152_u,Your makeup?,0:02,ROSS,FRIENDS,1.0,PRO,Disgust,Neutral,4.0,7.0
+2_155,2_155_u,Great! Now we can do laundry all night. All night laundry!,0:08,CHANDLER,FRIENDS,1.0,ILL,Frustration,Happiness,2.0,8.0
+2_160,2_160_u,"Because his penis was too big. I am sorry, thatÕs the kind of thing I do.",0:11,CHANDLER,FRIENDS,0.0,NONE,Happiness,Happiness,6.0,7.0
+2_161,2_161_u,I can see it from right here. It'll cost you one husband.,0:04,CHANDLER,FRIENDS,1.0,PRO,Anger,Excitement,3.0,7.0
+2_162,2_162_u,"Ow, ow, ow, ow, leg cramp, leg cramp, leg cramp.",0:02,PERSON,FRIENDS,0.0,NONE,Sadness,Sadness,2.0,8.0
+2_166,2_166_u,But I'm the host!,0:01,JOEY,FRIENDS,0.0,NONE,Surprise,Surprise,6.0,6.0
+2_168,2_168_u,Did I wake you?,0:13,CHANDLER,FRIENDS,1.0,ILL,Anger,Sadness,4.0,8.0
+2_169,2_169_u,"Hes not right for the part, and if I suggest him my bosses are going to think I am an idiot. And thatÕs something they should learn on their own.",0:06,CHANDLER,FRIENDS,1.0,ILL,Frustration,Neutral,2.0,7.0
+2_170,2_170_u,The British are coming?,0:01,CHANDLER,FRIENDS,1.0,ILL,Ridicule,Neutral,3.0,8.0
+2_171,2_171_u,What is the matter with your face?!,0:02,MONICA,FRIENDS,0.0,NONE,Anger,Anger,3.0,7.0
+2_172,2_172_u,The whole thing! Can we go?,0:02,CHANDLER,FRIENDS,1.0,ILL,Frustration,Excitement,4.0,7.0
+2_173,2_173_u,We- we had our first fight this morning.,0:02,ROSS,FRIENDS,0.0,NONE,Sadness,Sadness,3.0,6.0
+2_174,2_174_u,Oh! Satan's minions at work again?,0:03,CHANDLER,FRIENDS,1.0,PRO,Anger,Sadness,3.0,7.0
+2_176,2_176_u,I'm the ruptured spleen.,0:02,CHANDLER,FRIENDS,0.0,NONE,Fear,Happiness,4.0,4.0
+2_177,2_177_u,I can show you an ID if you want?,0:02,PERSON,FRIENDS,1.0,ILL,Ridicule,Excitement,4.0,6.0
+2_178,2_178_u,"This is so good, that I am gonna enjoy it in the balcony. I can enjoy my view, whilst I enjoy my desert.",0:09,CHANDLER,FRIENDS,1.0,ILL,Disgust,Happiness,3.0,6.0
+2_181,2_181_u,Yeah! Look!,0:01,JOEY,FRIENDS,0.0,NONE,Happiness,Happiness,6.0,6.0
+2_183,2_183_u,"No, rabies.",0:02,CHANDLER,FRIENDS,1.0,ILL,Anger,Anger,4.0,8.0
+2_186,2_186_u,"Excellent hole, Joe.",0:02,CHANDLER,FRIENDS,1.0,ILL,Disgust,Happiness,3.0,8.0
+2_187,2_187_u,That's so funny because you look more like Joey Tribbiani man slash woman.,0:04,CHANDLER,FRIENDS,1.0,EMB,Disgust,Happiness,2.0,7.0
+2_188,2_188_u,You had no relationship!!,0:01,MONICA,FRIENDS,0.0,NONE,Anger,Anger,3.0,7.0
+2_189,2_189_u,"Yeah okay, I was just talking to the guys. Just look at them I mean, is it okay if they come visit?",0:05,CHANDLER,FRIENDS,1.0,ILL,Frustration,Sadness,3.0,7.0
+2_191,2_191_u,"So, you're just Bing?",0:03,JOEY,FRIENDS,0.0,NONE,Surprise,Surprise,6.0,6.0
+2_193,2_193_u,"Yeah, a slice of cheesecake and-and a date if you're given'  'em out.",0:02,PERSON,FRIENDS,0.0,NONE,Excitement,Excitement,6.0,5.0
+2_194,2_194_u,"And it came out, ""Squatternut buash?""",0:03,JOEY,FRIENDS,0.0,NONE,Happiness,Happiness,7.0,7.0
+2_197,2_197_u,Ah your own brand of vigilante justice.,0:05,CHANDLER,FRIENDS,1.0,PRO,Ridicule,Surprise,4.0,7.0
+2_198,2_198_u,"Yeah, she's fired.",0:01,ROSS,FRIENDS,0.0,NONE,Sadness,Sadness,4.0,5.0
+2_2,2_2_u,"ThatÕs a good one too Pheebs, now all that I have to do is find a plane load of people whose resolution is to plummet to their deaths",0:06,CHANDLER,FRIENDS,1.0,EMB,Ridicule,Happiness,3.0,8.0
+2_20,2_20_u,My duties?  All right.,0:06,CHANDLER,FRIENDS,0.0,NONE,Sadness,Sadness,4.0,5.0
+2_203,2_203_u,It's not funny!,0:02,ROSS,FRIENDS,0.0,NONE,Anger,Anger,3.0,7.0
+2_204,2_204_u,"Oh Oh, I am convinced!",0:04,CHANDLER,FRIENDS,1.0,ILL,Anger,Happiness,2.0,7.0
+2_206,2_206_u,A tshirt that says - I don't belong here.,0:04,CHANDLER,FRIENDS,1.0,PRO,Ridicule,Neutral,3.0,8.0
+2_208,2_208_u,It's that whole sensitive thing.,0:01,JOEY,FRIENDS,0.0,NONE,Neutral,Neutral,5.0,5.0
+2_209,2_209_u,Really?,0:01,MEMBER-GIRL,SARCASMOHOLICS,1.0,ILL,Ridicule,Surprise,4.0,7.0
+2_210,2_210_u,When are you coming home?,0:02,PERSON,FRIENDS,0.0,NONE,Neutral,Neutral,5.0,5.0
+2_218,2_218_u,"Hey, does somebody wanna hand me one of those tiles.",0:02,JOEY,FRIENDS,0.0,NONE,Neutral,Neutral,5.0,5.0
+2_221,2_221_u,See Joe that's why your parents told you not to jump on your bed!,0:09,CHANDLER,FRIENDS,0.0,NONE,Frustration,Frustration,3.0,7.0
+2_223,2_223_u,"I guess he wants to do a little dance, you know, make a little love. Well pretty much get down to that.",0:11,CHANDLER,FRIENDS,1.0,PRO,Ridicule,Sadness,3.0,8.0
+2_225,2_225_u,"I don't know, something girlie.",0:02,ROSS,FRIENDS,0.0,NONE,Happiness,Happiness,7.0,7.0
+2_226,2_226_u,"These people find out that a spelling game is going over there, there will be nobody left at our party.",0:09,CHANDLER,FRIENDS,1.0,ILL,Ridicule,Sadness,3.0,8.0
+2_227,2_227_u,You sure he is going to be able to crack that code?,0:04,CHANDLER,FRIENDS,1.0,ILL,Frustration,Neutral,3.0,7.0
+2_228,2_228_u,Then we went to this bar and he hooked us up with all these women!,0:03,PERSON,FRIENDS,0.0,NONE,Happiness,Happiness,6.0,7.0
+2_230,2_230_u,"Okay, Janice. Janice. You gotta give me Janice. That wasn't about being picky.",0:04,CHANDLER,FRIENDS,0.0,NONE,Anger,Anger,3.0,7.0
+2_231,2_231_u,"No, no, no, it's flattery.",0:01,ROSS,FRIENDS,0.0,NONE,Happiness,Happiness,6.0,6.0
+2_235,2_235_u,You can't make this stuff up!,0:02,CHANDLER,FRIENDS,0.0,NONE,Happiness,Happiness,6.0,7.0
+2_236,2_236_u,"Gee, if only she were one and had no idea what a birthday was.",0:06,CHANDLER,FRIENDS,1.0,PRO,Disgust,Sadness,3.0,8.0
+2_24,2_24_u,"Uh, okay. The fifth dentist caved and now they're all recommending Trident?",0:04,CHANDLER,FRIENDS,1.0,EMB,Ridicule,Neutral,4.0,7.0
+2_240,2_240_u,No!,0:01,JOEY,FRIENDS,0.0,NONE,Happiness,Happiness,6.0,6.0
+2_241,2_241_u,"Oh I do. Oh no, wait a minute, I took it out of my shirt when I put it on this morning.",0:06,CHANDLER,FRIENDS,1.0,PRO,Disgust,Happiness,4.0,8.0
+2_242,2_242_u,Are you still enjoying your nap?,0:04,CHANDLER,FRIENDS,1.0,ILL,Ridicule,Neutral,3.0,8.0
+2_243,2_243_u,"Look I never should have kissed your girlfriend, but I'm",0:03,CHANDLER,FRIENDS,0.0,NONE,Sadness,Sadness,3.0,6.0
+2_245,2_245_u,"Well ah, I've been doing a lot of thinking, and I look at my life",0:06,PERSON,FRIENDS,0.0,NONE,Sadness,Sadness,4.0,6.0
+2_246,2_246_u,"Well, it will probably slow me down at first. But once I am used to the extra weight, I ll get back on track.",0:05,CHANDLER,FRIENDS,1.0,PRO,Ridicule,Excitement,3.0,7.0
+2_247,2_247_u,Uh yes! Thank you.,0:01,ROSS,FRIENDS,1.0,PRO,Anger,Happiness,3.0,8.0
+2_248,2_248_u,"I mean, you and I we're just, y'know, we're nothing, we're goofin' around.",0:03,CHANDLER,FRIENDS,1.0,PRO,Anger,Happiness,3.0,8.0
+2_251,2_251_u,No!! You have been screwing us all day!,0:03,MONICA,FRIENDS,0.0,NONE,Anger,Anger,3.0,7.0
+2_258,2_258_u,"I am telling you, when she leaned back, I could see her brain",0:13,CHANDLER,FRIENDS,1.0,PRO,Frustration,Neutral,2.0,9.0
+2_260,2_260_u,"Okay, are you aware unagi  is an eel?",0:02,CHANDLER,FRIENDS,1.0,ILL,Anger,Neutral,4.0,7.0
+2_261,2_261_u,"Oh, no, no. I just meant hypothetically.",0:02,CHANDLER,FRIENDS,0.0,NONE,Sadness,Sadness,4.0,6.0
+2_263,2_263_u,Wow! Imagine what our kids would look like!,0:02,MONICA,FRIENDS,0.0,NONE,Happiness,Happiness,6.0,6.0
+2_268,2_268_u,"A lonely grey couch. "" O look "" cried Ned. And then the kingdom was his. The End.",0:12,CHANDLER,FRIENDS,0.0,NONE,Neutral,Neutral,5.0,5.0
+2_27,2_27_u,"No no, you don't have to fly back, really.",0:03,MONICA,FRIENDS,0.0,NONE,Fear,Fear,3.0,7.0
+2_270,2_270_u,Hey.,0:01,JOEY,FRIENDS,0.0,NONE,Neutral,Neutral,5.0,5.0
+2_272,2_272_u,Weā€™re not peeking?,0:02,JOEY,FRIENDS,0.0,NONE,Sadness,Sadness,4.0,6.0
+2_278,2_278_u,: Yeah.,0:01,PERSON,FRIENDS,0.0,NONE,Happiness,Happiness,6.0,5.0
+2_279,2_279_u,Sounds like she has got the whole package!,0:07,MONICA,FRIENDS,1.0,ILL,Ridicule,Excitement,4.0,6.0
+2_28,2_28_u,"Carol called me to thank me for the lasagna, I asked, she told me.",0:03,MONICA,FRIENDS,0.0,NONE,Happiness,Happiness,6.0,6.0
+2_280,2_280_u,"Joey ate my last stick of gum, so I killed him. Do you think that was wrong?",0:08,CHANDLER,FRIENDS,1.0,EMB,Frustration,Happiness,3.0,8.0
+2_283,2_283_u,Dee. The sarcastic sister from What's Happening.,0:03,CHANDLER,FRIENDS,1.0,PRO,Frustration,Neutral,3.0,7.0
+2_284,2_284_u,What?  Why?,0:02,MONICA,FRIENDS,0.0,NONE,Surprise,Surprise,7.0,7.0
+2_286,2_286_u,"And sometimes I would want you to steal third, and I'll go like this.",0:1,CHANDLER,FRIENDS,1.0,ILL,Ridicule,Neutral,3.0,6.0
+2_287,2_287_u,"Oh I am sorry, do you need a break?",0:03,CHANDLER,FRIENDS,1.0,ILL,Anger,Sadness,3.0,5.0
+2_288,2_288_u,Maybe he was nervous.,0:03,CHANDLER,FRIENDS,1.0,ILL,Ridicule,Neutral,3.0,8.0
+2_289,2_289_u,"Nooo! No, that's not true. No, best time ever! Yeah, you rocked my world!",0:1,MONICA,FRIENDS,1.0,ILL,Ridicule,Excitement,3.0,7.0
+2_291,2_291_u,"Umm, would you please excuse me for a moment?",0:02,ROSS,FRIENDS,0.0,NONE,Neutral,Neutral,5.0,5.0
+2_294,2_294_u,"Oh, um, I don't care!",0:03,CHANDLER,FRIENDS,1.0,PRO,Frustration,Neutral,3.0,7.0
+2_295,2_295_u,Nobody sees the king!,0:01,PERSON,FRIENDS,0.0,NONE,Anger,Anger,4.0,6.0
+2_297,2_297_u,"I am sorry, it was a one time thing. I was very drunk and it was someone else's subconscious",0:09,CHANDLER,FRIENDS,1.0,PRO,Ridicule,Sadness,4.0,8.0
+2_299,2_299_u,What would you give to a kid if he wanted a ticket to play with?,0:03,CHANDLER,FRIENDS,0.0,NONE,Neutral,Neutral,5.0,5.0
+2_3,2_3_u,And I think my testicles may be in here too,0:02,CHANDLER,FRIENDS,1.0,PRO,Ridicule,Neutral,1.0,7.0
+2_30,2_30_u,So how'd it go?,0:01,ROSS,FRIENDS,0.0,NONE,Sadness,Sadness,4.0,5.0
+2_301,2_301_u,"Hey, do you know a six-letter word for red?",0:02,CHANDLER,FRIENDS,0.0,NONE,Neutral,Neutral,5.0,5.0
+2_303,2_303_u,No thanks Josephine!,0:05,CHANDLER,FRIENDS,1.0,ILL,Disgust,Happiness,4.0,6.0
+2_305,2_305_u,Take a couple deep breaths.,0:02,JOEY,FRIENDS,0.0,NONE,Fear,Fear,3.0,7.0
+2_310,2_310_u,Well thank God your livelihood doesn't depend on it.,0:03,CHANDLER,FRIENDS,1.0,PRO,Sadness,Happiness,4.0,7.0
+2_312,2_312_u,Sarcasm? At a sarcasmoholics meeting?,0:03,MEMBER-GIRL,SARCASMOHOLICS,1.0,ILL,Ridicule,Surprise,4.0,6.0
+2_313,2_313_u,"Oh sure, go with the sissy.",0:02,JOEY,FRIENDS,1.0,PRO,Anger,Neutral,2.0,7.0
+2_314,2_314_u,Am I out of control?,0:01,MONICA,FRIENDS,0.0,NONE,Neutral,Neutral,5.0,5.0
+2_317,2_317_u,"Ah, oh, hang on a second. Come in, come in. All right, so think about it, and call me back.",0:04,PERSON,FRIENDS,0.0,NONE,Happiness,Happiness,6.0,6.0
+2_322,2_322_u,"Hey, my father's house does that.",0:05,CHANDLER,FRIENDS,0.0,NONE,Happiness,Happiness,7.0,7.0
+2_323,2_323_u,That monkey has got a Ross on its ass!,0:03,CHANDLER,FRIENDS,1.0,EMB,Ridicule,Neutral,2.0,8.0
+2_326,2_326_u,Stick to the list.,0:02,ROSS,FRIENDS,0.0,NONE,Neutral,Neutral,5.0,5.0
+2_334,2_334_u,"When they're hungry enough, they'll come in.",0:02,JOEY,FRIENDS,0.0,NONE,Neutral,Neutral,5.0,5.0
+2_337,2_337_u,"Uh, listen, I need that broiling pan that Joey borrowed the other day.",0:02,MONICA,FRIENDS,0.0,NONE,Neutral,Neutral,5.0,5.0
+2_339,2_339_u,Thank you.,0:02,ROSS,FRIENDS,0.0,NONE,Happiness,Happiness,7.0,7.0
+2_34,2_34_u,Is it me or the greetings gone downhill around here?,0:04,CHANDLER,FRIENDS,1.0,PRO,Sadness,Neutral,3.0,7.0
+2_341,2_341_u,"Well, I'd gotten Judy pregnant. I still don't know how that happened.",0:05,PERSON,FRIENDS,1.0,PRO,Ridicule,Happiness,4.0,7.0
+2_343,2_343_u,"So to sum up, I'm Professor Geller.",0:04,ROSS,FRIENDS,0.0,NONE,Neutral,Neutral,5.0,5.0
+2_345,2_345_u,Oh I left them in my bulldozer .. I don't have tools!,0:07,CHANDLER,FRIENDS,1.0,ILL,Frustration,Sadness,3.0,7.0
+2_347,2_347_u,Well what are you gonna do when he finds out he wasn't even asked?!,0:02,MONICA,FRIENDS,0.0,NONE,Frustration,Frustration,3.0,7.0
+2_35,2_35_u,Oh no donÕt go. I have scared you. I have said too much. I am hopeless and awkward and desperate for love.,0:08,CHANDLER,FRIENDS,0.0,NONE,Anger,Anger,3.0,7.0
+2_353,2_353_u,"Nothing. It's just old and dingy, that's all.",0:02,JOEY,FRIENDS,0.0,NONE,Disgust,Disgust,4.0,6.0
+2_356,2_356_u,Yeah.,0:01,PERSON,FRIENDS,0.0,NONE,Happiness,Happiness,6.0,6.0
+2_358,2_358_u,"I do not always have to be,okay, okay.",0:02,ROSS,FRIENDS,0.0,NONE,Frustration,Frustration,4.0,5.0
+2_359,2_359_u,"You know once you are inside, you don't have to knock anymore.",0:06,CHANDLER,FRIENDS,1.0,ILL,Ridicule,Neutral,4.0,6.0
+2_36,2_36_u,"The big deal is I don't want naked, greasy strangers in my apartment when I want to kick back with a puzzle,beer! Cold beer.",0:07,ROSS,FRIENDS,0.0,NONE,Frustration,Frustration,3.0,7.0
+2_361,2_361_u,Nooo,0:02,MEMBER-GIRL,SARCASMOHOLICS,1.0,ILL,Ridicule,Sadness,4.0,6.0
+2_365,2_365_u,"Nope. Op, wait! There he goes.",0:02,JOEY,FRIENDS,0.0,NONE,Happiness,Happiness,7.0,7.0
+2_367,2_367_u,"Well, don't  'cha wanna?",0:01,MONICA,FRIENDS,0.0,NONE,Neutral,Neutral,5.0,5.0
+2_369,2_369_u,"I just have to do one thing, really quickly, its not a big thing  ...  GET UP||",0:04,CHANDLER,FRIENDS,1.0,PRO,Anger,Happiness,4.0,8.0
+2_370,2_370_u,You have to stop the Q-Tip when there is resistance,0:04,CHANDLER,FRIENDS,1.0,ILL,Frustration,Frustration,3.0,6.0
+2_371,2_371_u,I-I'm really sorry. It's just that I,0:01,ROSS,FRIENDS,0.0,NONE,Sadness,Sadness,3.0,6.0
+2_372,2_372_u,Actually I yesterday I was smoking again. Today I am smoking still.,0:04,CHANDLER,FRIENDS,1.0,EMB,Frustration,Happiness,3.0,7.0
+2_373,2_373_u,I was making a coconut phone with a professor.,0:04,CHANDLER,FRIENDS,1.0,PRO,Ridicule,Neutral,4.0,7.0
+2_374,2_374_u,Janice? Janice?,0:11,CHANDLER,FRIENDS,1.0,ILL,Anger,Surprise,3.0,7.0
+2_375,2_375_u,I was thkinking about maybe going into the Robot.,0:02,ROSS,FRIENDS,0.0,NONE,Happiness,Happiness,7.0,7.0
+2_376,2_376_u,Me? I am gonna die alone!,0:04,CHANDLER,FRIENDS,1.0,ILL,Disgust,Frustration,3.0,8.0
+2_377,2_377_u,Yeah either that or gloria estefan was right eventually the rhythm is going to get you,0:04,CHANDLER,FRIENDS,1.0,ILL,Ridicule,Neutral,4.0,7.0
+2_38,2_38_u,It's not a real game! I made it up!,0:02,CHANDLER,FRIENDS,0.0,NONE,Frustration,Frustration,3.0,6.0
+2_380,2_380_u,Oh just like give a minute to wake up for this  ...  Ha ha! You lost the ring. You are the worst best man ever!,0:11,CHANDLER,FRIENDS,0.0,NONE,Happiness,Happiness,8.0,8.0
+2_387,2_387_u,"Yes, I know, but her friend sounds like such a...",0:04,CHANDLER,FRIENDS,0.0,NONE,Sadness,Sadness,4.0,6.0
+2_388,2_388_u,"Yeah, she couldn't live without the Chan Love.",0:06,CHANDLER,FRIENDS,0.0,NONE,Happiness,Happiness,7.0,7.0
+2_389,2_389_u,Huh! Whats dufus speled backwards?,0:05,MONICA,FRIENDS,1.0,PRO,Anger,Neutral,3.0,8.0
+2_39,2_39_u,"Oh hurry up, I want to sign that.",0:04,CHANDLER,FRIENDS,1.0,ILL,Anger,Happiness,2.0,6.0
+2_392,2_392_u,Ah you see perfect might be a problem. Had you said co-dependent or self-destructive.,0:05,CHANDLER,FRIENDS,1.0,PRO,Ridicule,Sadness,4.0,7.0
+2_393,2_393_u,Pheebs?,0:01,CHANDLER,FRIENDS,0.0,NONE,Frustration,Frustration,4.0,6.0
+2_397,2_397_u,You still love me?,0:01,ROSS,FRIENDS,0.0,NONE,Happiness,Happiness,6.0,6.0
+2_400,2_400_u,"Anyway, I should go, one of the lifeguards was just about to dismantle a nuclear device.",0:05,CHANDLER,FRIENDS,0.0,NONE,Happiness,Happiness,6.0,6.0
+2_405,2_405_u,I'm supposed to teach a graduate seminar there in ten minutes.,0:02,ROSS,FRIENDS,0.0,NONE,Anger,Anger,4.0,6.0
+2_406,2_406_u,For what? For letting you throw me out of your office?,0:02,ROSS,FRIENDS,1.0,PRO,Anger,Surprise,3.0,8.0
+2_407,2_407_u,Hey!,0:01,JOEY,FRIENDS,0.0,NONE,Happiness,Happiness,6.0,6.0
+2_408,2_408_u,"Okay, but if you are not coming back soon, there is pretty much nothing I can do about it",0:06,CHANDLER,FRIENDS,1.0,PRO,Anger,Happiness,3.0,7.0
+2_409,2_409_u,I'll catch you guys later.,0:04,CHANDLER,FRIENDS,0.0,NONE,Happiness,Happiness,6.0,6.0
+2_410,2_410_u,If you wanna put a label on it.,0:02,ROSS,FRIENDS,1.0,PRO,Sadness,Happiness,4.0,6.0
+2_415,2_415_u,"Chloe, switch with me, there's some guys here that got a crush on you.",0:03,PERSON,FRIENDS,0.0,NONE,Neutral,Neutral,5.0,5.0
+2_416,2_416_u,Were you so late because you were burying this woman?,0:03,CHANDLER,FRIENDS,1.0,PRO,Ridicule,Neutral,4.0,6.0
+2_420,2_420_u,"No you are not Chandler, we still love you Chandler",0:05,CHANDLER,FRIENDS,1.0,ILL,Anger,Anger,3.0,7.0
+2_421,2_421_u,Joey's got a really bad hernia but its nothing that a laser eye surgery wont fix,0:06,CHANDLER,FRIENDS,1.0,EMB,Ridicule,Neutral,3.0,8.0
+2_422,2_422_u,"Well, I like it. Here you go.",0:01,JOEY,FRIENDS,0.0,NONE,Happiness,Happiness,6.0,6.0
+2_423,2_423_u,Like I have nothing better to do!,0:02,MONICA,FRIENDS,1.0,ILL,Anger,Excitement,3.0,8.0
+2_425,2_425_u,And did he?,0:01,MONICA,FRIENDS,0.0,NONE,Excitement,Excitement,6.0,7.0
+2_426,2_426_u,"Are you kidding? I love that guy!  Morning's here! Morning is here,",0:07,JOEY,FRIENDS,0.0,NONE,Happiness,Happiness,8.0,8.0
+2_428,2_428_u,His legs flail about as if independent from his body,0:08,CHANDLER,FRIENDS,0.0,NONE,Excitement,Excitement,7.0,7.0
+2_43,2_43_u,"Well, y'know I'm 29. I mean who needs a savings account.",0:03,CHANDLER,FRIENDS,1.0,ILL,Ridicule,Excitement,4.0,6.0
+2_430,2_430_u,I guess you would know that or else we would be in a predicament room,0:05,CHANDLER,FRIENDS,1.0,PRO,Frustration,Happiness,3.0,7.0
+2_431,2_431_u,I'm never gonna get to meet her anyway.,0:02,JOEY,FRIENDS,0.0,NONE,Sadness,Sadness,3.0,7.0
+2_433,2_433_u,I was saying the actual words,0:03,CHANDLER,FRIENDS,1.0,PRO,Frustration,Excitement,3.0,8.0
+2_434,2_434_u,We can? Ok I am trying that.,0:02,CHANDLER,FRIENDS,1.0,ILL,Ridicule,Surprise,4.0,7.0
+2_435,2_435_u,"Me too! There's a game on Tuesday, do you wanna go?",0:03,JOEY,FRIENDS,0.0,NONE,Happiness,Happiness,6.0,6.0
+2_437,2_437_u,"Oh yeah. First off all, chasing the Churo guy isn't jogging.",0:03,CHANDLER,FRIENDS,0.0,NONE,Frustration,Frustration,4.0,6.0
+2_438,2_438_u,Really? Struck down in the prime of life.,0:06,CHANDLER,FRIENDS,1.0,PRO,Ridicule,Neutral,4.0,7.0
+2_439,2_439_u,"Twenty-one hours, you're a hero.",0:02,PERSON,FRIENDS,0.0,NONE,Happiness,Happiness,6.0,5.0
+2_44,2_44_u,"Whoa, maybe I was!",0:02,JOEY,FRIENDS,0.0,NONE,Happiness,Happiness,7.0,7.0
+2_440,2_440_u,"No its not big, not at all. Kind of the same lines as, I don't know, having a third nipple!",0:07,MONICA,FRIENDS,1.0,PRO,Anger,Neutral,2.0,8.0
+2_441,2_441_u,"He's right, even if it's to say something complementary.",0:03,ROSS,FRIENDS,0.0,NONE,Sadness,Sadness,4.0,6.0
+2_443,2_443_u,"Dear god, this parachute is a knapsack",0:04,CHANDLER,FRIENDS,1.0,ILL,Disgust,Frustration,4.0,7.0
+2_446,2_446_u,"I'd love to show ya, but I just tucked her in.",0:02,JOEY,FRIENDS,0.0,NONE,Happiness,Happiness,6.0,6.0
+2_447,2_447_u,It was an accident. Not like I was across the street with a telescope and a box of donuts.,0:06,CHANDLER,FRIENDS,1.0,EMB,Frustration,Sadness,2.0,7.0
+2_448,2_448_u,Do you still wanna call  'em? I wanna call  'em.,0:02,MONICA,FRIENDS,0.0,NONE,Happiness,Happiness,7.0,7.0
+2_449,2_449_u,"Oh no, now its not gonna make any sense",0:05,CHANDLER,FRIENDS,1.0,ILL,Ridicule,Sadness,4.0,6.0
+2_450,2_450_u,If only there was something in your head to control the things you say.,0:05,CHANDLER,FRIENDS,1.0,PRO,Ridicule,Sadness,4.0,8.0
+2_454,2_454_u,"Ross umm, there's something that I've got to tell you, there's-there's someone else.",0:07,PERSON,FRIENDS,0.0,NONE,Sadness,Sadness,3.0,7.0
+2_456,2_456_u,And you are gonna make them all disappear.,0:02,CHANDLER,FRIENDS,1.0,PRO,Anger,Surprise,4.0,6.0
+2_457,2_457_u,"Yes, we all know how cruel a parent can be, about the flatness of a child's pillow.",0:04,CHANDLER,FRIENDS,1.0,PRO,Ridicule,Excitement,4.0,6.0
+2_458,2_458_u,What are you up too?,0:01,MONICA,FRIENDS,0.0,NONE,Excitement,Excitement,6.0,6.0
+2_461,2_461_u,"Wow you look just like your son, Mrs. Tribbiani",0:07,CHANDLER,FRIENDS,1.0,ILL,Ridicule,Surprise,4.0,7.0
+2_463,2_463_u,Ok!,0:01,JOEY,FRIENDS,0.0,NONE,Neutral,Neutral,5.0,5.0
+2_464,2_464_u,"Oh, uh, no thanks. I just had an M&M.",0:02,CHANDLER,FRIENDS,1.0,ILL,Ridicule,Neutral,4.0,6.0
+2_471,2_471_u,Amazing.,0:01,MEMBER-GIRL,SARCASMOHOLICS,1.0,ILL,Sadness,Happiness,3.0,6.0
+2_472,2_472_u,And I just won a million dollars!,0:05,CHANDLER,FRIENDS,0.0,NONE,Happiness,Happiness,7.0,7.0
+2_473,2_473_u,I'm the supply manager.,0:01,PERSON,FRIENDS,0.0,NONE,Neutral,Neutral,5.0,5.0
+2_474,2_474_u,Lovely,0:01,CHANDLER,FRIENDS,1.0,ILL,Frustration,Happiness,3.0,7.0
+2_475,2_475_u,"Oh yeah ok, including the waffles last week, you now owe me, seventeen zillion dollars.",0:05,CHANDLER,FRIENDS,1.0,EMB,Anger,Happiness,4.0,7.0
+2_477,2_477_u,"And then and then you clicked it again, she's dressed. She is a business woman, she is walking down the street and oh oh oh she's naked.",0:08,CHANDLER,FRIENDS,0.0,NONE,Happiness,Happiness,7.0,7.0
+2_478,2_478_u,"Oh, wait a minute, I have no one.",0:07,CHANDLER,FRIENDS,1.0,PRO,Sadness,Excitement,4.0,5.0
+2_48,2_48_u,"Thanks, but I kinda have a problem to deal with here.",0:04,JOEY,FRIENDS,0.0,NONE,Happiness,Happiness,7.0,7.0
+2_481,2_481_u,All right.,0:01,ROSS,FRIENDS,0.0,NONE,Neutral,Neutral,5.0,5.0
+2_484,2_484_u,Yes yes it is! In Prison!!,0:03,ROSS,FRIENDS,1.0,PRO,Frustration,Neutral,2.0,8.0
+2_487,2_487_u,"And Hornswoggle? What? Are you dating a character from ""Fraggle Rock""? Ahh.",0:07,CHANDLER,FRIENDS,1.0,PRO,Frustration,Surprise,4.0,8.0
+2_488,2_488_u,"Just a sec, give me a minute to wake up for this,Ah-ha-ha!!",0:05,CHANDLER,FRIENDS,0.0,NONE,Happiness,Happiness,8.0,8.0
+2_49,2_49_u,We got a box.,0:03,JOEY,FRIENDS,0.0,NONE,Neutral,Neutral,5.0,5.0
+2_490,2_490_u,"Maybe it's a contest, you know? Like ""Collect all five"".",0:04,CHANDLER,FRIENDS,1.0,ILL,Ridicule,Happiness,3.0,7.0
+2_491,2_491_u,"Let me think! Let me think! Oh, I don't care.",0:03,CHANDLER,FRIENDS,1.0,EMB,Frustration,Neutral,3.0,7.0
+2_492,2_492_u,"I'm sorry Sophia, but in Dorothy's defence, it sure sounds a lot like her.",0:05,ROSE,GOLDENGIRLS,1.0,PRO,Ridicule,Sadness,4.0,8.0
+2_493,2_493_u,Did you tell her about the magical night that starts with the flush of every toilet?,0:05,CHANDLER,FRIENDS,1.0,EMB,Ridicule,Neutral,3.0,8.0
+2_494,2_494_u,But younger than some buildings!,0:04,CHANDLER,FRIENDS,1.0,PRO,Ridicule,Neutral,3.0,8.0
+2_498,2_498_u,"Uh, so how many cameras are actually on you.",0:05,CHANDLER,FRIENDS,1.0,PRO,Anger,Neutral,3.0,8.0
+2_50,2_50_u,"Nope, that patch is no good.",0:11,CHANDLER,FRIENDS,1.0,ILL,Ridicule,Neutral,4.0,7.0
+2_500,2_500_u,Oh my God I love that! - Really? - NO!,0:06,MONICA,FRIENDS,1.0,ILL,Disgust,Happiness,4.0,6.0
+2_508,2_508_u,"Yes, the doctor's say if they remove it, he will die!",0:05,CHANDLER,FRIENDS,1.0,PRO,Ridicule,Sadness,4.0,8.0
+2_509,2_509_u,Crazy bitch!,0:03,CHANDLER,FRIENDS,1.0,ILL,Ridicule,Anger,3.0,8.0
+2_51,2_51_u,"Well, I believe the piece of furniture was fine until your little breakfast adventure with Angela Delvecchio",0:02,CHANDLER,FRIENDS,0.0,NONE,Anger,Anger,3.0,7.0
+2_511,2_511_u,"You said you spent all that money because those boots go with skirts, dresses and pants. What do you plan on wearing? A Chicken suit?",0:08,CHANDLER,FRIENDS,1.0,EMB,Anger,Excitement,3.0,9.0
+2_514,2_514_u,What's going on?!  That's what's going on!!,0:02,ROSS,FRIENDS,0.0,NONE,Anger,Anger,2.0,8.0
+2_518,2_518_u,Oh tons. I am quite the woodsman.,0:03,CHANDLER,FRIENDS,1.0,PRO,Frustration,Happiness,4.0,7.0
+2_521,2_521_u,Uh-huh!,0:01,JOEY,FRIENDS,0.0,NONE,Disgust,Disgust,3.0,7.0
+2_522,2_522_u,Yes it is.,0:01,PERSON,FRIENDS,0.0,NONE,Fear,Fear,4.0,5.0
+2_523,2_523_u,"Well, I'm a headhunter. I hook up out of work Soviet scientists with rogue third-world nations. Hi Rasputin!",0:08,CHANDLER,FRIENDS,1.0,PRO,Ridicule,Neutral,4.0,7.0
+2_524,2_524_u,"Yes and we are ""very"" excited about it.",0:05,CHANDLER,FRIENDS,1.0,ILL,Anger,Happiness,4.0,7.0
+2_527,2_527_u,We thought you were just here for the company. He is a sarcasmoholic Stewart.,0:04,MEMBER-GIRL,SARCASMOHOLICS,1.0,ILL,Ridicule,Surprise,3.0,7.0
+2_530,2_530_u,"Uh, I'm gonna kill myself!",0:02,PERSON,FRIENDS,0.0,NONE,Sadness,Sadness,2.0,8.0
+2_531,2_531_u,"Yeah well that's because uh .. I stayed in my room. Yeah, you don't want to look in my hamper.",0:09,JOEY,FRIENDS,0.0,NONE,Sadness,Sadness,4.0,6.0
+2_532,2_532_u,"The Jamestown colony of Virginia. You see King George is giving us the land, so.",0:06,CHANDLER,FRIENDS,1.0,PRO,Frustration,Happiness,3.0,7.0
+2_535,2_535_u,"So, I'm sorry I just don't think we should go away together yet.",0:03,ROSS,FRIENDS,0.0,NONE,Sadness,Sadness,4.0,5.0
+2_536,2_536_u,What a baby.,0:01,CHANDLER,FRIENDS,0.0,NONE,Disgust,Disgust,4.0,6.0
+2_537,2_537_u,What did you want to show us? Because all I can see is this bitchin van,0:05,ROSS,FRIENDS,0.0,NONE,Excitement,Excitement,7.0,7.0
+2_540,2_540_u,Okay?,0:01,JOEY,FRIENDS,0.0,NONE,Neutral,Neutral,5.0,5.0
+2_541,2_541_u,Oh yeah right. And what would my opening line be? Excuse me,0:04,CHANDLER,FRIENDS,1.0,ILL,Frustration,Neutral,3.0,7.0
+2_542,2_542_u,"Uh, Rachel's here, so good luck man, let me know how it works out.",0:03,JOEY,FRIENDS,1.0,PRO,Frustration,Happiness,3.0,7.0
+2_546,2_546_u,"Oh sure, she was probably up all night excited about the party she knows is happening.",0:05,CHANDLER,FRIENDS,1.0,ILL,Ridicule,Neutral,3.0,8.0
+2_547,2_547_u,"Okay, now much have you won so far?",0:02,CHANDLER,FRIENDS,0.0,NONE,Neutral,Neutral,5.0,5.0
+2_548,2_548_u,"Almost! But first, we gotta start.",0:02,PERSON,FRIENDS,1.0,PRO,Ridicule,Happiness,4.0,6.0
+2_549,2_549_u,Really?,0:01,MONICA,FRIENDS,0.0,NONE,Disgust,Disgust,4.0,6.0
+2_55,2_55_u,"Oh hey, great, you're up. Rachel, this is my sister Krista. Krista, this is Rachel.",0:02,PERSON,FRIENDS,0.0,NONE,Happiness,Happiness,6.0,6.0
+2_550,2_550_u,All right I'll have one.,0:01,CHANDLER,FRIENDS,1.0,ILL,Ridicule,Neutral,4.0,6.0
+2_552,2_552_u,DANGER,0:01,ROSS,FRIENDS,0.0,NONE,Excitement,Excitement,7.0,7.0
+2_553,2_553_u,"No just, nobody press on my stomach.",0:03,JOEY,FRIENDS,0.0,NONE,Sadness,Sadness,3.0,6.0
+2_555,2_555_u,Hey! It's starting to snow.,0:02,ROSS,FRIENDS,0.0,NONE,Happiness,Happiness,7.0,7.0
+2_556,2_556_u,"Joey if I go first, I want to be looking for my keys",0:04,CHANDLER,FRIENDS,1.0,ILL,Frustration,Neutral,3.0,8.0
+2_557,2_557_u,"Oh my God, wh-what happened?",0:03,ROSS,FRIENDS,0.0,NONE,Sadness,Sadness,3.0,7.0
+2_558,2_558_u,I can see it from right here. It'll cost you one husband.,0:04,CHANDLER,FRIENDS,1.0,PRO,Anger,Excitement,3.0,7.0
+2_559,2_559_u,What?!?!,0:01,MONICA,FRIENDS,0.0,NONE,Surprise,Surprise,8.0,8.0
+2_562,2_562_u,"Look now, Phoebe remember, hey, their just fulfilling their Christmas....",0:04,JOEY,FRIENDS,0.0,NONE,Neutral,Neutral,5.0,5.0
+2_564,2_564_u,"And, uh, I don't know if you got any of that, but I would really like a copy of the tape.",0:03,CHANDLER,FRIENDS,0.0,NONE,Happiness,Happiness,6.0,6.0
+2_567,2_567_u,"Well yes Ross, pressing my third nipple opens the delivery entrance to the magical land of Narnia.",0:07,CHANDLER,FRIENDS,1.0,EMB,Frustration,Happiness,2.0,8.0
+2_570,2_570_u,"Oh my god, where are all the men?",0:06,CHANDLER,FRIENDS,0.0,NONE,Disgust,Disgust,7.0,8.0
+2_573,2_573_u,"Oh I see, I thought you just really really liked your new couch.",0:07,CHANDLER,FRIENDS,1.0,ILL,Ridicule,Neutral,4.0,7.0
+2_574,2_574_u,You can't do anything.,0:04,JOEY,FRIENDS,0.0,NONE,Frustration,Frustration,3.0,7.0
+2_577,2_577_u,"On the other hand in um, in about seven months you're gonna have something that you're gonna love more than any guy you've ever gone out with.",0:1,ROSS,FRIENDS,0.0,NONE,Excitement,Excitement,6.0,6.0
+2_579,2_579_u,No!,0:01,MONICA,FRIENDS,0.0,NONE,Disgust,Disgust,4.0,7.0
+2_581,2_581_u,"We were wondering what was taking so long with the gift, but now we understand you were doing this.",0:09,CHANDLER,FRIENDS,1.0,PRO,Frustration,Neutral,3.0,8.0
+2_583,2_583_u,And the bunny got away!,0:07,CHANDLER,FRIENDS,1.0,ILL,Ridicule,Sadness,4.0,6.0
+2_585,2_585_u,"You and I, we're interfacing.",0:02,ROSS,FRIENDS,0.0,NONE,Happiness,Happiness,6.0,5.0
+2_586,2_586_u,"See now that I see crying over, but Bambi, is a cartoon.",0:06,CHANDLER,FRIENDS,1.0,PRO,Ridicule,Neutral,4.0,6.0
+2_588,2_588_u,I talk to you and nothin'.,0:02,JOEY,FRIENDS,0.0,NONE,Anger,Anger,3.0,7.0
+2_589,2_589_u,Well why don't you check in one of my saddle bags while I chew on a bale of hay.,0:05,CHANDLER,FRIENDS,1.0,EMB,Anger,Neutral,4.0,8.0
+2_594,2_594_u,I can't believe it.  Can I tell you something? I'm a little mad at him now.,0:07,ROSS,FRIENDS,0.0,NONE,Anger,Anger,3.0,7.0
+2_595,2_595_u,I'd miss you if I broke up with you. Just trying to be supportive.,0:05,CHANDLER,FRIENDS,0.0,NONE,Neutral,Neutral,5.0,5.0
+2_598,2_598_u,"Our balcony? Seriously? That's so funny because I told Monica we should put lights on our balcony. - And she said - ""No no, its too cold, nobody will go out there.""  - I said ""Maybe if we put some lights out there they will"".",0:12,CHANDLER,FRIENDS,1.0,PRO,Ridicule,Neutral,4.0,7.0
+2_602,2_602_u,No way!,0:01,CHANDLER,FRIENDS,0.0,NONE,Surprise,Surprise,6.0,7.0
+2_607,2_607_u,Hey.,0:01,PERSON,FRIENDS,0.0,NONE,Excitement,Excitement,6.0,6.0
+2_608,2_608_u,"You are right, by saying nice, I am virtually licking her.",0:04,CHANDLER,FRIENDS,1.0,PRO,Anger,Happiness,2.0,8.0
+2_609,2_609_u,I just called a friend of mine.,0:01,PERSON,FRIENDS,0.0,NONE,Neutral,Neutral,5.0,5.0
+2_615,2_615_u,"Hi, Joey. Well well, look what you brought. Very nice.",0:07,PERSON,FRIENDS,0.0,NONE,Happiness,Happiness,7.0,7.0
+2_617,2_617_u,And protected them from a tornado?,0:02,CHANDLER,FRIENDS,1.0,ILL,Ridicule,Surprise,4.0,8.0
+2_622,2_622_u,"Pheebs, you may know this, you know strange things. What is the boiling point of brain?",0:06,CHANDLER,FRIENDS,1.0,PRO,Anger,Excitement,3.0,8.0
+2_623,2_623_u,What do you know? Its a treat for the eyes and the ears.,0:05,CHANDLER,FRIENDS,1.0,ILL,Disgust,Happiness,4.0,7.0
+2_627,2_627_u,"Whoa, whoa, whoa.",0:01,PERSON,FRIENDS,0.0,NONE,Neutral,Neutral,5.0,5.0
+2_66,2_66_u,"Nice jon Joe, you are quite the craftsman!",0:06,CHANDLER,FRIENDS,1.0,ILL,Anger,Happiness,4.0,8.0
+2_69,2_69_u,Cover yourself up!,0:01,MONICA,FRIENDS,0.0,NONE,Anger,Anger,3.0,7.0
+2_7,2_7_u,I've never loved anybody as much as I love you.,0:03,MONICA,FRIENDS,0.0,NONE,Happiness,Happiness,7.0,7.0
+2_71,2_71_u,"ThatÕs good, just keep rubbing your head. That will turn back time",0:06,JOEY,FRIENDS,1.0,ILL,Ridicule,Excitement,3.0,8.0
+2_72,2_72_u,Oh well. It probably would've been the most constructive solution.,0:06,ROSS,FRIENDS,0.0,NONE,Happiness,Happiness,6.0,6.0
+2_73,2_73_u,"Oh my god, you almost gave me a heart attack!",0:03,CHANDLER,FRIENDS,1.0,ILL,Anger,Sadness,3.0,7.0
+2_77,2_77_u,"Umm, excuse me, we switched apartments. You can't eat are food anymore, that-that gravy train had ended.",0:05,MONICA,FRIENDS,0.0,NONE,Frustration,Frustration,4.0,4.0
+2_78,2_78_u,"I didn't know you and Carol were getting divorced, I'm sorry.",0:02,CHANDLER,FRIENDS,0.0,NONE,Sadness,Sadness,4.0,4.0
+2_8,2_8_u,"It's white plastic, with a handle, and it fits onto a stroller.",0:01,JOEY,FRIENDS,0.0,NONE,Sadness,Sadness,4.0,5.0
+2_84,2_84_u,"If that doesn't keep kids in school, what will?",0:04,CHANDLER,FRIENDS,1.0,PRO,Disgust,Happiness,4.0,8.0
+2_86,2_86_u,"Great! Okay, here.",0:12,CHANDLER,FRIENDS,0.0,NONE,Happiness,Happiness,6.0,6.0
+2_87,2_87_u,Yeah it would!,0:03,ROSS,FRIENDS,0.0,NONE,Happiness,Happiness,6.0,6.0
+2_91,2_91_u,"Alright, I'm gonna go pick up a few things for the trip.",0:02,MONICA,FRIENDS,0.0,NONE,Neutral,Neutral,5.0,5.0
+2_92,2_92_u,"No, no, I am just looking for a man to draw on me with chalk.",0:04,CHANDLER,FRIENDS,1.0,PRO,Frustration,Neutral,3.0,8.0
+2_94,2_94_u,"Can't do it, can you?",0:02,ROSS,FRIENDS,0.0,NONE,Happiness,Happiness,6.0,6.0
+2_96,2_96_u,I don't think so. Hello?  When you get in there,0:12,ROSS,FRIENDS,0.0,NONE,Sadness,Sadness,7.0,8.0
+3_S01E01_128,3_S01E01_128_u,"Hey, did you hear what Peter Gregory is doing?",0:02.082000,OTHER,SV,0.0,NONE,Frustration,Frustration,4.0,6.0
+3_S01E01_226,3_S01E01_226_u,"Oh. Look at me, I traveled back to 2009.",0:3.844000,OTHER,SV,1.0,EMB,Disgust,Excitement,4.0,7.0
+3_S01E01_255,3_S01E01_255_u,It's an upside down cross.,0:01.445000,GILFOYLE,SV,0.0,NONE,Neutral,Neutral,5.0,5.0
+3_S01E01_568,3_S01E01_568_u,To his beneficence.,0:01.650000,GILFOYLE,SV,0.0,NONE,Happiness,Happiness,6.0,6.0
+3_S01E02_004,3_S01E02_004_u,Hey. Sorry if I scared you. I know I have somewhat ghost-like features.,0:06.122000,OTHER,SV,0.0,NONE,Sadness,Sadness,4.0,5.0
+3_S01E02_461,3_S01E02_461_u,I was sleeping. I'm sorry for sleeping and for lying about it.,0:04.324000,OTHER,SV,0.0,NONE,Sadness,Sadness,3.0,6.0
+3_S01E03_021,3_S01E03_021_u,Like Jesus over Satan.,0:02.207000,GILFOYLE,SV,0.0,NONE,Neutral,Neutral,4.0,5.0
+3_S01E03_024,3_S01E03_024_u,Is it a margarita machine?,0:01.650000,GILFOYLE,SV,0.0,NONE,Excitement,Excitement,6.0,6.0
+3_S01E03_122,3_S01E03_122_u,Your borders are merely a construct. I prefer to think of myself as a citizen of the world.,0:4.994,GILFOYLE,SV,1.0,EMB,Ridicule,Excitement,4.0,8.0
+3_S01E03_359,3_S01E03_359_u,Hey! That is not Cherry Garcia.,0:02.128000,GILFOYLE,SV,0.0,NONE,Anger,Anger,4.0,5.0
+3_S01E03_517,3_S01E03_517_u,He ate the whole bag of gold caps. Awesome!,0:03.761000,GILFOYLE,SV,0.0,NONE,Surprise,Surprise,7.0,7.0
+3_S01E04_009,3_S01E04_009_u,"Oh, yeah. No, she's... She's very pretty.",0:02.480000,RICHARD,SV,0.0,NONE,Happiness,Happiness,6.0,6.0
+3_S01E04_327,3_S01E04_327_u,You catch on slow. You'll fit right in here.,0:1.711999,OTHER,SV,1.0,PRO,Ridicule,Happiness,4.0,7.0
+3_S01E04_342,3_S01E04_342_u,"For which I forewent, yes, that's a real word, one million dollars.",0:04.689000,ERLICH,SV,0.0,NONE,Anger,Anger,3.0,7.0
+3_S01E04_356,3_S01E04_356_u,"is a perfect example of you having no vision, no balls and no game. Maybe he did blow him. Well, love and hate. It's all passion.",0:10.130000,GILFOYLE,SV,0.0,NONE,Anger,Anger,3.0,8.0
+3_S01E05_417,3_S01E05_417_u,"Anything to do with ""error"" sounds like your whole vibe.",0:3.240999,GILFOYLE,SV,1.0,EMB,Ridicule,Neutral,4.0,7.0
+3_S01E05_456,3_S01E05_456_u,Maybe my leisurely pace is just a little faster than yours.,0:3.157,GILFOYLE,SV,1.0,PRO,Ridicule,Neutral,4.0,7.0
+3_S01E05_520,3_S01E05_520_u,"Take your time. There's no rush, Dinesh.",0:2.12,GILFOYLE,SV,1.0,ILL,Disgust,Neutral,4.0,7.0
+3_S01E06_054,3_S01E06_054_u,"Yes, we are totally fucked.",0:01.365000,ERLICH,SV,0.0,NONE,Frustration,Frustration,3.0,7.0
+3_S01E06_266,3_S01E06_266_u,She's attracted to ugliness.,0:1.753000,ERLICH,SV,1.0,PRO,Ridicule,Neutral,3.0,8.0
+3_S01E08_422,3_S01E08_422_u,At least it didn't happen in a public and brutally embarrassing way.,0:5.072,GILFOYLE,SV,1.0,ILL,Sadness,Excitement,4.0,7.0
+3_S02E01_050,3_S02E01_050_u,"I get it. You hear the word ""chief,"" and you think ""Indian Chief."" but you're the other kind of Indian.",0:7.709000,GILFOYLE,SV,1.0,EMB,Ridicule,Neutral,2.0,7.0
+3_S02E01_096,3_S02E01_096_u,"Richard, tell him I'm CTO. Dinesh: You already told that fat guy that I'm the CTO.",0:03.375000,GILFOYLE,SV,0.0,NONE,Disgust,Disgust,4.0,6.0
+3_S02E01_413,3_S02E01_413_u,Oh. Wow. Thanks for the compliment.,0:2.417,RICHARD,SV,1.0,ILL,Sadness,Happiness,3.0,7.0
+3_S02E02_081,3_S02E02_081_u,But the fact that you're so sorry makes it all better.,0:2.959000,GILFOYLE,SV,1.0,EMB,Anger,Happiness,3.0,7.0
+3_S02E03_218,3_S02E03_218_u,Do you want me to be honest or nice?,0:2.667,GILFOYLE,SV,1.0,PRO,Ridicule,Neutral,4.0,8.0
+3_S02E03_229,3_S02E03_229_u,Are you out of your mind?,0:01.208000,OTHER,SV,0.0,NONE,Anger,Anger,4.0,5.0
+3_S02E03_244,3_S02E03_244_u,Sounds like ERLICH.,0:1.333999,GILFOYLE,SV,1.0,PRO,Ridicule,Neutral,3.0,8.0
+3_S02E03_561,3_S02E03_561_u,Does it mean taking a stack of cash and lighting it on fire?,0:4.373999,GILFOYLE,SV,1.0,PRO,Anger,Neutral,4.0,7.0
+3_S02E04_162,3_S02E04_162_u,"I disagree, OJ. We should hire the best person for the job, period.",0:04.208000,GILFOYLE,SV,0.0,NONE,Neutral,Neutral,5.0,5.0
+3_S02E04_395,3_S02E04_395_u,"No, we all have equalized pay, remember?",0:02.541000,GILFOYLE,SV,0.0,NONE,Neutral,Neutral,5.0,5.0
+3_S02E05_179,3_S02E05_179_u,We build our own servers.,0:01.708000,GILFOYLE,SV,0.0,NONE,Excitement,Excitement,6.0,5.0
+3_S02E05_378,3_S02E05_378_u,"I'm sure you were great at fingerpainting, also, Dinesh.",0:2.792,GILFOYLE,SV,1.0,PRO,Disgust,Happiness,4.0,7.0
+3_S02E05_466,3_S02E05_466_u,"I'm not getting high on the job. I'm getting high at home. I live here, remember?",0:05.833000,GILFOYLE,SV,0.0,NONE,Happiness,Happiness,6.0,5.0
+3_S02E07_256,3_S02E07_256_u,That's very comforting.,0:2.542,OTHER,SV,1.0,ILL,Disgust,Happiness,4.0,8.0
+3_S02E10_133,3_S02E10_133_u,"Sorry, I couldn't remember your mother's name.",0:2.083999,GILFOYLE,SV,1.0,PRO,Ridicule,Sadness,4.0,8.0
+3_S03E01_409,3_S03E01_409_u,That's a bold statement.,0:01.182000,GILFOYLE,SV,0.0,NONE,Disgust,Disgust,4.0,5.0
+3_S03E01_431,3_S03E01_431_u,"(SIGHS) Great timing, guys. Thank you so much. Premium stuff, Dinesh.",0:4.370999,ERLICH,SV,1.0,ILL,Anger,Happiness,3.0,8.0
+3_S03E02_062,3_S03E02_062_u,"Gilfoyle: Yeah, compared to the shit shack we're used to, anything's an improvement.",0:04.386000,GILFOYLE,SV,0.0,NONE,Excitement,Excitement,6.0,6.0
+3_S03E02_111,3_S03E02_111_u,"Don't you guys call it ""Rock, Rock, Rock""?",0:1.617999,GILFOYLE,SV,1.0,PRO,Disgust,Surprise,4.0,8.0
+3_S03E03_111,3_S03E03_111_u,"The more meetings I turn down, the more these recruiters send me.",0:03.585000,GILFOYLE,SV,0.0,NONE,Happiness,Happiness,6.0,5.0
+3_S03E03_126,3_S03E03_126_u,"But instead of that, you bought a chain?",0:3.052999,GILFOYLE,SV,1.0,PRO,Disgust,Surprise,4.0,4.0
+3_S03E03_316,3_S03E03_316_u,"Richard, look, I'm sorry, but I think the box is here to stay.",0:03.635000,OTHER,SV,0.0,NONE,Sadness,Neutral,4.0,5.0
+3_S03E03_511,3_S03E03_511_u,This plan better fucking work with a sacrifice like this.,0:02.884000,GILFOYLE,SV,0.0,NONE,Sadness,Sadness,4.0,6.0
+3_S03E04_437,3_S03E04_437_u,"Thank you, Jared.",0:02.217000,OTHER,SV,0.0,NONE,Neutral,Neutral,5.0,5.0
+3_S04E01_575,3_S04E01_575_u,"But since your failure as a leader is a virtual certainty, tolerating your short reign as CEO in exchange for a front-row seat to the disaster seems fair.",0:11.73999,GILFOYLE,SV,1.0,EMB,Ridicule,Surprise,3.0,8.0
+3_S04E02_217,3_S04E02_217_u,"No, I think you should use more.",0:2.29,GILFOYLE,SV,1.0,PRO,Ridicule,Excitement,4.0,3.0
+3_S04E02_326,3_S04E02_326_u,"I mean, I knew Dinesh was going to fuck this all up, but honestly, this couldn't get any better.",0:7.720000,GILFOYLE,SV,1.0,EMB,Disgust,Happiness,4.0,7.0
+3_S04E04_363,3_S04E04_363_u,These are from your mom.,0:3.25,OTHER,SV,1.0,ILL,Ridicule,Neutral,4.0,6.0
+3_S04E05_313,3_S04E05_313_u,When you have to apologise,0:8.0,GILFOYLE,SV,1.0,PRO,Ridicule,Neutral,3.0,4.0
+3_S04E05_320,3_S04E05_320_u,That was the Iranian Revolutionary Guard.,0:01.870000,GILFOYLE,SV,0.0,NONE,Neutral,Neutral,5.0,3.0
+3_S04E05_485,3_S04E05_485_u,Your fourth child?,0:01.750000,OTHER,SV,0.0,NONE,Surprise,Surprise,7.0,7.0
+3_S04E05_497,3_S04E05_497_u,"So, you're not mad at me anymore?",0:02.090000,OTHER,SV,0.0,NONE,Sadness,Sadness,4.0,5.0
+3_S04E06_526,3_S04E06_526_u,Does it look like I care?,0:02.330000,GILFOYLE,SV,0.0,NONE,Disgust,Disgust,4.0,5.0
+3_S04E07_292,3_S04E07_292_u,Now I can give it to ERLICH.,0:2.29,OTHER,SV,1.0,PRO,Ridicule,Neutral,3.0,8.0
+3_S04E10_120,3_S04E10_120_u,Outstanding.,0:17.82699,GILFOYLE,SV,1.0,ILL,Frustration,Happiness,4.0,7.0
+3_S05E02_072,3_S05E02_072_u,Congratulations. You've finally taken your rightful spot amongst the handicapped.,0:4.875,GILFOYLE,SV,1.0,PRO,Ridicule,Happiness,3.0,8.0
+3_S05E02_532,3_S05E02_532_u,There better not be a Chinaman in my bed.,0:02.749000,GILFOYLE,SV,0.0,NONE,Frustration,Frustration,3.0,7.0
+3_S05E03_098,3_S05E03_098_u,So do you mind telling us when you feel like you can make it in?,0:03.459000,RICHARD,SV,0.0,NONE,Neutral,Neutral,5.0,5.0
+3_S05E05_119,3_S05E05_119_u,I'm worried about robots.,0:01.251000,GILFOYLE,SV,0.0,NONE,Fear,Fear,4.0,6.0
+3_S05E06_207,3_S05E06_207_u,I believe we all know who's the better coder anyway.,0:03.708000,GILFOYLE,SV,0.0,NONE,Neutral,Neutral,5.0,5.0
+3_S06E01_317,3_S06E01_317_u,He's our most profitable developer by far.,0:02.542000,OTHER,SV,0.0,NONE,Neutral,Neutral,5.0,6.0
+3_S06E01_417,3_S06E01_417_u,-Almost a human.,0:2.583,GILFOYLE,SV,1.0,PRO,Disgust,Neutral,4.0,7.0
+3_S06E01_460,3_S06E01_460_u,Do you need the real me for this conversation?,0:2.375,GILFOYLE,SV,1.0,PRO,Ridicule,Surprise,4.0,7.0
+3_S06E02_152,3_S06E02_152_u,"You're new here, so I'll forgive the patronizing tone.",0:04.125000,GILFOYLE,SV,0.0,NONE,Anger,Anger,3.0,3.0
+3_S06E02_171,3_S06E02_171_u,"I finished Cryptonomicon,",0:01.624000,GILFOYLE,SV,0.0,NONE,Neutral,Neutral,5.0,5.0
+3_S06E02_398,3_S06E02_398_u,"Look, we cannot take blood money.",0:02.166000,OTHER,SV,0.0,NONE,Sadness,Disgust,3.0,7.0
+3_S06E03_366,3_S06E03_366_u,The-the same way we can buy America and everything in it.,0:2.542,RICHARD,SV,1.0,PRO,Ridicule,Neutral,4.0,6.0
+3_S06E05_355,3_S06E05_355_u,"Well, maybe some time when you're working on something, I can come interrupt your flow and use words incorrectly to tell you about it.",0:10.04199,OTHER,SV,1.0,PRO,Frustration,Frustration,3.0,7.0
+3_S06E06_143,3_S06E06_143_u,I thought that was the company policy-these days.,0:4.459000,GILFOYLE,SV,1.0,ILL,Frustration,Neutral,4.0,7.0
