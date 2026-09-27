@@ -38,6 +38,7 @@ for _, row in df.iterrows():
         probs = {emocao: 0.0 for emocao in EMOCOES}
         emocao_predominante = "vazio"
         valencia = 0.0
+        intensidade = 0.0
     else:
         saida = classificador(texto_contexto, truncation=True)[0]
         probs = {
@@ -48,11 +49,16 @@ for _, row in df.iterrows():
         p_positiva = sum(probs.get(c, 0.0) for c in POSITIVAS)
         p_negativa = sum(probs.get(c, 0.0) for c in NEGATIVAS)
         valencia = p_positiva - p_negativa
+        # Intensidade = quanto da probabilidade foi para emocoes com
+        # polaridade -- separa "neutro" (perto de 0) de "ambivalente"
+        # (perto de 1), que teriam a mesma valencia 0
+        intensidade = p_positiva + p_negativa
 
     linha = {"KEY": row["KEY"], "context": texto_contexto}
     linha.update({emocao: probs.get(emocao, 0.0) for emocao in EMOCOES})
     linha["emocao_predominante"] = emocao_predominante
     linha["context_valence"] = valencia
+    linha["context_intensity"] = intensidade
     linhas.append(linha)
 
 resultado = pd.DataFrame(linhas)
@@ -63,4 +69,6 @@ print("\nDistribuicao da emocao predominante:")
 print(resultado["emocao_predominante"].value_counts())
 print("\nEstatisticas de context_valence:")
 print(resultado["context_valence"].describe())
+print("\nEstatisticas de context_intensity:")
+print(resultado["context_intensity"].describe())
 print("Salvo em: data/processed/context_valence.csv")

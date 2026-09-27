@@ -9,6 +9,11 @@ NEGATIVAS = ["angry", "disgust", "fear", "sad"]
 emocoes_df["face_valence"] = (
     emocoes_df[POSITIVAS].sum(axis=1) - emocoes_df[NEGATIVAS].sum(axis=1)
 )
+# Intensidade = quanto da probabilidade foi para emocoes com polaridade --
+# separa "neutro" de "ambivalente", que teriam a mesma valencia 0
+emocoes_df["face_intensity"] = (
+    emocoes_df[POSITIVAS].sum(axis=1) + emocoes_df[NEGATIVAS].sum(axis=1)
+)
 
 # Media de cada emocao entre todos os rostos/frames de uma instancia
 medias_por_emocao = {emocao: (emocao, "mean") for emocao in EMOCOES}
@@ -16,6 +21,7 @@ medias_por_emocao = {emocao: (emocao, "mean") for emocao in EMOCOES}
 resultado = emocoes_df.groupby("KEY").agg(
     n_faces=("face_valence", "size"),
     visual_valence=("face_valence", "mean"),
+    visual_intensity=("face_intensity", "mean"),
     **medias_por_emocao,
 ).reset_index()
 
@@ -28,4 +34,6 @@ print("\nDistribuicao da emocao predominante:")
 print(resultado["emocao_predominante"].value_counts())
 print("\nEstatisticas de visual_valence:")
 print(resultado["visual_valence"].describe())
+print("\nEstatisticas de visual_intensity:")
+print(resultado["visual_intensity"].describe())
 print("Salvo em: data/processed/visual_valence.csv")
