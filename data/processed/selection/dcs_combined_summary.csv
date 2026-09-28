@@ -1,0 +1,2 @@
+method,k,multimodal_features,incongruence_features,total_features,accuracy,precision,recall,f1,f1_macro,selected_T,selected_C,selected_A,selected_F
+DCS_Combined,7,2320,6,2326,0.6394557823129252,0.6129032258064516,0.7702702702702703,0.6826347305389222,0.6326559479466265,7,84,32,24

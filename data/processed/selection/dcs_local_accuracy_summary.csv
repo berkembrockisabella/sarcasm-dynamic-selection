@@ -1,0 +1,2 @@
+method,k,accuracy,precision,recall,f1,f1_macro,selected_T,selected_C,selected_A,selected_F
+DCS_Local_Accuracy,7,0.5714285714285714,0.5567010309278351,0.7297297297297297,0.631578947368421,0.5596919127086007,12,73,35,27

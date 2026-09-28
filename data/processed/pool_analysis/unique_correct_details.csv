@@ -1,0 +1,20 @@
+KEY,label,prediction_T,prediction_C,prediction_A,prediction_F,correct_T,correct_C,correct_A,correct_F,num_correct,unique_correct_model,SENTENCE,SPEAKER,SCENE
+1_5751_u,0,0,1,1,1,1,0,0,0,1,T,Of course you do. You're a cutie pie! Any girl would be lucky to have you!,BERNADETTE,1_5751
+1_S09E04_053_u,0,1,0,1,1,0,1,0,0,1,C,"Well, why don't you look at this as an opportunity? You had other roommates before Leonard. Maybe this is a chance to find someone new.",BERNADETTE,1_S09E04_053
+1_S10E04_343_u,0,1,0,1,1,0,1,0,0,1,C,"Well, now I don't know if I want to know!",BERNADETTE,1_S10E04_343
+1_S10E05_110_u,0,1,0,1,1,0,1,0,0,1,C,The only thing I hate more than you right now is that book!,BERNADETTE,1_S10E05_110
+1_S11E06_102_u,1,1,0,0,0,1,0,0,0,1,T,"No, he is saying how can these prices be so low?",BERNADETTE,1_S11E06_102
+1_S11E13_362_u,1,0,1,0,0,0,1,0,0,1,C,Did it work?,BERNADETTE,1_S11E13_362
+1_S11E16_170_u,1,0,1,0,0,0,1,0,0,1,C,You're right. That's so much better.,BERNADETTE,1_S11E16_170
+1_S12E08_258_u,1,0,1,0,0,0,1,0,0,1,C,You can do that but you still can't get my bra off.,BERNADETTE,1_S12E08_258
+1_S12E11_216_u,1,0,1,0,0,0,1,0,0,1,C,Maybe she doesn't have tip money?,BERNADETTE,1_S12E11_216
+1_S12E12_086_u,1,0,0,1,0,0,0,1,0,1,A,Leonard was just saying how he was hoping to have dinner with one of your ex-boyfriends on his expensive boat.,BERNADETTE,1_S12E12_086
+2_129_u,1,0,0,0,1,0,0,0,1,1,F,What are these? Claws?,DOROTHY,2_129
+2_234_u,0,1,1,1,0,0,0,0,1,1,F,"See, there you go, the cleansing works!",PHOEBE,2_234
+2_254_u,1,0,1,0,0,0,1,0,0,1,C,"Yeah. Yeah, that's what you need a good .. pill.",PHOEBE,2_254
+2_267_u,0,1,1,0,1,0,0,1,0,1,A,Really!?,RACHEL,2_267
+2_282_u,1,0,0,1,0,0,0,1,0,1,A,What-wh-what so we'll just stay married forever?,RACHEL,2_282
+2_504_u,1,0,1,0,0,0,1,0,0,1,C,"All right, okay, well, apparently not!",PHOEBE,2_504
+2_54_u,1,1,0,0,0,1,0,0,0,1,T,"That's easy for you to say, you weren't almost just killed.",RACHEL,2_54
+2_591_u,0,1,0,1,1,0,1,0,0,1,C,"How about stopping by new years eve with three naked women, throwing up in the pool, passing out in the punch bowl, and relieving yourself in the linen closet?",DOROTHY,2_591
+2_611_u,1,1,0,0,0,1,0,0,0,1,T,Just tell me how.,RACHEL,2_611

@@ -38,3 +38,23 @@ Thumbs.db
 
 # Variaveis de ambiente / segredos (ex.: HF_TOKEN)
 .env
+
+
+# Frames extraídos dos vídeos
+data/processed/frames/
+
+# Faces extraídas dos frames
+data/processed/faces/
+data/processed/faces_mtcnn/
+
+# Embeddings gerados pelos encoders
+# Mantém os CSVs de features/keys, ignora apenas os arrays grandes
+data/processed/features/*.npy
+
+# Modelos treinados
+# Podem ser reproduzidos executando os scripts de treinamento
+models/
+
+# Checkpoints/modelos PyTorch caso sejam gerados futuramente
+*.pt
+*.pth

@@ -1,0 +1,2 @@
+method,k,num_incongruence_features,accuracy,precision,recall,f1,f1_macro,selected_T,selected_C,selected_A,selected_F
+DCS_Incongruence,7,6,0.6190476190476191,0.618421052631579,0.6351351351351351,0.6266666666666667,0.6188888888888889,19,88,26,14

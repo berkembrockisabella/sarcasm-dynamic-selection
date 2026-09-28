@@ -1,0 +1,5 @@
+category,count,percentage
+both_correct,81,55.10204081632652
+static_only,23,15.646258503401361
+dcs_only,13,8.843537414965986
+both_wrong,30,20.408163265306122
