@@ -1,8 +1,8 @@
 # Pool training
 
-Módulo responsável pela **treinamento final dos classificadores da pool previamente selecionada**.
+Módulo responsável pelo **treinamento final dos classificadores da *pool* previamente selecionada**.
 
-Utiliza diretamente o arquivo produzido pela `pool selection`:
+Utiliza diretamente o arquivo produzido a partir de `pool selection`:
 
 `data/results/pool_selection/pool_definition.csv`
 
@@ -11,12 +11,12 @@ Execute a partir da raiz do projeto:
 
 `python -m src.pool_training.train_frozen_pool`
 
-Ao final da execução, as pools treinadas estarão disponíveis em:
+Ao final da execução, as *pools* treinadas estarão disponíveis em:
 
-`....`
+`data/results/frozen_pools`
 
 ## Visão geral
-O processo de treinamento das pools segue o fluxo:
+O processo de treinamento das *pools* segue o fluxo:
 
 ```
           pool_definition.csv
@@ -40,7 +40,7 @@ O processo de treinamento das pools segue o fluxo:
 frozen_pools/base/   frozen_pools/incongruence/
 ```
 
-A partir da definição `pool_definition.csv` são treinadas duas versões pareadas da mesma pool:
+A partir da definição `pool_definition.csv` são treinadas duas versões pareadas da mesma *pool*:
 
 * **BASE**: utiliza somente as features das modalidades
 * **INCONGRUENCE**: utiliza as mesmas features + vetor de incongruência multimodal
@@ -56,7 +56,7 @@ pool_training/
 
 ## Condição BASE
 
-Corresponde à versão SEM incongruência, cada especialista recebe somente as features correspondentes às suas modalidades.
+Corresponde à versão **sem** incongruência, cada especialista recebe somente as features correspondentes às suas modalidades.
 
 Por exemplo:
 
@@ -68,7 +68,7 @@ recebe:
 
 ## Condição INCONGRUENCE
 
-Corresponde à versão COM incongruência, cada especialista recebe as features correspondentes às suas modalidades acrescidas das incongruências existentes entre elas.
+Corresponde à versão **com** incongruência, cada especialista recebe as features correspondentes às suas modalidades acrescidas das incongruências existentes entre elas.
 
 Para:
 
@@ -80,7 +80,7 @@ recebe:
 
 ## Treinamento
 
-Após a definição da pool, cada especificação é novamente instanciada e treinada utilizando todo o conjunto TRAIN.
+Após a definição da *pool*, cada especificação é novamente instanciada e treinada utilizando todo o conjunto TRAIN.
 
 Os modelos utilizados durante os folds da validação cruzada não são reutilizados.
 
