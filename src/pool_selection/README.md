@@ -1,6 +1,6 @@
 # Pool selection
 
-Módulo responsável pela **formação da pool de classificadores**. A seleção é realizada uma única vez, somente sobre o conjunto de treinamento e sem incorporar as *features* de incongruência multimodal para garantir uma comparação controlada do experimento.
+Módulo responsável pela **formação da *pool* de classificadores**. A seleção é realizada uma única vez, somente sobre o conjunto de treinamento e sem incorporar as *features* de incongruência multimodal para garantir uma comparação controlada do experimento.
 
 ## Como rodar
 Execute a partir da raiz do projeto:
@@ -9,10 +9,10 @@ Execute a partir da raiz do projeto:
 
 Ao final da execução, a definição dos 7 especialistas estará disponível em:
 
-`results/pool_selection/pool_definition.csv`
+`data/results/pool_selection/pool_definition.csv`
 
 ## Visão geral
-O processo de seleção de classificadores da pool segue o fluxo:
+O processo de seleção de classificadores da *pool* segue o fluxo:
 
 ```
             TRAIN
@@ -56,10 +56,9 @@ O processo de seleção de classificadores da pool segue o fluxo:
 ## Estrutura
 ```
 pool_selection/
-├── __init__.py
 ├── build_pool.py                   orquestra todo o processo de formação da pool
-├── config.py                       contém caminhos, configurações e espaços de hiperparâmetros
 ├── classifiers.py                  define os classificadores avaliados e sua construção
+├── config.py                       contém caminhos, configurações e espaços de hiperparâmetros
 ├── cross_validation.py             executa a validação cruzada, otimização de hiperparâmetros e geração das predições OOF
 ├── diversity.py                    calcula as métricas de diversidade entre classificadores
 ├── feature_loader.py               carrega e combina as representações das diferentes modalidades
@@ -125,8 +124,35 @@ Y = erro médio do par
 
 Assim, é possível analisar conjuntamente desempenho e similaridade entre os candidatos.
 
-## Seleção da pool
-A partir dos resultados de validação cruzada e das informações de diversidade, são selecionados 7 classificadores para compor a pool.
+## Seleção da *pool*
+A seleção final da *pool* é realizada por meio de uma estratégia gulosa que considera simultaneamente o desempenho individual dos classificadores e sua diversidade em relação aos membros já selecionados. 
+
+O objetivo é evitar que a pool seja formada apenas pelos classificadores com maior desempenho individual, pois modelos com comportamentos muito semelhantes podem produzir erros redundantes. Assim, busca-se uma *pool* composta por especialistas que apresentem **bom desempenho e padrões de erro complementares**.
+
+A seleção é realizada a partir das predições OOF produzidas durante a validação cruzada, evitando avaliar a diversidade sobre predições obtidas diretamente nos dados utilizados para ajustar cada modelo.
+
+O procedimento ocorre iterativamente:
+
+1. Os candidatos são inicialmente avaliados de acordo com seu desempenho médio na validação cruzada.
+2. O candidato com melhor desempenho é escolhido como primeiro membro da pool.
+3. Para cada candidato ainda não selecionado, é calculada sua diversidade média em relação aos classificadores que já pertencem à pool.
+4. Desempenho e diversidade são combinados em um único critério de seleção.
+5. O candidato com maior valor nesse critério é adicionado à pool.
+6. O processo é repetido até que sejam selecionados 7 especialistas.
+
+Para um candidato $$(C_i)$$, esse critério pode ser representado por:
+
+$$Score(C_i) = \alpha \cdot P(C_i) + (1-\alpha) \cdot D(C_i, S)$$
+
+em que:
+
+* $$(P(C_i))$$ representa o desempenho normalizado do candidato $$(C_i)$$, obtido durante a validação cruzada;
+* $$(D(C_i,S))$$ representa sua diversidade média em relação ao conjunto $$(S)$$ de classificadores já selecionados;
+* $$(\alpha)$$ controla a importância relativa entre desempenho e diversidade.
+
+Na configuração utilizada, o desempenho possui peso de 0.70 e a diversidade peso de 0.30.
+
+Essa abordagem produz uma *pool* heterogênea não apenas em termos de modalidades e famílias de classificadores, mas também em relação aos padrões de decisão observados durante a validação cruzada.
 
 A seleção resulta em uma especificação contendo, para cada membro:
 * modalidades
@@ -158,8 +184,6 @@ data/
         └── pool_definition.csv       definição congelada da pool
 ```
 
-A definição resultante `pool_definition.csv` será posteriormente utilizada para treinar duas versões da mesma pool em `pool_training`:
-* BASE: features das modalidades.
-* INCONGRUENCE: mesmas features das modalidades + vetor de incongruência.
+A definição resultante `pool_definition.csv` será posteriormente utilizada para treinar duas versões da mesma pool em `pool_training`
 
 Dessa forma, composição da pool, classificadores hiperparâmetros permanecem constantes entre as condições.
