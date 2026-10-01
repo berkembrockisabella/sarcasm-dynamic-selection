@@ -13,10 +13,12 @@ O que já está implementado e rodando:
 - Extração de emoções faciais por frame (resultado presente em `data/processed/visual_emotions.csv`).
 - Cálculo de valência e intensidade emocional para as quatro modalidades: texto, contexto, áudio e expressão facial.
 - Vetor de incongruência de valência entre os 6 pares de modalidades (`src/incongruence/build_incongruence.py`).
+- Seleção da pool de classificadores
+- Treinamento da pool selecionada com e sem incongruência
 
 O que ainda falta:
 
-- Pool de classificadores, estratégia de seleção dinâmica (DS) e comparação com Mixture of Experts (MoE) — etapas futuras do projeto.
+- Estratégia de seleção dinâmica (DS) e comparação com Mixture of Experts (MoE) — etapas futuras do projeto.
 
 **Atenção:** os scripts que geram `extract_frames.py`, `crop_faces.py`/`crop_faces_mtcnn.py` e `visual_emotions.py` (extração de frames, recorte de rostos e classificação de emoção facial) não estão presentes nesta cópia do repositório, apenas o resultado final deles (`data/processed/visual_emotions.csv`). Se for necessário reprocessar a parte visual do zero, esses scripts precisam ser recuperados ou reescritos.
 
