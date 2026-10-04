@@ -41,7 +41,7 @@ def incongruence_columns_for(combo):
     # Para combinação de modalidades -> inc_<mod1>_<mod2>
     cols = []
     for a, b in combinations(combo, 2):
-        cols.extend(f"inc_{a}_{b}")
+        cols.append(f"inc_{a}_{b}")
     return cols
 
 class FeatureStore:

@@ -58,3 +58,6 @@ models/
 # Checkpoints/modelos PyTorch caso sejam gerados futuramente
 *.pt
 *.pth
+
+# Modelos treinados das frozen pools
+data/results/pool/frozen_pools/**/*.joblib

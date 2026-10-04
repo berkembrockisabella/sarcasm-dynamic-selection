@@ -1,0 +1,63 @@
+POOL SELECTION AND FROZEN POOL TRAINING SUMMARY
+
+
+==================================================
+POOL SELECTION
+==================================================
+
+Pool selecionada: 7 classificadores
+
+C01 - context+audio | random_forest
+Mean F1: 0.753594
+
+C02 - text+context+audio+visual | svm
+Mean F1: 0.751332
+
+C03 - context+audio+visual | svm
+Mean F1: 0.750226
+
+C04 - text+context+audio | svm
+Mean F1: 0.750641
+
+C05 - text+context+audio | random_forest
+Mean F1: 0.748604
+
+C06 - text+context+audio | logistic_regression
+Mean F1: 0.745936
+
+C07 - context+audio+visual | random_forest
+Mean F1: 0.745399
+
+Status: pool selection concluída com sucesso.
+
+
+==================================================
+FROZEN POOL TRAINING
+==================================================
+
+Instâncias de treino: 897
+Membros do pool: 7
+
+
+POOL BASE
+
+C01 - context+audio | random_forest | 1536 features
+C02 - text+context+audio+visual | svm | 2320 features
+C03 - context+audio+visual | svm | 1552 features
+C04 - text+context+audio | svm | 2304 features
+C05 - text+context+audio | random_forest | 2304 features
+C06 - context+audio | svm | 1536 features
+C07 - context+audio+visual | random_forest | 1552 features
+
+
+POOL INCONGRUENCE
+
+C01 - context+audio | random_forest | 1537 features
+C02 - text+context+audio+visual | svm | 2326 features
+C03 - context+audio+visual | svm | 1555 features
+C04 - text+context+audio | svm | 2307 features
+C05 - text+context+audio | random_forest | 2307 features
+C06 - context+audio | svm | 1537 features
+C07 - context+audio+visual | random_forest | 1555 features
+
+Status: frozen pool training concluído com sucesso.
