@@ -23,11 +23,6 @@ for modalidade in MODALIDADES:
         tabela[["KEY", f"{modalidade}_emotion"] + colunas], on="KEY", how="left"
     )
 
-# Valencia pretendida estimada (src/incongruence/implied_valence.py) -- o
-# lado "intencao" da incongruencia
-implicita = pd.read_csv("data/processed/implied_valence.csv")
-valencias = valencias.merge(implicita[["KEY", "implied_valence"]], on="KEY", how="left")
-
 # Instancia sem valencia em alguma modalidade (hoje so acontece no visual,
 # quando nenhum rosto foi detectado) recebe 0, o mesmo valor que os scripts
 # de valencia ja usam para entrada vazia -- sem isso o vetor teria NaN e
@@ -75,7 +70,7 @@ POLARIDADE = {
 COLUNAS_POLARIDADE = [f"{modalidade}_polarity" for modalidade in MODALIDADES]
 N_EXEMPLOS = 5
 
-resultado = valencias[["KEY"] + COLUNAS_VALENCIA + COLUNAS_INTENSIDADE + ["implied_valence"]].copy()
+resultado = valencias[["KEY"] + COLUNAS_VALENCIA + COLUNAS_INTENSIDADE].copy()
 
 # Hipotese de roteamento: se as 4 modalidades tem a mesma polaridade (todas
 # positivas, todas negativas ou todas neutras) elas concordam e a instancia
@@ -110,13 +105,6 @@ for modalidade_a, modalidade_b in PARES:
 
 resultado["n_oppositions"] = resultado[colunas_oposicao].sum(axis=1)
 
-# Incongruencia superficie x intencao: valencia do texto (o que foi dito)
-# menos a valencia pretendida estimada -- a definicao central de
-# incongruencia no sarcasmo (Ray et al., 2022; Farabi et al., 2024)
-resultado["inc_text_implied"] = (
-    valencias["text_valence"] - valencias["implied_valence"]
-) / 2
-
 # "Cara de paisagem": audio e rosto sem emocao com polaridade, como no
 # exemplo de Castro et al. (2019) -- separado da incongruencia para nao
 # ser lido como concordancia
@@ -146,7 +134,7 @@ print(classe.groupby(resultado.loc[analise, "grupo"]).mean().round(3))
 print("\nIntensidade media por classe (0 = nao sarcastico, 1 = sarcastico):")
 print(resultado[analise].groupby(classe)[COLUNAS_INTENSIDADE].mean().round(3).T)
 print("\nIncongruencia com sinal media por classe:")
-print(resultado[analise].groupby(classe)[colunas_com_sinal + ["inc_text_implied"]].mean().round(3).T)
+print(resultado[analise].groupby(classe)[colunas_com_sinal].mean().round(3).T)
 print("\nProporcao de oposicao de polaridade por classe:")
 print(resultado[analise].groupby(classe)[colunas_oposicao + ["n_oppositions"]].mean().round(3).T)
 # Mesma oposicao, mas so entre as instancias em que as duas modalidades tem
@@ -193,9 +181,4 @@ for _, row in exemplos.iterrows():
             f"  {modalidade_a:7s} x {modalidade_b:7s}: "
             f"({valor_a:+.3f} - ({valor_b:+.3f})) / 2 = {inc:+.3f}  [{oposicao}]"
         )
-    implicita_linha = row["implied_valence"]
-    print(
-        f"  texto x pretendida: ({row['text_valence']:+.3f} - ({implicita_linha:+.3f})) / 2"
-        f" = {(row['text_valence'] - implicita_linha) / 2:+.3f}"
-    )
     print("Cara de paisagem:", resultado.loc[row.name, "deadpan"])
