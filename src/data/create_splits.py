@@ -7,6 +7,12 @@ df = pd.read_csv("data/raw/mustard++_text.csv")
 # Mantém apenas as 1202 instâncias principais
 df = df[df["Sarcasm"].notna()].copy()
 
+# Corrige a linha desalinhada do CSV original (KEY "Disgust" em vez de
+# "1_S11E03_067_u") -- a mesma correcao de prepare_mustard.py. Sem isso a
+# instancia entra no DSEL com a KEY errada e some em todo merge por KEY.
+# A correcao nao muda a ordem das linhas, entao a divisao continua a mesma
+df.loc[df["SCENE"] == "1_S11E03_067", "KEY"] = "1_S11E03_067_u"
+
 melhor_split = None
 melhor_diferenca = float("inf")
 

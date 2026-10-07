@@ -1,0 +1,8 @@
+member_id,candidate_id,modalities,classifier,best_params,condition,n_features,model_path
+C01,text+context+visual__svm,text+context+visual,svm,"{""model__C"": 10, ""model__gamma"": ""scale"", ""model__kernel"": ""rbf""}",base,1552,data\results\pool\frozen_pools\base\C01.joblib
+C02,text+context__svm,text+context,svm,"{""model__C"": 10, ""model__gamma"": ""scale"", ""model__kernel"": ""rbf""}",base,1536,data\results\pool\frozen_pools\base\C02.joblib
+C03,text+context+audio+visual__logistic_regression,text+context+audio+visual,logistic_regression,"{""model__C"": 1, ""model__penalty"": ""l2"", ""model__solver"": ""liblinear""}",base,2320,data\results\pool\frozen_pools\base\C03.joblib
+C04,text+context+audio+visual__svm,text+context+audio+visual,svm,"{""model__C"": 1, ""model__gamma"": ""scale"", ""model__kernel"": ""rbf""}",base,2320,data\results\pool\frozen_pools\base\C04.joblib
+C05,text+context+audio__logistic_regression,text+context+audio,logistic_regression,"{""model__C"": 10, ""model__penalty"": ""l2"", ""model__solver"": ""liblinear""}",base,2304,data\results\pool\frozen_pools\base\C05.joblib
+C06,context+audio+visual__svm,context+audio+visual,svm,"{""model__C"": 10, ""model__gamma"": ""scale"", ""model__kernel"": ""rbf""}",base,1552,data\results\pool\frozen_pools\base\C06.joblib
+C07,context+audio__svm,context+audio,svm,"{""model__C"": 10, ""model__gamma"": ""scale"", ""model__kernel"": ""rbf""}",base,1536,data\results\pool\frozen_pools\base\C07.joblib

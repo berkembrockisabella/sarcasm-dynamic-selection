@@ -1,0 +1,11 @@
+metodo,candidato,f1_macro_cv_treino,accuracy,f1_macro
+Estatico Regressao logistica,text+context+audio+visual__logistic_regression,0.7317564532623507,0.6802721088435374,0.671516188846099
+Estatico SVM,text+context+audio+visual__svm,0.7283338629067165,0.6870748299319728,0.6659090909090909
+Estatico Random forest,text+context+audio+visual__random_forest,0.7149853378709071,0.673469387755102,0.6513833992094862
+Estatico voto dos 3,voto SVM + RL + RF,,0.6938775510204082,0.6719563600297546
+OLA sem roteamento,pool de 7 (BASE),,0.7006802721088435,0.6902298850574713
+KNORA-E sem roteamento,pool de 7 (BASE),,0.7006802721088435,0.6885593220338984
+KNORA-U sem roteamento,pool de 7 (BASE),,0.7142857142857143,0.7027157164869029
+OLA com roteamento,pool de 7 (BASE),,0.7006802721088435,0.6885593220338984
+KNORA-E com roteamento,pool de 7 (BASE),,0.7346938775510204,0.7214962351226621
+KNORA-U com roteamento,pool de 7 (BASE),,0.7074829931972789,0.6964705882352942

@@ -25,7 +25,7 @@ SCENE,KEY,SENTENCE,END_TIME,SPEAKER,SHOW,Sarcasm,Sarcasm_Type,Implicit_Emotion,E
 1_S10E14_032,1_S10E14_032_u,"So, normal. Yeah--",0:1.902000,BERNADETTE,BBT,1.0,PRO,Ridicule,Neutral,3.0,6.0
 1_S10E17_146,1_S10E17_146_u,"Oh, dear god, you're cheating on me with raj.",0:3.503,BERNADETTE,BBT,1.0,PRO,Ridicule,Anger,3.0,8.0
 1_S11E02_299,1_S11E02_299_u,Tell me about it. Howie texts me every time his dog levels up in Warcraft.,0:05.230000,BERNADETTE,BBT,0.0,NONE,Frustration,Frustration,3.0,7.0
-1_S11E03_067,Disgust,I'm not setting her up with Raj.,0:02.430000,BERNADETTE,BBT,0.0,NONE,Disgust,Disgust,4.0,5.0
+1_S11E03_067,1_S11E03_067_u,I'm not setting her up with Raj.,0:02.430000,BERNADETTE,BBT,0.0,NONE,Disgust,Disgust,4.0,5.0
 1_S11E04_024,1_S11E04_024_u,I already have a little version of Howard.,0:3.230000,BERNADETTE,BBT,1.0,PRO,Sadness,Neutral,3.0,7.0
 1_S11E04_137,1_S11E04_137_u,"""Daddy's little girl""?",0:02.930000,BERNADETTE,BBT,0.0,NONE,Happiness,Happiness,6.0,6.0
 1_S11E04_298,1_S11E04_298_u,"No, I'm fine.",0:01.520000,BERNADETTE,BBT,0.0,NONE,Neutral,Neutral,5.0,5.0

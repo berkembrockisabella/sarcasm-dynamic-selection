@@ -1,0 +1,25 @@
+ds,estatico,dif_f1_macro,so_ds_acerta,so_estatico_acerta,p_mcnemar,p_holm
+OLA sem roteamento,Estatico Regressao logistica,0.01871369621137231,9,6,0.60723876953125,1.0
+OLA sem roteamento,Estatico SVM,0.024320794148380398,11,9,0.8238029479980469,1.0
+OLA sem roteamento,Estatico Random forest,0.03884648584798511,13,9,0.5234670639038086,1.0
+OLA sem roteamento,Estatico voto dos 3,0.01827352502771673,10,9,1.0,1.0
+KNORA-E sem roteamento,Estatico Regressao logistica,0.017043133187799375,7,4,0.548828125,1.0
+KNORA-E sem roteamento,Estatico SVM,0.022650231124807463,9,7,0.803619384765625,1.0
+KNORA-E sem roteamento,Estatico Random forest,0.03717592282441218,11,7,0.480682373046875,1.0
+KNORA-E sem roteamento,Estatico voto dos 3,0.016602962004143795,8,7,1.0,1.0
+KNORA-U sem roteamento,Estatico Regressao logistica,0.031199527640803915,8,3,0.2265625,1.0
+KNORA-U sem roteamento,Estatico SVM,0.036806625577812,9,5,0.4239501953125,1.0
+KNORA-U sem roteamento,Estatico Random forest,0.05133231727741672,12,6,0.237884521484375,1.0
+KNORA-U sem roteamento,Estatico voto dos 3,0.030759356457148335,8,5,0.5810546875,1.0
+OLA com roteamento,Estatico Regressao logistica,0.017043133187799375,11,8,0.6476058959960938,1.0
+OLA com roteamento,Estatico SVM,0.022650231124807463,10,8,0.8145294189453125,1.0
+OLA com roteamento,Estatico Random forest,0.03717592282441218,12,8,0.5034446716308594,1.0
+OLA com roteamento,Estatico voto dos 3,0.016602962004143795,9,8,1.0,1.0
+KNORA-E com roteamento,Estatico Regressao logistica,0.04998004627656316,11,3,0.057373046875,1.0
+KNORA-E com roteamento,Estatico SVM,0.05558714421357125,11,4,0.11846923828125,1.0
+KNORA-E com roteamento,Estatico Random forest,0.07011283591317596,13,4,0.049041748046875,1.0
+KNORA-E com roteamento,Estatico voto dos 3,0.04953987509290758,10,4,0.1795654296875,1.0
+KNORA-U com roteamento,Estatico Regressao logistica,0.024954399389195192,7,3,0.34375,1.0
+KNORA-U com roteamento,Estatico SVM,0.03056149732620328,9,6,0.60723876953125,1.0
+KNORA-U com roteamento,Estatico Random forest,0.045087189025807994,12,7,0.359283447265625,1.0
+KNORA-U com roteamento,Estatico voto dos 3,0.024514228205539612,8,6,0.79052734375,1.0
