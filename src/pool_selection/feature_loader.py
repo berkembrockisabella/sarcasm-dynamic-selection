@@ -16,12 +16,6 @@ def _load_npy_source(source):
         raise ValueError(f"{source['features']}: número de embeddings != número de KEYs")
     return pd.DataFrame({"KEY": keys, "_row": np.arange(len(keys))}), X
 
-def _load_csv_source(source):
-    df = pd.read_csv(source["features"])
-    df["KEY"] = df["KEY"].astype(str)
-    cols = [c for c in df.columns if c != "KEY"]
-    return df[["KEY"]].copy(), df[cols].to_numpy(dtype=np.float32)
-
 def load_modality(modality):
     source = FEATURE_SOURCES[modality]
     if source["type"] == "npy":

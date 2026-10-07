@@ -2,8 +2,6 @@
 Construção da pool de classificadores
 '''
 
-import argparse
-
 import numpy as np
 import pandas as pd
 

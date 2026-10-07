@@ -90,7 +90,7 @@ acuracia_global = acerto_dsel.mean(axis=0)
 
 # Vizinhos de cada instancia de teste, nos dois roteamentos. Os indices
 # guardados sao sempre do DSEL inteiro, para usar acerto_dsel direto
-vizinhos = {"sem_roteamento": [], "com_roteamento": []}
+vizinhos = {"com_roteamento": []}
 busca = NearestNeighbors(n_neighbors=K).fit(X_dsel)
 vizinhos["sem_roteamento"] = list(busca.kneighbors(X_teste, return_distance=False))
 
@@ -187,6 +187,9 @@ for nome, predicao in referencias.items():
         "accuracy": accuracy_score(y_teste, predicao),
         "f1_macro": f1_score(y_teste, predicao, average="macro"),
     })
+# Oraculo: fracao das falas em que pelo menos um membro acerta -- teto de
+# acuracia de qualquer selecao feita com esta pool (nao tem F1)
+resumo.append({"metodo": "Oraculo (algum membro acerta)", "roteamento": "-", "accuracy": oraculo})
 resumo = pd.DataFrame(resumo)
 
 Path("data/processed/selection").mkdir(parents=True, exist_ok=True)

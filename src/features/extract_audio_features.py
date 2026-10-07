@@ -259,10 +259,7 @@ def main():
 
     total = len(keys)
 
-    for index, key in enumerate(
-        keys,
-        start=1
-    ):
+    for key in keys:
 
         if key in processed_set:
             continue
