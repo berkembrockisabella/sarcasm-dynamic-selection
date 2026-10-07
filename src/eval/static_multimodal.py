@@ -1,5 +1,4 @@
 import json
-import math
 import sys
 from pathlib import Path
 
@@ -86,56 +85,14 @@ for roteamento in ["sem_roteamento", "com_roteamento"]:
         })
 resumo = pd.DataFrame(resumo)
 
-# Teste de McNemar exato (Dietterich, 1998) entre cada configuracao de DS e
-# cada estatico, sobre as mesmas 147 falas do teste. So contam as falas em
-# que um acerta e o outro erra (b e c); sob a hipotese de que os dois tem a
-# mesma taxa de erro, b ~ Binomial(b + c, 0.5). Compara ACERTO, nao F1
-nomes_ds = [nome for nome in predicoes.columns if "roteamento" in nome]
-nomes_estaticos = nomes_individuais + ["Estatico voto dos 3"]
-comparacoes = []
-for nome_ds in nomes_ds:
-    acerto_ds = predicoes[nome_ds] == predicoes["Sarcasm"]
-    for nome_est in nomes_estaticos:
-        acerto_est = predicoes[nome_est] == predicoes["Sarcasm"]
-        b = int((acerto_ds & ~acerto_est).sum())      # so a DS acerta
-        c = int((~acerto_ds & acerto_est).sum())      # so o estatico acerta
-        n = b + c
-        if n == 0:
-            p = 1.0
-        else:
-            cauda = sum(math.comb(n, i) for i in range(0, min(b, c) + 1)) / 2 ** n
-            p = min(1.0, 2 * cauda)
-        f1_ds = resumo.loc[resumo["metodo"] == nome_ds, "f1_macro"].iloc[0]
-        f1_est = resumo.loc[resumo["metodo"] == nome_est, "f1_macro"].iloc[0]
-        comparacoes.append({
-            "ds": nome_ds, "estatico": nome_est,
-            "dif_f1_macro": f1_ds - f1_est,
-            "so_ds_acerta": b, "so_estatico_acerta": c, "p_mcnemar": p,
-        })
-comparacoes = pd.DataFrame(comparacoes)
-
-# Correcao de Holm para as comparacoes multiplas (6 DS x 4 estaticos) --
-# sem ela, com 24 testes, alguns p < 0.05 aparecem so por acaso
-ordem = comparacoes["p_mcnemar"].sort_values().index
-m = len(comparacoes)
-ajustado = 0.0
-for posicao, indice in enumerate(ordem):
-    ajustado = max(ajustado, min(1.0, (m - posicao) * comparacoes.loc[indice, "p_mcnemar"]))
-    comparacoes.loc[indice, "p_holm"] = ajustado
-
 Path("data/processed/eval").mkdir(parents=True, exist_ok=True)
 predicoes.to_csv("data/processed/eval/static_multimodal_test.csv", index=False)
 resumo.to_csv("data/processed/eval/static_multimodal_summary.csv", index=False)
-comparacoes.to_csv("data/processed/eval/ds_vs_static_mcnemar.csv", index=False)
 
 print("Estaticos multimodais (hiperparametros da validacao cruzada no treino):")
 for nome, linha in escolhidos:
     print(f"  {nome:24s} {linha['candidate_id']:40s} F1-macro CV = {linha['mean_f1']:.3f}")
 print("\nResultados no teste (", len(teste), "falas ):")
 print(resumo[["metodo", "accuracy", "f1_macro"]].round(4).to_string(index=False))
-print("\nMcNemar (DS x estatico) -- b = so a DS acerta, c = so o estatico acerta:")
-print(comparacoes.round(4).to_string(index=False))
-print("\nComparacoes com p_holm < 0.05:", (comparacoes["p_holm"] < 0.05).sum(), "de", m)
 print("\nSalvo em: data/processed/eval/static_multimodal_test.csv")
 print("Salvo em: data/processed/eval/static_multimodal_summary.csv")
-print("Salvo em: data/processed/eval/ds_vs_static_mcnemar.csv")

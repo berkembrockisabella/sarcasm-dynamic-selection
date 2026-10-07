@@ -9,9 +9,13 @@ O projeto detecta sarcasmo em vídeos curtos de séries de comédia combinando q
 
 ---
 
-## Resultado em uma frase
+## Status
 
-Todas as configurações de seleção dinâmica ficaram **acima** dos classificadores estáticos multimodais (de +1,7 a +7,0 pontos de F1-macro), e a melhor foi o **KNORA-E com roteamento por incongruência (F1-macro 0,722)** — mas, com 147 falas no teste, **nenhuma diferença é estatisticamente significativa** depois da correção para comparações múltiplas.
+🚧 **Experimento em andamento.** Os números abaixo são **resultados parciais** de uma única rodada (um split treino/DSEL/teste). Nenhum teste estatístico foi aplicado ainda; as diferenças entre os métodos são apenas descritivas.
+
+## Resultados parciais em uma frase
+
+Nesta rodada, todas as configurações de seleção dinâmica tiveram F1-macro **maior** que os classificadores estáticos multimodais (de +1,7 a +7,0 pontos), e a melhor foi o **KNORA-E com roteamento por incongruência (F1-macro 0,722)**.
 
 ---
 
@@ -59,7 +63,7 @@ Em vez de usar sempre o mesmo classificador (abordagem **estática**), usamos **
               OLA | KNORA-E | KNORA-U   x   sem roteamento | com roteamento
                                      |
               comparacao com classificadores ESTATICOS multimodais
-              (F1-macro + teste de McNemar)
+              (F1-macro e acuracia no TESTE)
 ```
 
 ### Papel de cada conjunto
@@ -213,12 +217,14 @@ O SVM e a regressão logística com T+C+A+F são os mesmos candidatos que aparec
 ### 2.7 Avaliação
 
 - **F1-macro:** média do F1 das duas classes (sarcástica e não sarcástica). É a métrica principal porque pesa as duas classes igualmente.
-- **Teste de McNemar exato** (Dietterich, 1998): compara dois classificadores **nas mesmas falas** do teste. Conta as falas em que só o primeiro acerta (b) e as em que só o segundo acerta (c); se os dois fossem igualmente bons, b e c seriam parecidos. Compara **acerto**, não F1.
-- **Correção de Holm** (Holm, 1979): como são 24 comparações (6 configurações × 4 estáticos), alguns p < 0,05 apareceriam só por acaso; a correção ajusta os p-valores para isso.
+- **Acurácia:** fração das falas classificadas corretamente.
+- **F1-macro por grupo:** o mesmo F1-macro calculado separado para as falas do grupo A e do grupo B do teste, para ver onde o roteamento muda o resultado.
+
+Nenhum teste estatístico é aplicado nesta etapa do experimento.
 
 | | |
 |---|---|
-| **Saída** | `data/processed/eval/static_multimodal_summary.csv`, `static_multimodal_test.csv` (predições por fala) e `ds_vs_static_mcnemar.csv` |
+| **Saída** | `data/processed/eval/static_multimodal_summary.csv` (métricas) e `static_multimodal_test.csv` (predição de cada método em cada fala do teste) |
 | **Script** | `src/eval/static_multimodal.py` |
 
 ---
@@ -245,7 +251,7 @@ F1-macro por grupo (A tem 32 falas no teste, B tem 115):
 
 Referências: melhor membro sozinho (C01) 0,693 · voto da pool inteira 0,696 · **oráculo 0,816** (acurácia).
 
-**Leitura:** o roteamento só muda o resultado de forma visível no **KNORA-E** (+3,3 pontos), principalmente no grupo A. Comparando fala a fala (McNemar), o KNORA-E com roteamento acerta 6 falas que a versão sem roteamento erra, contra 1 no sentido oposto (p = 0,125) — a direção favorece o roteamento, mas não é significativa. No OLA e no KNORA-U, as duas versões quase não diferem.
+**Leitura:** o roteamento só muda o resultado de forma visível no **KNORA-E** (+3,3 pontos de F1-macro), principalmente no grupo A (0,667 → 0,752). Fala a fala, o KNORA-E com roteamento acerta 6 falas que a versão sem roteamento erra, e erra 1 que ela acerta. No OLA e no KNORA-U, as duas versões quase não diferem.
 
 ### 3.2 Seleção dinâmica × estáticos multimodais
 
@@ -260,18 +266,18 @@ Referências: melhor membro sozinho (C01) 0,693 · voto da pool inteira 0,696 ·
 | KNORA-U sem / com roteamento | 0,714 / 0,707 | 0,703 / 0,696 |
 | **KNORA-E com roteamento** | **0,735** | **0,722** |
 
-**McNemar (24 comparações):** todas as configurações de seleção dinâmica ficam acima de todos os estáticos (+1,7 a +7,0 pontos de F1-macro), mas **nenhuma diferença é significativa após a correção de Holm**. As mais próximas são do KNORA-E com roteamento:
+Todas as configurações de seleção dinâmica ficaram acima de todos os estáticos (+1,7 a +7,0 pontos de F1-macro). Contando fala a fala, as maiores diferenças são as do KNORA-E com roteamento:
 
-| Comparação | Só a seleção dinâmica acerta | Só o estático acerta | p (sem correção) | p (Holm) |
-|---|---|---|---|---|
-| KNORA-E com roteamento × random forest | 13 | 4 | 0,049 | 1,0 |
-| KNORA-E com roteamento × regressão logística | 11 | 3 | 0,057 | 1,0 |
-| KNORA-E com roteamento × SVM | 11 | 4 | 0,119 | 1,0 |
-| KNORA-E com roteamento × voto dos 3 | 10 | 4 | 0,180 | 1,0 |
+| Comparação | Falas que só a seleção dinâmica acerta | Falas que só o estático acerta |
+|---|---|---|
+| KNORA-E com roteamento × random forest | 13 | 4 |
+| KNORA-E com roteamento × regressão logística | 11 | 3 |
+| KNORA-E com roteamento × SVM | 11 | 4 |
+| KNORA-E com roteamento × voto dos 3 | 10 | 4 |
 
 ### 3.3 Interpretação
 
-- **A direção é consistente, a evidência ainda não.** A seleção dinâmica nunca ficou abaixo dos estáticos, e o KNORA-E com roteamento foi a melhor configuração em todas as comparações. Com 147 falas, porém, as diferenças (de 2 a 10 falas) ainda podem ser variação do split.
+- **A direção é consistente nesta rodada.** A seleção dinâmica nunca ficou abaixo dos estáticos, e o KNORA-E com roteamento foi a melhor configuração. As diferenças, porém, são de poucas falas (de 2 a 10 em 147), então ainda é preciso confirmar se elas se repetem em outros splits e com os testes estatísticos que forem definidos para o experimento final.
 - **A pool tem pouca diversidade, o que limita qualquer seleção.** O oráculo chega a só 0,816: em quase 1 de cada 5 falas, *todos* os 7 membros erram. C01 e C02 discordam em apenas 1,4% das falas na validação cruzada. Quando os especialistas erram nas mesmas falas, escolher entre eles muda pouco.
 - **O contexto domina.** Os 7 membros usam o contexto, e o contexto é a modalidade mais forte sozinha (F1-macro 0,70 na validação cruzada, contra 0,64 do texto, 0,60 do áudio e 0,56 do rosto). Isso deixa os membros parecidos entre si.
 - **O grupo A é pequeno e pouco informativo.** Só 16 falas no DSEL, e 82% do grupo A são falas em que as quatro modalidades são neutras — "concordar" aqui é, na maioria, "nenhuma emoção detectada".
@@ -280,12 +286,12 @@ Referências: melhor membro sozinho (C01) 0,693 · voto da pool inteira 0,696 ·
 
 ## 4. Limitações
 
-1. **Um único split e teste pequeno (147 falas).** Diferenças de poucos pontos não podem ser separadas do acaso. O próximo passo natural é repetir com vários splits por falante (por exemplo, 5 ou 10 sementes) e reportar média e desvio.
+1. **Um único split e teste pequeno (147 falas).** Diferenças de poucos pontos de F1-macro correspondem a poucas falas. Um próximo passo possível é repetir com vários splits por falante (por exemplo, 5 ou 10 sementes) e reportar média e desvio.
 2. **Grupo A pequeno no DSEL (16 falas).** Com k = 7, cada fala do grupo A usa quase metade do DSEL-A como vizinhança.
 3. **Critério de roteamento simples.** A polaridade vem só da emoção predominante, e o grupo A é dominado por falas "tudo neutro"; o grupo A tem *mais* sarcasmo (59,6%) que o B (48,5%), o contrário da intuição inicial.
 4. **Classificadores de emoção externos.** As valências dependem de classificadores pré-treinados que veem só a emoção de superfície (ver [seção 7.1](#71-cálculo-de-valência)); o classificador de texto vem de um autor individual no HuggingFace, sem validação acadêmica publicada.
 5. **Parte visual não reproduzível do zero.** Os scripts de extração de frames, recorte de rostos e emoção facial não estão no repositório, só o resultado (`visual_emotions.csv`). A probabilidade de raiva desse arquivo foi reconstruída (ver [seção 7.3](#73-correções-feitas-nos-dados)).
-6. **McNemar compara acerto, não F1.** Os testes indicam se as taxas de acerto diferem; não há intervalo de confiança para o F1-macro.
+6. **Sem testes estatísticos ainda.** Os resultados são descritivos; a comparação estatística entre os métodos fica para a versão final do experimento.
 
 ---
 
@@ -318,7 +324,7 @@ Todos os comandos rodam **a partir da raiz do repositório**, nesta ordem:
 | 15 | `python -m src.pool_selection.build_pool` | Escolhe a pool de 7 (validação cruzada no treino) |
 | 16 | `python -m src.pool_training.train_frozen_pool` | Treina e congela a pool |
 | 17 | `python src/selection/ds_routing.py` | **OLA / KNORA-E / KNORA-U sem e com roteamento** |
-| 18 | `python src/eval/static_multimodal.py` | **Estáticos multimodais + McNemar** |
+| 18 | `python src/eval/static_multimodal.py` | **Estáticos multimodais × seleção dinâmica** |
 
 ⚠️ `audio_valence.py` é retomável: se `data/processed/audio_valence.csv` já tiver todas as falas, ele não processa nada. Para recalcular do zero, apague ou mova esse CSV antes.
 
@@ -344,7 +350,7 @@ data/
     context_text.csv            contexto conversacional reconstruido por fala
     features/                   embeddings por modalidade (.npy nao versionados) + chaves
     selection/                  resultados da selecao dinamica (ds_routing_* e dcs_*)
-    eval/                       estaticos multimodais, McNemar e comparacoes do time
+    eval/                       estaticos multimodais e comparacoes do time
     pool_predictions/           predicoes dos 4 classificadores unimodais (linha do time)
     pool_analysis/              diversidade dos 4 classificadores unimodais (linha do time)
   results/
@@ -379,7 +385,7 @@ src/
     dcs_incongruence.py         DCS com os 4 unimodais, vizinhos na incongruencia (linha do time)
     dcs_combined.py             DCS com os 4 unimodais, os dois espacos (linha do time)
   eval/
-    static_multimodal.py        estaticos multimodais x selecao dinamica + McNemar (este experimento)
+    static_multimodal.py        estaticos multimodais x selecao dinamica (este experimento)
     static_ensemble.py          ensemble estatico dos 4 unimodais (linha do time)
     compare_static_vs_dcs.py    compara ensemble estatico e DCS (linha do time)
 
@@ -463,10 +469,8 @@ deadpan       = 1 se audio e rosto tem polaridade neutra ("cara de paisagem"), s
 - Britto, A. S., Sabourin, R., & Oliveira, L. E. S. (2014). Dynamic selection of classifiers — A comprehensive review. *Pattern Recognition*.
 - Castro, S., Hazarika, D., Pérez-Rosas, V., Zimmermann, R., Mihalcea, R., & Poria, S. (2019). Towards Multimodal Sarcasm Detection (An *Obviously* Perfect Paper). *ACL 2019*.
 - Cruz, R. M. O., Sabourin, R., & Cavalcanti, G. D. C. (2018). Dynamic classifier selection: Recent advances and perspectives. *Information Fusion*, 41, 195–216.
-- Dietterich, T. G. (1998). Approximate Statistical Tests for Comparing Supervised Classification Learning Algorithms. *Neural Computation*, 10(7), 1895–1923.
 - Du, Y., Li, T., Pathan, M. S., Teklehaimanot, H. K., & Yang, Z. (2022). An Effective Sarcasm Detection Approach Based on Sentimental Context and Individual Expression Habits. *Cognitive Computation*, 14, 78–90.
 - Farabi, S., Ranasinghe, T., Kanojia, D., Kong, Y., & Zampieri, M. (2024). A Survey of Multimodal Sarcasm Detection. *IJCAI 2024*.
-- Holm, S. (1979). A Simple Sequentially Rejective Multiple Test Procedure. *Scandinavian Journal of Statistics*, 6(2), 65–70.
 - Ko, A. H. R., Sabourin, R., & Britto, A. S. (2008). From dynamic classifier selection to dynamic ensemble selection. *Pattern Recognition*, 41(5), 1718–1731.
 - Ma, Z., et al. (2024). emotion2vec: Self-Supervised Pre-Training for Speech Emotion Representation. *Findings of ACL 2024*.
 - Ray, A., Mishra, S., Nunna, A., & Bhattacharyya, P. (2022). A Multimodal Corpus for Emotion Recognition in Sarcasm. *LREC 2022*.
