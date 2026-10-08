@@ -42,6 +42,26 @@ Detecta sarcasmo em falas de séries de comédia usando **texto**, **contexto** 
 
 A divisão é **por falante**: todas as falas de um personagem ficam no mesmo conjunto.
 
+**Para que serve cada conjunto na seleção dinâmica:**
+
+- **Treino:** os 7 classificadores aprendem aqui. Depois ficam congelados.
+- **DSEL:** serve de **base de consulta**. Para cada fala do teste, procuram-se aqui as falas parecidas e vê-se quais classificadores acertaram nelas; quem acertou mais decide. Fica separado do treino porque os classificadores já viram o treino e acertariam mais nele do que em falas novas.
+- **Teste:** só mede o resultado final. Nada é ajustado com ele.
+
+### Estrutura do repositório
+
+| Pasta | Função |
+|---|---|
+| `src/data/` | Prepara a base MUStARD++, divide em treino/DSEL/teste por falante e extrai o áudio dos vídeos |
+| `src/features/valencia/` | Calcula a valência e a emoção de cada modalidade (texto, contexto, áudio, rosto) |
+| `src/features/embeddings/` | Gera as representações numéricas (BART, wav2vec2, emoções do rosto) usadas pelos classificadores |
+| `src/incongruence/` | Define o grupo A (modalidades concordam) ou B (discordam) de cada fala. [Detalhes](src/incongruence/README.md) |
+| `src/pool_selection/` | Avalia os 45 candidatos (15 combinações de modalidades × 3 classificadores) e escolhe os 7 especialistas |
+| `src/pool_training/` | Treina os 7 especialistas no conjunto de treino e salva os modelos |
+| `src/selection/` | Seleção dinâmica (OLA, KNORA-E, KNORA-U), sem e com roteamento. [Detalhes](src/selection/README.md) |
+| `src/eval/` | Compara a seleção dinâmica com os classificadores estáticos |
+
+
 ### 1. Pool de 7 especialistas
 
 Cada fala é representada por embeddings de texto e contexto (BART-base), áudio (wav2vec2-base) e estatísticas das emoções do rosto. No treino, são avaliadas 15 combinações de modalidades × 3 classificadores (SVM, regressão logística, random forest) com validação cruzada por falante; ficam os 7 que equilibram desempenho e diversidade:
@@ -158,7 +178,7 @@ python src/eval/static_multimodal.py        # estaticos x selecao dinamica
 python src/selection/ds_routing_k_sweep.py  # sensibilidade ao k (tabela e grafico)
 ```
 
-Resultados em `data/processed/selection/ds_routing_summary.csv`, `data/processed/eval/static_multimodal_summary.csv` e `data/processed/selection/ds_routing_k_sweep.csv` (com o gráfico `.png` ao lado).
+Resultados em `data/processed/selection/ds_routing_summary.csv`, `data/processed/eval/static_multimodal_summary.csv`, `data/processed/selection/ds_routing_k_sweep.csv` (com o gráfico `.png` ao lado).
 
 Os scripts em `src/pool_selection/prototipo/`, `src/selection/dcs_*.py`, `src/eval/static_ensemble.py` e `src/eval/compare_static_vs_dcs.py` pertencem a outra linha de experimentos do time (4 classificadores unimodais) e não fazem parte deste experimento.
 
