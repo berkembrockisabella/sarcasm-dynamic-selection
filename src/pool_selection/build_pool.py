@@ -56,7 +56,7 @@ def run():
     print(f"\nFolds salvos em: {output_dir / 'fold_assignments.csv'}")
 
     
-    # pools formadas apenas com as features originais das modalidades, sem o vetor de incongruência
+    # candidatos formados apenas com as features das modalidades
     store = FeatureStore()
     result_rows = []
     fold_rows = []
@@ -70,7 +70,7 @@ def run():
     for combo in combos:
         # Avalia todas as combinações de modalidades.
         modalities = combo_name(combo)
-        X = store.matrix(keys, combo, use_incongruence=False)
+        X = store.matrix(keys, combo)
 
         # Avalia todos os classificadores e hiperparâmetros.
         for classifier in PARAM_GRIDS:

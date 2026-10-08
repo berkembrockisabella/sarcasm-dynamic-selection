@@ -11,51 +11,28 @@ Execute a partir da raiz do projeto:
 
 `python -m src.pool_training.train_frozen_pool`
 
-Ao final da execução, as *pools* treinadas estarão disponíveis em:
+Ao final da execução, a *pool* treinada estará disponível em:
 
-`data/results/pool/frozen_pools`
+`data/results/pool/frozen_pools/base`
+
+(a pasta se chama `base` por compatibilidade com os modelos já treinados; há uma única pool)
 
 ## Visão geral
-O processo de treinamento das *pools* segue o fluxo:
+Cada especificação de `pool_definition.csv` é instanciada de novo e treinada com todo o conjunto TRAIN, recebendo somente as features das suas modalidades:
 
 ```
-          pool_definition.csv
-                   │
-                   ▼
-       ┌──────────────────────┐
-       │                      │
-       ▼                      ▼
-      BASE               INCONGRUENCE
-       │                      │
-   features               features
-   originais              originais
-       │                      +
-       │                  vetor de
-       │                incongruência
-       │                      │
-       ▼                      ▼
-  C01 ... C07            C01 ... C07
-       │                      │
-       ▼                      ▼
-frozen_pools/base/   frozen_pools/incongruence/
+   pool_definition.csv
+           │
+           ▼
+   features das modalidades
+   de cada especialista
+           │
+           ▼
+      C01 ... C07
+           │
+           ▼
+  frozen_pools/base/
 ```
-
-A partir da definição `pool_definition.csv` são treinadas duas versões pareadas da mesma *pool*:
-
-* **BASE**: utiliza somente as features das modalidades
-* **INCONGRUENCE**: utiliza as mesmas features + vetor de incongruência multimodal
-
-## Estrutura
-```
-pool_training/
-├── load_frozen_pool.py            carrega uma pool já treinada
-├── train_frozen_pool.py           treina as 2 versões da pool (com e sem incongruência)
-└── README.md
-```
-
-## Condição BASE
-
-Corresponde à versão **sem** incongruência, cada especialista recebe somente as features correspondentes às suas modalidades.
 
 Por exemplo:
 
@@ -65,23 +42,17 @@ recebe:
 
 `[text_embedding, audio_embedding]`
 
-## Condição INCONGRUENCE
-
-Corresponde à versão **com** incongruência, cada especialista recebe as features correspondentes às suas modalidades acrescidas das incongruências existentes entre elas.
-
-Para:
-
-`C01 = text + audio`
-
-recebe:
-
-`[text_embedding, audio_embedding, inc_text_audio]`
-
-## Treinamento
-
-Após a definição da *pool*, cada especificação é novamente instanciada e treinada utilizando todo o conjunto TRAIN.
-
 Os modelos utilizados durante os folds da validação cruzada não são reutilizados.
+
+A incongruência entre modalidades **não** entra como feature dos especialistas. Ela é usada apenas no roteamento da seleção dinâmica (grupo A/B), em `src/selection/ds_routing.py`.
+
+## Estrutura
+```
+pool_training/
+├── load_frozen_pool.py            carrega a pool já treinada
+├── train_frozen_pool.py           treina a pool
+└── README.md
+```
 
 ## Saídas
 ```
@@ -92,12 +63,7 @@ data/
         │   └── pool_definition.csv
         │
         └── frozen_pools/
-            ├── training_summary.txt
-            ├── base/
-            │   ├── C01.joblib ... C07.joblib
-            │   └── pool_metadata.csv
-            │
-            └── incongruence/
+            └── base/
                 ├── C01.joblib ... C07.joblib
                 └── pool_metadata.csv
 ```
@@ -110,6 +76,5 @@ Os arquivos `.joblib` não são versionados (estão no `.gitignore`); são recri
 * modalidades
 * classificador
 * hiperparâmetros
-* condição
 * número de features
 * caminho do modelo

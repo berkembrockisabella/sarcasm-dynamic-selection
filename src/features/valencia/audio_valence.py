@@ -79,7 +79,6 @@ for _, row in df.iterrows():
             probs_validas = {emocao: 0.0 for emocao in EMOCOES}
             emocao_predominante = "vazio"
             valencia = 0.0
-            intensidade = 0.0
         else:
             probs_validas = {
                 emocao: probs.get(emocao, 0.0) / p_valida for emocao in EMOCOES
@@ -88,16 +87,12 @@ for _, row in df.iterrows():
             p_positiva = sum(probs_validas[c] for c in POSITIVAS)
             p_negativa = sum(probs_validas[c] for c in NEGATIVAS)
             valencia = p_positiva - p_negativa
-            # Intensidade = quanto da probabilidade foi para emocoes com
-            # polaridade -- separa "neutro" de "ambivalente" (mesma valencia 0)
-            intensidade = p_positiva + p_negativa
 
         linha = {"KEY": key}
         linha.update(probs_validas)
         linha["p_descartada"] = p_descartada
         linha["emocao_predominante"] = emocao_predominante
         linha["audio_valence"] = valencia
-        linha["audio_intensity"] = intensidade
         novos_resultados.append(linha)
         total_processadas += 1
     except Exception as erro:
@@ -129,6 +124,4 @@ print("\nDistribuicao da emocao predominante:")
 print(resultado_final["emocao_predominante"].value_counts())
 print("\nEstatisticas de audio_valence:")
 print(resultado_final["audio_valence"].describe())
-print("\nEstatisticas de audio_intensity:")
-print(resultado_final["audio_intensity"].describe())
 print("Salvo em:", output_path)

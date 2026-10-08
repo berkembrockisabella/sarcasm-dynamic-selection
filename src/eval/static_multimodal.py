@@ -79,7 +79,7 @@ for roteamento in ["sem_roteamento", "com_roteamento"]:
         nome = f"{metodo} {roteamento.replace('_', ' ')}"
         predicoes[nome] = parte[metodo].astype(int).to_numpy()
         resumo.append({
-            "metodo": nome, "candidato": "pool de 7 (BASE)", "f1_macro_cv_treino": None,
+            "metodo": nome, "candidato": "pool de 7", "f1_macro_cv_treino": None,
             "accuracy": accuracy_score(y_teste, predicoes[nome]),
             "f1_macro": f1_score(y_teste, predicoes[nome], average="macro"),
         })

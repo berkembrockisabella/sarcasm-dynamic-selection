@@ -1,6 +1,6 @@
 # Pool selection
 
-Módulo responsável pela **formação da *pool* de classificadores**. A seleção é realizada uma única vez, somente sobre o conjunto de treinamento e sem incorporar as *features* de incongruência multimodal para garantir uma comparação controlada do experimento.
+Módulo responsável pela **formação da *pool* de classificadores**. A seleção é realizada uma única vez, somente sobre o conjunto de treinamento e usando apenas as *features* das modalidades.
 
 ## Como rodar
 Execute a partir da raiz do projeto:
@@ -185,6 +185,4 @@ data/
             └── pool_definition.csv       definição congelada da pool
 ```
 
-A definição resultante `pool_definition.csv` será posteriormente utilizada para treinar duas versões da mesma pool em `pool_training`
-
-Dessa forma, composição da pool, classificadores hiperparâmetros permanecem constantes entre as condições.
+A definição resultante `pool_definition.csv` será posteriormente utilizada para treinar a pool em `pool_training`, com a mesma composição, classificadores e hiperparâmetros.

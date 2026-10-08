@@ -17,7 +17,8 @@ from pool_selection.classifiers import build_classifier
 from pool_selection.feature_loader import FeatureStore
 
 POOL_DEFINITION_PATH = (RESULTS_DIR / "pool_selection" / "pool_definition.csv")
-FROZEN_POOLS_DIR = (RESULTS_DIR / "frozen_pools")
+# A pasta se chama base por compatibilidade com os modelos ja treinados -- ha uma unica pool
+POOL_DIR = (RESULTS_DIR / "frozen_pools" / "base")
 
 # Funções auxiliares
 def parse_params(value):
@@ -59,15 +60,9 @@ def get_best_params(row):
 
 
 # Treinamento de um membro
-def train_member(member_id, row, train, store, condition, output_dir):
+def train_member(member_id, row, train, store, output_dir):
     """
-    Treina um membro da pool congelada
-
-    condition =
-    BASE: usa somente as features das modalidades
-    INCONGRUENCE: usa as mesmas features + vetor de incongruência correspondente
-
-    O classificador e os hiperparâmetros são exatamente os mesmos nas duas condições
+    Treina um membro da pool congelada com as features das suas modalidades
     """
 
     modalities = row["modalities"]
@@ -77,13 +72,11 @@ def train_member(member_id, row, train, store, condition, output_dir):
 
     best_params = get_best_params(row)
 
-    use_incongruence = (condition == "incongruence")
-
     keys = train["KEY"].tolist()
     y = train["Sarcasm"].to_numpy()
 
     # Montar matriz de features
-    X = store.matrix(keys=keys, combo=combo, use_incongruence=use_incongruence)
+    X = store.matrix(keys=keys, combo=combo)
 
     model = build_classifier(classifier_name)
     model.set_params(**best_params) # Aplica exatamente os mesmos hiperparâmetros selecionados durante a formação da pool
@@ -104,28 +97,23 @@ def train_member(member_id, row, train, store, condition, output_dir):
         "best_params": json.dumps(
             best_params
         ),
-        "condition": condition,
         "n_features": X.shape[1],
         "model_path": str(model_path),
     }
 
-# Treinar uma condição
-def train_condition(pool_definition, train, store, condition,):
+# Treinar a pool
+def train_pool(pool_definition, train, store):
     """
-    Treina todos os membros da pool para uma condição
+    Treina todos os membros da pool
     """
 
-    if condition not in {"base", "incongruence"}:
-        raise ValueError("condition deve ser 'base' ou 'incongruence'")
-
-    output_dir = (FROZEN_POOLS_DIR / condition)
+    output_dir = POOL_DIR
     output_dir.mkdir(parents=True, exist_ok=True,)
 
-    print(f"\nTREINANDO POOL: {condition.upper()}")
+    print("\nTREINANDO POOL")
 
     metadata = []
 
-    # Mesmos membros utilizados para BASE e INC
     for i, (_, row) in enumerate(pool_definition.iterrows(), start=1,):
 
         member_id = f"C{i:02d}"
@@ -135,7 +123,6 @@ def train_condition(pool_definition, train, store, condition,):
             row=row,
             train=train,
             store=store,
-            condition=condition,
             output_dir=output_dir,
         )
 
@@ -150,7 +137,7 @@ def train_condition(pool_definition, train, store, condition,):
 
 # Execução principal
 def run():
-    print("TRAIN FROZEN POOLS")
+    print("TRAIN FROZEN POOL")
 
     # Ler definição congelada da pool
     if not POOL_DEFINITION_PATH.exists():
@@ -172,45 +159,11 @@ def run():
 
     store = FeatureStore()
 
-    # Pool base
-    base_metadata = train_condition(
+    train_pool(
         pool_definition=pool_definition,
         train=train,
         store=store,
-        condition="base",
     )
-
-    # Pool de incongruência
-    inc_metadata = train_condition(
-        pool_definition=pool_definition,
-        train=train,
-        store=store,
-        condition="incongruence",
-    )
-
-    # Verificar pareamento
-    columns_to_compare = [
-        "member_id",
-        "candidate_id",
-        "modalities",
-        "classifier",
-        "best_params",
-    ]
-
-    base_compare = (
-        base_metadata[
-            columns_to_compare
-        ].reset_index(drop=True)
-    )
-
-    inc_compare = (
-        inc_metadata[
-            columns_to_compare
-        ].reset_index(drop=True)
-    )
-
-    if not base_compare.equals(inc_compare):
-        raise RuntimeError("As pools BASE e INCONGRUENCE não possuem a mesma definição.")
 
     print("\nTREINAMENTO CONCLUÍDO")
 

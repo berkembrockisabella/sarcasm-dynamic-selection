@@ -1,13 +1,12 @@
 '''
-Carrega as features de cada modalidade e as incongruências
+Carrega as features de cada modalidade
 Monta a matriz de features para uma combinação de modalidades
 '''
 
-from itertools import combinations
 import numpy as np
 import pandas as pd
 
-from .config import FEATURE_SOURCES, INCONGRUENCE_PATH
+from .config import FEATURE_SOURCES
 
 def _load_npy_source(source):
     X = np.load(source["features"])
@@ -31,13 +30,6 @@ def load_modality(modality):
         raise ValueError(f"KEY duplicada nas features de {modality}")
     return dict(zip(keys_df["KEY"], X))
 
-def incongruence_columns_for(combo):
-    # Para combinação de modalidades -> inc_<mod1>_<mod2>
-    cols = []
-    for a, b in combinations(combo, 2):
-        cols.append(f"inc_{a}_{b}")
-    return cols
-
 class FeatureStore:
     def __init__(self):
         self.modalities = {
@@ -45,11 +37,7 @@ class FeatureStore:
             for name in FEATURE_SOURCES
         }
 
-        inc = pd.read_csv(INCONGRUENCE_PATH)
-        inc["KEY"] = inc["KEY"].astype(str)
-        self.incongruence = inc.set_index("KEY")
-
-    def matrix(self, keys, combo, use_incongruence=False):
+    def matrix(self, keys, combo):
         keys = [str(k) for k in keys]
         blocks = []
 
@@ -62,19 +50,5 @@ class FeatureStore:
                     f"Exemplos: {missing[:5]}"
                 )
             blocks.append(np.vstack([mapping[k] for k in keys]).astype(np.float32))
-
-        if use_incongruence:
-            cols = incongruence_columns_for(combo)
-            missing_cols = [c for c in cols if c not in self.incongruence.columns]
-            if missing_cols:
-                raise ValueError(f"Colunas de incongruência ausentes: {missing_cols}")
-
-            inc_block = (
-                self.incongruence
-                .reindex(keys)[cols]
-                .fillna(0.0)
-                .to_numpy(dtype=np.float32)
-            )
-            blocks.append(inc_block)
 
         return np.hstack(blocks)

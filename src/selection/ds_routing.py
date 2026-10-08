@@ -18,7 +18,7 @@ from pool_selection.feature_loader import FeatureStore
 from pool_training.load_frozen_pool import load_frozen_pool
 
 # Experimento: OLA, KNORA-E e KNORA-U, cada um sem e com roteamento por
-# incongruencia. A pool e sempre a mesma (7 especialistas, versao BASE) --
+# incongruencia. A pool e sempre a mesma (7 especialistas) --
 # o unico fator que muda entre "sem" e "com" e o roteamento:
 #   - sem roteamento: os k vizinhos da instancia de teste sao procurados no
 #     DSEL inteiro
@@ -51,7 +51,7 @@ y_teste = teste["Sarcasm"].astype(int).to_numpy()
 # Predicoes da pool no DSEL e no teste
 # --------------------------------------------------------------------------
 store = FeatureStore()
-pool = load_frozen_pool("base")
+pool = load_frozen_pool()
 MEMBROS = [membro["member_id"] for membro in pool]
 
 pred_dsel = np.zeros((len(dsel), len(pool)), dtype=int)
@@ -60,8 +60,8 @@ proba_teste = np.zeros((len(teste), len(pool)))
 
 for j, membro in enumerate(pool):
     combo = tuple(parte.strip() for parte in str(membro["modalities"]).split("+"))
-    X_d = store.matrix(dsel["KEY"].tolist(), combo, use_incongruence=False)
-    X_t = store.matrix(teste["KEY"].tolist(), combo, use_incongruence=False)
+    X_d = store.matrix(dsel["KEY"].tolist(), combo)
+    X_t = store.matrix(teste["KEY"].tolist(), combo)
     pred_dsel[:, j] = membro["model"].predict(X_d)
     pred_teste[:, j] = membro["model"].predict(X_t)
     proba_teste[:, j] = membro["model"].predict_proba(X_t)[:, 1]
@@ -196,7 +196,7 @@ Path("data/processed/selection").mkdir(parents=True, exist_ok=True)
 resultado.to_csv("data/processed/selection/ds_routing_test.csv", index=False)
 resumo.to_csv("data/processed/selection/ds_routing_summary.csv", index=False)
 
-print("Pool (BASE):", ", ".join(f"{m['member_id']}={m['modalities']}/{m['classifier']}" for m in pool))
+print("Pool:", ", ".join(f"{m['member_id']}={m['modalities']}/{m['classifier']}" for m in pool))
 print("Acuracia global de cada membro no DSEL:", dict(zip(MEMBROS, acuracia_global.round(3))))
 print("DSEL por grupo:", dsel["grupo"].value_counts().to_dict(), "| teste por grupo:", teste["grupo"].value_counts().to_dict())
 print(f"k = {K} | oraculo no teste: {oraculo:.3f}")

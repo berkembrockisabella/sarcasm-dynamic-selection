@@ -16,7 +16,6 @@ SPLIT_DIR = DATA_DIR / "splits"
 RESULTS_DIR = DATA_DIR / "results" / "pool"
 
 TRAIN_PATH = SPLIT_DIR / "train.csv"
-INCONGRUENCE_PATH = DATA_DIR / "processed" / "incongruence.csv"
 
 MODALITIES = ("text", "context", "audio", "visual")
 

@@ -7,13 +7,11 @@ import pandas as pd
 
 from pool_selection.config import RESULTS_DIR
 
-FROZEN_POOLS_DIR = (RESULTS_DIR / "frozen_pools")
+# A pasta se chama base por compatibilidade com os modelos ja treinados -- ha uma unica pool
+POOL_DIR = (RESULTS_DIR / "frozen_pools" / "base")
 
-def load_frozen_pool(condition):
-    if condition not in {"base","incongruence"}:
-        raise ValueError("condition deve ser 'base' ou 'incongruence'")
-
-    pool_dir = (FROZEN_POOLS_DIR / condition)
+def load_frozen_pool():
+    pool_dir = POOL_DIR
 
     if not pool_dir.exists():
         raise FileNotFoundError(f"Pool não encontrada: {pool_dir}")

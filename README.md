@@ -64,7 +64,7 @@ Para cada modalidade, um classificador de emoções pré-treinado dá a **valên
 
 ### 3. Seleção dinâmica
 
-Para cada fala do teste, procuram-se os **7 vizinhos mais parecidos no DSEL** e verifica-se quais especialistas acertaram esses vizinhos.
+Para cada fala do teste, procuram-se os **k = 7 vizinhos mais parecidos no DSEL** (o efeito de outros valores de k está na seção de sensibilidade) e verifica-se quais especialistas acertaram esses vizinhos.
 
 | | Onde procura os vizinhos |
 |---|---|
@@ -104,6 +104,22 @@ Treinados uma vez no treino e aplicados igual a todas as falas, recebendo **as 4
 - As diferenças são de poucas falas (de 2 a 10 em 147) e ainda precisam ser confirmadas.
 - A pool tem **pouca diversidade**: o oráculo é 0,816 e todos os especialistas usam o contexto, então eles tendem a errar nas mesmas falas.
 
+### Sensibilidade ao tamanho da vizinhança (k)
+
+O mesmo experimento foi repetido com k = 3, 5, 7, 9, 11, 15, 21 e 31 (nenhum k foi escolhido olhando o teste). F1-macro:
+
+| k | KNORA-E sem | KNORA-E com | KNORA-U sem | KNORA-U com | OLA sem | OLA com |
+|---|---|---|---|---|---|---|
+| 3 | 0,682 | 0,701 | 0,709 | 0,701 | 0,686 | 0,690 |
+| 7 | 0,689 | 0,722 | 0,703 | 0,697 | 0,690 | 0,689 |
+| 11 | 0,695 | 0,714 | 0,697 | 0,697 | 0,704 | 0,711 |
+| 21 | 0,695 | 0,722 | 0,697 | 0,697 | 0,741 | 0,715 |
+
+- **KNORA-E:** com roteamento ficou acima de sem roteamento em todos os k (+1 a +3 pontos).
+- **KNORA-U:** quase não muda com o k nem com o roteamento.
+- **OLA:** oscila bastante entre os k (ruído), sem tendência clara.
+- Com roteamento, o grupo A tem só 16 falas no DSEL; para k > 16 a vizinhança dele é limitada a essas 16.
+
 **Limitações:** um único split; grupo A pequeno no DSEL (16 falas) e formado em 82% por falas "tudo neutro"; scripts da parte visual (frames, rostos, emoção facial) ausentes no repositório — só o resultado `visual_emotions.csv` existe.
 
 ---
@@ -119,19 +135,18 @@ python src/data/create_splits.py
 python src/data/extract_audio.py
 
 # valencia e grupo A/B
-python src/features/fix_visual_anger.py
-python src/features/text_valence.py
-python src/features/context_valence.py
-python src/features/audio_valence.py        # retomavel: apague audio_valence.csv para recalcular
-python src/features/visual_valence.py
+python src/features/valencia/text_valence.py
+python src/features/valencia/context_valence.py
+python src/features/valencia/audio_valence.py        # retomavel: apague audio_valence.csv para recalcular
+python src/features/valencia/visual_valence.py
 python src/incongruence/build_incongruence.py
 
 # representacoes
-python src/features/build_context_text.py
-python src/features/extract_text_features.py
-python src/features/extract_context_features.py
-python src/features/extract_audio_features.py
-python src/features/build_visual_features.py
+python src/features/embeddings/build_context_text.py
+python src/features/embeddings/extract_text_features.py
+python src/features/embeddings/extract_context_features.py
+python src/features/embeddings/extract_audio_features.py
+python src/features/embeddings/build_visual_features.py
 
 # pool
 python -m src.pool_selection.build_pool
@@ -140,9 +155,10 @@ python -m src.pool_training.train_frozen_pool
 # experimento
 python src/selection/ds_routing.py          # OLA / KNORA, sem e com roteamento
 python src/eval/static_multimodal.py        # estaticos x selecao dinamica
+python src/selection/ds_routing_k_sweep.py  # sensibilidade ao k (tabela e grafico)
 ```
 
-Resultados em `data/processed/selection/ds_routing_summary.csv` e `data/processed/eval/static_multimodal_summary.csv`.
+Resultados em `data/processed/selection/ds_routing_summary.csv`, `data/processed/eval/static_multimodal_summary.csv` e `data/processed/selection/ds_routing_k_sweep.csv` (com o gráfico `.png` ao lado).
 
 Os scripts em `src/pool_selection/prototipo/`, `src/selection/dcs_*.py`, `src/eval/static_ensemble.py` e `src/eval/compare_static_vs_dcs.py` pertencem a outra linha de experimentos do time (4 classificadores unimodais) e não fazem parte deste experimento.
 
