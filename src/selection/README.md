@@ -36,17 +36,18 @@ Passo a passo do script:
    - **KNORA-U:** todos votam, com peso igual ao número de vizinhos que acertaram.
 6. **Salva** as predições e o resumo em `data/processed/selection/ds_routing_test.csv` e `ds_routing_summary.csv`.
 
-## Por que o treino aparece aqui? O teste nunca é usado para ajustar nada
+## O que acontece em cada etapa (e onde)
 
-Cada conjunto tem um papel fixo. O treino aparece em dois lugares, e nenhum deles é a seleção em si:
+Os classificadores **não são treinados** nesta pasta. A divisão de trabalho é esta:
 
-| Conjunto | Papel | Onde aparece no `ds_routing.py` |
-|---|---|---|
-| **Treino** | Ajustar coisas | (a) os 7 modelos já foram treinados nele, antes, por `pool_training`; (b) o padronizador (`StandardScaler`) das features é ajustado só nele |
-| **DSEL** | Medir competência | É onde se procuram os vizinhos e se vê quem acerta; é a "base de consulta" da seleção |
-| **Teste** | Avaliar | Só recebe as predições; nada é ajustado com ele |
+| Etapa | Onde | Conjunto usado | O que acontece |
+|---|---|---|---|
+| Escolher os 7 especialistas | `src/pool_selection/` | Treino | Validação cruzada por falante entre os 45 candidatos |
+| **Treinar** os 7 especialistas | `src/pool_training/` | Treino | Cada um aprende a detectar sarcasmo; depois ficam congelados |
+| **Selecionar** quem decide cada fala | `src/selection/` | DSEL | Procura as falas parecidas e vê quem acertou nelas |
+| **Avaliar** | `src/selection/` | Teste | Só recebe as predições; nada é ajustado com ele |
 
-Ou seja: o treino é lido para ajustar o padronizador, e o DSEL (não o treino) é o que seleciona. O padronizador é ajustado no treino para que o DSEL e o teste sejam transformados com a mesma régua, sem que o teste influencie nada.
+Nesta pasta, o treino só é lido para uma coisa: ajustar o `StandardScaler` que padroniza as features antes de calcular a distância entre falas. Ele é ajustado só no treino para que DSEL e teste sejam transformados com a mesma régua, sem influência do teste. Nenhum classificador é treinado ou alterado aqui.
 
 ## O que mudou em `pool_training`
 
