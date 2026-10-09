@@ -49,14 +49,6 @@ Os classificadores **não são treinados** nesta pasta. A divisão de trabalho �
 
 Nesta pasta, o treino só é lido para uma coisa: ajustar o `StandardScaler` que padroniza as features antes de calcular a distância entre falas. Ele é ajustado só no treino para que DSEL e teste sejam transformados com a mesma régua, sem influência do teste. Nenhum classificador é treinado ou alterado aqui.
 
-## O que mudou em `pool_training`
-
-Antes havia duas pools treinadas (uma "base" e uma com a incongruência como feature de entrada). Isso não fazia parte do desenho do experimento, então foi removido:
-
-- agora existe **uma única pool de 7 especialistas**, treinada só com as features das modalidades;
-- a incongruência **não entra como feature** dos classificadores: ela só define o grupo A/B usado no roteamento;
-- a pasta com os modelos continua se chamando `data/results/pool/frozen_pools/base` (nome mantido para não retreinar), e `load_frozen_pool()` não recebe mais argumento.
-
 ## Ordem para rodar
 
 ```
