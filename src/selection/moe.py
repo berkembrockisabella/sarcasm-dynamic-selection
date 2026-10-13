@@ -137,7 +137,7 @@ class MixtureOfExperts:
     
     
     def _loss(self, X_gate, expert_probabilities, y):
-        probabilities = self.predict(X_gate, expert_probabilities, check_fitted=False)
+        probabilities = self.predict_proba(X_gate, expert_probabilities, check_fitted=False)
         probabilities = np.clip(probabilities, 1e-7, 1 - 1e-7)
         
         y = np.asarray(y)
@@ -150,83 +150,30 @@ class MixtureOfExperts:
         
         X = self._to_tensor(X_gate).to(self.device)
         with torch.no_grad():
+            weights = self.gate(X)
 
-            weights = self.gate(
-                X
-            )
+        return (weights.cpu().numpy())
 
-        return (
-            weights
-            .cpu()
-            .numpy()
-        )
-
-
-    # =====================================================
     # Predict proba
-    # =====================================================
+    def predict_proba(self, X_gate, expert_probabilities, check_fitted=True):
 
-    def predict_proba(
-        self,
-        X_gate,
-        expert_probabilities,
-        check_fitted=True,
-    ):
+        if check_fitted and not self.is_fitted:
+            raise RuntimeError("MixtureOfExperts ainda não treinado")
 
-        if (
-            check_fitted
-            and not self.is_fitted_
-        ):
-            raise RuntimeError(
-                "O MixtureOfExperts ainda "
-                "não foi treinado."
-            )
+        expert_probabilities = np.asarray(expert_probabilities)
+        weights = self.get_gate_weights(X_gate)
 
-        expert_probabilities = np.asarray(
-            expert_probabilities
-        )
+        if weights.shape != expert_probabilities.shape:
+            raise ValueError("Gate weights e expert probabilities possuem dimensões incompatíveis")
 
-        weights = self.get_gate_weights(
-            X_gate
-        )
-
-        if (
-            weights.shape
-            != expert_probabilities.shape
-        ):
-            raise ValueError(
-                "Gate weights e expert probabilities "
-                "possuem dimensões incompatíveis."
-            )
-
-        probabilities = np.sum(
-            weights
-            * expert_probabilities,
-            axis=1,
-        )
+        probabilities = np.sum(weights * expert_probabilities, axis=1)
 
         return probabilities
 
-
-    # =====================================================
     # Predict
-    # =====================================================
-
-    def predict(
-        self,
-        X_gate,
-        expert_probabilities,
-        threshold=0.5,
-    ):
-
-        probabilities = self.predict_proba(
-            X_gate,
-            expert_probabilities,
-        )
-
-        return (
-            probabilities >= threshold
-        ).astype(int)
+    def predict(self, X_gate, expert_probabilities, threshold=0.5):
+        probabilities = self.predict_proba(X_gate, expert_probabilities)
+        return (probabilities >= threshold).astype(int)
     
     def forward(self, gate_features, expert_probabilities):
         weights = self.gate(gate_features)
