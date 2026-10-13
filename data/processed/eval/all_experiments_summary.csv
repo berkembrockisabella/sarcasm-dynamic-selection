@@ -1,0 +1,21 @@
+metodo,roteamento,accuracy,f1_macro,f1_macro_grupo_A,f1_macro_grupo_B,familia,n_experts,n_dsel,n_test,precision,recall,f1,roc_auc,candidato,f1_macro_cv_treino
+OLA,sem_roteamento,0.7006802721088435,0.6902298850574713,0.6666666666666667,0.6960509950248757,DS,,,,,,,,,
+KNORA-E,sem_roteamento,0.7006802721088435,0.6885593220338984,0.6666666666666667,0.6941489361702128,DS,,,,,,,,,
+KNORA-U,sem_roteamento,0.7142857142857143,0.7027157164869029,0.6666666666666667,0.7121401752190237,DS,,,,,,,,,
+OLA,com_roteamento,0.7006802721088435,0.6885593220338984,0.681063122923588,0.6880086814975583,DS,,,,,,,,,
+KNORA-E,com_roteamento,0.7346938775510204,0.7214962351226621,0.751937984496124,0.7121401752190237,DS,,,,,,,,,
+KNORA-U,com_roteamento,0.7074829931972789,0.6964705882352942,0.6389743589743591,0.7121401752190237,DS,,,,,,,,,
+Melhor membro (C01),-,0.7006802721088435,0.6931688804554079,,,DS,,,,,,,,,
+Voto da pool inteira,-,0.7074829931972789,0.6964705882352942,,,DS,,,,,,,,,
+Oraculo (algum membro acerta),-,0.8163265306122449,,,,DS,,,,,,,,,
+Soft-MoE,,0.7142857142857143,0.7043103448275863,,,MoE,7.0,158.0,147.0,0.66,0.8918918918918919,0.7586206896551724,0.7536097741577193,,
+Estatico Regressao logistica,,0.6802721088435374,0.671516188846099,,,Estático,,,,,,,,text+context+audio+visual__logistic_regression,0.7317564532623507
+Estatico SVM,,0.6870748299319728,0.6659090909090909,,,Estático,,,,,,,,text+context+audio+visual__svm,0.7283338629067165
+Estatico Random forest,,0.6802721088435374,0.6573766426977437,,,Estático,,,,,,,,text+context+audio+visual__random_forest,0.7149853378709071
+Estatico voto dos 3,,0.6938775510204082,0.6719563600297546,,,Estático,,,,,,,,voto SVM + RL + RF,
+OLA sem roteamento,,0.7006802721088435,0.6902298850574713,,,Estático,,,,,,,,pool de 7,
+KNORA-E sem roteamento,,0.7006802721088435,0.6885593220338984,,,Estático,,,,,,,,pool de 7,
+KNORA-U sem roteamento,,0.7142857142857143,0.7027157164869029,,,Estático,,,,,,,,pool de 7,
+OLA com roteamento,,0.7006802721088435,0.6885593220338984,,,Estático,,,,,,,,pool de 7,
+KNORA-E com roteamento,,0.7346938775510204,0.7214962351226621,,,Estático,,,,,,,,pool de 7,
+KNORA-U com roteamento,,0.7074829931972789,0.6964705882352942,,,Estático,,,,,,,,pool de 7,
