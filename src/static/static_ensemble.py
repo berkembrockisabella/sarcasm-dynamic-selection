@@ -19,7 +19,7 @@ PREDICTIONS_DIR = Path(
 )
 
 OUTPUT_DIR = Path(
-    "data/processed/eval"
+    "data/processed/static"
 )
 
 DSEL_OUTPUT_PATH = (

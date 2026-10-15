@@ -18,7 +18,7 @@ from pool_selection.feature_loader import FeatureStore
 
 POOL_DEFINITION_PATH = (RESULTS_DIR / "pool_selection" / "pool_definition.csv")
 # A pasta se chama base por compatibilidade com os modelos ja treinados -- ha uma unica pool
-POOL_DIR = (RESULTS_DIR / "frozen_pools" / "base")
+POOL_DIR = (RESULTS_DIR / "frozen_pools")
 
 # Funções auxiliares
 def parse_params(value):

@@ -51,11 +51,6 @@ FROZEN_POOLS = (
     / "frozen_pools"
 )
 
-FROZEN_BASE = (
-    FROZEN_POOLS
-    / "base"
-)
-
 FROZEN_INCONGRUENCE = (
     FROZEN_POOLS
     / "incongruence"
@@ -192,7 +187,7 @@ def ensure_pool():
     # --------------------------------------------------------
 
     base_ok = frozen_pool_is_complete(
-        FROZEN_BASE
+        FROZEN_POOLS
     )
 
     incongruence_ok = frozen_pool_is_complete(
@@ -217,7 +212,7 @@ def ensure_pool():
         )
 
         print(
-            f"BASE:          {FROZEN_BASE}"
+            f"BASE:          {FROZEN_POOLS}"
         )
 
         print(
@@ -255,7 +250,7 @@ def consolidate():
         (
             DATA
             / "processed"
-            / "eval"
+            / "static"
             / "static_multimodal_summary.csv",
             "Estático",
         ),
@@ -506,7 +501,7 @@ def main():
                 [
                     sys.executable,
                     "-m",
-                    "src.selection.run_moe",
+                    "src.moe.run_moe",
                 ]
             )
 
@@ -544,7 +539,7 @@ def main():
                 [
                     sys.executable,
                     "-m",
-                    "src.eval.static_multimodal",
+                    "src.static.static_multimodal",
                 ]
             )
 

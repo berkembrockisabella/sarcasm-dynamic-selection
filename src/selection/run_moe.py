@@ -22,8 +22,8 @@ if str(ROOT_DIR) not in sys.path:
 
 from pool_selection.feature_loader import FeatureStore
 from pool_training.load_frozen_pool import load_frozen_pool
-from selection.moe import MixtureOfExperts
-from selection.moe_expert_predictions import get_expert_probabilities
+from moe.moe import MixtureOfExperts
+from moe.moe_expert_predictions import get_expert_probabilities
 
 DATA = ROOT_DIR / "data"
 SPLITS = DATA / "splits"

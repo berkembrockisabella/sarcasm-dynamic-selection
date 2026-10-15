@@ -85,14 +85,14 @@ for roteamento in ["sem_roteamento", "com_roteamento"]:
         })
 resumo = pd.DataFrame(resumo)
 
-Path("data/processed/eval").mkdir(parents=True, exist_ok=True)
-predicoes.to_csv("data/processed/eval/static_multimodal_test.csv", index=False)
-resumo.to_csv("data/processed/eval/static_multimodal_summary.csv", index=False)
+Path("data/processed/static").mkdir(parents=True, exist_ok=True)
+predicoes.to_csv("data/processed/static/static_multimodal_test.csv", index=False)
+resumo.to_csv("data/processed/static/static_multimodal_summary.csv", index=False)
 
 print("Estaticos multimodais (hiperparametros da validacao cruzada no treino):")
 for nome, linha in escolhidos:
     print(f"  {nome:24s} {linha['candidate_id']:40s} F1-macro CV = {linha['mean_f1']:.3f}")
 print("\nResultados no teste (", len(teste), "falas ):")
 print(resumo[["metodo", "accuracy", "f1_macro"]].round(4).to_string(index=False))
-print("\nSalvo em: data/processed/eval/static_multimodal_test.csv")
-print("Salvo em: data/processed/eval/static_multimodal_summary.csv")
+print("\nSalvo em: data/processed/static/static_multimodal_test.csv")
+print("Salvo em: data/processed/static/static_multimodal_summary.csv")

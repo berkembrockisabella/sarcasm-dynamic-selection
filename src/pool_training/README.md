@@ -63,9 +63,8 @@ data/
         │   └── pool_definition.csv
         │
         └── frozen_pools/
-            └── base/
-                ├── C01.joblib ... C07.joblib
-                └── pool_metadata.csv
+            ├── C01.joblib ... C07.joblib
+            └── pool_metadata.csv
 ```
 
 Os arquivos `.joblib` não são versionados (estão no `.gitignore`); são recriados rodando `train_frozen_pool`.
