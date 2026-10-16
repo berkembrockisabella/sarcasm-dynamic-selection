@@ -4,6 +4,7 @@ O gate é treinado no DSEL; o TESTE é usado exclusivamente na avaliação final
 O MoE não recebe features explícitas de incongruência
 Execute na raiz: python src/selection/run_moe.py
 """
+
 import json
 import sys
 from pathlib import Path
@@ -53,9 +54,11 @@ def main():
     for name in ("train", "dsel", "test"):
         if not (SPLITS / f"{name}.csv").exists():
             raise FileNotFoundError(f"Partição ausente: {SPLITS / f'{name}.csv'}")
+    
     train = pd.read_csv(SPLITS / "train.csv")
     dsel = pd.read_csv(SPLITS / "dsel.csv")
     test = pd.read_csv(SPLITS / "test.csv")
+    
     for frame in (train, dsel, test):
         frame["KEY"] = frame["KEY"].astype(str)
         frame["Sarcasm"] = frame["Sarcasm"].astype(int)
@@ -69,6 +72,7 @@ def main():
     pool = load_frozen_pool()
     P_dsel, member_ids = get_expert_probabilities(pool, dsel["KEY"].tolist(), store)
     P_test, test_member_ids = get_expert_probabilities(pool, test["KEY"].tolist(), store)
+    
     if member_ids != test_member_ids:
         raise ValueError("A ordem dos especialistas difere entre DSEL e TEST.")
 
@@ -83,6 +87,7 @@ def main():
     prob = model.predict_proba(X_test, P_test)
     pred = (prob >= 0.5).astype(int)
     y = test["Sarcasm"].to_numpy()
+    
     metrics = {
         "metodo": "Soft-MoE",
         "n_experts": len(pool),
@@ -95,8 +100,10 @@ def main():
         "f1_macro": f1_score(y, pred, average="macro", zero_division=0),
         "roc_auc": roc_auc_score(y, prob) if len(np.unique(y)) == 2 else np.nan,
     }
+    
     weights = model.get_gate_weights(X_test)
     OUT.mkdir(parents=True, exist_ok=True)
+    
     pd.DataFrame({
         "KEY": test["KEY"], "label": y, "prediction": pred,
         "prob_sarcasm": prob,
@@ -114,6 +121,7 @@ def main():
         "threshold": 0.5,
         "random_state": 42,
     }, indent=2), encoding="utf-8")
+    
     print("Soft-MoE concluído")
     print(pd.DataFrame([metrics]).round(4).to_string(index=False))
     print(f"Resultados: {OUT}")
