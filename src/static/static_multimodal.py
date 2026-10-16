@@ -70,6 +70,7 @@ resumo.append({
 
 # Junta as 6 configuracoes de selecao dinamica (uma coluna por metodo x
 # roteamento), na mesma ordem das falas do teste
+'''
 METODOS_DS = ["OLA", "KNORA-E", "KNORA-U"]
 for roteamento in ["sem_roteamento", "com_roteamento"]:
     parte = ds[ds["roteamento"] == roteamento].set_index("KEY").reindex(teste["KEY"])
@@ -83,6 +84,7 @@ for roteamento in ["sem_roteamento", "com_roteamento"]:
             "accuracy": accuracy_score(y_teste, predicoes[nome]),
             "f1_macro": f1_score(y_teste, predicoes[nome], average="macro"),
         })
+'''
 resumo = pd.DataFrame(resumo)
 
 Path("data/processed/static").mkdir(parents=True, exist_ok=True)
