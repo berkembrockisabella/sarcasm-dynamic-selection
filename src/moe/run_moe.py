@@ -59,6 +59,7 @@ def main():
     dsel = pd.read_csv(SPLITS / "dsel.csv")
     test = pd.read_csv(SPLITS / "test.csv")
     
+    # Normaliza o tipo dos identificadores e garante que os rótulos sejam inteiros
     for frame in (train, dsel, test):
         frame["KEY"] = frame["KEY"].astype(str)
         frame["Sarcasm"] = frame["Sarcasm"].astype(int)
@@ -69,13 +70,17 @@ def main():
     X_dsel, _ = gate_matrix(store, dsel["KEY"].tolist(), scalers=scalers)
     X_test, _ = gate_matrix(store, test["KEY"].tolist(), scalers=scalers)
 
+
+    # Carregar pool congelada já treinada
     pool = load_frozen_pool()
+    # Obter probabilidades de sarcasmo por cada especialista em DSEL e TEST
     P_dsel, member_ids = get_expert_probabilities(pool, dsel["KEY"].tolist(), store)
     P_test, test_member_ids = get_expert_probabilities(pool, test["KEY"].tolist(), store)
     
     if member_ids != test_member_ids:
         raise ValueError("A ordem dos especialistas difere entre DSEL e TEST.")
 
+    # Criar o MoE e treinar o gate
     model = MixtureOfExperts(
         input_dim=X_dsel.shape[1], n_experts=P_dsel.shape[1],
         hidden_dim=32, dropout=0.2, learning_rate=1e-3,
@@ -84,6 +89,7 @@ def main():
     )
     model.fit(X_dsel, P_dsel, dsel["Sarcasm"].to_numpy())
 
+    # Previsão final
     prob = model.predict_proba(X_test, P_test)
     pred = (prob >= 0.5).astype(int)
     y = test["Sarcasm"].to_numpy()

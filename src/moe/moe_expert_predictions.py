@@ -26,13 +26,14 @@ def get_expert_probabilities(pool, keys, store):
     """
     Obtém probabilidades da classe positiva produzidas pelos especialistas da pool.
 
-    pool: Pool retornada por load_frozen_pool
-    keys: Identificadores das amostras
-    store: Repositório das features multimodais
+    pool: especialistas carregados
+    keys: identificadores das falas a serem classificadas
+    store: repositório das features multimodais
 
     Retorno:
-    probabilities: Matriz (n_samples, n_experts).
-    member_ids: IDs dos especialistas na mesma ordem das colunas da matriz.
+    probabilities: matriz (n_samples, n_experts). probabilidades de sarcarmo estimadas de cada fala por cada especialista
+                    cada linha = uma fala; cada coluna = um especialista
+    member_ids: IDs dos especialistas na mesma ordem das colunas da matriz
     """
 
     probabilities = []
@@ -43,12 +44,13 @@ def get_expert_probabilities(pool, keys, store):
         model = member["model"]
         combo = parse_combo_name(member["modalities"])
 
-        # Pool: utiliza somente as features das modalidades.
+        # Pool: utiliza somente as features das modalidades utilizada pelo modelo
         X = store.matrix(keys=keys, combo=combo)
 
         if not hasattr(model, "predict_proba"):
             raise TypeError(f"O especialista {member['member_id']} não possui predict_proba().")
 
+        # Fornece a probabilidade estimada para a classe positiva (sarcástica)
         proba = model.predict_proba(X)
         classes = np.asarray(model.classes_)
         positive_index = np.where(classes == 1)[0]

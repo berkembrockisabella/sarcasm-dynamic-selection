@@ -90,13 +90,14 @@ class MixtureOfExperts:
                 optimizer.zero_grad()
                 weights = self.gate(gate_x)
                 
-                # soft moe
+                # Soft moe
                 final_prob = torch.sum(weights * expert_probs, dim=1)
                 final_prob = torch.clamp(final_prob, min=1e-7, max=1 - 1e-7)
                 
+                # Função de perda
                 loss = F.binary_cross_entropy(final_prob, labels)
-                loss.backward()
-                optimizer.step()
+                loss.backward()  # calcula os gradientes
+                optimizer.step() # atualiza os parâmetros
                 epoch_losses.append(loss.item())
             
             train_loss = np.mean(epoch_losses)
