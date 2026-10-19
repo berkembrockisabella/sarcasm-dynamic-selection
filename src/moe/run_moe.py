@@ -115,6 +115,9 @@ def main():
         "prob_sarcasm": prob,
         **{f"weight_{mid}": weights[:, i] for i, mid in enumerate(member_ids)}
     }).to_csv(OUT / "moe_test_predictions.csv", index=False)
+    pd.DataFrame([metrics]).to_csv(OUT / "moe_results.csv", index=False)
+    df = pd.DataFrame(metrics, index=[0])
+    df.drop(df.columns[:4], axis=1, inplace=True)
     pd.DataFrame([metrics]).to_csv(OUT / "moe_summary.csv", index=False)
     pd.DataFrame(model.history).to_csv(OUT / "moe_training_history.csv", index=False)
     (OUT / "moe_config.json").write_text(json.dumps({

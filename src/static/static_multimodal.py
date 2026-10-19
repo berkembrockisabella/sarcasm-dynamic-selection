@@ -1,6 +1,7 @@
 import json
 import sys
 from pathlib import Path
+import numpy as np
 
 # Permite importar os pacotes irmaos (pool_selection) rodando este arquivo
 # direto da raiz do repositorio -- mesmo esquema de train_frozen_pool.py
@@ -9,7 +10,7 @@ if str(SRC_DIR) not in sys.path:
     sys.path.insert(0, str(SRC_DIR))
 
 import pandas as pd
-from sklearn.metrics import accuracy_score, f1_score
+from sklearn.metrics import accuracy_score, precision_score, recall_score, f1_score, roc_auc_score
 
 from pool_selection.classifiers import build_classifier
 from pool_selection.feature_loader import FeatureStore
@@ -52,44 +53,35 @@ for nome, linha in escolhidos:
     modelo.fit(store.matrix(treino["KEY"].tolist(), combo), y_treino)
     predicoes[nome] = modelo.predict(store.matrix(teste["KEY"].tolist(), combo))
     resumo.append({
-        "metodo": nome,
-        "candidato": linha["candidate_id"],
+        "metodo": f"{nome} ({linha['candidate_id']})",
         "f1_macro_cv_treino": linha["mean_f1"],
         "accuracy": accuracy_score(y_teste, predicoes[nome]),
+        "precision": precision_score(y_teste, predicoes[nome], zero_division=0),
+        "recall": recall_score(y_teste, predicoes[nome], zero_division=0),
+        "f1": f1_score(y_teste, predicoes[nome], zero_division=0),
         "f1_macro": f1_score(y_teste, predicoes[nome], average="macro"),
+        "roc_auc": roc_auc_score(y_teste, predicoes[nome]) if len(np.unique(y_teste)) == 2 else np.nan,
     })
 
 # Voto majoritario dos 3 estaticos (com 3 votos nao ha empate)
 nomes_individuais = [nome for nome, _ in escolhidos]
 predicoes["Estatico voto dos 3"] = (predicoes[nomes_individuais].sum(axis=1) >= 2).astype(int)
 resumo.append({
-    "metodo": "Estatico voto dos 3", "candidato": "voto SVM + RL + RF", "f1_macro_cv_treino": None,
+    "metodo": f"Estatico voto dos 3 (voto SVM + RL + RF)", "f1_macro_cv_treino": None,
     "accuracy": accuracy_score(y_teste, predicoes["Estatico voto dos 3"]),
+    "precision": precision_score(y_teste, predicoes["Estatico voto dos 3"], zero_division=0),
+    "recall": recall_score(y_teste, predicoes["Estatico voto dos 3"], zero_division=0),
+    "f1": f1_score(y_teste, predicoes["Estatico voto dos 3"], zero_division=0),
     "f1_macro": f1_score(y_teste, predicoes["Estatico voto dos 3"], average="macro"),
+    "roc_auc": roc_auc_score(y_teste, predicoes["Estatico voto dos 3"]) if len(np.unique(y_teste)) == 2 else np.nan,
 })
 
-# Junta as 6 configuracoes de selecao dinamica (uma coluna por metodo x
-# roteamento), na mesma ordem das falas do teste
-'''
-METODOS_DS = ["OLA", "KNORA-E", "KNORA-U"]
-for roteamento in ["sem_roteamento", "com_roteamento"]:
-    parte = ds[ds["roteamento"] == roteamento].set_index("KEY").reindex(teste["KEY"])
-    if parte[METODOS_DS].isna().any().any():
-        raise ValueError("ds_routing_test.csv nao cobre todas as falas do teste -- rode ds_routing.py de novo")
-    for metodo in METODOS_DS:
-        nome = f"{metodo} {roteamento.replace('_', ' ')}"
-        predicoes[nome] = parte[metodo].astype(int).to_numpy()
-        resumo.append({
-            "metodo": nome, "candidato": "pool de 7", "f1_macro_cv_treino": None,
-            "accuracy": accuracy_score(y_teste, predicoes[nome]),
-            "f1_macro": f1_score(y_teste, predicoes[nome], average="macro"),
-        })
-'''
 resumo = pd.DataFrame(resumo)
 
 Path("data/processed/static").mkdir(parents=True, exist_ok=True)
 predicoes.to_csv("data/processed/static/static_multimodal_test.csv", index=False)
-resumo.to_csv("data/processed/static/static_multimodal_summary.csv", index=False)
+resumo.to_csv("data/processed/static/static_multimodal.csv", index=False)
+resumo.pop("f1_macro_cv_treino").to_csv("data/processed/static/static_multimodal_summary.csv", index=False)
 
 print("Estaticos multimodais (hiperparametros da validacao cruzada no treino):")
 for nome, linha in escolhidos:
