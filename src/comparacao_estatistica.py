@@ -6,6 +6,8 @@ McNemar pareado + correção de Holm + IC bootstrap pareado.
 - Correção de Holm
 - Intervalos de confiança de 95% por bootstrap pareado
 
+Para rodar: `python src/statistical_comparison.py`
+
 Saídas:
     metricas_por_metodo.csv
     mcnemar_holm.csv
