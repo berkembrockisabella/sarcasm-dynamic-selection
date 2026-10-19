@@ -111,10 +111,10 @@ def main():
     OUT.mkdir(parents=True, exist_ok=True)
     
     pd.DataFrame({
-        "KEY": test["KEY"], "label": y, "prediction": pred,
+        "KEY": test["KEY"], "Sarcasm": y, "prediction": pred,
         "prob_sarcasm": prob,
         **{f"weight_{mid}": weights[:, i] for i, mid in enumerate(member_ids)}
-    }).to_csv(OUT / "moe_test_predictions.csv", index=False)
+    }).to_csv(OUT / "moe_test.csv", index=False)
     pd.DataFrame([metrics]).to_csv(OUT / "moe_results.csv", index=False)
     df = pd.DataFrame(metrics, index=[0])
     df.drop(df.columns[:4], axis=1, inplace=True)
