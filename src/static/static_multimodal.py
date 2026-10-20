@@ -1,92 +1,632 @@
+"""
+Avalia baselines estáticos multimodais.
+
+Os classificadores recebem as quatro modalidades:
+- texto
+- contexto
+- áudio
+- visual
+
+Os modelos são treinados somente no TRAIN e avaliados no TEST.
+
+Os hiperparâmetros utilizados são os obtidos anteriormente pela
+validação cruzada realizada no TRAIN durante a formação da pool.
+
+Execução:
+
+    python -m src.static.static_multimodal
+"""
+
 import json
 import sys
 from pathlib import Path
-import numpy as np
 
-# Permite importar os pacotes irmaos (pool_selection) rodando este arquivo
-# direto da raiz do repositorio -- mesmo esquema de train_frozen_pool.py
+import numpy as np
+import pandas as pd
+
+from sklearn.metrics import (
+    accuracy_score,
+    precision_score,
+    recall_score,
+    f1_score,
+    roc_auc_score,
+)
+
+
+# ============================================================
+# CAMINHOS E IMPORTS
+# ============================================================
+
 SRC_DIR = Path(__file__).resolve().parents[1]
+ROOT_DIR = SRC_DIR.parent
+
 if str(SRC_DIR) not in sys.path:
     sys.path.insert(0, str(SRC_DIR))
 
-import pandas as pd
-from sklearn.metrics import accuracy_score, precision_score, recall_score, f1_score, roc_auc_score
+if str(ROOT_DIR) not in sys.path:
+    sys.path.insert(0, str(ROOT_DIR))
+
 
 from pool_selection.classifiers import build_classifier
 from pool_selection.feature_loader import FeatureStore
 
-# Linha de base estatica multimodal: classificadores que recebem as 4
-# modalidades juntas (fusao precoce: embeddings de texto, contexto e audio +
-# features visuais concatenados), treinados so no treino e aplicados igual a
-# todas as falas do teste -- sem DSEL e sem selecao dinamica. Serve para
-# responder se OLA/KNORA (com e sem roteamento, em ds_routing.py) diferem de
-# um classificador estatico que ve todas as modalidades.
-#
-# Entram os 3 classificadores avaliados na formacao da pool (SVM, regressao
-# logistica e random forest) e o voto majoritario dos 3. Para nao ajustar
-# nada no teste, os hiperparametros vem da validacao cruzada no treino que
-# build_pool.py ja fez (cv_results.csv, combinacao text+context+audio+visual)
+
+# ============================================================
+# CONFIGURAÇÕES
+# ============================================================
+
+DATA = ROOT_DIR / "data"
+
+SPLITS = DATA / "splits"
+
+POOL_RESULTS = (
+    DATA
+    / "results"
+    / "pool"
+    / "pool_selection"
+)
+
+OUT = (
+    DATA
+    / "processed"
+    / "static"
+)
+
 TODAS = "text+context+audio+visual"
-NOMES = {"svm": "SVM", "logistic_regression": "Regressao logistica", "random_forest": "Random forest"}
 
-treino = pd.read_csv("data/splits/train.csv")
-teste = pd.read_csv("data/splits/test.csv")
-cv = pd.read_csv("data/results/pool/pool_selection/cv_results.csv")
-ds = pd.read_csv("data/processed/selection/ds_routing_test.csv")
-y_treino = treino["Sarcasm"].astype(int).to_numpy()
-y_teste = teste["Sarcasm"].astype(int).to_numpy()
+NOMES = {
+    "svm":
+        "SVM",
 
-escolhidos = []
-for _, linha in cv[cv["modalities"] == TODAS].sort_values("mean_f1", ascending=False).iterrows():
-    escolhidos.append((f"Estatico {NOMES[linha['classifier']]}", linha))
-if len(escolhidos) != 3:
-    raise ValueError(f"cv_results.csv deveria ter 3 candidatos {TODAS}, tem {len(escolhidos)}")
+    "logistic_regression":
+        "Regressao logistica",
 
-store = FeatureStore()
-predicoes = pd.DataFrame({"KEY": teste["KEY"], "Sarcasm": y_teste})
-resumo = []
+    "random_forest":
+        "Random forest",
+}
 
-for nome, linha in escolhidos:
-    combo = tuple(parte.strip() for parte in linha["modalities"].split("+"))
-    modelo = build_classifier(linha["classifier"])
-    modelo.set_params(**json.loads(linha["best_params"]))
-    modelo.fit(store.matrix(treino["KEY"].tolist(), combo), y_treino)
-    predicoes[nome] = modelo.predict(store.matrix(teste["KEY"].tolist(), combo))
-    resumo.append({
-        "metodo": f"{nome} ({linha['candidate_id']})",
-        "f1_macro_cv_treino": linha["mean_f1"],
-        "accuracy": accuracy_score(y_teste, predicoes[nome]),
-        "precision": precision_score(y_teste, predicoes[nome], zero_division=0),
-        "recall": recall_score(y_teste, predicoes[nome], zero_division=0),
-        "f1": f1_score(y_teste, predicoes[nome], zero_division=0),
-        "f1_macro": f1_score(y_teste, predicoes[nome], average="macro"),
-        "roc_auc": roc_auc_score(y_teste, predicoes[nome]) if len(np.unique(y_teste)) == 2 else np.nan,
-    })
 
-# Voto majoritario dos 3 estaticos (com 3 votos nao ha empate)
-nomes_individuais = [nome for nome, _ in escolhidos]
-predicoes["Estatico voto dos 3"] = (predicoes[nomes_individuais].sum(axis=1) >= 2).astype(int)
-resumo.append({
-    "metodo": f"Estatico voto dos 3 (voto SVM + RL + RF)", "f1_macro_cv_treino": None,
-    "accuracy": accuracy_score(y_teste, predicoes["Estatico voto dos 3"]),
-    "precision": precision_score(y_teste, predicoes["Estatico voto dos 3"], zero_division=0),
-    "recall": recall_score(y_teste, predicoes["Estatico voto dos 3"], zero_division=0),
-    "f1": f1_score(y_teste, predicoes["Estatico voto dos 3"], zero_division=0),
-    "f1_macro": f1_score(y_teste, predicoes["Estatico voto dos 3"], average="macro"),
-    "roc_auc": roc_auc_score(y_teste, predicoes["Estatico voto dos 3"]) if len(np.unique(y_teste)) == 2 else np.nan,
-})
+# ============================================================
+# MÉTRICAS
+# ============================================================
 
-resumo = pd.DataFrame(resumo)
+def calcular_metricas(
+    y_true,
+    y_pred,
+    y_score=None,
+):
+    """
+    Calcula as métricas utilizadas nos experimentos.
+    """
 
-Path("data/processed/static").mkdir(parents=True, exist_ok=True)
-predicoes.to_csv("data/processed/static/static_multimodal_test.csv", index=False)
-resumo.to_csv("data/processed/static/static_multimodal.csv", index=False)
-resumo.pop("f1_macro_cv_treino").to_csv("data/processed/static/static_multimodal_summary.csv", index=False)
+    metricas = {
+        "accuracy":
+            accuracy_score(
+                y_true,
+                y_pred,
+            ),
 
-print("Estaticos multimodais (hiperparametros da validacao cruzada no treino):")
-for nome, linha in escolhidos:
-    print(f"  {nome:24s} {linha['candidate_id']:40s} F1-macro CV = {linha['mean_f1']:.3f}")
-print("\nResultados no teste (", len(teste), "falas ):")
-print(resumo[["metodo", "accuracy", "f1_macro"]].round(4).to_string(index=False))
-print("\nSalvo em: data/processed/static/static_multimodal_test.csv")
-print("Salvo em: data/processed/static/static_multimodal_summary.csv")
+        "precision":
+            precision_score(
+                y_true,
+                y_pred,
+                zero_division=0,
+            ),
+
+        "recall":
+            recall_score(
+                y_true,
+                y_pred,
+                zero_division=0,
+            ),
+
+        "f1":
+            f1_score(
+                y_true,
+                y_pred,
+                zero_division=0,
+            ),
+
+        "f1_macro":
+            f1_score(
+                y_true,
+                y_pred,
+                average="macro",
+                zero_division=0,
+            ),
+    }
+
+    if (
+        y_score is not None
+        and len(np.unique(y_true)) == 2
+    ):
+
+        metricas[
+            "roc_auc"
+        ] = roc_auc_score(
+            y_true,
+            y_score,
+        )
+
+    else:
+
+        metricas[
+            "roc_auc"
+        ] = np.nan
+
+    return metricas
+
+
+# ============================================================
+# MAIN
+# ============================================================
+
+def main():
+
+    # --------------------------------------------------------
+    # Verificação dos arquivos
+    # --------------------------------------------------------
+
+    train_path = (
+        SPLITS
+        / "train.csv"
+    )
+
+    test_path = (
+        SPLITS
+        / "test.csv"
+    )
+
+    cv_path = (
+        POOL_RESULTS
+        / "cv_results.csv"
+    )
+
+    for path in (
+        train_path,
+        test_path,
+        cv_path,
+    ):
+
+        if not path.exists():
+
+            raise FileNotFoundError(
+                f"Arquivo ausente: {path}"
+            )
+
+    # --------------------------------------------------------
+    # Dados
+    # --------------------------------------------------------
+
+    treino = pd.read_csv(
+        train_path
+    )
+
+    teste = pd.read_csv(
+        test_path
+    )
+
+    cv = pd.read_csv(
+        cv_path
+    )
+
+    for frame in (
+        treino,
+        teste,
+    ):
+
+        frame[
+            "KEY"
+        ] = (
+            frame[
+                "KEY"
+            ]
+            .astype(str)
+        )
+
+        frame[
+            "Sarcasm"
+        ] = (
+            frame[
+                "Sarcasm"
+            ]
+            .astype(int)
+        )
+
+    y_treino = (
+        treino[
+            "Sarcasm"
+        ]
+        .to_numpy()
+    )
+
+    y_teste = (
+        teste[
+            "Sarcasm"
+        ]
+        .to_numpy()
+    )
+
+    # --------------------------------------------------------
+    # Seleciona os três classificadores estáticos
+    # --------------------------------------------------------
+
+    candidatos = (
+        cv[
+            cv[
+                "modalities"
+            ]
+            ==
+            TODAS
+        ]
+        .sort_values(
+            "mean_f1",
+            ascending=False,
+        )
+    )
+
+    escolhidos = []
+
+    for _, linha in (
+        candidatos.iterrows()
+    ):
+
+        classifier = (
+            linha[
+                "classifier"
+            ]
+        )
+
+        if classifier not in NOMES:
+            continue
+
+        escolhidos.append(
+            (
+                f"Estatico "
+                f"{NOMES[classifier]}",
+                linha,
+            )
+        )
+
+    if len(escolhidos) != 3:
+
+        raise ValueError(
+            "cv_results.csv deveria ter "
+            f"3 candidatos para {TODAS}, "
+            f"mas foram encontrados "
+            f"{len(escolhidos)}."
+        )
+
+    # --------------------------------------------------------
+    # Feature Store
+    # --------------------------------------------------------
+
+    store = FeatureStore()
+
+    # --------------------------------------------------------
+    # Predições
+    # --------------------------------------------------------
+
+    predicoes = pd.DataFrame(
+        {
+            "KEY":
+                teste[
+                    "KEY"
+                ],
+
+            "Sarcasm":
+                y_teste,
+        }
+    )
+
+    resumo = []
+
+    # ========================================================
+    # MODELOS INDIVIDUAIS
+    # ========================================================
+
+    for nome, linha in escolhidos:
+
+        combo = tuple(
+            parte.strip()
+            for parte
+            in linha[
+                "modalities"
+            ].split("+")
+        )
+
+        # ----------------------------------------------------
+        # Modelo
+        # ----------------------------------------------------
+
+        modelo = build_classifier(
+            linha[
+                "classifier"
+            ]
+        )
+
+        best_params = json.loads(
+            linha[
+                "best_params"
+            ]
+        )
+
+        modelo.set_params(
+            **best_params
+        )
+
+        # ----------------------------------------------------
+        # Features
+        # ----------------------------------------------------
+
+        X_train = store.matrix(
+            treino[
+                "KEY"
+            ].tolist(),
+            combo,
+        )
+
+        X_test = store.matrix(
+            teste[
+                "KEY"
+            ].tolist(),
+            combo,
+        )
+
+        # ----------------------------------------------------
+        # Treinamento
+        # ----------------------------------------------------
+
+        modelo.fit(
+            X_train,
+            y_treino,
+        )
+
+        # ----------------------------------------------------
+        # Predições
+        # ----------------------------------------------------
+
+        pred = modelo.predict(
+            X_test
+        )
+
+        predicoes[
+            nome
+        ] = pred
+
+        # ----------------------------------------------------
+        # Probabilidade para ROC-AUC
+        # ----------------------------------------------------
+
+        prob = None
+
+        if hasattr(
+            modelo,
+            "predict_proba",
+        ):
+
+            classes = np.asarray(
+                modelo.classes_
+            )
+
+            indice_positivo = np.where(
+                classes == 1
+            )[0]
+
+            if (
+                len(
+                    indice_positivo
+                )
+                ==
+                1
+            ):
+
+                prob = (
+                    modelo
+                    .predict_proba(
+                        X_test
+                    )[
+                        :,
+                        indice_positivo[
+                            0
+                        ]
+                    ]
+                )
+
+        # ----------------------------------------------------
+        # Métricas
+        # ----------------------------------------------------
+
+        metricas = calcular_metricas(
+            y_teste,
+            pred,
+            prob,
+        )
+
+        resumo.append(
+            {
+                "metodo":
+                    (
+                        f"{nome} "
+                        f"({linha['candidate_id']})"
+                    ),
+
+                "f1_macro_cv_treino":
+                    linha[
+                        "mean_f1"
+                    ],
+
+                **metricas,
+            }
+        )
+
+    # ========================================================
+    # VOTO MAJORITÁRIO DOS 3
+    # ========================================================
+
+    nomes_individuais = [
+        nome
+        for nome, _
+        in escolhidos
+    ]
+
+    voto = (
+        predicoes[
+            nomes_individuais
+        ]
+        .sum(
+            axis=1
+        )
+        >=
+        2
+    ).astype(int)
+
+    predicoes[
+        "Estatico voto dos 3"
+    ] = voto
+
+    # Média das probabilidades não é necessária para o voto
+    # majoritário. ROC-AUC permanece NaN para esse baseline.
+
+    metricas_voto = calcular_metricas(
+        y_teste,
+        voto,
+        None,
+    )
+
+    resumo.append(
+        {
+            "metodo":
+                (
+                    "Estatico voto dos 3 "
+                    "(voto SVM + RL + RF)"
+                ),
+
+            "f1_macro_cv_treino":
+                np.nan,
+
+            **metricas_voto,
+        }
+    )
+
+    # ========================================================
+    # DATAFRAME DE RESULTADOS
+    # ========================================================
+
+    resumo = pd.DataFrame(
+        resumo
+    )
+
+    # ========================================================
+    # SAÍDAS
+    # ========================================================
+
+    OUT.mkdir(
+        parents=True,
+        exist_ok=True,
+    )
+
+    # --------------------------------------------------------
+    # Predições por instância
+    # --------------------------------------------------------
+
+    predicoes.to_csv(
+        OUT
+        / "static_multimodal_test.csv",
+        index=False,
+    )
+
+    # --------------------------------------------------------
+    # Resultado detalhado
+    #
+    # Mantém a métrica da validação cruzada do TRAIN.
+    # --------------------------------------------------------
+
+    resumo.to_csv(
+        OUT
+        / "static_multimodal.csv",
+        index=False,
+    )
+
+    # --------------------------------------------------------
+    # Resumo padronizado
+    #
+    # Remove somente f1_macro_cv_treino.
+    # --------------------------------------------------------
+
+    summary = resumo.drop(
+        columns=[
+            "f1_macro_cv_treino"
+        ]
+    )
+
+    summary.to_csv(
+        OUT
+        / "static_multimodal_summary.csv",
+        index=False,
+    )
+
+    # ========================================================
+    # TERMINAL
+    # ========================================================
+
+    print(
+        "Estaticos multimodais "
+        "(hiperparametros da validacao "
+        "cruzada no treino):"
+    )
+
+    for nome, linha in escolhidos:
+
+        print(
+            f"  {nome:24s} "
+            f"{linha['candidate_id']:40s} "
+            f"F1-macro CV = "
+            f"{linha['mean_f1']:.3f}"
+        )
+
+    print(
+        f"\nResultados no teste "
+        f"({len(teste)} falas):"
+    )
+
+    print(
+        summary[
+            [
+                "metodo",
+                "accuracy",
+                "f1_macro",
+            ]
+        ]
+        .round(4)
+        .to_string(
+            index=False
+        )
+    )
+
+    print(
+        "\nArquivos salvos:"
+    )
+
+    print(
+        OUT
+        / "static_multimodal_test.csv"
+    )
+
+    print(
+        OUT
+        / "static_multimodal.csv"
+    )
+
+    print(
+        OUT
+        / "static_multimodal_summary.csv"
+    )
+
+
+# ============================================================
+# EXECUÇÃO
+# ============================================================
+
+if __name__ == "__main__":
+    main()

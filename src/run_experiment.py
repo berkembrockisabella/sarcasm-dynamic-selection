@@ -3,6 +3,7 @@ Orquestra os experimentos principais de:
 - Seleção Dinâmica (DS)
 - Mixture of Experts (MoE)
 - Baselines estáticos
+- Comparação estatística
 
 Execução recomendada, a partir da raiz do projeto:
 
@@ -20,81 +21,195 @@ Exemplos:
 import argparse
 import subprocess
 import sys
-import pandas as pd
 from pathlib import Path
 
-ROOT = Path(__file__).resolve().parent.parent
-DATA = ROOT / "data"
-POOL_RESULTS = (DATA / "results" / "pool" / "pool_selection")
-FROZEN_POOLS = (DATA / "results" / "pool" / "frozen_pools")
+import pandas as pd
 
-# Execução de uma etapa
+
+# ============================================================
+# CAMINHOS
+# ============================================================
+
+ROOT = Path(__file__).resolve().parent.parent
+
+DATA = ROOT / "data"
+
+POOL_RESULTS = (
+    DATA
+    / "results"
+    / "pool"
+    / "pool_selection"
+)
+
+FROZEN_POOLS = (
+    DATA
+    / "results"
+    / "pool"
+    / "frozen_pools"
+)
+
+
+# ============================================================
+# EXECUÇÃO DE UMA ETAPA
+# ============================================================
+
 def run_step(label, command):
     """
     Executa uma etapa do experimento.
 
-    Todas as etapas são executadas a partir da raiz do projeto para que imports como:
-    src.pool_selection.build_pool funcionem corretamente.
+    Todas as etapas são executadas a partir da raiz
+    do projeto.
     """
 
-    print(f"\nETAPA: {label}", flush=True)
-    print("Comando:", " ".join(str(item) for item in command), flush=True)
+    print(
+        "\n" + "=" * 76,
+        flush=True
+    )
 
-    subprocess.run(command, cwd=ROOT, check=True)
+    print(
+        f"ETAPA: {label}",
+        flush=True
+    )
+
+    print(
+        "Comando:",
+        " ".join(
+            str(item)
+            for item in command
+        ),
+        flush=True
+    )
+
+    print(
+        "=" * 76,
+        flush=True
+    )
+
+    subprocess.run(
+        command,
+        cwd=ROOT,
+        check=True
+    )
 
 
-# Verificação da pool
+# ============================================================
+# VERIFICAÇÃO DA POOL
+# ============================================================
+
 def frozen_pool_is_complete(pool_dir):
     """
-    Verifica se uma frozen pool contém:
+    Verifica se a frozen pool contém:
     - pool_metadata.csv
     - C01.joblib ... C07.joblib
     """
 
-    metadata = (pool_dir / "pool_metadata.csv")
-    expected_models = [pool_dir / f"C{i:02d}.joblib" for i in range(1, 8)]
+    metadata = (
+        pool_dir
+        / "pool_metadata.csv"
+    )
 
-    return (metadata.exists() and all(model.exists() for model in expected_models))
+    expected_models = [
+        pool_dir
+        / f"C{i:02d}.joblib"
+        for i in range(1, 8)
+    ]
+
+    return (
+        metadata.exists()
+        and all(
+            model.exists()
+            for model in expected_models
+        )
+    )
 
 
 def ensure_pool():
     """
     Garante que:
+
     1. A seleção da pool já foi executada.
     2. A pool já foi treinada.
 
-    Se os arquivos já existirem, as etapas não são executadas novamente.
+    Se os arquivos já existirem,
+    as etapas não são executadas novamente.
     """
 
-    definition = (POOL_RESULTS / "pool_definition.csv")
-    cv_results = (POOL_RESULTS / "cv_results.csv")
+    definition = (
+        POOL_RESULTS
+        / "pool_definition.csv"
+    )
 
+    cv_results = (
+        POOL_RESULTS
+        / "cv_results.csv"
+    )
+
+    # --------------------------------------------------------
     # Pool selection
-    if (not definition.exists() or not cv_results.exists()):
-        
-        run_step("Seleção da pool (CV no TRAIN)", [sys.executable, "-m", "src.pool_selection.build_pool"])
+    # --------------------------------------------------------
+
+    if (
+        not definition.exists()
+        or not cv_results.exists()
+    ):
+
+        run_step(
+            "Seleção da pool (CV no TRAIN)",
+            [
+                sys.executable,
+                "-m",
+                "src.pool_selection.build_pool",
+            ]
+        )
 
     else:
-        print("\nPool selection já encontrada.")
-        print(f"Definição: {definition}")
 
-    # Frozen pools
-    base_ok = frozen_pool_is_complete(
+        print(
+            "\nPool selection já encontrada."
+        )
+
+        print(
+            f"Definição: {definition}"
+        )
+
+    # --------------------------------------------------------
+    # Frozen pool
+    # --------------------------------------------------------
+
+    pool_ok = frozen_pool_is_complete(
         FROZEN_POOLS
     )
 
-    if not base_ok:
-        run_step("Treinamento da pool congelada", [sys.executable, "-m", "src.pool_training.train_frozen_pool"])
+    if not pool_ok:
+
+        run_step(
+            "Treinamento da pool congelada",
+            [
+                sys.executable,
+                "-m",
+                "src.pool_training.train_frozen_pool",
+            ]
+        )
 
     else:
-        print("\nFrozen pool já encontrada:")
-        print(FROZEN_POOLS)
+
+        print(
+            "\nFrozen pool já encontrada:"
+        )
+
+        print(
+            FROZEN_POOLS
+        )
 
 
-# Consolidação dos resultadosONSOLIDAÇÃO
+# ============================================================
+# CONSOLIDAÇÃO DOS RESULTADOS
+# ============================================================
+
 def consolidate():
     """
-    Junta os arquivos de resumo dos experimentos em um único CSV.
+    Junta os arquivos de resumo dos experimentos
+    em um único CSV.
     """
 
     sources = [
@@ -124,36 +239,90 @@ def consolidate():
     frames = []
 
     for path, family in sources:
+
         if not path.exists():
-            print(f"Resumo não encontrado: {path}")
+
+            print(
+                f"Resumo não encontrado: {path}"
+            )
+
             continue
 
-        df = pd.read_csv(path)
+        df = pd.read_csv(
+            path
+        )
 
         # Padroniza nome da coluna do método
         if "metodo" in df.columns:
+
             df["familia"] = family
             frames.append(df)
 
         elif "method" in df.columns:
-            df = df.rename(columns={"method": "metodo"})
+
+            df = df.rename(
+                columns={
+                    "method": "metodo"
+                }
+            )
+
             df["familia"] = family
             frames.append(df)
 
         else:
-            print(f"Aviso: {path.name} não possui 'metodo' nem 'method'.")
+
+            print(
+                f"Aviso: {path.name} não possui "
+                "'metodo' nem 'method'."
+            )
 
     if not frames:
-        print("\nNenhum resumo encontrado para consolidar.")
+
+        print(
+            "\nNenhum resumo encontrado "
+            "para consolidar."
+        )
+
         return
 
-    combined = pd.concat(frames, ignore_index=True, sort=False)
-    output = (DATA / "processed" / "eval" / "all_experiments_summary.csv")
-    output.parent.mkdir(parents=True, exist_ok=True)
-    combined.to_csv(output, index=False)
+    combined = pd.concat(
+        frames,
+        ignore_index=True,
+        sort=False
+    )
 
-    print("\nRESUMO CONSOLIDADO")
-    print(f"Arquivo salvo em:\n{output}")
+    output = (
+        DATA
+        / "processed"
+        / "eval"
+        / "all_experiments_summary.csv"
+    )
+
+    output.parent.mkdir(
+        parents=True,
+        exist_ok=True
+    )
+
+    combined.to_csv(
+        output,
+        index=False
+    )
+
+    print(
+        "\n" + "=" * 76
+    )
+
+    print(
+        "RESUMO CONSOLIDADO"
+    )
+
+    print(
+        "=" * 76
+    )
+
+    print(
+        f"\nArquivo salvo em:\n{output}"
+    )
 
     columns_to_show = [
         column
@@ -171,14 +340,27 @@ def consolidate():
     ]
 
     if columns_to_show:
-        print(combined[columns_to_show].to_string(index=False))
+
+        print(
+            combined[
+                columns_to_show
+            ].to_string(
+                index=False
+            )
+        )
 
 
-# Main
+# ============================================================
+# MAIN
+# ============================================================
+
 def main():
 
     parser = argparse.ArgumentParser(
-        description=("Executa os experimentos de DS, MoE e baselines estáticos.")
+        description=(
+            "Executa os experimentos de DS, MoE, "
+            "baselines estáticos e comparação estatística."
+        )
     )
 
     parser.add_argument(
@@ -190,7 +372,8 @@ def main():
             "static",
         ],
         help=(
-            "Executa apenas as famílias de experimentos informadas."
+            "Executa apenas as famílias "
+            "de experimentos informadas."
         ),
     )
 
@@ -198,31 +381,65 @@ def main():
         "--include-k-sweep",
         action="store_true",
         help=(
-            "Executa também a análise de sensibilidade do k para DS."
+            "Executa também a análise de "
+            "sensibilidade do k para DS."
         ),
     )
 
     args = parser.parse_args()
 
     # Se --only não for informado:
-    # executa DS + MoE + Static (todos)
+    # executa DS + MoE + Static
     selected = set(
         args.only
-        or ["ds", "moe", "static"]
+        or [
+            "ds",
+            "moe",
+            "static",
+        ]
     )
 
-    print("\nEXPERIMENTOS - SARCASM DYNAMIC SELECTION")
-    print(f"\nRaiz do projeto:\n{ROOT}")
-    print("\nExperimentos selecionados:")
-    print(", ".join(sorted(selected)))
+    print(
+        "\n" + "=" * 76
+    )
+
+    print(
+        "EXPERIMENTOS - SARCASM DYNAMIC SELECTION"
+    )
+
+    print(
+        "=" * 76
+    )
+
+    print(
+        f"\nRaiz do projeto:\n{ROOT}"
+    )
+
+    print(
+        "\nExperimentos selecionados:"
+    )
+
+    print(
+        ", ".join(
+            sorted(selected)
+        )
+    )
 
     try:
-        # Pool
+
+        # ====================================================
+        # POOL
+        # ====================================================
+
         if selected:
             ensure_pool()
 
-        # Dynamic Selection
+        # ====================================================
+        # DYNAMIC SELECTION
+        # ====================================================
+
         if "ds" in selected:
+
             run_step(
                 (
                     "Seleção dinâmica "
@@ -237,6 +454,7 @@ def main():
             )
 
             if args.include_k_sweep:
+
                 run_step(
                     "Sensibilidade do k",
                     [
@@ -246,8 +464,12 @@ def main():
                     ]
                 )
 
-        # Mixture of Experts
+        # ====================================================
+        # MIXTURE OF EXPERTS
+        # ====================================================
+
         if "moe" in selected:
+
             run_step(
                 (
                     "Soft-MoE "
@@ -261,13 +483,23 @@ def main():
                 ]
             )
 
-        # Baselines estáticos
+        # ====================================================
+        # BASELINES ESTÁTICOS
+        # ====================================================
+
         if "static" in selected:
 
-            ds_result = (DATA / "processed" / "selection" / "ds_routing_test.csv")
+            ds_result = (
+                DATA
+                / "processed"
+                / "selection"
+                / "ds_routing_test.csv"
+            )
 
-            # O baseline estático usa resultados do DS para algumas comparações.
+            # O baseline estático usa resultados do DS
+            # para algumas comparações.
             if not ds_result.exists():
+
                 run_step(
                     (
                         "Seleção dinâmica necessária "
@@ -279,7 +511,7 @@ def main():
                         "src.selection.ds_routing",
                     ]
                 )
-                
+
             run_step(
                 "Baselines estáticos multimodais",
                 [
@@ -289,13 +521,56 @@ def main():
                 ]
             )
 
-        # Consolidação
+        # ====================================================
+        # CONSOLIDAÇÃO
+        # ====================================================
+
         consolidate()
-        print("\nEXPERIMENTOS CONCLUÍDOS")
+
+        # ====================================================
+        # COMPARAÇÃO ESTATÍSTICA
+        # ====================================================
+
+        run_step(
+            "Comparação estatística dos métodos",
+            [
+                sys.executable,
+                "-m",
+                "src.comparacao_estatistica",
+            ]
+        )
+
+        # ====================================================
+        # FINAL
+        # ====================================================
+
+        print(
+            "\n" + "=" * 76
+        )
+
+        print(
+            "EXPERIMENTOS CONCLUÍDOS"
+        )
+
+        print(
+            "=" * 76
+        )
 
     except subprocess.CalledProcessError as exc:
-        print(("\nERRO: etapa falhou com código {exc.returncode}. Execução interrompida para não gerar comparação incompleta."), file=sys.stderr)
-        raise SystemExit(exc.returncode)
+
+        print(
+            (
+                f"\nERRO: etapa falhou com código "
+                f"{exc.returncode}. "
+                "Execução interrompida para não gerar "
+                "comparação incompleta."
+            ),
+            file=sys.stderr
+        )
+
+        raise SystemExit(
+            exc.returncode
+        )
 
 
 if __name__ == "__main__":
