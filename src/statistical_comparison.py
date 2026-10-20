@@ -9,7 +9,6 @@ McNemar pareado + correção de Holm + IC bootstrap pareado.
 Para rodar: `python src/statistical_comparison.py`
 
 Saídas:
-    metricas_por_metodo.csv
     mcnemar_holm.csv
     bootstrap_diferencas_ic95.csv
 """
@@ -191,16 +190,6 @@ def main():
         # AUC requer um score válido para cada amostra.
         scores[method] = score if np.isfinite(score).all() else None
 
-    # Métricas individuais
-    metric_rows = []
-    for method in methods:
-        metric_rows.append({
-            "metodo": method,
-            "n_amostras": len(y),
-            **metrics(y, preds[method], scores[method])
-        })
-    pd.DataFrame(metric_rows).to_csv(OUT_DIR / "metricas_por_metodo.csv", index=False)
-
     # McNemar + correção de Holm
     pair_rows = []
     for a, b in itertools.combinations(methods, 2):
@@ -262,7 +251,6 @@ def main():
     print(f"Réplicas bootstrap: {N_BOOTSTRAP}")
     print()
     print("Arquivos gerados:")
-    print(" - metricas_por_metodo.csv")
     print(" - mcnemar_holm.csv")
     print(" - bootstrap_diferencas_ic95.csv")
 

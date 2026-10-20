@@ -536,7 +536,7 @@ def main():
             [
                 sys.executable,
                 "-m",
-                "src.comparacao_estatistica",
+                "src.statistical_comparison",
             ]
         )
 
