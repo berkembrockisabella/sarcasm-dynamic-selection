@@ -14,6 +14,17 @@ python -m src.moe.run_moe
 
 Deve ser executado após a definição e treinamento da *pool* de especialistas.
 
+## Estrutura
+
+Os principais arquivos do módulo são:
+
+| Arquivo | Responsabilidade |
+|---|---|
+| `moe_expert_predictions.py` | Calcula as probabilidades de sarcarmo estimadas de cada fala por cada especialista. |
+| `moe_gate.py` | Define a rede neural MLP responsável por produzir os pesos de cada especialista. |
+| `moe.py` | Implementa o mecanismo MoE, combinando as probabilidades dos especialistas de acordo com os pesos produzidos pelo gate. |
+| `run_moe.py` | Orquestra a execução do MoE, carrega os especialistas, treina o gate no DSEL e avalia o modelo no TEST. |
+
 ## Mecanismo de roteamento (*Gate*)
 
 O gate é uma rede neural do tipo *Multi-Layer Perceptron* (MLP), responsável por aprender e determinar a contribuição de cada especialista para uma determinada instância.
@@ -61,8 +72,9 @@ data/
 └── processed/
     └── moe/
         ├── moe_config.json             configurações utilizadas
-        ├── moe_summary.csv             métricas de avaliação final
-        ├── moe_test_predictions.csv    previsões conjunto TEST
+        ├── moe_results.csv             métricas de avaliação final
+        ├── moe_summary.csv             métricas para comparação
+        ├── moe_test.csv                previsões conjunto TEST
         └── moe_training_history.csv    histórico do treinamento do gate,
                                         incluindo perdas registradas épocas
 ```

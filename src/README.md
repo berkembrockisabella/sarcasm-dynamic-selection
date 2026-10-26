@@ -12,7 +12,9 @@ Esta pasta contém toda a implementação dos experimentos de detecção multimo
 | `moe/` | Implementação de Mixture of Experts (MoE) |
 | `selection/` | Implementação dos métodos de Seleção Dinâmica |
 | `static/` | Implementação dos modelos estáticos |
+| `prototipo/` | Experimentos anteriores para a execução do projeto |
 | **`run_experiment.py`** | Ponto de entrada para orquestrar a execução dos experimentos |
+| **`statistical_comparison.py`** | Comparação estatística dos resultados finais |
 
 ## Fluxo geral
 1. **Preparação dos dados:** carregamento das representações multimodais e dos rótulos.
@@ -31,9 +33,29 @@ O projeto contempla diferentes estratégias de classificação e combinação de
 * **Mixture of Experts (MoE):** utiliza um mecanismo de roteamento aprendido para ponderar as previsões dos especialistas.
 
 ## `run_experiment.py`
-Orquestra os experimentos principais de Seleção Dinâmica (DS), Mixture of Experts (MoE) e baselines estáticos
+Orquestra todo o experimento principal de Seleção Dinâmica (DS), Mixture of Experts (MoE) e baselines estáticos
 
-Para executar:
+**Para executar:**
+
 `python -m src.run_experiment`
 
+## `statistical_comparison.py`
+Realiza a comparação estatística pareada entre os métodos de DS, MoE e classificadores estáticos.
 
+**Análises realizadas:**
+- Teste exato de McNemar para comparações pareadas
+- Correção de Holm para comparações múltiplas
+- Intervalos de confiança (IC) de 95% por bootstrap pareado para as diferenças entre métodos
+
+**Para executar:**
+
+`python src/statistical_comparison.py`
+
+**Saídas:**
+```
+data/
+└── processed/
+    └── statistical_comparison/
+        ├── mcnemar_holm.csv                resultados dos testes de McNemar e valores-p corrigidos por Holm
+        └── bootstrap_diferencas_ic95.csv   diferenças entre métodos e respectivos IC
+```
