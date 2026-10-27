@@ -9,15 +9,14 @@ cv_results.csv e oof_predictions.csv gerados por build_pool.py.
 import json
 import numpy as np
 import pandas as pd
-from sklearn.base import clone
 from sklearn.metrics import accuracy_score, f1_score, precision_score, recall_score
 
 from .classifiers import build_classifier
-from .config import RESULTS_DIR, SPLIT_DIR, POOL_SIZE, TOP_K_FOR_DIVERSITY, RANDOM_STATE
+from .config import RESULTS_DIR, SPLIT_DIR, POOL_SIZE, TOP_K_FOR_DIVERSITY
 from .diversity import mean_disagreement
 from .feature_loader import FeatureStore
 
-DSEL_PATH = SPLIT_DIR.parent / "dsel.csv"
+DSEL_PATH = SPLIT_DIR / "dsel.csv"
 # Peso do desempenho; o peso da diversidade será 1 - alpha.
 ALPHAS = [0.0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9, 1.0]
 
