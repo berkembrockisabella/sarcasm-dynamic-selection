@@ -6,6 +6,8 @@ import pandas as pd
 from .config import POOL_SIZE, TOP_K_FOR_DIVERSITY
 from .diversity import mean_disagreement
 
+DIVERSITY = 0.3
+
 def select_diverse_pool(results_df, predictions, y):
     """
     Estratégia gulosa:
@@ -13,7 +15,7 @@ def select_diverse_pool(results_df, predictions, y):
     - começa pelo melhor F1;
     - adiciona candidatos equilibrando F1 normalizado e disagreement médio.
 
-    score = 0.70 * performance + 0.30 * diversity
+    score = (1 - DIVERSITY) * performance + DIVERSITY * diversity
     """
     candidates = (
         results_df
@@ -47,7 +49,7 @@ def select_diverse_pool(results_df, predictions, y):
                 continue
 
             div = mean_disagreement(cid, selected, predictions, y)
-            score = 0.70 * norm_f1(row["mean_f1"]) + 0.30 * div
+            score = (1 - DIVERSITY) * norm_f1(row["mean_f1"]) + DIVERSITY * div
 
             item = (score, div, row["mean_f1"], cid)
             if best is None or item > best:
