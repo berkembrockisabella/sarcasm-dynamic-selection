@@ -1,0 +1,12 @@
+metodo,rank_medio
+Estatico voto dos 3,3.8
+KNORA-U sem_roteamento,4.4
+Estatico SVM,4.5
+Voto da pool inteira,4.75
+Soft-MoE,5.65
+KNORA-E sem_roteamento,6.15
+OLA sem_roteamento,6.35
+Melhor membro,6.75
+Estatico Regressao logistica,7.35
+Estatico Random forest,7.95
+Pior membro,8.35

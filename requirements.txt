@@ -5,3 +5,5 @@ funasr
 torch
 torchaudio
 sentencepiece
+psutil
+scipy

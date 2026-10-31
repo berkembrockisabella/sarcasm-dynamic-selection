@@ -1,46 +1,46 @@
 metodo_a,metodo_b,a_correto_b_errado,a_errado_b_correto,pares_discordantes,p_valor,p_holm,significativo_05_holm
-MoE,OLA (sem_roteamento),5,3,8,0.7265625,1.0,False
-MoE,OLA (com_roteamento),5,3,8,0.7265625,1.0,False
-MoE,KNORA-E (sem_roteamento),5,3,8,0.7265625,1.0,False
-MoE,KNORA-E (com_roteamento),4,3,7,1.0,1.0,False
-MoE,KNORA-U (sem_roteamento),4,5,9,1.0,1.0,False
-MoE,KNORA-U (com_roteamento),4,5,9,1.0,1.0,False
-MoE,Estatico SVM,4,4,8,1.0,1.0,False
-MoE,Estatico Random forest,9,5,14,0.4239501953125,1.0,False
-MoE,Estatico voto dos 3,5,5,10,1.0,1.0,False
+MoE,OLA (sem_roteamento),6,7,13,1.0,1.0,False
+MoE,OLA (com_roteamento),6,7,13,1.0,1.0,False
+MoE,KNORA-E (sem_roteamento),5,8,13,0.5810546875,1.0,False
+MoE,KNORA-E (com_roteamento),4,7,11,0.548828125,1.0,False
+MoE,KNORA-U (sem_roteamento),3,7,10,0.34375,1.0,False
+MoE,KNORA-U (com_roteamento),3,7,10,0.34375,1.0,False
+MoE,Estatico SVM,4,9,13,0.266845703125,1.0,False
+MoE,Estatico Random forest,5,6,11,1.0,1.0,False
+MoE,Estatico voto dos 3,4,9,13,0.266845703125,1.0,False
 OLA (sem_roteamento),OLA (com_roteamento),0,0,0,1.0,1.0,False
-OLA (sem_roteamento),KNORA-E (sem_roteamento),3,3,6,1.0,1.0,False
-OLA (sem_roteamento),KNORA-E (com_roteamento),2,3,5,1.0,1.0,False
-OLA (sem_roteamento),KNORA-U (sem_roteamento),3,6,9,0.5078125,1.0,False
-OLA (sem_roteamento),KNORA-U (com_roteamento),3,6,9,0.5078125,1.0,False
-OLA (sem_roteamento),Estatico SVM,6,8,14,0.79052734375,1.0,False
-OLA (sem_roteamento),Estatico Random forest,6,4,10,0.75390625,1.0,False
-OLA (sem_roteamento),Estatico voto dos 3,6,8,14,0.79052734375,1.0,False
-OLA (com_roteamento),KNORA-E (sem_roteamento),3,3,6,1.0,1.0,False
-OLA (com_roteamento),KNORA-E (com_roteamento),2,3,5,1.0,1.0,False
-OLA (com_roteamento),KNORA-U (sem_roteamento),3,6,9,0.5078125,1.0,False
-OLA (com_roteamento),KNORA-U (com_roteamento),3,6,9,0.5078125,1.0,False
-OLA (com_roteamento),Estatico SVM,6,8,14,0.79052734375,1.0,False
-OLA (com_roteamento),Estatico Random forest,6,4,10,0.75390625,1.0,False
-OLA (com_roteamento),Estatico voto dos 3,6,8,14,0.79052734375,1.0,False
-KNORA-E (sem_roteamento),KNORA-E (com_roteamento),0,1,1,1.0,1.0,False
-KNORA-E (sem_roteamento),KNORA-U (sem_roteamento),0,3,3,0.25,1.0,False
-KNORA-E (sem_roteamento),KNORA-U (com_roteamento),0,3,3,0.25,1.0,False
-KNORA-E (sem_roteamento),Estatico SVM,3,5,8,0.7265625,1.0,False
+OLA (sem_roteamento),KNORA-E (sem_roteamento),2,4,6,0.6875,1.0,False
+OLA (sem_roteamento),KNORA-E (com_roteamento),1,3,4,0.625,1.0,False
+OLA (sem_roteamento),KNORA-U (sem_roteamento),2,5,7,0.453125,1.0,False
+OLA (sem_roteamento),KNORA-U (com_roteamento),2,5,7,0.453125,1.0,False
+OLA (sem_roteamento),Estatico SVM,5,9,14,0.4239501953125,1.0,False
+OLA (sem_roteamento),Estatico Random forest,6,6,12,1.0,1.0,False
+OLA (sem_roteamento),Estatico voto dos 3,5,9,14,0.4239501953125,1.0,False
+OLA (com_roteamento),KNORA-E (sem_roteamento),2,4,6,0.6875,1.0,False
+OLA (com_roteamento),KNORA-E (com_roteamento),1,3,4,0.625,1.0,False
+OLA (com_roteamento),KNORA-U (sem_roteamento),2,5,7,0.453125,1.0,False
+OLA (com_roteamento),KNORA-U (com_roteamento),2,5,7,0.453125,1.0,False
+OLA (com_roteamento),Estatico SVM,5,9,14,0.4239501953125,1.0,False
+OLA (com_roteamento),Estatico Random forest,6,6,12,1.0,1.0,False
+OLA (com_roteamento),Estatico voto dos 3,5,9,14,0.4239501953125,1.0,False
+KNORA-E (sem_roteamento),KNORA-E (com_roteamento),1,1,2,1.0,1.0,False
+KNORA-E (sem_roteamento),KNORA-U (sem_roteamento),1,2,3,1.0,1.0,False
+KNORA-E (sem_roteamento),KNORA-U (com_roteamento),1,2,3,1.0,1.0,False
+KNORA-E (sem_roteamento),Estatico SVM,4,6,10,0.75390625,1.0,False
 KNORA-E (sem_roteamento),Estatico Random forest,6,4,10,0.75390625,1.0,False
-KNORA-E (sem_roteamento),Estatico voto dos 3,3,5,8,0.7265625,1.0,False
-KNORA-E (com_roteamento),KNORA-U (sem_roteamento),1,3,4,0.625,1.0,False
-KNORA-E (com_roteamento),KNORA-U (com_roteamento),1,3,4,0.625,1.0,False
-KNORA-E (com_roteamento),Estatico SVM,4,5,9,1.0,1.0,False
-KNORA-E (com_roteamento),Estatico Random forest,6,3,9,0.5078125,1.0,False
-KNORA-E (com_roteamento),Estatico voto dos 3,4,5,9,1.0,1.0,False
+KNORA-E (sem_roteamento),Estatico voto dos 3,4,6,10,0.75390625,1.0,False
+KNORA-E (com_roteamento),KNORA-U (sem_roteamento),1,2,3,1.0,1.0,False
+KNORA-E (com_roteamento),KNORA-U (com_roteamento),1,2,3,1.0,1.0,False
+KNORA-E (com_roteamento),Estatico SVM,4,6,10,0.75390625,1.0,False
+KNORA-E (com_roteamento),Estatico Random forest,6,4,10,0.75390625,1.0,False
+KNORA-E (com_roteamento),Estatico voto dos 3,4,6,10,0.75390625,1.0,False
 KNORA-U (sem_roteamento),KNORA-U (com_roteamento),0,0,0,1.0,1.0,False
-KNORA-U (sem_roteamento),Estatico SVM,3,2,5,1.0,1.0,False
-KNORA-U (sem_roteamento),Estatico Random forest,9,4,13,0.266845703125,1.0,False
-KNORA-U (sem_roteamento),Estatico voto dos 3,3,2,5,1.0,1.0,False
-KNORA-U (com_roteamento),Estatico SVM,3,2,5,1.0,1.0,False
-KNORA-U (com_roteamento),Estatico Random forest,9,4,13,0.266845703125,1.0,False
-KNORA-U (com_roteamento),Estatico voto dos 3,3,2,5,1.0,1.0,False
+KNORA-U (sem_roteamento),Estatico SVM,3,4,7,1.0,1.0,False
+KNORA-U (sem_roteamento),Estatico Random forest,7,4,11,0.548828125,1.0,False
+KNORA-U (sem_roteamento),Estatico voto dos 3,3,4,7,1.0,1.0,False
+KNORA-U (com_roteamento),Estatico SVM,3,4,7,1.0,1.0,False
+KNORA-U (com_roteamento),Estatico Random forest,7,4,11,0.548828125,1.0,False
+KNORA-U (com_roteamento),Estatico voto dos 3,3,4,7,1.0,1.0,False
 Estatico SVM,Estatico Random forest,10,6,16,0.454498291015625,1.0,False
 Estatico SVM,Estatico voto dos 3,1,1,2,1.0,1.0,False
 Estatico Random forest,Estatico voto dos 3,5,9,14,0.4239501953125,1.0,False

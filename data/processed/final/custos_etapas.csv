@@ -1,0 +1,12 @@
+etapa,n,segundos_parede_media,segundos_parede_dp,segundos_cpu_media,pico_memoria_mb_media
+Baselines estáticos multimodais,10,4.4,0.4,7.3,198.9
+Comparação estatística dos métodos,10,297.0,2.3,294.4,136.8
+Seleção da pool (CV no TRAIN),9,1469.0,65.5,21026.8,3543.8
+"Seleção dinâmica (OLA, KNORA-E, KNORA-U; com/sem roteamento)",10,52.1,9.8,69.7,304.3
+Sensibilidade ao peso da diversidade,10,57.6,16.2,131.9,238.9
+Sensibilidade do k (k = 11),10,8.6,1.0,8.5,300.0
+Sensibilidade do k (k = 15),10,8.6,1.0,8.5,297.9
+Sensibilidade do k (k = 3),10,8.7,1.1,8.4,296.9
+Sensibilidade do k (k = 5),10,8.6,1.1,8.3,298.8
+"Soft-MoE (gate treinado em DSEL, avaliação em TEST)",10,8.4,0.5,8.8,1239.2
+Treinamento da pool congelada,9,7.7,1.9,14.7,195.4

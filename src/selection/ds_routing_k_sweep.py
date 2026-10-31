@@ -12,6 +12,7 @@ from sklearn.metrics import accuracy_score, f1_score
 from sklearn.neighbors import NearestNeighbors
 from sklearn.preprocessing import StandardScaler, normalize
 
+from pool_selection.config import SPLIT_DIR, SPLIT_SUFFIX
 from pool_selection.feature_loader import FeatureStore
 from pool_training.load_frozen_pool import load_frozen_pool
 
@@ -27,9 +28,10 @@ MODALIDADES = ["text", "context", "audio", "visual"]
 METODOS = ["OLA", "KNORA-E", "KNORA-U"]
 ROTEAMENTOS = ["sem_roteamento", "com_roteamento"]
 
-treino = pd.read_csv("data/splits/train.csv")
-dsel = pd.read_csv("data/splits/dsel.csv")
-teste = pd.read_csv("data/splits/test.csv")
+treino = pd.read_csv(SPLIT_DIR / "train.csv")
+dsel = pd.read_csv(SPLIT_DIR / "dsel.csv")
+teste = pd.read_csv(SPLIT_DIR / "test.csv")
+PASTA_SAIDA = Path("data/processed/selection") / SPLIT_SUFFIX
 grupos = pd.read_csv("data/processed/incongruence.csv")[["KEY", "grupo"]]
 dsel = dsel.merge(grupos, on="KEY", how="left")
 teste = teste.merge(grupos, on="KEY", how="left")
@@ -151,8 +153,8 @@ for k in KS:
             linhas.append(linha)
 
 resumo = pd.DataFrame(linhas)
-Path("data/processed/selection").mkdir(parents=True, exist_ok=True)
-resumo.to_csv("data/processed/selection/ds_routing_k_sweep.csv", index=False)
+PASTA_SAIDA.mkdir(parents=True, exist_ok=True)
+resumo.to_csv(PASTA_SAIDA / "ds_routing_k_sweep.csv", index=False)
 
 # Tabela e grafico: F1 macro de cada metodo em funcao de k, sem e com roteamento
 tabela = resumo.pivot_table(index="k", columns=["metodo", "roteamento"], values="f1_macro")
@@ -177,7 +179,7 @@ for eixo, metodo in zip(eixos, METODOS):
 eixos[0].set_ylabel("F1 macro no teste")
 eixos[0].legend()
 figura.tight_layout()
-figura.savefig("data/processed/selection/ds_routing_k_sweep.png", dpi=150)
+figura.savefig(PASTA_SAIDA / "ds_routing_k_sweep.png", dpi=150)
 
-print("\nSalvo em: data/processed/selection/ds_routing_k_sweep.csv")
-print("Salvo em: data/processed/selection/ds_routing_k_sweep.png")
+print("\nSalvo em:", PASTA_SAIDA / "ds_routing_k_sweep.csv")
+print("Salvo em:", PASTA_SAIDA / "ds_routing_k_sweep.png")

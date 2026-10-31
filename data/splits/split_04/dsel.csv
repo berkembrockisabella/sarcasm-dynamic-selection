@@ -1,0 +1,158 @@
+SCENE,KEY,SENTENCE,END_TIME,SPEAKER,SHOW,Sarcasm,Sarcasm_Type,Implicit_Emotion,Explicit_Emotion,Valence,Arousal
+1_11042,1_11042_u,"Because no one wants to see Neil deGrasse Tyson in a wet T-shirt, bent over the hood of a Porsche.",0:07,BERNADETTE,BBT,0.0,NONE,Sadness,Sadness,3.0,7.0
+1_11098,1_11098_u,"Wow, you still have it? I just assumed it was balled up in the corner of a barn somewhere.",0:09,BERNADETTE,BBT,1.0,PRO,Ridicule,Surprise,3.0,7.0
+1_11232,1_11232_u,"And I love that I work and do all the cleaning, and you're okay with that.",0:06,BERNADETTE,BBT,1.0,PRO,Anger,Happiness,3.0,8.0
+1_11242,1_11242_u,"I love that you take pride in your looks, even when I have to pee in the morning, and you're in there spending an hour on your hair.",0:09,BERNADETTE,BBT,1.0,EMB,Anger,Happiness,2.0,8.0
+1_11889,1_11889_u,"Yeah, we just want to have the kind of dinner that we've all had here so many times before.",0:04,BERNADETTE,BBT,0.0,NONE,Happiness,Happiness,7.0,7.0
+1_3348,1_3348_u,"Raj, you should've seen Leonard's experiment. The interference pattern was so cool when the electron beam was on.",0:2,BERNADETTE,BBT,0.0,NONE,Happiness,Happiness,4.0,6.0
+1_5751,1_5751_u,Of course you do. You're a cutie pie! Any girl would be lucky to have you!,0:06,BERNADETTE,BBT,0.0,NONE,Anger,Anger,3.0,8.0
+1_6039,1_6039_u,I don't know what I'm going to do. I don't want to break up over this.,0:05,BERNADETTE,BBT,0.0,NONE,Sadness,Sadness,3.0,7.0
+1_6221,1_6221_u,"Well, if you don't mind looking like an orange traffic cone, great.",0:04,BERNADETTE,BBT,1.0,PRO,Frustration,Neutral,4.0,6.0
+1_7089,1_7089_u," Yeah, we, uh, made gift bags, had wine, and then went online and saw this.",0:1,BERNADETTE,BBT,1.0,PRO,Anger,Happiness,3.0,7.0
+1_8185,1_8185_u,We could go to Red Lobster and talk about it. We're all thinking it. I just had the decency to wait for him to leave.,0:1,BERNADETTE,BBT,0.0,NONE,Anger,Anger,3.0,7.0
+1_8717,1_8717_u,Because you're in the right lane behind a bus and you won't go around it? I'm sure she finds it charming.,0:07,BERNADETTE,BBT,1.0,PRO,Anger,Happiness,3.0,7.0
+1_S09E03_135,1_S09E03_135_u,You guys still aren't living together?,0:02.100000,BERNADETTE,BBT,0.0,NONE,Surprise,Surprise,3.0,7.0
+1_S09E04_053,1_S09E04_053_u,"Well, why don't you look at this as an opportunity? You had other roommates before Leonard. Maybe this is a chance to find someone new.",0:08.373000,BERNADETTE,BBT,0.0,NONE,Excitement,Excitement,6.0,6.0
+1_S09E05_258,1_S09E05_258_u,What can it hurt?,0:01.126000,BERNADETTE,BBT,0.0,NONE,Neutral,Neutral,5.0,5.0
+1_S09E12_184,1_S09E12_184_u,(CHUCKLES) Yeah. A grown man moving into his own apartment. It's crazy times. See ya!,0:6.339,BERNADETTE,BBT,1.0,EMB,Disgust,Happiness,3.0,6.0
+1_S09E24_152,1_S09E24_152_u,Sure you do.,0:2.868999,OTHER,BBT,1.0,ILL,Frustration,Happiness,3.0,7.0
+1_S10E01_225,1_S10E01_225_u,"Well, he probably buys his illegal drugs from a local vendor.",0:3.5,OTHER,BBT,1.0,PRO,Ridicule,Neutral,3.0,8.0
+1_S10E01_381,1_S10E01_381_u,They're practicing for what's coming later.,0:3.459000,OTHER,BBT,1.0,PRO,Ridicule,Neutral,4.0,7.0
+1_S10E03_144,1_S10E03_144_u,"Oh, I was gonna start at the end. Thank God you're here.",0:4.375999,BERNADETTE,BBT,1.0,ILL,Frustration,Happiness,3.0,8.0
+1_S10E03_154,1_S10E03_154_u,"This was the husband and this was the wife. They'd go out on adventures together. Cruises, skiing, horseback riding. That was really me just duct taping them to our dog.",0:11.333000,BERNADETTE,BBT,0.0,NONE,Happiness,Happiness,6.0,7.0
+1_S10E04_277,1_S10E04_277_u,I was disappointed to see the man I was engaged to pulling rainbow scarves out of his fly.,0:05.436000,BERNADETTE,BBT,0.0,NONE,Anger,Anger,4.0,7.0
+1_S10E04_343,1_S10E04_343_u,"Well, now I don't know if I want to know!",0:02.300000,BERNADETTE,BBT,0.0,NONE,Frustration,Frustration,5.0,7.0
+1_S10E04_361,1_S10E04_361_u,Wait. Wrong number.,0:02.700000,BERNADETTE,BBT,0.0,NONE,Fear,Fear,5.0,7.0
+1_S10E05_110,1_S10E05_110_u,The only thing I hate more than you right now is that book!,0:03.967000,BERNADETTE,BBT,0.0,NONE,Anger,Anger,3.0,7.0
+1_S10E08_063,1_S10E08_063_u,You think it would be more difficult than that?,0:4.437999,OTHER,BBT,1.0,PRO,Ridicule,Surprise,4.0,8.0
+1_S10E12_115,1_S10E12_115_u,Cause at the end I assumed there'd be nurses.,0:2.202,OTHER,BBT,1.0,PRO,Ridicule,Neutral,3.0,8.0
+1_S10E13_095,1_S10E13_095_u,"I've been seeing him for years, I'm still not convinced he's real.",0:5.771999,BERNADETTE,BBT,1.0,ILL,Ridicule,Sadness,3.0,8.0
+1_S10E14_032,1_S10E14_032_u,"So, normal. Yeah--",0:1.902000,BERNADETTE,BBT,1.0,PRO,Ridicule,Neutral,3.0,6.0
+1_S10E17_146,1_S10E17_146_u,"Oh, dear god, you're cheating on me with raj.",0:3.503,BERNADETTE,BBT,1.0,PRO,Ridicule,Anger,3.0,8.0
+1_S11E02_299,1_S11E02_299_u,Tell me about it. Howie texts me every time his dog levels up in Warcraft.,0:05.230000,BERNADETTE,BBT,0.0,NONE,Frustration,Frustration,3.0,7.0
+1_S11E03_067,1_S11E03_067_u,I'm not setting her up with Raj.,0:02.430000,BERNADETTE,BBT,0.0,NONE,Disgust,Disgust,4.0,5.0
+1_S11E03_321,1_S11E03_321_u,What's to worry about?,0:01.430000,OTHER,BBT,0.0,NONE,Neutral,Neutral,5.0,5.0
+1_S11E04_016,1_S11E04_016_u,"Well, it's a boy.",0:02.130000,OTHER,BBT,0.0,NONE,Neutral,Neutral,5.0,5.0
+1_S11E04_024,1_S11E04_024_u,I already have a little version of Howard.,0:3.230000,BERNADETTE,BBT,1.0,PRO,Sadness,Neutral,3.0,7.0
+1_S11E04_137,1_S11E04_137_u,"""Daddy's little girl""?",0:02.930000,BERNADETTE,BBT,0.0,NONE,Happiness,Happiness,6.0,6.0
+1_S11E04_298,1_S11E04_298_u,"No, I'm fine.",0:01.520000,BERNADETTE,BBT,0.0,NONE,Neutral,Neutral,5.0,5.0
+1_S11E05_193,1_S11E05_193_u,I thought his work wife was standing in my kitchen.,0:2.400000,BERNADETTE,BBT,1.0,PRO,Ridicule,Neutral,3.0,7.0
+1_S11E05_343,1_S11E05_343_u,"At least he can still clean the oven, so that's something.",0:02.940000,BERNADETTE,BBT,0.0,NONE,Neutral,Neutral,5.0,5.0
+1_S11E05_402,1_S11E05_402_u,"Oh, my God, you're still here?",0:02.410000,BERNADETTE,BBT,0.0,NONE,Surprise,Surprise,6.0,7.0
+1_S11E06_102,1_S11E06_102_u,"No, he is saying how can these prices be so low?",0:0.999999,BERNADETTE,BBT,1.0,ILL,Anger,Excitement,3.0,8.0
+1_S11E07_112,1_S11E07_112_u,It doesn't even matter how many all-rounders you have.,0:02.424000,OTHER,BBT,0.0,NONE,Excitement,Neutral,6.0,6.0
+1_S11E07_405,1_S11E07_405_u,And she still doesn't.,0:02.770000,BERNADETTE,BBT,0.0,NONE,Happiness,Happiness,6.0,6.0
+1_S11E08_351,1_S11E08_351_u,Yes. Why don't you run get me a can of Pringles.,0:03.870000,OTHER,BBT,0.0,NONE,Neutral,Neutral,5.0,5.0
+1_S11E13_362,1_S11E13_362_u,Did it work?,0:2.335,BERNADETTE,BBT,1.0,ILL,Anger,Neutral,4.0,7.0
+1_S11E16_170,1_S11E16_170_u,You're right. That's so much better.,0:3.804000,BERNADETTE,BBT,1.0,ILL,Frustration,Excitement,4.0,7.0
+1_S11E21_201,1_S11E21_201_u,"I'll go to dinner, and you can stay home with the Internet and have romance.",0:3.939999,BERNADETTE,BBT,1.0,EMB,Ridicule,Neutral,4.0,8.0
+1_S11E23_048,1_S11E23_048_u,"Ooh, now it's starting to sound like a good wedding.",0:2.770000,BERNADETTE,BBT,1.0,PRO,Ridicule,Happiness,3.0,7.0
+1_S12E01_150,1_S12E01_150_u,You want to say it? You can say it.,0:02.567000,BERNADETTE,BBT,0.0,NONE,Happiness,Happiness,6.0,5.0
+1_S12E02_006,1_S12E02_006_u,"I told you, I'm not okay with it.",0:02.468000,BERNADETTE,BBT,0.0,NONE,Neutral,Neutral,5.0,5.0
+1_S12E02_274,1_S12E02_274_u,"Or you can ask me, the geologist who won the MacArthur Genius Grant.",0:3.904,OTHER,BBT,1.0,PRO,Sadness,Excitement,4.0,8.0
+1_S12E02_466,1_S12E02_466_u,Do your 63 other crayon friends know you're out?,0:2.036000,OTHER,BBT,1.0,EMB,Ridicule,Neutral,3.0,7.0
+1_S12E02_471,1_S12E02_471_u,"Yeah, I'm in the mood for orange chicken.",0:2.469999,OTHER,BBT,1.0,ILL,Ridicule,Neutral,4.0,7.0
+1_S12E03_195,1_S12E03_195_u,"You'’re right, you'’ve got Leonard. What more do you need?",0:5.004999,BERNADETTE,BBT,1.0,PRO,Ridicule,Neutral,3.0,8.0
+1_S12E04_046,1_S12E04_046_u,"Well, it's hard to say, not knowing much about her. Does she have fingers?",0:4.103999,BERNADETTE,BBT,1.0,PRO,Ridicule,Surprise,3.0,8.0
+1_S12E04_195,1_S12E04_195_u,"She can get into any restaurant, but the best husband she can find is Raj?",0:5.872,BERNADETTE,BBT,1.0,EMB,Disgust,Neutral,3.0,7.0
+1_S12E04_204,1_S12E04_204_u,"Oh, I've been trying to get in touch with him, but I never heard back. Is he okay?",0:03.335000,OTHER,BBT,0.0,NONE,Neutral,Neutral,5.0,5.0
+1_S12E04_233,1_S12E04_233_u,How did I betray you?,0:01.333000,OTHER,BBT,0.0,NONE,Disgust,Disgust,4.0,6.0
+1_S12E04_276,1_S12E04_276_u,"So, what do you want to know?",0:01.332000,OTHER,BBT,0.0,NONE,Neutral,Neutral,5.0,5.0
+1_S12E05_083,1_S12E05_083_u,And it's gone.,0:02.033000,BERNADETTE,BBT,0.0,NONE,Disgust,Disgust,3.0,6.0
+1_S12E06_171,1_S12E06_171_u,"Oh, come on. It was all in good fun.",0:01.934000,BERNADETTE,BBT,0.0,NONE,Happiness,Happiness,6.0,6.0
+1_S12E06_367,1_S12E06_367_u,"What do you want, Sheldon?",0:02.100000,BERNADETTE,BBT,0.0,NONE,Neutral,Neutral,5.0,5.0
+1_S12E07_179,1_S12E07_179_u,"Yeah, sure. You slept with your husband.",0:02.033000,BERNADETTE,BBT,0.0,NONE,Neutral,Neutral,5.0,5.0
+1_S12E08_071,1_S12E08_071_u,It doesn't have to be tonight.,0:02,OTHER,BBT,0.0,NONE,Neutral,Neutral,5.0,5.0
+1_S12E08_258,1_S12E08_258_u,You can do that but you still can't get my bra off.,0:5.237999,BERNADETTE,BBT,1.0,PRO,Ridicule,Sadness,2.0,8.0
+1_S12E09_307,1_S12E09_307_u,"What, the alphabet?",0:2.335000,OTHER,BBT,1.0,PRO,Anger,Surprise,4.0,8.0
+1_S12E11_072,1_S12E11_072_u,"No offense, worker bees.",0:1.801000,OTHER,BBT,1.0,ILL,Disgust,Neutral,4.0,7.0
+1_S12E11_216,1_S12E11_216_u,Maybe she doesn't have tip money?,0:2.036000,BERNADETTE,BBT,1.0,PRO,Ridicule,Neutral,2.0,7.0
+1_S12E12_030,1_S12E12_030_u,"Yeah, so impressive how you manage to bounce back after having no babies.",0:5.266,BERNADETTE,BBT,1.0,EMB,Anger,Happiness,2.0,8.0
+1_S12E12_086,1_S12E12_086_u,Leonard was just saying how he was hoping to have dinner with one of your ex-boyfriends on his expensive boat.,0:5.614000,BERNADETTE,BBT,1.0,ILL,Ridicule,Happiness,2.0,8.0
+1_S12E14_125,1_S12E14_125_u,"including the rare ""DayQuilt"" misprint from 1996.",0:3.336999,OTHER,BBT,1.0,PRO,Disgust,Excitement,3.0,8.0
+1_S12E15_154,1_S12E15_154_u,"Well, it is important for you two to keep the spark alive.",0:3.67,BERNADETTE,BBT,1.0,PRO,Disgust,Neutral,3.0,7.0
+1_S12E20_378,1_S12E20_378_u,I speak a little Russian. Will you take nyet for an answer?,0:4.351999,OTHER,BBT,1.0,ILL,Ridicule,Excitement,3.0,7.0
+2_102,2_102_u,No Blanche she is upset because they keep changing the taste of coke.,0:08,DOROTHY,GOLDENGIRLS,1.0,PRO,Frustration,Neutral,3.0,7.0
+2_11,2_11_u,His cappucino maker.,0:1,DOROTHY,GOLDENGIRLS,1.0,ILL,Frustration,Neutral,4.0,7.0
+2_121,2_121_u,What was I doing? My ben gazara in person?,0:02,DOROTHY,GOLDENGIRLS,1.0,PRO,Anger,Neutral,4.0,6.0
+2_126,2_126_u,No I am upset because Joe Piscapo didn't get the lead role in rain man.,0:04,DOROTHY,GOLDENGIRLS,1.0,ILL,Anger,Neutral,3.0,7.0
+2_129,2_129_u,What are these? Claws?,0:03,DOROTHY,GOLDENGIRLS,1.0,ILL,Anger,Surprise,3.0,7.0
+2_135,2_135_u,"No, she I supset because Jimmy Swaager can't cover his motel bill",0:07,DOROTHY,GOLDENGIRLS,1.0,ILL,Frustration,Sadness,3.0,7.0
+2_144,2_144_u,Lords of Arabia,0:03,DOROTHY,GOLDENGIRLS,1.0,ILL,Frustration,Neutral,3.0,7.0
+2_147,2_147_u,"Well, we're trying to find someone to perform our wedding and they're all either boring or annoying or y'know, can't stop staring at the ladies.",0:06,MONICA,FRIENDS,0.0,NONE,Frustration,Frustration,4.0,6.0
+2_149,2_149_u,Thank you.,0:1,MONICA,FRIENDS,0.0,NONE,Neutral,Neutral,5.0,5.0
+2_158,2_158_u,A bucket of chicked. I hope you like it extra flat and crispy,0:11,DOROTHY,GOLDENGIRLS,1.0,ILL,Frustration,Excitement,3.0,8.0
+2_171,2_171_u,What is the matter with your face?!,0:02,MONICA,FRIENDS,0.0,NONE,Anger,Anger,3.0,7.0
+2_182,2_182_u,The liberarche marquee at Caesar's palace,0:06,DOROTHY,GOLDENGIRLS,1.0,ILL,Frustration,Neutral,2.0,7.0
+2_188,2_188_u,You had no relationship!!,0:01,MONICA,FRIENDS,0.0,NONE,Anger,Anger,3.0,7.0
+2_222,2_222_u,"The little man who lives in there, who turns the light on and off will tell you.",0:04,DOROTHY,GOLDENGIRLS,1.0,ILL,Frustration,Neutral,4.0,7.0
+2_251,2_251_u,No!! You have been screwing us all day!,0:03,MONICA,FRIENDS,0.0,NONE,Anger,Anger,3.0,7.0
+2_255,2_255_u,It's a musical Rose,0:02,DOROTHY,GOLDENGIRLS,1.0,ILL,Frustration,Neutral,3.0,6.0
+2_263,2_263_u,Wow! Imagine what our kids would look like!,0:02,MONICA,FRIENDS,0.0,NONE,Happiness,Happiness,6.0,6.0
+2_27,2_27_u,"No no, you don't have to fly back, really.",0:03,MONICA,FRIENDS,0.0,NONE,Fear,Fear,3.0,7.0
+2_279,2_279_u,Sounds like she has got the whole package!,0:07,MONICA,FRIENDS,1.0,ILL,Ridicule,Excitement,4.0,6.0
+2_28,2_28_u,"Carol called me to thank me for the lasagna, I asked, she told me.",0:03,MONICA,FRIENDS,0.0,NONE,Happiness,Happiness,6.0,6.0
+2_281,2_281_u,"Ofcourse no Ma, I am referring to Carrey Grant, he is living in the broom closet.",0:04,DOROTHY,GOLDENGIRLS,1.0,ILL,Frustration,Happiness,4.0,6.0
+2_284,2_284_u,What?  Why?,0:02,MONICA,FRIENDS,0.0,NONE,Surprise,Surprise,7.0,7.0
+2_289,2_289_u,"Nooo! No, that's not true. No, best time ever! Yeah, you rocked my world!",0:1,MONICA,FRIENDS,1.0,ILL,Ridicule,Excitement,3.0,7.0
+2_292,2_292_u,"No, she is going to sit here where itÕs a 112 degrees and eat enchiladas.",0:04,DOROTHY,GOLDENGIRLS,1.0,ILL,Frustration,Neutral,4.0,8.0
+2_314,2_314_u,Am I out of control?,0:01,MONICA,FRIENDS,0.0,NONE,Neutral,Neutral,5.0,5.0
+2_337,2_337_u,"Uh, listen, I need that broiling pan that Joey borrowed the other day.",0:02,MONICA,FRIENDS,0.0,NONE,Neutral,Neutral,5.0,5.0
+2_342,2_342_u,"In what Blanche, dog years?",0:06,DOROTHY,GOLDENGIRLS,1.0,ILL,Frustration,Neutral,3.0,8.0
+2_344,2_344_u,A hand puppet Rose.,0:05,DOROTHY,GOLDENGIRLS,1.0,PRO,Anger,Neutral,3.0,6.0
+2_347,2_347_u,Well what are you gonna do when he finds out he wasn't even asked?!,0:02,MONICA,FRIENDS,0.0,NONE,Frustration,Frustration,3.0,7.0
+2_350,2_350_u,"No Rose, I am nervous because Sonny Bono gets elected mayor of Palm Springs, he is gonna make all the postmens wear leather bell bottoms and a fur vest.",0:12,DOROTHY,GOLDENGIRLS,1.0,ILL,Frustration,Sadness,3.0,8.0
+2_351,2_351_u,"No Rose, she is depressed because Marvel had manners on only once a week",0:07,DOROTHY,GOLDENGIRLS,1.0,ILL,Frustration,Sadness,3.0,8.0
+2_352,2_352_u,"No Rose, it stands alone.",0:03,DOROTHY,GOLDENGIRLS,1.0,ILL,Frustration,Neutral,4.0,7.0
+2_367,2_367_u,"Well, don't  'cha wanna?",0:01,MONICA,FRIENDS,0.0,NONE,Neutral,Neutral,5.0,5.0
+2_378,2_378_u,"No Blanche, with a venus fly trap",0:03,DOROTHY,GOLDENGIRLS,1.0,PRO,Frustration,Excitement,3.0,7.0
+2_389,2_389_u,Huh! Whats dufus speled backwards?,0:05,MONICA,FRIENDS,1.0,PRO,Anger,Neutral,3.0,8.0
+2_390,2_390_u,"No, I am depressed becaues Phillis George left the morning news.",0:05,DOROTHY,GOLDENGIRLS,1.0,ILL,Frustration,Sadness,3.0,6.0
+2_398,2_398_u,"Rose, you should sit here and watch her hack herself to death",0:04,DOROTHY,GOLDENGIRLS,1.0,PRO,Anger,Neutral,2.0,8.0
+2_423,2_423_u,Like I have nothing better to do!,0:02,MONICA,FRIENDS,1.0,ILL,Anger,Excitement,3.0,8.0
+2_425,2_425_u,And did he?,0:01,MONICA,FRIENDS,0.0,NONE,Excitement,Excitement,6.0,7.0
+2_440,2_440_u,"No its not big, not at all. Kind of the same lines as, I don't know, having a third nipple!",0:07,MONICA,FRIENDS,1.0,PRO,Anger,Neutral,2.0,8.0
+2_442,2_442_u,No itÕs the rose in the kitchen thing.,0:03,DOROTHY,GOLDENGIRLS,1.0,PRO,Sadness,Neutral,4.0,7.0
+2_448,2_448_u,Do you still wanna call  'em? I wanna call  'em.,0:02,MONICA,FRIENDS,0.0,NONE,Happiness,Happiness,7.0,7.0
+2_45,2_45_u,"Oh ma no, it was a little girl selling girl scout toilets.",0:04,DOROTHY,GOLDENGIRLS,1.0,ILL,Anger,Neutral,2.0,7.0
+2_458,2_458_u,What are you up too?,0:01,MONICA,FRIENDS,0.0,NONE,Excitement,Excitement,6.0,6.0
+2_462,2_462_u,"No Rose, at a pie eating contest.",0:05,DOROTHY,GOLDENGIRLS,1.0,PRO,Frustration,Neutral,4.0,7.0
+2_465,2_465_u,"No Rose, that you should do.",0:02,DOROTHY,GOLDENGIRLS,1.0,PRO,Ridicule,Neutral,4.0,6.0
+2_479,2_479_u,No I am worried she might be Phir Resuda's,0:04,DOROTHY,GOLDENGIRLS,1.0,ILL,Frustration,Sadness,3.0,8.0
+2_489,2_489_u,"No, its because I cannot make any sense of those commercials for obsession.",0:04,DOROTHY,GOLDENGIRLS,1.0,PRO,Frustration,Neutral,3.0,6.0
+2_500,2_500_u,Oh my God I love that! - Really? - NO!,0:06,MONICA,FRIENDS,1.0,ILL,Disgust,Happiness,4.0,6.0
+2_502,2_502_u,I'm worried about whether Michael Jackson will be able to buy the remains of the elephant man.,0:07,DOROTHY,GOLDENGIRLS,1.0,EMB,Ridicule,Sadness,4.0,6.0
+2_505,2_505_u,To feed the cat Rose.,0:04,DOROTHY,GOLDENGIRLS,1.0,PRO,Anger,Neutral,4.0,8.0
+2_507,2_507_u,"No, I haven't taken her out of the trunk of the car yet.",0:04,DOROTHY,GOLDENGIRLS,1.0,PRO,Frustration,Neutral,4.0,7.0
+2_512,2_512_u,Because it wears a little sunbrella Rose.,0:03,DOROTHY,GOLDENGIRLS,1.0,PRO,Anger,Excitement,3.0,8.0
+2_549,2_549_u,Really?,0:01,MONICA,FRIENDS,0.0,NONE,Disgust,Disgust,4.0,6.0
+2_559,2_559_u,What?!?!,0:01,MONICA,FRIENDS,0.0,NONE,Surprise,Surprise,8.0,8.0
+2_579,2_579_u,No!,0:01,MONICA,FRIENDS,0.0,NONE,Disgust,Disgust,4.0,7.0
+2_587,2_587_u,"Oh yes Blanche, about a half hour ago. But now I have hidden her again so you can find her.",0:07,DOROTHY,GOLDENGIRLS,1.0,PRO,Frustration,Neutral,3.0,7.0
+2_591,2_591_u,"How about stopping by new years eve with three naked women, throwing up in the pool, passing out in the punch bowl, and relieving yourself in the linen closet?",0:1,DOROTHY,GOLDENGIRLS,0.0,NONE,Anger,Anger,3.0,7.0
+2_599,2_599_u,No I am upset because crocodin turbs are wearing darker colors.,0:03,DOROTHY,GOLDENGIRLS,1.0,PRO,Anger,Neutral,4.0,7.0
+2_604,2_604_u,"No Rose, I am developing pictures from the magellan space probe",0:03,DOROTHY,GOLDENGIRLS,1.0,PRO,Frustration,Neutral,4.0,7.0
+2_612,2_612_u,"I don't know Rose, maybe Marry Poppins has an Italian cousin.",0:04,DOROTHY,GOLDENGIRLS,1.0,PRO,Disgust,Sadness,4.0,7.0
+2_69,2_69_u,Cover yourself up!,0:01,MONICA,FRIENDS,0.0,NONE,Anger,Anger,3.0,7.0
+2_7,2_7_u,I've never loved anybody as much as I love you.,0:03,MONICA,FRIENDS,0.0,NONE,Happiness,Happiness,7.0,7.0
+2_74,2_74_u,Show them your slides of Hawaii,0:02,DOROTHY,GOLDENGIRLS,1.0,PRO,Ridicule,Excitement,4.0,7.0
+2_77,2_77_u,"Umm, excuse me, we switched apartments. You can't eat are food anymore, that-that gravy train had ended.",0:05,MONICA,FRIENDS,0.0,NONE,Frustration,Frustration,4.0,4.0
+2_89,2_89_u,On the home shopping network,0:03,DOROTHY,GOLDENGIRLS,1.0,PRO,Anger,Neutral,3.0,8.0
+2_9,2_9_u,"No Rose, go to the corner and open a stand",0:03,DOROTHY,GOLDENGIRLS,1.0,ILL,Anger,Happiness,3.0,7.0
+2_91,2_91_u,"Alright, I'm gonna go pick up a few things for the trip.",0:02,MONICA,FRIENDS,0.0,NONE,Neutral,Neutral,5.0,5.0
+3_S01E01_128,3_S01E01_128_u,"Hey, did you hear what Peter Gregory is doing?",0:02.082000,OTHER,SV,0.0,NONE,Frustration,Frustration,4.0,6.0
+3_S01E01_226,3_S01E01_226_u,"Oh. Look at me, I traveled back to 2009.",0:3.844000,OTHER,SV,1.0,EMB,Disgust,Excitement,4.0,7.0
+3_S01E02_004,3_S01E02_004_u,Hey. Sorry if I scared you. I know I have somewhat ghost-like features.,0:06.122000,OTHER,SV,0.0,NONE,Sadness,Sadness,4.0,5.0
+3_S01E02_461,3_S01E02_461_u,I was sleeping. I'm sorry for sleeping and for lying about it.,0:04.324000,OTHER,SV,0.0,NONE,Sadness,Sadness,3.0,6.0
+3_S01E04_327,3_S01E04_327_u,You catch on slow. You'll fit right in here.,0:1.711999,OTHER,SV,1.0,PRO,Ridicule,Happiness,4.0,7.0
+3_S02E03_229,3_S02E03_229_u,Are you out of your mind?,0:01.208000,OTHER,SV,0.0,NONE,Anger,Anger,4.0,5.0
+3_S02E07_256,3_S02E07_256_u,That's very comforting.,0:2.542,OTHER,SV,1.0,ILL,Disgust,Happiness,4.0,8.0
+3_S03E03_316,3_S03E03_316_u,"Richard, look, I'm sorry, but I think the box is here to stay.",0:03.635000,OTHER,SV,0.0,NONE,Sadness,Neutral,4.0,5.0
+3_S03E04_437,3_S03E04_437_u,"Thank you, Jared.",0:02.217000,OTHER,SV,0.0,NONE,Neutral,Neutral,5.0,5.0
+3_S04E04_363,3_S04E04_363_u,These are from your mom.,0:3.25,OTHER,SV,1.0,ILL,Ridicule,Neutral,4.0,6.0
+3_S04E05_485,3_S04E05_485_u,Your fourth child?,0:01.750000,OTHER,SV,0.0,NONE,Surprise,Surprise,7.0,7.0
+3_S04E05_497,3_S04E05_497_u,"So, you're not mad at me anymore?",0:02.090000,OTHER,SV,0.0,NONE,Sadness,Sadness,4.0,5.0
+3_S04E07_292,3_S04E07_292_u,Now I can give it to ERLICH.,0:2.29,OTHER,SV,1.0,PRO,Ridicule,Neutral,3.0,8.0
+3_S06E01_317,3_S06E01_317_u,He's our most profitable developer by far.,0:02.542000,OTHER,SV,0.0,NONE,Neutral,Neutral,5.0,6.0
+3_S06E02_398,3_S06E02_398_u,"Look, we cannot take blood money.",0:02.166000,OTHER,SV,0.0,NONE,Sadness,Disgust,3.0,7.0
+3_S06E05_355,3_S06E05_355_u,"Well, maybe some time when you're working on something, I can come interrupt your flow and use words incorrectly to tell you about it.",0:10.04199,OTHER,SV,1.0,PRO,Frustration,Frustration,3.0,7.0

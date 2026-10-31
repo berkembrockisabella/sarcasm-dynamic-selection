@@ -1,0 +1,7 @@
+metodo,comparacao,n_splits,diferenca_media_f1_pp,vitorias,empates,derrotas,estatistica_w,p_valor,p_holm,significativo_holm
+OLA,com_roteamento x sem_roteamento,10,-0.0,6,1,3,20.0,0.8203125,1.0,False
+OLA,com_roteamento x aleatorio,10,0.0,8,0,2,19.0,0.431640625,1.0,False
+KNORA-E,com_roteamento x sem_roteamento,10,0.5,7,0,3,16.0,0.275390625,1.0,False
+KNORA-E,com_roteamento x aleatorio,10,0.4,7,0,3,18.0,0.375,1.0,False
+KNORA-U,com_roteamento x sem_roteamento,10,-0.0,1,7,2,3.0,1.0,1.0,False
+KNORA-U,com_roteamento x aleatorio,10,-0.0,1,4,5,6.0,0.4375,1.0,False

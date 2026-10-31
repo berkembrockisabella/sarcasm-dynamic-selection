@@ -1,0 +1,4 @@
+roteamento,mean,std
+aleatorio,0.06,0.01
+com_roteamento,0.06,0.0
+sem_roteamento,0.05,0.0

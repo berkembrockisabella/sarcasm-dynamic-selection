@@ -23,7 +23,9 @@ OLA (Woods et al., 1997)
 KNORA-E / KNORA-U (Ko, Sabourin & Britto, 2008)
 """
 
+import os
 import sys
+import time
 from pathlib import Path
 
 # ============================================================
@@ -50,6 +52,7 @@ from sklearn.metrics import (
 from sklearn.neighbors import NearestNeighbors
 from sklearn.preprocessing import StandardScaler, normalize
 
+from pool_selection.config import SPLIT_DIR, SPLIT_SUFFIX
 from pool_selection.feature_loader import FeatureStore
 from pool_training.load_frozen_pool import load_frozen_pool
 
@@ -58,7 +61,10 @@ from pool_training.load_frozen_pool import load_frozen_pool
 # CONFIGURAÇÕES
 # ============================================================
 
-K = 7
+# k e numero de sorteios do roteamento aleatorio podem vir do ambiente --
+# usado pela sensibilidade ao k (protocolo E3). Padrao = experimento principal
+K = int(os.environ.get("DS_K", "7"))
+N_SORTEIOS = int(os.environ.get("DS_N_SORTEIOS", "10"))
 
 MODALIDADES = [
     "text",
@@ -83,9 +89,11 @@ GRUPOS = [
     "B",
 ]
 
+# k diferente do padrao grava em subpasta k_<K> -- assim a sensibilidade
+# nao sobrescreve o resultado principal
 OUT_DIR = Path(
     "data/processed/selection"
-)
+) / SPLIT_SUFFIX / (f"k_{K}" if K != 7 else "")
 
 
 # ============================================================
@@ -93,15 +101,15 @@ OUT_DIR = Path(
 # ============================================================
 
 treino = pd.read_csv(
-    "data/splits/train.csv"
+    SPLIT_DIR / "train.csv"
 )
 
 dsel = pd.read_csv(
-    "data/splits/dsel.csv"
+    SPLIT_DIR / "dsel.csv"
 )
 
 teste = pd.read_csv(
-    "data/splits/test.csv"
+    SPLIT_DIR / "test.csv"
 )
 
 grupos = pd.read_csv(
@@ -463,6 +471,49 @@ for i in range(
     )
 
 
+# ------------------------------------------------------------
+# Roteamento aleatorio (controle da ablacao E2)
+# ------------------------------------------------------------
+
+# Os grupos do DSEL sao embaralhados: o grupo sorteado "A" tem o mesmo
+# tamanho do grupo A real (e o "B" o do B real), mas sem relacao com a
+# incongruencia. A fala de teste continua usando o seu grupo real para
+# escolher em qual grupo sorteado buscar -- so muda o criterio que formou
+# o grupo. Se A/B empatar com o aleatorio, o ganho vem de restringir a
+# vizinhanca, nao da incongruencia. N_SORTEIOS sorteios; o resumo traz
+# cada um e a media (linha "<metodo> aleatorio")
+
+NOMES_ALEATORIOS = []
+
+for sorteio in range(N_SORTEIOS):
+
+    gerador = np.random.default_rng(1000 + sorteio)
+    grupo_sorteado = gerador.permutation(grupo_dsel)
+
+    nome = f"aleatorio_{sorteio:02d}"
+    NOMES_ALEATORIOS.append(nome)
+    vizinhos[nome] = []
+
+    buscas = {}
+    for grupo in GRUPOS:
+        indices = np.where(grupo_sorteado == grupo)[0]
+        k_grupo = min(K, len(indices))
+        buscas[grupo] = (
+            indices,
+            NearestNeighbors(n_neighbors=k_grupo).fit(X_dsel[indices]),
+        )
+
+    for i in range(len(teste)):
+        indices, busca_sorteio = buscas[grupo_teste[i]]
+        locais = busca_sorteio.kneighbors(
+            X_teste[i:i + 1],
+            return_distance=False,
+        )[0]
+        vizinhos[nome].append(indices[locais])
+
+ROTEAMENTOS = ROTEAMENTOS + NOMES_ALEATORIOS
+
+
 # ============================================================
 # VOTO
 # ============================================================
@@ -547,8 +598,14 @@ TODOS = np.arange(
 
 linhas = []
 
+# Tempo da selecao dinamica por roteamento (protocolo E5) -- so a etapa de
+# buscar vizinhos ja calculados e decidir; as predicoes da pool ficam fora
+tempos = []
+
 
 for roteamento in ROTEAMENTOS:
+
+    inicio = time.perf_counter()
 
     for i in range(
         len(teste)
@@ -745,6 +802,13 @@ for roteamento in ROTEAMENTOS:
             linha
         )
 
+    segundos = time.perf_counter() - inicio
+    tempos.append({
+        "roteamento": roteamento,
+        "segundos_total": segundos,
+        "ms_por_fala_3_metodos": 1000 * segundos / len(teste),
+    })
+
 
 resultado = pd.DataFrame(
     linhas
@@ -757,6 +821,14 @@ resultado = pd.DataFrame(
 
 melhor_global = int(
     np.argmax(
+        acuracia_global
+    )
+)
+
+# Pior membro pela acuracia no DSEL -- limite inferior da pool, escolhido
+# sem olhar o teste (mesmo criterio do melhor membro)
+pior_global = int(
+    np.argmin(
         acuracia_global
     )
 )
@@ -776,6 +848,23 @@ referencias = {
             proba_teste[
                 :,
                 melhor_global
+            ],
+    },
+
+    (
+        f"Pior membro "
+        f"({MEMBROS[pior_global]})"
+    ): {
+        "pred":
+            pred_teste[
+                :,
+                pior_global
+            ],
+
+        "score":
+            proba_teste[
+                :,
+                pior_global
             ],
     },
 
@@ -992,6 +1081,17 @@ resumo = pd.DataFrame(
     resumo
 )
 
+# Media dos sorteios do roteamento aleatorio -- e esta linha que entra na
+# comparacao, porque um sorteio isolado pode ter sorte ou azar
+if NOMES_ALEATORIOS:
+    linhas_media = []
+    for metodo in METODOS:
+        nomes = [f"{metodo} {nome}" for nome in NOMES_ALEATORIOS]
+        parte = resumo[resumo["metodo"].isin(nomes)]
+        media = parte.drop(columns=["metodo"]).mean()
+        linhas_media.append({"metodo": f"{metodo} aleatorio", **media.to_dict()})
+    resumo = pd.concat([resumo, pd.DataFrame(linhas_media)], ignore_index=True)
+
 
 # ============================================================
 # MÉTRICAS POR GRUPO
@@ -1193,6 +1293,24 @@ OUT_DIR.mkdir(
 resultado.to_csv(
     OUT_DIR
     / "ds_routing_test.csv",
+    index=False,
+)
+
+# Predicao de cada membro no teste -- base da analise de erros (E4):
+# separa falas que nenhum membro acerta das que o seletor erra
+membros_teste = pd.DataFrame(pred_teste, columns=MEMBROS)
+membros_teste.insert(0, "Sarcasm", y_teste)
+membros_teste.insert(0, "grupo", grupo_teste)
+membros_teste.insert(0, "KEY", teste["KEY"].to_numpy())
+membros_teste.to_csv(
+    OUT_DIR
+    / "ds_routing_membros_test.csv",
+    index=False,
+)
+
+pd.DataFrame(tempos).to_csv(
+    OUT_DIR
+    / "ds_routing_tempo.csv",
     index=False,
 )
 

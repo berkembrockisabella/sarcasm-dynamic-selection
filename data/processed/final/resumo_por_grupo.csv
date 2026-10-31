@@ -1,0 +1,27 @@
+metodo,grupo,f1_macro_media,f1_macro_dp
+KNORA-E aleatorio,A,79.1,8.8
+KNORA-E aleatorio,B,78.1,6.5
+KNORA-E com_roteamento,A,80.9,9.5
+KNORA-E com_roteamento,B,78.3,6.1
+KNORA-E sem_roteamento,A,79.0,9.8
+KNORA-E sem_roteamento,B,78.1,6.6
+KNORA-U aleatorio,A,80.9,9.6
+KNORA-U aleatorio,B,78.9,5.9
+KNORA-U com_roteamento,A,81.2,9.9
+KNORA-U com_roteamento,B,78.8,6.0
+KNORA-U sem_roteamento,A,81.1,10.1
+KNORA-U sem_roteamento,B,78.8,6.0
+Melhor membro,A,80.0,12.0
+Melhor membro,B,78.3,6.5
+OLA aleatorio,A,78.5,10.0
+OLA aleatorio,B,78.0,6.5
+OLA com_roteamento,A,80.8,11.1
+OLA com_roteamento,B,77.7,6.5
+OLA sem_roteamento,A,77.7,10.1
+OLA sem_roteamento,B,78.2,6.9
+Oraculo (algum membro acerta),A,,
+Oraculo (algum membro acerta),B,,
+Pior membro,A,75.2,10.9
+Pior membro,B,75.7,6.3
+Voto da pool inteira,A,80.8,9.5
+Voto da pool inteira,B,78.9,5.9

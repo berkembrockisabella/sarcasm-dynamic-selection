@@ -48,6 +48,7 @@ if str(ROOT_DIR) not in sys.path:
 
 
 from pool_selection.classifiers import build_classifier
+from pool_selection.config import SPLIT_SUFFIX
 from pool_selection.feature_loader import FeatureStore
 
 
@@ -57,12 +58,13 @@ from pool_selection.feature_loader import FeatureStore
 
 DATA = ROOT_DIR / "data"
 
-SPLITS = DATA / "splits"
+SPLITS = DATA / "splits" / SPLIT_SUFFIX
 
 POOL_RESULTS = (
     DATA
     / "results"
     / "pool"
+    / SPLIT_SUFFIX
     / "pool_selection"
 )
 
@@ -70,6 +72,7 @@ OUT = (
     DATA
     / "processed"
     / "static"
+    / SPLIT_SUFFIX
 )
 
 TODAS = "text+context+audio+visual"

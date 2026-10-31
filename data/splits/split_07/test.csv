@@ -1,0 +1,160 @@
+SCENE,KEY,SENTENCE,END_TIME,SPEAKER,SHOW,Sarcasm,Sarcasm_Type,Implicit_Emotion,Explicit_Emotion,Valence,Arousal
+1_10495,1_10495_u,"And if it turns out you don't... - you and I could live together. - You and... Oh, sure.",0:07,AMY,BBT,1.0,ILL,Disgust,Neutral,3.0,7.0
+1_10748,1_10748_u,"There they go, fighting again. You'd never hear her talk that way to Sauvignon Blanc.",0:07,AMY,BBT,1.0,PRO,Disgust,Sadness,3.0,7.0
+1_10797,1_10797_u,"I'm with him three years, nothing. She's with two minutes, and he's taking his pants off.",0:07,AMY,BBT,0.0,NONE,Frustration,Frustration,4.0,6.0
+1_11201,1_11201_u,"He probably got a new one. Finish your breakfast. Look, there's an entire section of my dashboard that doesn't have any syrup on it.",0:07,AMY,BBT,0.0,NONE,Fear,Fear,4.0,6.0
+1_11928,1_11928_u,"And if I had a friend, they might have told me that.",0:04,AMY,BBT,0.0,NONE,Sadness,Sadness,4.0,3.0
+1_4544,1_4544_u,"Yes. In fact, our menses are synchronized. Penny. Bernadette tells me you're planning a girls' night.",0:13,AMY,BBT,0.0,NONE,Neutral,Neutral,5.0,5.0
+1_4552,1_4552_u,"...so anyway, to make a long story short, turns out I have an unusually firm cervix.",0:06,AMY,BBT,0.0,NONE,Neutral,Neutral,5.0,5.0
+1_4576,1_4576_u,"Bernadette dared me to tell a dirty story. ""The Miller's Tale"" by Chaucer is the dirtiest story I know. It would have been hidden in sock drawers if people in the 14th century had worn socks.",0:14,AMY,BBT,0.0,NONE,Neutral,Neutral,5.0,5.0
+1_5169,1_5169_u,I'm not saying that you're not fun. You're the most fun person I know.,0:05,AMY,BBT,0.0,NONE,Excitement,Excitement,6.0,6.0
+1_5211,1_5211_u,"Saying that while holding a snowflake is a bit heavy-handed, don't you think?",0:05,AMY,BBT,1.0,PRO,Disgust,Neutral,3.0,6.0
+1_5212,1_5212_u,"I'm sorry, Sheldon bought a loom and learned how to weave?",0:05,PERSON3,BBT,0.0,NONE,Surprise,Surprise,6.0,6.0
+1_5758,1_5758_u,"Oh, I could so see you being the face of hemorrhoids.",0:05,AMY,BBT,1.0,PRO,Disgust,Neutral,3.0,7.0
+1_5880,1_5880_u,"When you're done copping a feel, that goes on my wrist.",0:04,AMY,BBT,1.0,PRO,Disgust,Excitement,4.0,7.0
+1_6769,1_6769_u,"Hope your hands are steady. It's the width of a single hair. But this is just biology, so I'm sure it's no problem for a genius like you.",0:07,AMY,BBT,1.0,PRO,Disgust,Neutral,3.0,7.0
+1_6835,1_6835_u,"Oh, screw her. She's just lucky we let her hang out with us.",0:04,AMY,BBT,0.0,NONE,Neutral,Neutral,5.0,5.0
+1_7395,1_7395_u,"Well, if that's all it takes, it's a good thing you don't have a dog.",0:04,AMY,BBT,1.0,PRO,Disgust,Neutral,3.0,8.0
+1_8746,1_8746_u,"I enjoyed it. When you told me I was going to be ""losing my virginity,"" I didn't think you meant showing me "" Raiders of the Lost Ark "" for the first time.",0:09,AMY,BBT,1.0,EMB,Frustration,Sadness,2.0,8.0
+1_8749,1_8749_u,It was very entertaining... despite the glaring story problem.,0:06,AMY,BBT,1.0,EMB,Disgust,Happiness,4.0,7.0
+1_S09E02_064,1_S09E02_064_u,Because we're broken up.,0:02.100000,AMY,BBT,0.0,NONE,Frustration,Frustration,2.0,6.0
+1_S09E03_143,1_S09E03_143_u,"Fine, I guess. I've been focusing on me.",0:03.335000,AMY,BBT,0.0,NONE,Neutral,Neutral,5.0,5.0
+1_S09E03_233,1_S09E03_233_u,How long do you think you can keep it from him?,0:01.666000,AMY,BBT,0.0,NONE,Fear,Fear,2.0,4.0
+1_S09E04_288,1_S09E04_288_u,You really should've gone on the Internet and checked how long that kind of thing lives,0:5.037999,AMY,BBT,1.0,PRO,Disgust,Neutral,3.0,7.0
+1_S09E05_284,1_S09E05_284_u,"Actually, he already did.",0:01.501000,AMY,BBT,0.0,NONE,Neutral,Neutral,5.0,5.0
+1_S09E08_255,1_S09E08_255_u,"No, pinch me!",0:2.753,AMY,BBT,1.0,ILL,Frustration,Excitement,4.0,7.0
+1_S09E16_189,1_S09E16_189_u,Maybe you should get a new doctor.,0:3.235999,AMY,BBT,1.0,PRO,Frustration,Neutral,4.0,7.0
+1_S09E20_237,1_S09E20_237_u,She's trying to think of something She's never done before. This could take a while.,0:4.771999,AMY,BBT,1.0,ILL,Ridicule,Neutral,3.0,8.0
+1_S10E04_194,1_S10E04_194_u,"I've never lived with someone, either. This is a lot for me, too.",0:03.500000,AMY,BBT,0.0,NONE,Fear,Fear,4.0,6.0
+1_S10E04_238,1_S10E04_238_u,"Well, Sheldon, I really appreciate that, but these things mean more to you than they do to me, so whatever you want.",0:05.369000,AMY,BBT,0.0,NONE,Neutral,Neutral,5.0,5.0
+1_S10E04_262,1_S10E04_262_u,What if we do this?,0:02.667000,AMY,BBT,0.0,NONE,Neutral,Neutral,5.0,5.0
+1_S10E04_398,1_S10E04_398_u,"Well, I didn't, and it's your fault.",0:03.067000,AMY,BBT,0.0,NONE,Frustration,Frustration,4.0,6.0
+1_S10E04_403,1_S10E04_403_u,The kind who almost put a pillow over your face last night.,0:03.500000,AMY,BBT,0.0,NONE,Anger,Anger,3.0,6.0
+1_S10E05_079,1_S10E05_079_u,"Okay. Well, for starters, there's nothing wrong with keeping our toothbrushes in the same holder.",0:06.603000,AMY,BBT,0.0,NONE,Neutral,Neutral,5.0,5.0
+1_S11E01_100,1_S11E01_100_u,"Okay, you can stop leading with that part of the story.",0:02.640000,AMY,BBT,0.0,NONE,Disgust,Neutral,4.0,5.0
+1_S11E02_127,1_S11E02_127_u,Fingers crossed.,0:01.800000,AMY,BBT,0.0,NONE,Surprise,Happiness,6.0,7.0
+1_S11E03_006,1_S11E03_006_u,I thought we agreed on June 15.,0:02.500000,AMY,BBT,0.0,NONE,Neutral,Neutral,5.0,5.0
+1_S11E03_365,1_S11E03_365_u,"Oh, my God, what happened?!",0:02.200000,AMY,BBT,0.0,NONE,Fear,Fear,4.0,7.0
+1_S11E04_315,1_S11E04_315_u,Okay... I'm pretty sure they're not best friends.,0:06.680000,AMY,BBT,0.0,NONE,Neutral,Neutral,5.0,5.0
+1_S11E08_195,1_S11E08_195_u,I know. It was when I stubbed my toe.,0:04.240000,AMY,BBT,0.0,NONE,Sadness,Sadness,4.0,6.0
+1_S12E01_274,1_S12E01_274_u,Just let it go.,0:01.733000,AMY,BBT,0.0,NONE,Frustration,Frustration,4.0,6.0
+1_S12E02_262,1_S12E02_262_u,Riveting.,0:2.001999,AMY,BBT,1.0,ILL,Frustration,Excitement,3.0,7.0
+1_S12E02_433,1_S12E02_433_u,- We wrote you a special thank you note. - Oh.,0:03.235000,AMY,BBT,0.0,NONE,Happiness,Happiness,6.0,6.0
+1_S12E03_338,1_S12E03_338_u,"Oh, sure, '’cause Sheldon'’s DNA plus my DNA equals a kid who knows how to make friends. Grow up!",0:5.309999,AMY,BBT,1.0,PRO,Anger,Happiness,3.0,8.0
+1_S12E04_003,1_S12E04_003_u,"Wait, I'm still in them, right?",0:2.569,AMY,BBT,1.0,PRO,Ridicule,Surprise,4.0,7.0
+1_S12E04_027,1_S12E04_027_u,"I didn't just drink the crazy milk, I bought the crazy cow.",0:7.341999,AMY,BBT,1.0,EMB,Frustration,Sadness,3.0,8.0
+1_S12E05_054,1_S12E05_054_u,"Oh, the helmet will sense that and stop the experiment.",0:02.834000,AMY,BBT,0.0,NONE,Neutral,Neutral,5.0,5.0
+1_S12E06_111,1_S12E06_111_u,"You get that I'm wearing a corset because of you, not because I'm tired of breathing?",0:04.402000,AMY,BBT,0.0,NONE,Disgust,Disgust,4.0,6.0
+1_S12E06_316,1_S12E06_316_u,"Hmm. Look at you, improving on perfection. How so?",0:4.071000,AMY,BBT,1.0,EMB,Ridicule,Surprise,4.0,7.0
+1_S12E08_098,1_S12E08_098_u,"Yeah, you're gonna need to show your work on that.",0:2.436,AMY,BBT,1.0,PRO,Frustration,Neutral,3.0,7.0
+1_S12E08_103,1_S12E08_103_u,Which is perfect.,0:2.102000,AMY,BBT,1.0,PRO,Frustration,Neutral,4.0,6.0
+1_S12E08_445,1_S12E08_445_u,(chuckles) Couldn't think of a single reason not to.,0:4.192,AMY,BBT,1.0,ILL,Frustration,Happiness,4.0,7.0
+1_S12E09_005,1_S12E09_005_u,"How about that? There is an ""I"" in ""team.""",0:2.301999,AMY,BBT,1.0,EMB,Anger,Neutral,3.0,8.0
+1_S12E11_190,1_S12E11_190_u,"Well, you really managed to capture my voice.",0:4.771000,AMY,BBT,1.0,ILL,Frustration,Happiness,3.0,7.0
+1_S12E16_140,1_S12E16_140_u,"Oh, no, this is the rest of our lives.",0:4.371000,AMY,BBT,1.0,PRO,Frustration,Excitement,4.0,8.0
+1_S12E23_350,1_S12E23_350_u,maybe 300 tiny haircuts over a ten-year period.,0:4.170999,AMY,BBT,1.0,PRO,Frustration,Neutral,4.0,7.0
+1_S12E23_488,1_S12E23_488_u,I stand by my statement.,0:2.903000,AMY,BBT,1.0,PRO,Disgust,Excitement,4.0,7.0
+2_102,2_102_u,No Blanche she is upset because they keep changing the taste of coke.,0:08,DOROTHY,GOLDENGIRLS,1.0,PRO,Frustration,Neutral,3.0,7.0
+2_107,2_107_u,You'd better act surprised.,0:01,JOEY,FRIENDS,0.0,NONE,Fear,Fear,3.0,7.0
+2_11,2_11_u,His cappucino maker.,0:1,DOROTHY,GOLDENGIRLS,1.0,ILL,Frustration,Neutral,4.0,7.0
+2_121,2_121_u,What was I doing? My ben gazara in person?,0:02,DOROTHY,GOLDENGIRLS,1.0,PRO,Anger,Neutral,4.0,6.0
+2_126,2_126_u,No I am upset because Joe Piscapo didn't get the lead role in rain man.,0:04,DOROTHY,GOLDENGIRLS,1.0,ILL,Anger,Neutral,3.0,7.0
+2_127,2_127_u,"When? Today? Some, not a lot.",0:06,JOEY,FRIENDS,0.0,NONE,Neutral,Neutral,5.0,5.0
+2_129,2_129_u,What are these? Claws?,0:03,DOROTHY,GOLDENGIRLS,1.0,ILL,Anger,Surprise,3.0,7.0
+2_135,2_135_u,"No, she I supset because Jimmy Swaager can't cover his motel bill",0:07,DOROTHY,GOLDENGIRLS,1.0,ILL,Frustration,Sadness,3.0,7.0
+2_144,2_144_u,Lords of Arabia,0:03,DOROTHY,GOLDENGIRLS,1.0,ILL,Frustration,Neutral,3.0,7.0
+2_147,2_147_u,"Well, we're trying to find someone to perform our wedding and they're all either boring or annoying or y'know, can't stop staring at the ladies.",0:06,MONICA,FRIENDS,0.0,NONE,Frustration,Frustration,4.0,6.0
+2_149,2_149_u,Thank you.,0:1,MONICA,FRIENDS,0.0,NONE,Neutral,Neutral,5.0,5.0
+2_158,2_158_u,A bucket of chicked. I hope you like it extra flat and crispy,0:11,DOROTHY,GOLDENGIRLS,1.0,ILL,Frustration,Excitement,3.0,8.0
+2_166,2_166_u,But I'm the host!,0:01,JOEY,FRIENDS,0.0,NONE,Surprise,Surprise,6.0,6.0
+2_171,2_171_u,What is the matter with your face?!,0:02,MONICA,FRIENDS,0.0,NONE,Anger,Anger,3.0,7.0
+2_181,2_181_u,Yeah! Look!,0:01,JOEY,FRIENDS,0.0,NONE,Happiness,Happiness,6.0,6.0
+2_182,2_182_u,The liberarche marquee at Caesar's palace,0:06,DOROTHY,GOLDENGIRLS,1.0,ILL,Frustration,Neutral,2.0,7.0
+2_188,2_188_u,You had no relationship!!,0:01,MONICA,FRIENDS,0.0,NONE,Anger,Anger,3.0,7.0
+2_191,2_191_u,"So, you're just Bing?",0:03,JOEY,FRIENDS,0.0,NONE,Surprise,Surprise,6.0,6.0
+2_194,2_194_u,"And it came out, ""Squatternut buash?""",0:03,JOEY,FRIENDS,0.0,NONE,Happiness,Happiness,7.0,7.0
+2_208,2_208_u,It's that whole sensitive thing.,0:01,JOEY,FRIENDS,0.0,NONE,Neutral,Neutral,5.0,5.0
+2_218,2_218_u,"Hey, does somebody wanna hand me one of those tiles.",0:02,JOEY,FRIENDS,0.0,NONE,Neutral,Neutral,5.0,5.0
+2_222,2_222_u,"The little man who lives in there, who turns the light on and off will tell you.",0:04,DOROTHY,GOLDENGIRLS,1.0,ILL,Frustration,Neutral,4.0,7.0
+2_240,2_240_u,No!,0:01,JOEY,FRIENDS,0.0,NONE,Happiness,Happiness,6.0,6.0
+2_251,2_251_u,No!! You have been screwing us all day!,0:03,MONICA,FRIENDS,0.0,NONE,Anger,Anger,3.0,7.0
+2_255,2_255_u,It's a musical Rose,0:02,DOROTHY,GOLDENGIRLS,1.0,ILL,Frustration,Neutral,3.0,6.0
+2_263,2_263_u,Wow! Imagine what our kids would look like!,0:02,MONICA,FRIENDS,0.0,NONE,Happiness,Happiness,6.0,6.0
+2_27,2_27_u,"No no, you don't have to fly back, really.",0:03,MONICA,FRIENDS,0.0,NONE,Fear,Fear,3.0,7.0
+2_270,2_270_u,Hey.,0:01,JOEY,FRIENDS,0.0,NONE,Neutral,Neutral,5.0,5.0
+2_272,2_272_u,Weā€™re not peeking?,0:02,JOEY,FRIENDS,0.0,NONE,Sadness,Sadness,4.0,6.0
+2_279,2_279_u,Sounds like she has got the whole package!,0:07,MONICA,FRIENDS,1.0,ILL,Ridicule,Excitement,4.0,6.0
+2_28,2_28_u,"Carol called me to thank me for the lasagna, I asked, she told me.",0:03,MONICA,FRIENDS,0.0,NONE,Happiness,Happiness,6.0,6.0
+2_281,2_281_u,"Ofcourse no Ma, I am referring to Carrey Grant, he is living in the broom closet.",0:04,DOROTHY,GOLDENGIRLS,1.0,ILL,Frustration,Happiness,4.0,6.0
+2_284,2_284_u,What?  Why?,0:02,MONICA,FRIENDS,0.0,NONE,Surprise,Surprise,7.0,7.0
+2_289,2_289_u,"Nooo! No, that's not true. No, best time ever! Yeah, you rocked my world!",0:1,MONICA,FRIENDS,1.0,ILL,Ridicule,Excitement,3.0,7.0
+2_292,2_292_u,"No, she is going to sit here where itÕs a 112 degrees and eat enchiladas.",0:04,DOROTHY,GOLDENGIRLS,1.0,ILL,Frustration,Neutral,4.0,8.0
+2_305,2_305_u,Take a couple deep breaths.,0:02,JOEY,FRIENDS,0.0,NONE,Fear,Fear,3.0,7.0
+2_313,2_313_u,"Oh sure, go with the sissy.",0:02,JOEY,FRIENDS,1.0,PRO,Anger,Neutral,2.0,7.0
+2_314,2_314_u,Am I out of control?,0:01,MONICA,FRIENDS,0.0,NONE,Neutral,Neutral,5.0,5.0
+2_334,2_334_u,"When they're hungry enough, they'll come in.",0:02,JOEY,FRIENDS,0.0,NONE,Neutral,Neutral,5.0,5.0
+2_337,2_337_u,"Uh, listen, I need that broiling pan that Joey borrowed the other day.",0:02,MONICA,FRIENDS,0.0,NONE,Neutral,Neutral,5.0,5.0
+2_342,2_342_u,"In what Blanche, dog years?",0:06,DOROTHY,GOLDENGIRLS,1.0,ILL,Frustration,Neutral,3.0,8.0
+2_344,2_344_u,A hand puppet Rose.,0:05,DOROTHY,GOLDENGIRLS,1.0,PRO,Anger,Neutral,3.0,6.0
+2_347,2_347_u,Well what are you gonna do when he finds out he wasn't even asked?!,0:02,MONICA,FRIENDS,0.0,NONE,Frustration,Frustration,3.0,7.0
+2_350,2_350_u,"No Rose, I am nervous because Sonny Bono gets elected mayor of Palm Springs, he is gonna make all the postmens wear leather bell bottoms and a fur vest.",0:12,DOROTHY,GOLDENGIRLS,1.0,ILL,Frustration,Sadness,3.0,8.0
+2_351,2_351_u,"No Rose, she is depressed because Marvel had manners on only once a week",0:07,DOROTHY,GOLDENGIRLS,1.0,ILL,Frustration,Sadness,3.0,8.0
+2_352,2_352_u,"No Rose, it stands alone.",0:03,DOROTHY,GOLDENGIRLS,1.0,ILL,Frustration,Neutral,4.0,7.0
+2_353,2_353_u,"Nothing. It's just old and dingy, that's all.",0:02,JOEY,FRIENDS,0.0,NONE,Disgust,Disgust,4.0,6.0
+2_365,2_365_u,"Nope. Op, wait! There he goes.",0:02,JOEY,FRIENDS,0.0,NONE,Happiness,Happiness,7.0,7.0
+2_367,2_367_u,"Well, don't  'cha wanna?",0:01,MONICA,FRIENDS,0.0,NONE,Neutral,Neutral,5.0,5.0
+2_378,2_378_u,"No Blanche, with a venus fly trap",0:03,DOROTHY,GOLDENGIRLS,1.0,PRO,Frustration,Excitement,3.0,7.0
+2_389,2_389_u,Huh! Whats dufus speled backwards?,0:05,MONICA,FRIENDS,1.0,PRO,Anger,Neutral,3.0,8.0
+2_390,2_390_u,"No, I am depressed becaues Phillis George left the morning news.",0:05,DOROTHY,GOLDENGIRLS,1.0,ILL,Frustration,Sadness,3.0,6.0
+2_398,2_398_u,"Rose, you should sit here and watch her hack herself to death",0:04,DOROTHY,GOLDENGIRLS,1.0,PRO,Anger,Neutral,2.0,8.0
+2_407,2_407_u,Hey!,0:01,JOEY,FRIENDS,0.0,NONE,Happiness,Happiness,6.0,6.0
+2_422,2_422_u,"Well, I like it. Here you go.",0:01,JOEY,FRIENDS,0.0,NONE,Happiness,Happiness,6.0,6.0
+2_423,2_423_u,Like I have nothing better to do!,0:02,MONICA,FRIENDS,1.0,ILL,Anger,Excitement,3.0,8.0
+2_425,2_425_u,And did he?,0:01,MONICA,FRIENDS,0.0,NONE,Excitement,Excitement,6.0,7.0
+2_426,2_426_u,"Are you kidding? I love that guy!  Morning's here! Morning is here,",0:07,JOEY,FRIENDS,0.0,NONE,Happiness,Happiness,8.0,8.0
+2_431,2_431_u,I'm never gonna get to meet her anyway.,0:02,JOEY,FRIENDS,0.0,NONE,Sadness,Sadness,3.0,7.0
+2_435,2_435_u,"Me too! There's a game on Tuesday, do you wanna go?",0:03,JOEY,FRIENDS,0.0,NONE,Happiness,Happiness,6.0,6.0
+2_44,2_44_u,"Whoa, maybe I was!",0:02,JOEY,FRIENDS,0.0,NONE,Happiness,Happiness,7.0,7.0
+2_440,2_440_u,"No its not big, not at all. Kind of the same lines as, I don't know, having a third nipple!",0:07,MONICA,FRIENDS,1.0,PRO,Anger,Neutral,2.0,8.0
+2_442,2_442_u,No itÕs the rose in the kitchen thing.,0:03,DOROTHY,GOLDENGIRLS,1.0,PRO,Sadness,Neutral,4.0,7.0
+2_446,2_446_u,"I'd love to show ya, but I just tucked her in.",0:02,JOEY,FRIENDS,0.0,NONE,Happiness,Happiness,6.0,6.0
+2_448,2_448_u,Do you still wanna call  'em? I wanna call  'em.,0:02,MONICA,FRIENDS,0.0,NONE,Happiness,Happiness,7.0,7.0
+2_45,2_45_u,"Oh ma no, it was a little girl selling girl scout toilets.",0:04,DOROTHY,GOLDENGIRLS,1.0,ILL,Anger,Neutral,2.0,7.0
+2_458,2_458_u,What are you up too?,0:01,MONICA,FRIENDS,0.0,NONE,Excitement,Excitement,6.0,6.0
+2_462,2_462_u,"No Rose, at a pie eating contest.",0:05,DOROTHY,GOLDENGIRLS,1.0,PRO,Frustration,Neutral,4.0,7.0
+2_463,2_463_u,Ok!,0:01,JOEY,FRIENDS,0.0,NONE,Neutral,Neutral,5.0,5.0
+2_465,2_465_u,"No Rose, that you should do.",0:02,DOROTHY,GOLDENGIRLS,1.0,PRO,Ridicule,Neutral,4.0,6.0
+2_479,2_479_u,No I am worried she might be Phir Resuda's,0:04,DOROTHY,GOLDENGIRLS,1.0,ILL,Frustration,Sadness,3.0,8.0
+2_48,2_48_u,"Thanks, but I kinda have a problem to deal with here.",0:04,JOEY,FRIENDS,0.0,NONE,Happiness,Happiness,7.0,7.0
+2_489,2_489_u,"No, its because I cannot make any sense of those commercials for obsession.",0:04,DOROTHY,GOLDENGIRLS,1.0,PRO,Frustration,Neutral,3.0,6.0
+2_49,2_49_u,We got a box.,0:03,JOEY,FRIENDS,0.0,NONE,Neutral,Neutral,5.0,5.0
+2_500,2_500_u,Oh my God I love that! - Really? - NO!,0:06,MONICA,FRIENDS,1.0,ILL,Disgust,Happiness,4.0,6.0
+2_502,2_502_u,I'm worried about whether Michael Jackson will be able to buy the remains of the elephant man.,0:07,DOROTHY,GOLDENGIRLS,1.0,EMB,Ridicule,Sadness,4.0,6.0
+2_505,2_505_u,To feed the cat Rose.,0:04,DOROTHY,GOLDENGIRLS,1.0,PRO,Anger,Neutral,4.0,8.0
+2_507,2_507_u,"No, I haven't taken her out of the trunk of the car yet.",0:04,DOROTHY,GOLDENGIRLS,1.0,PRO,Frustration,Neutral,4.0,7.0
+2_512,2_512_u,Because it wears a little sunbrella Rose.,0:03,DOROTHY,GOLDENGIRLS,1.0,PRO,Anger,Excitement,3.0,8.0
+2_521,2_521_u,Uh-huh!,0:01,JOEY,FRIENDS,0.0,NONE,Disgust,Disgust,3.0,7.0
+2_531,2_531_u,"Yeah well that's because uh .. I stayed in my room. Yeah, you don't want to look in my hamper.",0:09,JOEY,FRIENDS,0.0,NONE,Sadness,Sadness,4.0,6.0
+2_540,2_540_u,Okay?,0:01,JOEY,FRIENDS,0.0,NONE,Neutral,Neutral,5.0,5.0
+2_542,2_542_u,"Uh, Rachel's here, so good luck man, let me know how it works out.",0:03,JOEY,FRIENDS,1.0,PRO,Frustration,Happiness,3.0,7.0
+2_549,2_549_u,Really?,0:01,MONICA,FRIENDS,0.0,NONE,Disgust,Disgust,4.0,6.0
+2_553,2_553_u,"No just, nobody press on my stomach.",0:03,JOEY,FRIENDS,0.0,NONE,Sadness,Sadness,3.0,6.0
+2_559,2_559_u,What?!?!,0:01,MONICA,FRIENDS,0.0,NONE,Surprise,Surprise,8.0,8.0
+2_562,2_562_u,"Look now, Phoebe remember, hey, their just fulfilling their Christmas....",0:04,JOEY,FRIENDS,0.0,NONE,Neutral,Neutral,5.0,5.0
+2_574,2_574_u,You can't do anything.,0:04,JOEY,FRIENDS,0.0,NONE,Frustration,Frustration,3.0,7.0
+2_579,2_579_u,No!,0:01,MONICA,FRIENDS,0.0,NONE,Disgust,Disgust,4.0,7.0
+2_587,2_587_u,"Oh yes Blanche, about a half hour ago. But now I have hidden her again so you can find her.",0:07,DOROTHY,GOLDENGIRLS,1.0,PRO,Frustration,Neutral,3.0,7.0
+2_588,2_588_u,I talk to you and nothin'.,0:02,JOEY,FRIENDS,0.0,NONE,Anger,Anger,3.0,7.0
+2_591,2_591_u,"How about stopping by new years eve with three naked women, throwing up in the pool, passing out in the punch bowl, and relieving yourself in the linen closet?",0:1,DOROTHY,GOLDENGIRLS,0.0,NONE,Anger,Anger,3.0,7.0
+2_599,2_599_u,No I am upset because crocodin turbs are wearing darker colors.,0:03,DOROTHY,GOLDENGIRLS,1.0,PRO,Anger,Neutral,4.0,7.0
+2_604,2_604_u,"No Rose, I am developing pictures from the magellan space probe",0:03,DOROTHY,GOLDENGIRLS,1.0,PRO,Frustration,Neutral,4.0,7.0
+2_612,2_612_u,"I don't know Rose, maybe Marry Poppins has an Italian cousin.",0:04,DOROTHY,GOLDENGIRLS,1.0,PRO,Disgust,Sadness,4.0,7.0
+2_69,2_69_u,Cover yourself up!,0:01,MONICA,FRIENDS,0.0,NONE,Anger,Anger,3.0,7.0
+2_7,2_7_u,I've never loved anybody as much as I love you.,0:03,MONICA,FRIENDS,0.0,NONE,Happiness,Happiness,7.0,7.0
+2_71,2_71_u,"ThatÕs good, just keep rubbing your head. That will turn back time",0:06,JOEY,FRIENDS,1.0,ILL,Ridicule,Excitement,3.0,8.0
+2_74,2_74_u,Show them your slides of Hawaii,0:02,DOROTHY,GOLDENGIRLS,1.0,PRO,Ridicule,Excitement,4.0,7.0
+2_77,2_77_u,"Umm, excuse me, we switched apartments. You can't eat are food anymore, that-that gravy train had ended.",0:05,MONICA,FRIENDS,0.0,NONE,Frustration,Frustration,4.0,4.0
+2_8,2_8_u,"It's white plastic, with a handle, and it fits onto a stroller.",0:01,JOEY,FRIENDS,0.0,NONE,Sadness,Sadness,4.0,5.0
+2_89,2_89_u,On the home shopping network,0:03,DOROTHY,GOLDENGIRLS,1.0,PRO,Anger,Neutral,3.0,8.0
+2_9,2_9_u,"No Rose, go to the corner and open a stand",0:03,DOROTHY,GOLDENGIRLS,1.0,ILL,Anger,Happiness,3.0,7.0
+2_91,2_91_u,"Alright, I'm gonna go pick up a few things for the trip.",0:02,MONICA,FRIENDS,0.0,NONE,Neutral,Neutral,5.0,5.0

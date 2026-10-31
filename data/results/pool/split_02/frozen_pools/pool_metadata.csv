@@ -1,0 +1,8 @@
+member_id,candidate_id,modalities,classifier,best_params,n_features,model_path
+C01,text+context+audio+visual__logistic_regression,text+context+audio+visual,logistic_regression,"{""model__C"": 0.1, ""model__penalty"": ""l1"", ""model__solver"": ""liblinear""}",2320,data\results\pool\split_02\frozen_pools\C01.joblib
+C02,text+context+audio__logistic_regression,text+context+audio,logistic_regression,"{""model__C"": 0.1, ""model__penalty"": ""l1"", ""model__solver"": ""liblinear""}",2304,data\results\pool\split_02\frozen_pools\C02.joblib
+C03,text+context__logistic_regression,text+context,logistic_regression,"{""model__C"": 0.1, ""model__penalty"": ""l1"", ""model__solver"": ""liblinear""}",1536,data\results\pool\split_02\frozen_pools\C03.joblib
+C04,text+context+audio+visual__random_forest,text+context+audio+visual,random_forest,"{""model__max_depth"": 10, ""model__max_features"": ""sqrt"", ""model__min_samples_leaf"": 2, ""model__n_estimators"": 500}",2320,data\results\pool\split_02\frozen_pools\C04.joblib
+C05,text+context+visual__logistic_regression,text+context+visual,logistic_regression,"{""model__C"": 0.1, ""model__penalty"": ""l2"", ""model__solver"": ""liblinear""}",1552,data\results\pool\split_02\frozen_pools\C05.joblib
+C06,text+context+audio__random_forest,text+context+audio,random_forest,"{""model__max_depth"": 10, ""model__max_features"": ""sqrt"", ""model__min_samples_leaf"": 2, ""model__n_estimators"": 300}",2304,data\results\pool\split_02\frozen_pools\C06.joblib
+C07,text+context+audio+visual__svm,text+context+audio+visual,svm,"{""model__C"": 1, ""model__gamma"": ""scale"", ""model__kernel"": ""rbf""}",2320,data\results\pool\split_02\frozen_pools\C07.joblib

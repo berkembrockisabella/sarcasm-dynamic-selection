@@ -1,0 +1,12 @@
+split,etapa,segundos_parede,segundos_cpu_aprox,pico_memoria_mb_aprox
+split_09,Seleção da pool (CV no TRAIN),1485.9056045000034,21443.375,3644.9921875
+split_09,Treinamento da pool congelada,7.236243099992862,5.921875,198.9609375
+split_09,"Seleção dinâmica (OLA, KNORA-E, KNORA-U; com/sem roteamento)",37.882988500001375,51.375,297.17578125
+split_09,Sensibilidade do k (k = 3),7.168720000016037,6.28125,283.29296875
+split_09,Sensibilidade do k (k = 5),7.204915200010873,6.109375,292.234375
+split_09,Sensibilidade do k (k = 11),7.1946341000148095,6.265625,294.5546875
+split_09,Sensibilidade do k (k = 15),7.163893899996765,6.1875,294.48046875
+split_09,Sensibilidade ao peso da diversidade,51.65247540001292,50.296875,256.484375
+split_09,"Soft-MoE (gate treinado em DSEL, avaliação em TEST)",9.214428299979772,9.59375,1232.0859375
+split_09,Baselines estáticos multimodais,4.627317300008144,11.515625,208.65625
+split_09,Comparação estatística dos métodos,295.16102719999617,292.8125,137.1875

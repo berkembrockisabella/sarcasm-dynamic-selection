@@ -2,6 +2,7 @@
 Configuração para a seleção da pool
 '''
 
+import os
 from pathlib import Path
 
 RANDOM_STATE = 42
@@ -12,8 +13,16 @@ TOP_K_FOR_DIVERSITY = 15
 
 DATA_DIR = Path("data")
 FEATURE_DIR = DATA_DIR / "processed" / "features"
-SPLIT_DIR = DATA_DIR / "splits"
-RESULTS_DIR = DATA_DIR / "results" / "pool"
+
+# Repeticoes do experimento (protocolo E0): com SPLIT_ID=03 os scripts leem
+# data/splits/split_03/ e gravam os resultados em subpastas split_03/.
+# Sem SPLIT_ID, tudo continua nos caminhos originais (split unico) --
+# Path("x") / "" e o proprio Path("x")
+SPLIT_ID = os.environ.get("SPLIT_ID", "").strip()
+SPLIT_SUFFIX = f"split_{SPLIT_ID}" if SPLIT_ID else ""
+
+SPLIT_DIR = DATA_DIR / "splits" / SPLIT_SUFFIX
+RESULTS_DIR = DATA_DIR / "results" / "pool" / SPLIT_SUFFIX
 
 TRAIN_PATH = SPLIT_DIR / "train.csv"
 

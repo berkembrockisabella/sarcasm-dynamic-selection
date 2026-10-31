@@ -1,0 +1,2 @@
+metodo,n_experts,n_dsel,n_test,accuracy,precision,recall,f1,f1_macro,roc_auc
+Soft-MoE,7,230,228,0.75,0.74,0.8604651162790697,0.7956989247311828,0.736832513213049,0.8007986845196148

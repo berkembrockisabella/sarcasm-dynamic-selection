@@ -1,0 +1,10 @@
+split,etapa,segundos_parede,segundos_cpu_aprox,pico_memoria_mb_aprox
+split_00,"Seleção dinâmica (OLA, KNORA-E, KNORA-U; com/sem roteamento)",72.01093809999293,94.59375,297.25
+split_00,Sensibilidade do k (k = 3),10.710050099994987,10.828125,295.734375
+split_00,Sensibilidade do k (k = 5),10.713564800011227,10.828125,283.7890625
+split_00,Sensibilidade do k (k = 11),10.302397399995243,11.125,295.16015625
+split_00,Sensibilidade do k (k = 15),10.244377299997723,10.609375,293.84765625
+split_00,Sensibilidade ao peso da diversidade,47.528450000012526,46.375,224.17578125
+split_00,"Soft-MoE (gate treinado em DSEL, avaliação em TEST)",8.6932920999825,9.359375,1234.2265625
+split_00,Baselines estáticos multimodais,4.122814200003631,3.84375,190.828125
+split_00,Comparação estatística dos métodos,301.25760379998246,298.734375,136.6953125

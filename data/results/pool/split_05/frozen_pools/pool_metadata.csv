@@ -1,0 +1,8 @@
+member_id,candidate_id,modalities,classifier,best_params,n_features,model_path
+C01,context+visual__svm,context+visual,svm,"{""model__C"": 10, ""model__gamma"": 0.001, ""model__kernel"": ""rbf""}",784,data\results\pool\split_05\frozen_pools\C01.joblib
+C02,context__svm,context,svm,"{""model__C"": 10, ""model__gamma"": ""scale"", ""model__kernel"": ""rbf""}",768,data\results\pool\split_05\frozen_pools\C02.joblib
+C03,context__logistic_regression,context,logistic_regression,"{""model__C"": 0.1, ""model__penalty"": ""l1"", ""model__solver"": ""liblinear""}",768,data\results\pool\split_05\frozen_pools\C03.joblib
+C04,context+visual__logistic_regression,context+visual,logistic_regression,"{""model__C"": 0.1, ""model__penalty"": ""l1"", ""model__solver"": ""liblinear""}",784,data\results\pool\split_05\frozen_pools\C04.joblib
+C05,text+context__svm,text+context,svm,"{""model__C"": 10, ""model__gamma"": ""scale"", ""model__kernel"": ""rbf""}",1536,data\results\pool\split_05\frozen_pools\C05.joblib
+C06,context+audio+visual__random_forest,context+audio+visual,random_forest,"{""model__max_depth"": null, ""model__max_features"": ""log2"", ""model__min_samples_leaf"": 4, ""model__n_estimators"": 100}",1552,data\results\pool\split_05\frozen_pools\C06.joblib
+C07,context+visual__random_forest,context+visual,random_forest,"{""model__max_depth"": 10, ""model__max_features"": ""sqrt"", ""model__min_samples_leaf"": 2, ""model__n_estimators"": 500}",784,data\results\pool\split_05\frozen_pools\C07.joblib

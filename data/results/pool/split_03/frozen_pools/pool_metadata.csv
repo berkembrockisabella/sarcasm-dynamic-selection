@@ -1,0 +1,8 @@
+member_id,candidate_id,modalities,classifier,best_params,n_features,model_path
+C01,context__svm,context,svm,"{""model__C"": 10, ""model__gamma"": ""scale"", ""model__kernel"": ""rbf""}",768,data\results\pool\split_03\frozen_pools\C01.joblib
+C02,text+context+audio+visual__logistic_regression,text+context+audio+visual,logistic_regression,"{""model__C"": 0.1, ""model__penalty"": ""l2"", ""model__solver"": ""liblinear""}",2320,data\results\pool\split_03\frozen_pools\C02.joblib
+C03,text+context+audio__logistic_regression,text+context+audio,logistic_regression,"{""model__C"": 0.1, ""model__penalty"": ""l2"", ""model__solver"": ""liblinear""}",2304,data\results\pool\split_03\frozen_pools\C03.joblib
+C04,context+audio+visual__svm,context+audio+visual,svm,"{""model__C"": 10, ""model__gamma"": ""scale"", ""model__kernel"": ""rbf""}",1552,data\results\pool\split_03\frozen_pools\C04.joblib
+C05,context+visual__svm,context+visual,svm,"{""model__C"": 1, ""model__gamma"": ""scale"", ""model__kernel"": ""rbf""}",784,data\results\pool\split_03\frozen_pools\C05.joblib
+C06,context+audio__svm,context+audio,svm,"{""model__C"": 10, ""model__gamma"": ""scale"", ""model__kernel"": ""rbf""}",1536,data\results\pool\split_03\frozen_pools\C06.joblib
+C07,context+visual__logistic_regression,context+visual,logistic_regression,"{""model__C"": 0.1, ""model__penalty"": ""l1"", ""model__solver"": ""liblinear""}",784,data\results\pool\split_03\frozen_pools\C07.joblib

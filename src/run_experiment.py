@@ -19,8 +19,10 @@ Exemplos:
 """
 
 import argparse
+import os
 import subprocess
 import sys
+import time
 from pathlib import Path
 
 import pandas as pd
@@ -34,26 +36,59 @@ ROOT = Path(__file__).resolve().parent.parent
 
 DATA = ROOT / "data"
 
-POOL_RESULTS = (
-    DATA
-    / "results"
-    / "pool"
-    / "pool_selection"
-)
+# Repeticoes do experimento (protocolo E0): --split 03 (ou a variavel de
+# ambiente SPLIT_ID=03) roda tudo em data/splits/split_03/ e grava em
+# subpastas split_03/ -- os scripts filhos herdam SPLIT_ID pelo ambiente.
+# Sem split, tudo continua nos caminhos originais (split unico).
+SPLIT_SUFFIX = ""
+POOL_RESULTS = None
+FROZEN_POOLS = None
 
-FROZEN_POOLS = (
-    DATA
-    / "results"
-    / "pool"
-    / "frozen_pools"
-)
+
+def set_split(split_id):
+    global SPLIT_SUFFIX, POOL_RESULTS, FROZEN_POOLS
+
+    split_id = (split_id or "").strip()
+
+    if split_id:
+        os.environ["SPLIT_ID"] = split_id
+
+    SPLIT_SUFFIX = f"split_{split_id}" if split_id else ""
+
+    POOL_RESULTS = (
+        DATA
+        / "results"
+        / "pool"
+        / SPLIT_SUFFIX
+        / "pool_selection"
+    )
+
+    FROZEN_POOLS = (
+        DATA
+        / "results"
+        / "pool"
+        / SPLIT_SUFFIX
+        / "frozen_pools"
+    )
+
+
+set_split(os.environ.get("SPLIT_ID"))
 
 
 # ============================================================
 # EXECUÇÃO DE UMA ETAPA
 # ============================================================
 
-def run_step(label, command):
+# Custo de cada etapa executada (protocolo E5): tempo de parede e, se o
+# psutil estiver instalado, tempo de CPU e pico de memoria do processo e
+# dos filhos (amostrados a cada 0,5 s -- valores aproximados)
+CUSTOS = []
+
+# Valores de k da sensibilidade (E3); o k = 7 e o experimento principal
+KS_SENSIBILIDADE = [3, 5, 11, 15]
+
+
+def run_step(label, command, env=None):
     """
     Executa uma etapa do experimento.
 
@@ -85,11 +120,58 @@ def run_step(label, command):
         flush=True
     )
 
-    subprocess.run(
-        command,
-        cwd=ROOT,
-        check=True
-    )
+    ambiente = os.environ.copy()
+    if env:
+        ambiente.update(env)
+
+    try:
+        import psutil
+    except ImportError:
+        psutil = None
+
+    inicio = time.perf_counter()
+    pico_mb = None
+    cpu_s = None
+
+    if psutil is None:
+        subprocess.run(
+            command,
+            cwd=ROOT,
+            check=True,
+            env=ambiente,
+        )
+    else:
+        processo = subprocess.Popen(command, cwd=ROOT, env=ambiente)
+        pico = 0
+        cpu_por_pid = {}
+        while processo.poll() is None:
+            try:
+                raiz = psutil.Process(processo.pid)
+                processos = [raiz] + raiz.children(recursive=True)
+            except psutil.Error:
+                processos = []
+            memoria = 0
+            for proc in processos:
+                try:
+                    memoria += proc.memory_info().rss
+                    tempos_cpu = proc.cpu_times()
+                    cpu_por_pid[proc.pid] = tempos_cpu.user + tempos_cpu.system
+                except psutil.Error:
+                    pass
+            pico = max(pico, memoria)
+            time.sleep(0.5)
+        if processo.returncode != 0:
+            raise subprocess.CalledProcessError(processo.returncode, command)
+        pico_mb = pico / 1024 ** 2
+        cpu_s = sum(cpu_por_pid.values())
+
+    CUSTOS.append({
+        "split": SPLIT_SUFFIX or "unico",
+        "etapa": label,
+        "segundos_parede": time.perf_counter() - inicio,
+        "segundos_cpu_aprox": cpu_s,
+        "pico_memoria_mb_aprox": pico_mb,
+    })
 
 
 # ============================================================
@@ -217,6 +299,7 @@ def consolidate():
             DATA
             / "processed"
             / "selection"
+            / SPLIT_SUFFIX
             / "ds_routing_summary.csv",
             "DS",
         ),
@@ -224,6 +307,7 @@ def consolidate():
             DATA
             / "processed"
             / "moe"
+            / SPLIT_SUFFIX
             / "moe_summary.csv",
             "MoE",
         ),
@@ -231,6 +315,7 @@ def consolidate():
             DATA
             / "processed"
             / "static"
+            / SPLIT_SUFFIX
             / "static_multimodal_summary.csv",
             "Estático",
         ),
@@ -295,6 +380,7 @@ def consolidate():
         DATA
         / "processed"
         / "eval"
+        / SPLIT_SUFFIX
         / "all_experiments_summary.csv"
     )
 
@@ -386,7 +472,59 @@ def main():
         ),
     )
 
+    parser.add_argument(
+        "--split",
+        help=(
+            "Roda em data/splits/split_<SPLIT>/ "
+            "(ex.: --split 03). Sem ele, usa o split unico."
+        ),
+    )
+
+    parser.add_argument(
+        "--include-diversity",
+        action="store_true",
+        help=(
+            "Executa também a sensibilidade ao peso "
+            "desempenho x diversidade (avaliada no DSEL)."
+        ),
+    )
+
     args = parser.parse_args()
+
+    # --split all: roda o experimento completo em cada um dos splits de
+    # data/splits/split_XX/, um processo por split
+    if args.split == "all":
+        pastas = sorted((DATA / "splits").glob("split_*"))
+        if not pastas:
+            raise SystemExit(
+                "Nenhum split encontrado. Rode antes: "
+                "python src/data/create_splits_repetidos.py"
+            )
+        for pasta in pastas:
+            split_id = pasta.name.replace("split_", "")
+            comando = [
+                sys.executable,
+                "-m",
+                "src.run_experiment",
+                "--split",
+                split_id,
+            ]
+            if args.only:
+                comando += ["--only", *args.only]
+            if args.include_k_sweep:
+                comando.append("--include-k-sweep")
+            if args.include_diversity:
+                comando.append("--include-diversity")
+            run_step(f"Split {split_id}", comando)
+        print("\nTodos os splits concluidos.")
+        return
+
+    if args.split:
+        set_split(args.split)
+
+    print(
+        f"\nSplit: {SPLIT_SUFFIX or 'split unico (data/splits/)'}"
+    )
 
     # Se --only não for informado:
     # executa DS + MoE + Static
@@ -455,14 +593,39 @@ def main():
 
             if args.include_k_sweep:
 
-                run_step(
-                    "Sensibilidade do k",
-                    [
-                        sys.executable,
-                        "-m",
-                        "src.selection.ds_routing_k_sweep",
-                    ]
-                )
+                # Mesmo script do experimento principal, so com outro k --
+                # sem os sorteios aleatorios (E3 compara so sem x A/B).
+                # Saida em data/processed/selection/<split>/k_<K>/
+                for k in KS_SENSIBILIDADE:
+                    run_step(
+                        f"Sensibilidade do k (k = {k})",
+                        [
+                            sys.executable,
+                            "-m",
+                            "src.selection.ds_routing",
+                        ],
+                        env={
+                            "DS_K": str(k),
+                            "DS_N_SORTEIOS": "0",
+                        },
+                    )
+
+        # ====================================================
+        # PESO DESEMPENHO x DIVERSIDADE NA POOL (E3)
+        # ====================================================
+
+        if args.include_diversity:
+
+            # Avalia no DSEL (nunca no teste) as pools escolhidas com
+            # pesos de desempenho de 0,0 a 1,0
+            run_step(
+                "Sensibilidade ao peso da diversidade",
+                [
+                    sys.executable,
+                    "-m",
+                    "src.pool_selection.compare_diversity",
+                ]
+            )
 
         # ====================================================
         # MIXTURE OF EXPERTS
@@ -493,6 +656,7 @@ def main():
                 DATA
                 / "processed"
                 / "selection"
+                / SPLIT_SUFFIX
                 / "ds_routing_test.csv"
             )
 
@@ -539,6 +703,18 @@ def main():
                 "src.statistical_comparison",
             ]
         )
+
+        # ====================================================
+        # CUSTOS (E5)
+        # ====================================================
+
+        pasta_custos = DATA / "processed" / "eval" / SPLIT_SUFFIX
+        pasta_custos.mkdir(parents=True, exist_ok=True)
+        pd.DataFrame(CUSTOS).to_csv(
+            pasta_custos / "custos.csv",
+            index=False,
+        )
+        print(f"\nCustos salvos em: {pasta_custos / 'custos.csv'}")
 
         # ====================================================
         # FINAL

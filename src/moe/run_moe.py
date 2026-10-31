@@ -38,6 +38,7 @@ if str(ROOT_DIR) not in sys.path:
     sys.path.insert(0, str(ROOT_DIR))
 
 
+from pool_selection.config import SPLIT_SUFFIX
 from pool_selection.feature_loader import FeatureStore
 from pool_training.load_frozen_pool import load_frozen_pool
 from moe.moe import MixtureOfExperts
@@ -46,8 +47,8 @@ from moe.moe_expert_predictions import get_expert_probabilities
 
 # CONFIGURAÇÕES
 DATA = ROOT_DIR / "data"
-SPLITS = DATA / "splits"
-OUT = DATA / "processed" / "moe"
+SPLITS = DATA / "splits" / SPLIT_SUFFIX
+OUT = DATA / "processed" / "moe" / SPLIT_SUFFIX
 
 MODALITIES = (
     "text",
