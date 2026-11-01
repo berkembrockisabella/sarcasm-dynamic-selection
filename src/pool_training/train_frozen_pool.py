@@ -12,13 +12,14 @@ if str(SRC_DIR) not in sys.path:
 import joblib
 import pandas as pd
 
-from pool_selection.config import RESULTS_DIR, TRAIN_PATH
+from pool_selection.config import FROZEN_POOL_DIR, POOL_DEFINITION_PATH as DEFINICAO_CONFIG, TRAIN_PATH
 from pool_selection.classifiers import build_classifier
 from pool_selection.feature_loader import FeatureStore
 
-POOL_DEFINITION_PATH = (RESULTS_DIR / "pool_selection" / "pool_definition.csv")
+# Caminhos vem do config -- mudam com o split e com a variante da pool
+POOL_DEFINITION_PATH = DEFINICAO_CONFIG
 # A pasta se chama base por compatibilidade com os modelos ja treinados -- ha uma unica pool
-POOL_DIR = (RESULTS_DIR / "frozen_pools")
+POOL_DIR = FROZEN_POOL_DIR
 
 # Funções auxiliares
 def parse_params(value):

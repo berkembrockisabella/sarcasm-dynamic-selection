@@ -9,7 +9,7 @@ A execução do MoE deve seguir os comandos e parâmetros definidos pelos script
 A partir da raiz do repositório, executar:
 
 ```
-python -m src.moe.run_moe
+python -m src.run_experiment --split 00 --only moe
 ```
 
 Deve ser executado após a definição e treinamento da *pool* de especialistas.
@@ -65,7 +65,7 @@ O DES e o MoE são estratégias de combinação adaptativa, mas diferem no mecan
 | Adaptação             | Baseada na competência estimada para a instância  | Baseada nos pesos produzidos pelo gate a partir de sua entrada |
 
 ## Saídas
-Os resultados são armazenados no diretório `data/processed/moe/`:
+Os resultados são armazenados no diretório `data/processed/moe/split_XX/`:
 
 ```
 data/

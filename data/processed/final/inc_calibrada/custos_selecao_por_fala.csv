@@ -1,0 +1,6 @@
+roteamento,mean,std
+aleatorio,0.06,0.02
+com_roteamento,0.06,0.02
+conflito,0.06,0.01
+conflito_aleatorio,0.06,0.02
+sem_roteamento,0.06,0.02

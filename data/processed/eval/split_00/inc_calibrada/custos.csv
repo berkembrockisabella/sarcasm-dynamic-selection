@@ -1,0 +1,9 @@
+split,etapa,segundos_parede,segundos_cpu_aprox,pico_memoria_mb_aprox
+split_00,Escolha da pool da variante inc_calibrada (reaproveita a CV),2.064832200005185,1.015625,146.703125
+split_00,Treinamento da pool congelada,6.221159100008663,5.046875,195.6171875
+split_00,"Seleção dinâmica (OLA, KNORA-E, KNORA-U; com/sem roteamento)",128.1195665000123,175.59375,299.86328125
+split_00,Sensibilidade do k (k = 3),16.030411699961405,18.28125,295.83203125
+split_00,Sensibilidade do k (k = 5),16.02863850002177,19.0,295.96875
+split_00,Sensibilidade do k (k = 11),16.07109969999874,18.15625,296.72265625
+split_00,Sensibilidade do k (k = 15),16.537074299994856,19.28125,294.4765625
+split_00,"Soft-MoE (gate treinado em DSEL, avaliação em TEST)",7.257162899943069,9.25,1233.3671875

@@ -1,0 +1,29 @@
+metodo,classe,acerto,erro_pool,erro_seletor,n_falas
+Estatico Random forest,nao_sarcasmo,68.1,11.8,20.1,921
+Estatico Random forest,sarcasmo,87.7,1.6,10.7,867
+Estatico Regressao logistica,nao_sarcasmo,71.8,12.3,16.0,921
+Estatico Regressao logistica,sarcasmo,83.0,1.6,15.3,867
+Estatico SVM,nao_sarcasmo,74.3,12.3,13.5,921
+Estatico SVM,sarcasmo,85.7,1.7,12.6,867
+Estatico voto dos 3,nao_sarcasmo,72.9,12.3,14.9,921
+Estatico voto dos 3,sarcasmo,87.3,1.7,11.0,867
+KNORA-E com_roteamento,nao_sarcasmo,70.0,12.3,17.7,921
+KNORA-E com_roteamento,sarcasmo,88.7,1.7,9.6,867
+KNORA-E conflito,nao_sarcasmo,70.7,12.3,17.0,921
+KNORA-E conflito,sarcasmo,88.9,1.7,9.3,867
+KNORA-E sem_roteamento,nao_sarcasmo,69.7,12.3,18.0,921
+KNORA-E sem_roteamento,sarcasmo,88.8,1.7,9.5,867
+KNORA-U com_roteamento,nao_sarcasmo,70.6,12.3,17.2,921
+KNORA-U com_roteamento,sarcasmo,89.4,1.7,8.9,867
+KNORA-U conflito,nao_sarcasmo,70.4,12.3,17.4,921
+KNORA-U conflito,sarcasmo,89.7,1.7,8.5,867
+KNORA-U sem_roteamento,nao_sarcasmo,70.4,12.3,17.4,921
+KNORA-U sem_roteamento,sarcasmo,89.5,1.7,8.8,867
+OLA com_roteamento,nao_sarcasmo,70.2,12.3,17.5,921
+OLA com_roteamento,sarcasmo,87.7,1.7,10.6,867
+OLA conflito,nao_sarcasmo,70.6,12.3,17.2,921
+OLA conflito,sarcasmo,87.2,1.7,11.1,867
+OLA sem_roteamento,nao_sarcasmo,69.9,12.3,17.8,921
+OLA sem_roteamento,sarcasmo,87.5,1.7,10.7,867
+Soft-MoE,nao_sarcasmo,69.3,12.3,18.5,921
+Soft-MoE,sarcasmo,84.5,1.7,13.7,867

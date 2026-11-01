@@ -39,10 +39,29 @@ DATA = ROOT / "data"
 # Repeticoes do experimento (protocolo E0): --split 03 (ou a variavel de
 # ambiente SPLIT_ID=03) roda tudo em data/splits/split_03/ e grava em
 # subpastas split_03/ -- os scripts filhos herdam SPLIT_ID pelo ambiente.
-# Sem split, tudo continua nos caminhos originais (split unico).
+# O split e obrigatorio: --split XX ou --split all.
 SPLIT_SUFFIX = ""
 POOL_RESULTS = None
 FROZEN_POOLS = None
+
+# Variante da pool (--diversity / --max-contexto): o nome vem do proprio
+# pool_selection/config.py, para os caminhos baterem com os dos scripts filhos
+VARIANTE = ""
+
+
+def set_variante(diversity=None, max_contexto=None, incongruencia=None):
+    global VARIANTE
+    import importlib
+    if incongruencia is not None:
+        os.environ["INCONGRUENCIA"] = incongruencia
+    if diversity is not None:
+        os.environ["POOL_DIVERSITY"] = str(diversity)
+    if max_contexto is not None:
+        os.environ["POOL_MAX_CONTEXTO"] = str(max_contexto)
+    import src.pool_selection.config as config_pool
+    config_pool = importlib.reload(config_pool)
+    VARIANTE = config_pool.VARIANTE
+    set_split(os.environ.get("SPLIT_ID"))
 
 
 def set_split(split_id):
@@ -69,6 +88,7 @@ def set_split(split_id):
         / "pool"
         / SPLIT_SUFFIX
         / "frozen_pools"
+        / VARIANTE
     )
 
 
@@ -218,6 +238,7 @@ def ensure_pool():
 
     definition = (
         POOL_RESULTS
+        / VARIANTE
         / "pool_definition.csv"
     )
 
@@ -229,6 +250,21 @@ def ensure_pool():
     # --------------------------------------------------------
     # Pool selection
     # --------------------------------------------------------
+
+    # Variante com a validacao cruzada pronta: so refaz a escolha dos 7
+    # membros (segundos), sem repetir a CV dos 45 candidatos (~25 min)
+    if (
+        cv_results.exists()
+        and not definition.exists()
+    ):
+        run_step(
+            f"Escolha da pool da variante {VARIANTE or 'padrao'} (reaproveita a CV)",
+            [
+                sys.executable,
+                "-m",
+                "src.pool_selection.reselect_pool",
+            ]
+        )
 
     if (
         not definition.exists()
@@ -300,6 +336,7 @@ def consolidate():
             / "processed"
             / "selection"
             / SPLIT_SUFFIX
+            / VARIANTE
             / "ds_routing_summary.csv",
             "DS",
         ),
@@ -308,6 +345,7 @@ def consolidate():
             / "processed"
             / "moe"
             / SPLIT_SUFFIX
+            / VARIANTE
             / "moe_summary.csv",
             "MoE",
         ),
@@ -381,6 +419,7 @@ def consolidate():
         / "processed"
         / "eval"
         / SPLIT_SUFFIX
+        / VARIANTE
         / "all_experiments_summary.csv"
     )
 
@@ -489,6 +528,43 @@ def main():
         ),
     )
 
+    parser.add_argument(
+        "--sem-estatistica",
+        action="store_true",
+        help=(
+            "Pula a comparacao estatistica por split (McNemar + "
+            "bootstrap, ~5 min por split). A analise entre splits "
+            "fica no aggregate_splits.py."
+        ),
+    )
+
+    parser.add_argument(
+        "--diversity",
+        type=float,
+        help=(
+            "Variante da pool: peso da diversidade na escolha dos "
+            "membros (padrao 0.3). Reaproveita a CV do split."
+        ),
+    )
+
+    parser.add_argument(
+        "--max-contexto",
+        type=int,
+        help=(
+            "Variante da pool: maximo de membros que usam o "
+            "contexto (padrao: sem limite). Reaproveita a CV do split."
+        ),
+    )
+
+    parser.add_argument(
+        "--incongruencia",
+        choices=["original", "calibrada"],
+        help=(
+            "Grupos de incongruencia usados no roteamento: original "
+            "(argmax) ou calibrada (zona morta ajustada no treino)."
+        ),
+    )
+
     args = parser.parse_args()
 
     # --split all: roda o experimento completo em cada um dos splits de
@@ -515,15 +591,35 @@ def main():
                 comando.append("--include-k-sweep")
             if args.include_diversity:
                 comando.append("--include-diversity")
+            if args.sem_estatistica:
+                comando.append("--sem-estatistica")
+            if args.diversity is not None:
+                comando += ["--diversity", str(args.diversity)]
+            if args.max_contexto is not None:
+                comando += ["--max-contexto", str(args.max_contexto)]
+            if args.incongruencia is not None:
+                comando += ["--incongruencia", args.incongruencia]
             run_step(f"Split {split_id}", comando)
         print("\nTodos os splits concluidos.")
         return
 
-    if args.split:
-        set_split(args.split)
+    if not args.split:
+        raise SystemExit(
+            "Informe o split: --split 00 (um split) ou --split all "
+            "(os 10 splits de data/splits/split_XX/)."
+        )
+
+    set_split(args.split)
+
+    if args.diversity is not None or args.max_contexto is not None or args.incongruencia is not None:
+        set_variante(args.diversity, args.max_contexto, args.incongruencia)
 
     print(
         f"\nSplit: {SPLIT_SUFFIX or 'split unico (data/splits/)'}"
+    )
+
+    print(
+        f"Variante da pool: {VARIANTE or 'padrao'}"
     )
 
     # Se --only não for informado:
@@ -657,6 +753,7 @@ def main():
                 / "processed"
                 / "selection"
                 / SPLIT_SUFFIX
+                / VARIANTE
                 / "ds_routing_test.csv"
             )
 
@@ -695,23 +792,32 @@ def main():
         # COMPARAÇÃO ESTATÍSTICA
         # ====================================================
 
-        run_step(
-            "Comparação estatística dos métodos",
-            [
-                sys.executable,
-                "-m",
-                "src.statistical_comparison",
-            ]
-        )
+        if not args.sem_estatistica:
+            run_step(
+                "Comparação estatística dos métodos",
+                [
+                    sys.executable,
+                    "-m",
+                    "src.statistical_comparison",
+                ]
+            )
 
         # ====================================================
         # CUSTOS (E5)
         # ====================================================
 
-        pasta_custos = DATA / "processed" / "eval" / SPLIT_SUFFIX
+        pasta_custos = DATA / "processed" / "eval" / SPLIT_SUFFIX / VARIANTE
         pasta_custos.mkdir(parents=True, exist_ok=True)
-        pd.DataFrame(CUSTOS).to_csv(
-            pasta_custos / "custos.csv",
+        custos = pd.DataFrame(CUSTOS)
+        # Rodada parcial (ex.: --only ds) nao apaga o custo das etapas que
+        # nao rodaram agora -- so substitui as que rodaram de novo
+        arquivo_custos = pasta_custos / "custos.csv"
+        if arquivo_custos.exists() and len(custos):
+            anteriores = pd.read_csv(arquivo_custos)
+            anteriores = anteriores[~anteriores["etapa"].isin(custos["etapa"])]
+            custos = pd.concat([anteriores, custos], ignore_index=True)
+        custos.to_csv(
+            arquivo_custos,
             index=False,
         )
         print(f"\nCustos salvos em: {pasta_custos / 'custos.csv'}")

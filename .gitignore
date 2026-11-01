@@ -64,3 +64,9 @@ data/results/pool/frozen_pools/**/*.joblib
 # Pacotes compactados dos dados (ex.: data.zip, ~3,8 GB) -- grandes demais
 # para o git; compartilhar por fora do repositorio
 *.zip
+
+# Reextracao facial: trilhas de rostos (regeneraveis por extract_face_tracks.py)
+# e recortes de conferencia
+data/processed/rostos_trilhas/
+data/processed/inspecao_rostos/
+_to_delete/

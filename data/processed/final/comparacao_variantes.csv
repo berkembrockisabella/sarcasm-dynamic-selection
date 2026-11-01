@@ -1,0 +1,6 @@
+variante,f1_voto_dsel,oraculo_dsel,membros_com_contexto_pct,oraculo_teste,OLA sem_roteamento_f1,KNORA-E sem_roteamento_f1,KNORA-U sem_roteamento_f1,KNORA-E com_roteamento_f1,KNORA-E conflito_f1,Voto da pool inteira_f1,Melhor membro_f1,Soft-MoE_f1
+padrao,78.3,90.7,98.6,91.0,78.2,78.2,79.2,78.7,78.5,79.2,78.6,78.3
+div_0.3_ctx_max4,77.4,92.9,57.1,93.1,77.9,76.9,79.2,76.7,77.4,78.9,78.5,77.4
+div_0.8,78.5,91.8,92.9,91.6,78.2,78.3,79.3,78.9,78.6,79.4,78.3,77.5
+div_1.0,78.6,92.6,91.4,93.2,78.6,79.0,79.6,79.1,79.6,79.4,78.2,76.8
+inc_calibrada,78.3,90.7,98.6,91.0,78.2,78.2,79.2,78.2,78.8,79.2,78.6,77.9

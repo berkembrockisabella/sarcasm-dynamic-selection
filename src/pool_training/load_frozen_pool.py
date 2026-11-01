@@ -5,12 +5,13 @@ Carrega uma pool congelada.
 import joblib
 import pandas as pd
 
-from pool_selection.config import RESULTS_DIR
+from pool_selection.config import FROZEN_POOL_DIR
 
 
 # Na estrutura atual, os modelos ficam diretamente em:
 # data/results/pool/frozen_pools/
-POOL_DIR = RESULTS_DIR / "frozen_pools"
+# Muda com o split e com a variante da pool (ver pool_selection/config.py)
+POOL_DIR = FROZEN_POOL_DIR
 
 
 def load_frozen_pool():

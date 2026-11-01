@@ -5,7 +5,8 @@ Projeto da disciplina Experiência Criativa: Projeto Transformador II (PUCPR).
 Detecta sarcasmo em falas de séries de comédia usando **texto**, **contexto** (falas anteriores), **áudio** e **rosto**. Investiga se a **incongruência emocional entre essas modalidades** ajuda a escolher, fala a fala, qual classificador deve decidir.
 
 - **Dataset:** [MUStARD++](https://github.com/cfiltnlp/MUStARD_Plus_Plus) — 1202 falas (601 sarcásticas, 601 não), 27 falantes.
-- **Protocolo final:** 10 splits por falante, testes estatísticos entre splits, ablação do roteamento, sensibilidade a parâmetros, análise de erros e custo computacional.
+- **Protocolo:** 10 splits por falante, testes estatísticos entre splits, ablação do roteamento, sensibilidade a parâmetros, análise de erros, custo computacional e ablações complementares (extratores e pool).
+- **Resultado principal:** a incongruência emocional, como foi possível medi-la, não ajudou a seleção dinâmica; nenhum método superou os estáticos.
 
 ---
 
@@ -14,7 +15,7 @@ Detecta sarcasmo em falas de séries de comédia usando **texto**, **contexto** 
 | | Pergunta | Resposta nos 10 splits |
 |---|---|---|
 | **Q1** | A seleção dinâmica supera classificadores estáticos multimodais? | **Não.** O SVM estático e o voto dos 3 estáticos tiveram o maior F1-macro (80,1%); o melhor método dinâmico (KNORA-U) teve 79,2%. Nenhum par de métodos difere pelo pós-teste de Nemenyi. |
-| **Q2** | Rotear a busca de vizinhos pela incongruência (grupo A/B) melhora a seleção dinâmica? | **Não de forma significativa.** Maior ganho no KNORA-E: +0,5 ponto contra sem roteamento e +0,4 contra roteamento aleatório (p ajustado = 1,0). |
+| **Q2** | Rotear a busca de vizinhos pela incongruência melhora a seleção dinâmica? | **Não.** Nem pelo grupo A/B nem pelo conflito positivo × negativo, com extratores originais ou calibrados, em nenhuma variante da pool. Os dois roteamentos empatam com os controles aleatórios; maior diferença de +0,6 ponto (p ajustado = 1,0). |
 | **Q3** | A seleção por competência local se compara a uma combinação aprendida (Mixture of Experts)? | **Empate.** Soft-MoE 78,3%, igual a OLA e KNORA-E, abaixo do KNORA-U (diferença não significativa). |
 
 ---
@@ -31,8 +32,8 @@ Detecta sarcasmo em falas de séries de comédia usando **texto**, **contexto** 
    Representacoes                         Valencia emocional
    (BART, wav2vec2, rosto)                de cada modalidade
           |                                      |
-   Selecao da pool (CV no TREINO)         Grupo A (as 4 concordam)
-   45 candidatos -> 7 especialistas       ou B (pelo menos uma difere)
+   Selecao da pool (CV no TREINO)         Grupo A/B (as 4 concordam ou nao)
+   45 candidatos -> 7 especialistas       e grupo de conflito (pos x neg)
           |                                      |
    Pool congelada (treinada no TREINO)           |
           |                                      |
@@ -41,7 +42,7 @@ Detecta sarcasmo em falas de séries de comédia usando **texto**, **contexto** 
          Selecao dinamica         Soft-MoE
          (DSEL como consulta)     (gate MLP treinado no DSEL)
          OLA | KNORA-E | KNORA-U
-         sem | A/B | aleatorio
+         sem | A/B | conflito | controles aleatorios
                       |              |
                       +------+-------+
                              |
@@ -76,8 +77,6 @@ O experimento final usa **10 splits** (`data/splits/split_00` a `split_09`), ger
 | Falantes por split | 18 | 4 | 5 |
 | Grupo A por split | 95 a 135 | 16 a 38 | 16 a 49 |
 
-O split único original (`data/splits/train.csv`, `dsel.csv`, `test.csv`, escolhido como o mais balanceado entre 1000 seeds por `create_splits.py`) continua no repositório. Sem `--split`, todos os scripts rodam nele.
-
 ## 2. Representações (entrada dos classificadores)
 
 | Modalidade | Representação | Dimensão |
@@ -99,10 +98,11 @@ Para cada modalidade, um classificador de emoções pré-treinado dá a distribu
 |---|---|
 | Texto e contexto | `Tanneru/Emotion-Classification-DeBERTa-v3-Large` |
 | Áudio | `iic/emotion2vec_plus_large` |
-| Rosto | Emoções faciais por quadro (`visual_emotions.csv`; os scripts de extração não estão no repositório) |
+| Rosto | ViT de expressão facial, média dos rostos por quadro (`visual_emotions.csv`; os scripts dessa extração original não estão no repositório) |
 
 - **Grupo A:** as 4 modalidades têm a mesma polaridade (concordam).
 - **Grupo B:** pelo menos uma difere (discordam).
+- **Conflito:** pelo menos um par de modalidades com polaridades opostas (positiva × negativa). Neutro não conta como discordância. São 330 falas com conflito e 872 sem; o grupo A/B é bem mais desigual (173 × 1029).
 
 A incongruência **não entra como feature** dos classificadores. Ela só define o grupo usado no roteamento. Detalhes em [`src/incongruence/README.md`](src/incongruence/README.md).
 
@@ -139,6 +139,8 @@ Para cada fala de teste, procuram-se os **k = 7 vizinhos** mais parecidos no DSE
 | **Sem roteamento** | No DSEL inteiro | Linha de base |
 | **A/B** | Só no DSEL do mesmo grupo da fala de teste | Efeito da incongruência |
 | **Aleatório** | Em grupos sorteados do DSEL com o mesmo tamanho de A e B (10 sorteios; vale a média) | Separa a incongruência do simples fato de restringir a vizinhança |
+| **Conflito** | Só no DSEL do mesmo grupo de conflito da fala | Incongruência sem contar neutro como discordância |
+| **Conflito aleatório** | Grupos sorteados com o mesmo tamanho dos de conflito | Controle do roteamento por conflito |
 
 ## 6. Soft-MoE
 
@@ -160,10 +162,11 @@ Treinados uma vez no treino e aplicados igual a todas as falas, com **as 4 modal
 |---|---|---|---|
 | **E0** | Base comum | 10 splits; k = 7 e peso de desempenho 0,7 fixados antes de olhar o teste | Média ± desvio, pior e melhor split |
 | **E1** | Comparação principal (Q1, Q3) | Estáticos, pior/melhor membro, voto da pool, OLA/KNORA-E/KNORA-U sem roteamento, Soft-MoE, oráculo | Friedman + pós-teste de Nemenyi (Demšar, 2006) |
-| **E2** | Ablação do roteamento (Q2) | Sem roteamento × A/B × aleatório, nos 3 métodos | Wilcoxon pareado + correção de Holm (6 testes) |
+| **E2** | Ablação do roteamento (Q2) | A/B e conflito, cada um contra sem roteamento e contra o seu controle aleatório, nos 3 métodos | Wilcoxon pareado + correção de Holm (12 testes) |
 | **E3** | Sensibilidade | k ∈ {3, 5, 7, 11, 15}; peso do desempenho de 0,0 a 1,0 (avaliado no DSEL) | Descritiva |
 | **E4** | Análise de erros | Erro do seletor (algum membro acertaria) × erro da pool (nenhum acerta), por grupo e classe; diversidade da pool | Descritiva |
 | **E5** | Custo computacional | Tempo, CPU e memória por etapa; nº de treinos e de parâmetros | Descritiva |
+| **E6** | Ablações complementares | Extratores de emoção calibrados (incluindo o rosto só do falante) e variantes da pool; escolha pelo DSEL | Wilcoxon pareado + Holm contra a configuração padrão |
 
 O McNemar com correção de Holm e o bootstrap (IC 95%) por split (`src/statistical_comparison.py`) ficam como complemento.
 
@@ -204,6 +207,12 @@ Valores em %, média ± desvio entre splits. Todos os números vêm de `data/pro
 | KNORA-E | A/B × aleatório | +0,4 | 7 / 0 / 3 | 0,375 | 1,0 |
 | KNORA-U | A/B × sem roteamento | 0,0 | 1 / 7 / 2 | 1,000 | 1,0 |
 | KNORA-U | A/B × aleatório | 0,0 | 1 / 4 / 5 | 0,438 | 1,0 |
+| OLA | Conflito × sem roteamento | −0,1 | 4 / 1 / 5 | 0,734 | 1,0 |
+| OLA | Conflito × conflito aleatório | −0,1 | 5 / 0 / 5 | 0,695 | 1,0 |
+| KNORA-E | Conflito × sem roteamento | +0,3 | 5 / 1 / 4 | 0,652 | 1,0 |
+| KNORA-E | Conflito × conflito aleatório | 0,0 | 5 / 0 / 5 | 0,846 | 1,0 |
+| KNORA-U | Conflito × sem roteamento | 0,0 | 2 / 6 / 2 | 0,875 | 1,0 |
+| KNORA-U | Conflito × conflito aleatório | 0,0 | 4 / 3 / 3 | 0,812 | 1,0 |
 
 F1-macro por grupo no teste (exploratório; o grupo A tem cerca de 27 falas por split):
 
@@ -259,14 +268,82 @@ A decisão da seleção dinâmica custa cerca de 0,05 ms por fala.
 
 ---
 
+## E6 · Ablações complementares
+
+Feitas depois da primeira rodada dos 10 splits, para entender por que o roteamento não ajudou. A configuração principal (pool padrão e grupos originais) não muda; cada ablação altera um fator por vez.
+
+### Diagnóstico dos extratores de emoção
+
+`src/analysis/diagnostico_extratores.py` compara a polaridade de cada modalidade com a emoção explícita anotada no MUStARD++ (`Explicit_Emotion`) e a valência anotada (`Valence`).
+
+| Modalidade | Concordância de polaridade | Kappa | Neutro quando a anotação tem emoção | Spearman com a valência anotada |
+|---|---|---|---|---|
+| Texto | 55,7% | 0,27 | 57,6% | 0,12 |
+| Contexto | 40,9% | 0,06 | 52,8% | 0,05 |
+| Áudio | 51,8% | 0,24 | 42,8% | 0,10 |
+| Rosto | 41,8% | 0,10 | 46,2% | 0,02 |
+
+- Os extratores devolvem "neutro" em metade das falas que os anotadores marcaram com emoção.
+- O grupo A é "tudo neutro" em 81% dos casos (141 de 173 falas), mas os anotadores veem emoção em 42,8% das falas do grupo A.
+- O contexto não descreve a mesma fala que a anotação, então a concordância baixa dele é esperada.
+
+Com esses extratores, o grupo A/B mede mais a falta de sinal emocional detectado do que a concordância entre modalidades.
+
+### Ajuste dos extratores (polaridade calibrada)
+
+Mesma regra para as 4 modalidades: valência `V = P(happy) − P(negativas)`, polaridade positiva se `V > τ`, negativa se `V < −τ`, neutra no meio. Em cada split, `src/incongruence/calibrar_polaridade.py` escolhe, **só com o treino**, a fonte (extrator) e o τ de cada modalidade que mais concordam (kappa) com a `Explicit_Emotion`. DSEL e teste servem só para conferir.
+
+- Candidatos de texto e contexto: DeBERTa atual e `j-hartmann/emotion-english-distilroberta-base` (treinado com dados que incluem o MELD, diálogos de *Friends*); para o contexto, também só a fala anterior. Gerados por `src/features/valencia/extratores_alternativos.py`.
+- Áudio (emotion2vec+) mantém o extrator atual; só o τ é ajustado.
+- **Rosto reextraído só do personagem que fala** (`extract_face_tracks.py` + `extract_face_emotions.py`): YuNet detecta e acompanha os rostos (3 quadros/s, sem atravessar cortes de cena), o SFace dá a identidade de cada rosto e, para cada personagem, um rosto médio (protótipo) refinado iterativamente escolhe a trilha do falante. Se nenhum rosto parece com o personagem, o falante está fora da tela e a fala fica neutra. A emoção vem do mesmo ViT (`trpakov/vit-face-expression`), com média ou pico dos quadros. Na conferência visual das 40 primeiras falas, todas as escolhas por identidade mostraram o personagem certo; escolher o maior rosto acertava cerca de 60%.
+- Saída: `data/processed/incongruence_calibrada/<split>.csv`. O roteamento usa esses grupos com `--incongruencia calibrada` (variante `inc_calibrada`; a pool é a mesma).
+
+### Variantes da pool
+
+| Variante | O que muda | Pasta |
+|---|---|---|
+| Padrão | Diversidade 0,3, sem limite de contexto | (sem subpasta) |
+| `--diversity 0.8` | Peso da diversidade 0,8 | `div_0.8` |
+| `--diversity 1.0` | Só diversidade, depois do primeiro membro | `div_1.0` |
+| `--max-contexto 4` | No máximo 4 membros com contexto | `div_0.3_ctx_max4` |
+
+- As variantes reaproveitam a validação cruzada de cada split (`reselect_pool.py`); só refazem a escolha e o treino dos 7 membros.
+- **Critério de escolha:** F1-macro do voto da pool no DSEL (`ds_routing_dsel.csv`). O teste só é reportado.
+- `src/compare_variants.py` compara as variantes com a padrão (Wilcoxon + Holm).
+
+### Resultados das ablações (10 splits)
+
+**Extratores:** nenhum ajuste melhorou a concordância com a anotação fora do treino. A calibração escolheu o DeBERTa no texto em todos os splits, e o j-hartmann não superou. O rosto só do falante teve kappa de 0,10, contra 0,09 do rosto antigo; calibrado, cai no DSEL (0,115 → 0,090) e no teste (0,085 → 0,064). O kappa máximo continua em cerca de 0,29 (texto).
+
+**Roteamento:** em nenhuma variante algum dos 12 testes do E2 foi significativo (p de Holm = 1,0).
+
+**Variantes da pool:**
+
+| Variante | F1 do voto no DSEL | Oráculo no teste | KNORA-U sem roteamento | Soft-MoE |
+|---|---|---|---|---|
+| Padrão (diversidade 0,3) | 78,3 | 91,0 | 79,2 | 78,3 |
+| Diversidade 0,8 | 78,5 | 91,6 | 79,3 | 77,5 |
+| Diversidade 1,0 | 78,6 | 93,2 | 79,6 | 76,8 |
+| Máx. 4 membros com contexto | 77,4 | 93,1 | 79,2 | 77,4 |
+| Incongruência calibrada (mesma pool) | 78,3 | 91,0 | 79,2 | 77,9 |
+
+- Nenhuma variante difere da padrão (Wilcoxon + Holm, p ajustado = 1,0).
+- Com os grupos calibrados (incluindo o rosto do falante), o roteamento também não muda: no E2, nenhum teste significativo e diferenças de −0,3 a +0,6 ponto.
+- Mais diversidade sobe o oráculo, mas a seleção dinâmica não aproveita: os membros sem contexto são mais fracos.
+- **Decisão:** a pool padrão continua como principal (fixada antes dos resultados); as variantes ficam como ablação. A diferença no DSEL a favor da diversidade 1,0 (0,3 ponto) está dentro do ruído.
+- O Soft-MoE varia de 0,3 a 0,4 ponto entre rodadas com a mesma pool, porque o treino do gate não é determinístico.
+
+---
+
 ## Limitações
 
 - **Poucos falantes:** o MUStARD++ tem só 27 falantes, muito desiguais; mesmo com o critério de aceitação, o split pesa mais que o método.
 - **Poder estatístico:** com 10 splits, os testes têm pouco poder para diferenças de 1 a 2 pontos. "Não significativo" não prova que os métodos são equivalentes.
 - **Grupo A pequeno:** 16 a 49 falas no teste por split; os resultados por grupo são descritivos.
 - **Pool dominada pelo contexto:** 98,6% dos membros usam o contexto, o que limita a complementaridade que a seleção dinâmica pode explorar.
-- **Reprodutibilidade do split único:** ao retreinar a pool no split original, as predições da seleção dinâmica mudaram em 1 a 2 das 147 falas (ex.: KNORA-U sem roteamento de 70,5% para 69,1% de F1-macro) e o Soft-MoE passou de 70,1% para 66,4%. A definição da pool é a mesma e os estáticos deram resultados idênticos; a causa provável é o retreino da pool e do gate.
-- **Parte visual incompleta:** os scripts de extração de quadros, rostos e emoção facial não estão no repositório; só o resultado `visual_emotions.csv`.
+- **Sinal de incongruência ruidoso:** os extratores de emoção concordam pouco com a anotação humana (kappa de no máximo cerca de 0,3), e nenhum ajuste melhorou isso fora do treino.
+- **Soft-MoE não determinístico:** varia de 0,3 a 0,4 ponto entre rodadas com a mesma pool.
+- **Extração facial original incompleta:** os scripts que geraram `visual_emotions.csv` não estão no repositório. A reextração do rosto do falante (E6) está completa e documentada, mas não substituiu a original porque não melhorou a concordância com a anotação.
 
 ---
 
@@ -274,55 +351,57 @@ A decisão da seleção dinâmica custa cerca de 0,05 ms por fala.
 
 | Caminho | Função |
 |---|---|
-| `src/data/` | Prepara o MUStARD++, gera o split único (`create_splits.py`) e os 10 splits (`create_splits_repetidos.py`), extrai o áudio |
-| `src/features/valencia/` | Valência e emoção de cada modalidade |
-| `src/features/embeddings/` | Representações (BART, wav2vec2, rosto) |
-| `src/incongruence/` | Grupo A/B de cada fala |
-| `src/pool_selection/` | Avaliação dos 45 candidatos, escolha dos 7 membros e sensibilidade ao peso da diversidade (`compare_diversity.py`); `config.py` lê o `SPLIT_ID` |
+| `src/data/` | Prepara o MUStARD++ (`prepare_mustard.py`), gera os 10 splits (`create_splits_repetidos.py`) e extrai o áudio |
+| `src/features/embeddings/` | Representações dos classificadores (BART, wav2vec2, rosto) |
+| `src/features/valencia/` | Emoção e valência por modalidade; extratores alternativos de texto e contexto (`extratores_alternativos.py`); reextração do rosto do falante (`extract_face_tracks.py`, `extract_face_emotions.py`) |
+| `src/incongruence/` | Grupos de incongruência originais (`build_incongruence.py`) e calibrados (`calibrar_polaridade.py`) |
+| `src/pool_selection/` | CV dos 45 candidatos, escolha dos 7 membros, variantes (`reselect_pool.py`) e sensibilidade à diversidade (`compare_diversity.py`); `config.py` define os caminhos por split e variante |
 | `src/pool_training/` | Treino e carregamento da pool congelada |
-| `src/selection/` | Seleção dinâmica com os 3 roteamentos (`ds_routing.py`) |
+| `src/selection/` | Seleção dinâmica com todos os roteamentos (`ds_routing.py`) |
 | `src/moe/` | Soft-MoE |
 | `src/static/` | Estáticos multimodais |
-| `src/statistical_comparison.py` | McNemar + Holm e bootstrap por split |
-| `src/run_experiment.py` | Orquestra pool, seleção dinâmica, MoE, estáticos, sensibilidade e custos (`--split`, `--split all`) |
-| `src/aggregate_splits.py` | Agrega os 10 splits: tabelas, Friedman/Nemenyi, Wilcoxon/Holm, erros e custos |
-| `src/prototipo/` | Outra linha de experimentos do time (4 classificadores unimodais); não faz parte deste experimento |
+| `src/analysis/` | Diagnóstico dos extratores contra a anotação |
+| `src/run_experiment.py` | Orquestra um split (`--split 00`) ou todos (`--split all`) |
+| `src/aggregate_splits.py` | Agrega os 10 splits (E1–E5) de uma configuração |
+| `src/compare_variants.py` | Compara as ablações com a configuração padrão (E6) |
+| `src/statistical_comparison.py` | McNemar + Holm e bootstrap por split (complemento) |
+
+Cada pasta de `src/` com mais de um script tem o seu próprio README.
 
 ### Onde ficam os resultados
 
 | Caminho | Conteúdo |
 |---|---|
+| `data/splits/split_XX/` | Treino, DSEL e teste de cada split; resumo em `splits_resumo.csv` |
 | `data/results/pool/split_XX/` | CV dos candidatos, definição da pool, pool congelada e sensibilidade à diversidade |
-| `data/processed/selection/split_XX/` | Predições, resumos e tempos da seleção dinâmica; `k_<K>/` para a sensibilidade ao k |
-| `data/processed/moe/split_XX/`, `data/processed/static/split_XX/` | Soft-MoE e estáticos |
-| `data/processed/eval/split_XX/` | Resumo consolidado e `custos.csv` do split |
-| `data/processed/final/` | Resultados agregados dos 10 splits |
+| `data/processed/selection/split_XX/` | Seleção dinâmica; `k_<K>/` para a sensibilidade ao k |
+| `data/processed/moe/split_XX/`, `static/split_XX/`, `eval/split_XX/` | Soft-MoE, estáticos, resumo consolidado e custos do split |
+| `data/processed/final/` | Resultados agregados da configuração padrão; subpastas com cada ablação e `comparacao_variantes.csv` |
+| `data/processed/diagnostico/`, `extratores/`, `incongruence_calibrada/` | Diagnóstico e ajuste dos extratores |
 
-Sem `--split`, os mesmos arquivos ficam nas pastas sem `split_XX/` (split único).
+Uma ablação grava nas mesmas pastas com uma subpasta extra (`div_0.8`, `div_1.0`, `div_0.3_ctx_max4`, `inc_calibrada`).
 
 ---
 
 ## Como rodar
 
-Pré-requisitos: Python 3.10+ e FFmpeg. Instale com `pip install -r requirements.txt` e rode a partir da raiz.
+Pré-requisitos: Python 3.10+ e FFmpeg. Instale com `pip install -r requirements.txt` e rode a partir da raiz. Os vídeos do MUStARD++ não são versionados: baixe do dataset original para `data/raw/`.
 
-### Preparação (uma vez)
+### 1. Preparação dos dados (uma vez)
 
 ```
-# dados
 python src/data/prepare_mustard.py
-python src/data/create_splits.py              # split unico
-python src/data/create_splits_repetidos.py    # 10 splits do protocolo final
+python src/data/create_splits_repetidos.py
 python src/data/extract_audio.py
 
-# valencia e grupo A/B
+# emocao e valencia por modalidade, e grupos de incongruencia
 python src/features/valencia/text_valence.py
 python src/features/valencia/context_valence.py
 python src/features/valencia/audio_valence.py        # retomavel: apague audio_valence.csv para recalcular
 python src/features/valencia/visual_valence.py
 python src/incongruence/build_incongruence.py
 
-# representacoes
+# representacoes dos classificadores
 python src/features/embeddings/build_context_text.py
 python src/features/embeddings/extract_text_features.py
 python src/features/embeddings/extract_context_features.py
@@ -330,23 +409,38 @@ python src/features/embeddings/extract_audio_features.py
 python src/features/embeddings/build_visual_features.py
 ```
 
-### Experimento
+### 2. Experimento principal (E1–E5)
 
 ```
-# split unico
-python -m src.run_experiment
-
-# um split do protocolo (ex.: 00), com sensibilidade ao k e a diversidade
-python -m src.run_experiment --split 00 --include-k-sweep --include-diversity
-
-# os 10 splits (retomavel: pools ja treinadas sao reaproveitadas)
 python -m src.run_experiment --split all --include-k-sweep --include-diversity
-
-# agregacao e testes estatisticos
 python src/aggregate_splits.py
 ```
 
-`--only ds moe static` roda só as famílias escolhidas. A seleção da pool é a etapa demorada (cerca de 25 min por split na máquina usada).
+A seleção da pool é a etapa demorada (cerca de 25 min por split na máquina usada). A execução é retomável: pools já treinadas são reaproveitadas. `--only ds moe static` roda só as famílias escolhidas e `--sem-estatistica` pula o McNemar/bootstrap por split (cerca de 5 min por split).
+
+### 3. Ablações complementares (E6)
+
+```
+# variantes da pool (reaproveitam a CV de cada split)
+python -m src.run_experiment --split all --only ds moe --diversity 0.8 --sem-estatistica
+python -m src.run_experiment --split all --only ds moe --diversity 1.0 --sem-estatistica
+python -m src.run_experiment --split all --only ds moe --max-contexto 4 --sem-estatistica
+
+# extratores ajustados e grupos calibrados
+python src/analysis/diagnostico_extratores.py
+python src/features/valencia/extratores_alternativos.py
+python src/features/valencia/extract_face_tracks.py      # ~30 min, retomavel
+python src/features/valencia/extract_face_emotions.py
+python src/incongruence/calibrar_polaridade.py
+python -m src.run_experiment --split all --only ds moe --incongruencia calibrada --include-k-sweep --sem-estatistica
+
+# agregacao e comparacao
+python src/aggregate_splits.py div_0.8
+python src/aggregate_splits.py div_1.0
+python src/aggregate_splits.py div_0.3_ctx_max4
+python src/aggregate_splits.py inc_calibrada
+python src/compare_variants.py
+```
 
 ---
 

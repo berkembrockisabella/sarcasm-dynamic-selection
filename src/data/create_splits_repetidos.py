@@ -4,14 +4,12 @@ import pandas as pd
 from sklearn.model_selection import GroupShuffleSplit
 
 # Gera os 10 splits por falante usados nas repeticoes do experimento final
-# (protocolo E0). Mesma divisao de create_splits.py (70% treino, 15% DSEL,
-# 15% teste, por falante). Os seeds sao percorridos em ordem (0, 1, 2, ...) e
+# (protocolo E0): 70% treino, 15% DSEL e 15% teste, por falante. Os seeds sao percorridos em ordem (0, 1, 2, ...) e
 # ficam os 10 primeiros que passam no criterio de aceitacao abaixo.
 # Por que o criterio: o MUStARD++ tem so 27 falantes, muito desiguais
 # (CHANDLER sozinho tem 157 falas, 76% sarcasticas), entao sortear sem
 # controle gerava DSEL de 49 a 365 falas e teste com 27% a 60% de sarcasmo --
 # a dispersao entre splits mediria quais falantes cairam onde, nao os metodos.
-# O split unico original (data/splits/train.csv etc.) continua intocado.
 N_SPLITS = 10
 MIN_FALAS = 120
 MAX_FALAS = 240
@@ -24,7 +22,7 @@ df = pd.read_csv("data/raw/mustard++_text.csv")
 # Mantém apenas as 1202 instâncias principais
 df = df[df["Sarcasm"].notna()].copy()
 
-# Mesma correcao de create_splits.py -- linha desalinhada do CSV original
+# Mesma correcao de prepare_mustard.py -- linha desalinhada do CSV original
 df.loc[df["SCENE"] == "1_S11E03_067", "KEY"] = "1_S11E03_067_u"
 
 linhas = []

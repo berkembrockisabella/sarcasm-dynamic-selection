@@ -1,0 +1,4 @@
+split,etapa,segundos_parede,segundos_cpu_aprox,pico_memoria_mb_aprox
+split_00,Treinamento da pool congelada,5.696951100020669,4.53125,197.875
+split_00,"Seleção dinâmica (OLA, KNORA-E, KNORA-U; com/sem roteamento)",121.94099990004906,171.3125,291.66796875
+split_00,"Soft-MoE (gate treinado em DSEL, avaliação em TEST)",6.731783299997915,7.390625,1226.4140625

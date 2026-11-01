@@ -18,12 +18,15 @@ from sklearn.metrics import cohen_kappa_score
 #   E5 -- custo computacional
 # Rodar da raiz do repositorio, depois de: python -m src.run_experiment --split all
 # (com --include-k-sweep e --include-diversity para o E3)
+# Variante da pool: python src/aggregate_splits.py div_0.8 -- le as saidas da
+# variante e grava em data/processed/final/div_0.8 (estaticos sao os mesmos)
 
 sys.path.insert(0, "src")
 from pool_selection.config import N_SPLITS, PARAM_GRIDS
 from pool_selection.feature_loader import FeatureStore
 
-PASTA_SAIDA = "data/processed/final"
+VARIANTE = sys.argv[1] if len(sys.argv) > 1 else ""
+PASTA_SAIDA = os.path.join("data/processed/final", VARIANTE).rstrip("/")
 METRICAS = ["f1_macro", "accuracy", "precision", "recall"]
 METODOS_DS = ["OLA", "KNORA-E", "KNORA-U"]
 KS_SENSIBILIDADE = [3, 5, 7, 11, 15]
@@ -61,8 +64,8 @@ splits_incompletos = []
 
 for split in SPLITS:
     arquivos = [
-        f"data/processed/selection/{split}/ds_routing_summary.csv",
-        f"data/processed/moe/{split}/moe_summary.csv",
+        os.path.join("data/processed/selection", split, VARIANTE, "ds_routing_summary.csv"),
+        os.path.join("data/processed/moe", split, VARIANTE, "moe_summary.csv"),
         f"data/processed/static/{split}/static_multimodal_summary.csv",
     ]
     if not all(os.path.exists(a) for a in arquivos):
@@ -166,10 +169,19 @@ pd.DataFrame(linhas).to_csv(f"{PASTA_SAIDA}/nemenyi_pares.csv", index=False)
 # 4. E2 -- Wilcoxon pareado + Holm (ablacao do roteamento)
 # ============================================================
 
+# Comparacoes: roteamento A/B e roteamento por conflito, cada um contra sem
+# roteamento e contra o seu controle aleatorio (grupos sorteados de mesmo tamanho)
+COMPARACOES = [
+    ("com_roteamento", "sem_roteamento"),
+    ("com_roteamento", "aleatorio"),
+    ("conflito", "sem_roteamento"),
+    ("conflito", "conflito_aleatorio"),
+]
+
 linhas = []
 for metodo in METODOS_DS:
-    for comparado in ["sem_roteamento", "aleatorio"]:
-        a = resultados[resultados["metodo"] == f"{metodo} com_roteamento"].set_index("split")["f1_macro"]
+    for roteamento, comparado in COMPARACOES:
+        a = resultados[resultados["metodo"] == f"{metodo} {roteamento}"].set_index("split")["f1_macro"]
         b = resultados[resultados["metodo"] == f"{metodo} {comparado}"].set_index("split")["f1_macro"]
         pares = pd.concat([a, b], axis=1, keys=["a", "b"]).dropna()
         diferencas = pares["a"] - pares["b"]
@@ -182,7 +194,7 @@ for metodo in METODOS_DS:
             estatistica, p_valor = wilcoxon(pares["a"], pares["b"], zero_method="wilcox")
         linhas.append({
             "metodo": metodo,
-            "comparacao": f"com_roteamento x {comparado}",
+            "comparacao": f"{roteamento} x {comparado}",
             "n_splits": len(pares),
             "diferenca_media_f1_pp": round(diferencas.mean() * 100, 1),
             "vitorias": int((diferencas > 0).sum()),
@@ -194,7 +206,7 @@ for metodo in METODOS_DS:
 
 wilcoxon_e2 = pd.DataFrame(linhas)
 
-# Correcao de Holm sobre os 6 testes
+# Correcao de Holm sobre todos os testes do E2
 ordem = np.argsort(wilcoxon_e2["p_valor"].to_numpy())
 p_ordenado = wilcoxon_e2["p_valor"].to_numpy()[ordem]
 m = len(p_ordenado)
@@ -209,7 +221,7 @@ wilcoxon_e2.to_csv(f"{PASTA_SAIDA}/wilcoxon_roteamento.csv", index=False)
 # viram uma linha so (media dos sorteios) por split e grupo
 linhas = []
 for split in SPLITS_OK:
-    arquivo = f"data/processed/selection/{split}/ds_routing_group.csv"
+    arquivo = os.path.join("data/processed/selection", split, VARIANTE, "ds_routing_group.csv")
     if not os.path.exists(arquivo):
         continue
     tabela = pd.read_csv(arquivo)
@@ -233,13 +245,13 @@ if linhas:
 linhas = []
 for split in SPLITS_OK:
     for k in KS_SENSIBILIDADE:
-        pasta = f"data/processed/selection/{split}" + ("" if k == 7 else f"/k_{k}")
-        arquivo = f"{pasta}/ds_routing_summary.csv"
+        pasta = os.path.join("data/processed/selection", split, VARIANTE, "" if k == 7 else f"k_{k}")
+        arquivo = os.path.join(pasta, "ds_routing_summary.csv")
         if not os.path.exists(arquivo):
             continue
         tabela = pd.read_csv(arquivo)
         for metodo in METODOS_DS:
-            for roteamento in ["sem_roteamento", "com_roteamento"]:
+            for roteamento in ["sem_roteamento", "com_roteamento", "conflito"]:
                 valor = tabela.loc[tabela["metodo"] == f"{metodo} {roteamento}", "f1_macro"]
                 if len(valor):
                     linhas.append({"split": split, "k": k, "metodo": metodo,
@@ -298,7 +310,7 @@ diversidade_pool = []
 composicao = []
 
 for split in SPLITS_OK:
-    membros = pd.read_csv(f"data/processed/selection/{split}/ds_routing_membros_test.csv")
+    membros = pd.read_csv(os.path.join("data/processed/selection", split, VARIANTE, "ds_routing_membros_test.csv"))
     colunas_membros = [c for c in membros.columns if re.fullmatch(r"C\d+", c)]
     acertos_membros = membros[colunas_membros].eq(membros["Sarcasm"], axis=0)
     membros["oraculo"] = acertos_membros.any(axis=1)
@@ -318,19 +330,19 @@ for split in SPLITS_OK:
     })
 
     # Composicao da pool -- modalidades e classificadores dos 7 membros
-    metadados = pd.read_csv(f"data/results/pool/{split}/frozen_pools/pool_metadata.csv")
+    metadados = pd.read_csv(os.path.join("data/results/pool", split, "frozen_pools", VARIANTE, "pool_metadata.csv"))
     for _, row in metadados.iterrows():
         composicao.append({"split": split, "member_id": row["member_id"],
                            "modalities": row["modalities"], "classifier": row["classifier"]})
 
     # Predicoes de cada metodo no teste
     predicoes = {}
-    ds = pd.read_csv(f"data/processed/selection/{split}/ds_routing_test.csv")
-    for roteamento in ["sem_roteamento", "com_roteamento"]:
+    ds = pd.read_csv(os.path.join("data/processed/selection", split, VARIANTE, "ds_routing_test.csv"))
+    for roteamento in ["sem_roteamento", "com_roteamento", "conflito"]:
         parte = ds[ds["roteamento"] == roteamento].set_index("KEY")
         for metodo in METODOS_DS:
             predicoes[f"{metodo} {roteamento}"] = parte[metodo]
-    moe = pd.read_csv(f"data/processed/moe/{split}/moe_test.csv").set_index("KEY")
+    moe = pd.read_csv(os.path.join("data/processed/moe", split, VARIANTE, "moe_test.csv")).set_index("KEY")
     predicoes["Soft-MoE"] = moe["prediction"]
     estatico = pd.read_csv(f"data/processed/static/{split}/static_multimodal_test.csv").set_index("KEY")
     for coluna in ["Estatico SVM", "Estatico Regressao logistica", "Estatico Random forest", "Estatico voto dos 3"]:
@@ -380,7 +392,7 @@ uso_modalidades = {
 
 linhas = []
 for split in SPLITS_OK:
-    arquivo = f"data/processed/eval/{split}/custos.csv"
+    arquivo = os.path.join("data/processed/eval", split, VARIANTE, "custos.csv")
     if os.path.exists(arquivo):
         linhas.append(pd.read_csv(arquivo))
 
@@ -401,7 +413,7 @@ else:
 
 linhas = []
 for split in SPLITS_OK:
-    arquivo = f"data/processed/selection/{split}/ds_routing_tempo.csv"
+    arquivo = os.path.join("data/processed/selection", split, VARIANTE, "ds_routing_tempo.csv")
     if os.path.exists(arquivo):
         tabela = pd.read_csv(arquivo)
         tabela["roteamento"] = tabela["roteamento"].str.replace(r"aleatorio_\d+$", "aleatorio", regex=True)

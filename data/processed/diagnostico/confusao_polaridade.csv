@@ -1,0 +1,13 @@
+polaridade_extrator,modalidade,negativa,neutra,positiva
+negativa,text,92,40,14
+neutra,text,190,425,192
+positiva,text,22,74,153
+negativa,context,69,104,56
+neutra,context,159,311,191
+positiva,context,76,124,112
+negativa,audio,107,68,50
+neutra,audio,141,350,143
+positiva,audio,56,121,166
+negativa,visual,118,190,92
+neutra,visual,154,269,152
+positiva,visual,32,80,115

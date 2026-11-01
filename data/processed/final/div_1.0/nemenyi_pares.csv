@@ -1,0 +1,56 @@
+metodo_a,metodo_b,diferenca_rank,significativo_nemenyi
+Estatico SVM,Estatico Regressao logistica,-3.25,False
+Estatico SVM,Estatico Random forest,-3.5,False
+Estatico SVM,Estatico voto dos 3,0.5500000000000003,False
+Estatico SVM,Pior membro,-4.8999999999999995,True
+Estatico SVM,Melhor membro,-1.8999999999999995,False
+Estatico SVM,Voto da pool inteira,-0.20000000000000018,False
+Estatico SVM,OLA sem_roteamento,-1.8499999999999996,False
+Estatico SVM,KNORA-E sem_roteamento,-1.0,False
+Estatico SVM,KNORA-U sem_roteamento,-0.14999999999999947,False
+Estatico SVM,Soft-MoE,-3.5999999999999996,False
+Estatico Regressao logistica,Estatico Random forest,-0.25,False
+Estatico Regressao logistica,Estatico voto dos 3,3.8000000000000003,False
+Estatico Regressao logistica,Pior membro,-1.6499999999999995,False
+Estatico Regressao logistica,Melhor membro,1.3500000000000005,False
+Estatico Regressao logistica,Voto da pool inteira,3.05,False
+Estatico Regressao logistica,OLA sem_roteamento,1.4000000000000004,False
+Estatico Regressao logistica,KNORA-E sem_roteamento,2.25,False
+Estatico Regressao logistica,KNORA-U sem_roteamento,3.1000000000000005,False
+Estatico Regressao logistica,Soft-MoE,-0.34999999999999964,False
+Estatico Random forest,Estatico voto dos 3,4.050000000000001,False
+Estatico Random forest,Pior membro,-1.3999999999999995,False
+Estatico Random forest,Melhor membro,1.6000000000000005,False
+Estatico Random forest,Voto da pool inteira,3.3,False
+Estatico Random forest,OLA sem_roteamento,1.6500000000000004,False
+Estatico Random forest,KNORA-E sem_roteamento,2.5,False
+Estatico Random forest,KNORA-U sem_roteamento,3.3500000000000005,False
+Estatico Random forest,Soft-MoE,-0.09999999999999964,False
+Estatico voto dos 3,Pior membro,-5.449999999999999,True
+Estatico voto dos 3,Melhor membro,-2.4499999999999997,False
+Estatico voto dos 3,Voto da pool inteira,-0.7500000000000004,False
+Estatico voto dos 3,OLA sem_roteamento,-2.4,False
+Estatico voto dos 3,KNORA-E sem_roteamento,-1.5500000000000003,False
+Estatico voto dos 3,KNORA-U sem_roteamento,-0.6999999999999997,False
+Estatico voto dos 3,Soft-MoE,-4.15,False
+Pior membro,Melhor membro,3.0,False
+Pior membro,Voto da pool inteira,4.699999999999999,False
+Pior membro,OLA sem_roteamento,3.05,False
+Pior membro,KNORA-E sem_roteamento,3.8999999999999995,False
+Pior membro,KNORA-U sem_roteamento,4.75,False
+Pior membro,Soft-MoE,1.2999999999999998,False
+Melhor membro,Voto da pool inteira,1.6999999999999993,False
+Melhor membro,OLA sem_roteamento,0.04999999999999982,False
+Melhor membro,KNORA-E sem_roteamento,0.8999999999999995,False
+Melhor membro,KNORA-U sem_roteamento,1.75,False
+Melhor membro,Soft-MoE,-1.7000000000000002,False
+Voto da pool inteira,OLA sem_roteamento,-1.6499999999999995,False
+Voto da pool inteira,KNORA-E sem_roteamento,-0.7999999999999998,False
+Voto da pool inteira,KNORA-U sem_roteamento,0.05000000000000071,False
+Voto da pool inteira,Soft-MoE,-3.3999999999999995,False
+OLA sem_roteamento,KNORA-E sem_roteamento,0.8499999999999996,False
+OLA sem_roteamento,KNORA-U sem_roteamento,1.7000000000000002,False
+OLA sem_roteamento,Soft-MoE,-1.75,False
+KNORA-E sem_roteamento,KNORA-U sem_roteamento,0.8500000000000005,False
+KNORA-E sem_roteamento,Soft-MoE,-2.5999999999999996,False
+KNORA-U sem_roteamento,Soft-MoE,-3.45,False

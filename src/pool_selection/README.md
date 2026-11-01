@@ -5,11 +5,11 @@ Módulo responsável pela **formação da *pool* de classificadores**. A seleç�
 ## Como rodar
 Execute a partir da raiz do projeto:
 
-`python -m src.pool_selection.build_pool`
+`python -m src.run_experiment --split 00` (ou direto: `SPLIT_ID=00 python -m src.pool_selection.build_pool`)
 
 Ao final da execução, a definição dos 7 especialistas estará disponível em:
 
-`data/results/pool/pool_selection/pool_definition.csv`
+`data/results/pool/split_XX/pool_selection/pool_definition.csv`
 
 ## Visão geral
 O processo de seleção de classificadores da *pool* segue o fluxo:
@@ -186,3 +186,8 @@ data/
 ```
 
 A definição resultante `pool_definition.csv` será posteriormente utilizada para treinar a pool em `pool_training`, com a mesma composição, classificadores e hiperparâmetros.
+
+
+## Variantes da pool (ablação)
+
+`reselect_pool.py` refaz só a escolha dos 7 membros, reaproveitando a validação cruzada do split (`cv_results.csv` e `oof_predictions.csv`). O `run_experiment.py` chama esse script com `--diversity` (peso da diversidade, padrão 0,3) e `--max-contexto` (máximo de membros que usam o contexto). `compare_diversity.py` avalia no DSEL as pools escolhidas com pesos de 0,0 a 1,0 (`--include-diversity`).

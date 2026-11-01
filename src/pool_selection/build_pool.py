@@ -5,7 +5,7 @@ Construção da pool de classificadores
 import numpy as np
 import pandas as pd
 
-from .config import PARAM_GRIDS, RESULTS_DIR, TRAIN_PATH
+from .config import PARAM_GRIDS, POOL_DEFINITION_PATH, RESULTS_DIR, TRAIN_PATH
 from .cross_validation import make_folds, tune_and_oof
 from .diversity import pairwise_table, plot_kappa_error
 from .feature_loader import FeatureStore
@@ -120,7 +120,9 @@ def run():
 
     # Seleção dos 7 especialistas da pool
     selected = select_diverse_pool(results_df, predictions, y)
-    selected.to_csv(output_dir / "pool_definition.csv", index=False) # Salva definição congelada da pool
+    # Salva definição congelada da pool -- numa subpasta quando e uma variante
+    POOL_DEFINITION_PATH.parent.mkdir(parents=True, exist_ok=True)
+    selected.to_csv(POOL_DEFINITION_PATH, index=False)
 
     print("\nPool selecionada:")
     print(selected[

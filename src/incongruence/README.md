@@ -35,3 +35,8 @@ python src/incongruence/build_incongruence.py
 ```
 
 Rode depois dos quatro scripts de valência.
+
+
+## Grupos calibrados (`calibrar_polaridade.py`)
+
+Versão alternativa dos grupos, usada como ablação (`--incongruencia calibrada`). Em cada split, escolhe só com o treino a fonte (extrator) e o limiar τ de cada modalidade que mais concordam com a `Explicit_Emotion` anotada, usando a mesma regra para todas: positiva se `V > τ`, negativa se `V < −τ`, neutra no meio. Refaz os grupos A/B e de conflito e grava em `data/processed/incongruence_calibrada/split_XX.csv`, com o resumo do kappa em `calibracao_escolhas.csv`.

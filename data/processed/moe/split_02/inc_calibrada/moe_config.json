@@ -1,0 +1,23 @@
+{
+  "architecture": "soft_mixture_of_experts",
+  "gate_input_modalities": [
+    "text",
+    "context",
+    "audio",
+    "visual"
+  ],
+  "explicit_incongruence": false,
+  "gate_training_split": "DSEL",
+  "evaluation_split": "TEST",
+  "expert_ids": [
+    "C01",
+    "C02",
+    "C03",
+    "C04",
+    "C05",
+    "C06",
+    "C07"
+  ],
+  "threshold": 0.5,
+  "random_state": 42
+}

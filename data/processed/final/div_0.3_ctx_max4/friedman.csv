@@ -1,0 +1,2 @@
+n_splits,n_metodos,chi2_friedman,p_friedman,distancia_critica_nemenyi
+10,11,42.51028806584361,6.082402291246645e-06,4.77403480263189

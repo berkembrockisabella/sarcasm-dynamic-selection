@@ -1,0 +1,5 @@
+etapa,n,segundos_parede_media,segundos_parede_dp,segundos_cpu_media,pico_memoria_mb_media
+Escolha da pool da variante div_0.8 (reaproveita a CV),9,2.1,0.2,1.0,148.6
+"Seleção dinâmica (OLA, KNORA-E, KNORA-U; com/sem roteamento)",10,99.6,16.8,147.3,302.8
+"Soft-MoE (gate treinado em DSEL, avaliação em TEST)",10,7.3,0.5,8.9,1235.5
+Treinamento da pool congelada,10,6.8,1.6,13.4,200.3

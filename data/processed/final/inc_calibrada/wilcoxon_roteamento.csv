@@ -1,0 +1,13 @@
+metodo,comparacao,n_splits,diferenca_media_f1_pp,vitorias,empates,derrotas,estatistica_w,p_valor,p_holm,significativo_holm
+OLA,com_roteamento x sem_roteamento,10,-0.3,2,5,3,3.0,0.3125,1.0,False
+OLA,com_roteamento x aleatorio,10,-0.2,3,0,7,14.0,0.193359375,1.0,False
+OLA,conflito x sem_roteamento,10,0.0,5,0,5,27.0,1.0,1.0,False
+OLA,conflito x conflito_aleatorio,10,0.2,6,0,4,21.0,0.556640625,1.0,False
+KNORA-E,com_roteamento x sem_roteamento,10,0.0,3,5,2,6.0,0.8125,1.0,False
+KNORA-E,com_roteamento x aleatorio,10,0.0,5,0,5,23.0,0.6953125,1.0,False
+KNORA-E,conflito x sem_roteamento,10,0.6,6,0,4,17.0,0.322265625,1.0,False
+KNORA-E,conflito x conflito_aleatorio,10,0.2,7,0,3,15.0,0.232421875,1.0,False
+KNORA-U,com_roteamento x sem_roteamento,10,0.0,1,9,0,0.0,1.0,1.0,False
+KNORA-U,com_roteamento x aleatorio,10,0.0,3,4,3,9.0,0.84375,1.0,False
+KNORA-U,conflito x sem_roteamento,10,0.1,2,7,1,1.0,0.5,1.0,False
+KNORA-U,conflito x conflito_aleatorio,10,0.1,4,4,2,7.0,0.5625,1.0,False

@@ -1,0 +1,4 @@
+abordagem,treinos_busca_hiperparametros,treinos_finais,parametros_treinaveis_extras
+"Estaticos (3 classificadores, 4 modalidades)",378,3,0
+Pool + selecao dinamica,5670,7,0
+Pool + Soft-MoE,5670,7,74503

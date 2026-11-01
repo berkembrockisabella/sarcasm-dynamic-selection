@@ -24,14 +24,15 @@ SRC_DIR = Path(__file__).resolve().parents[1]
 if str(SRC_DIR) not in sys.path:
     sys.path.insert(0, str(SRC_DIR))
 
-from src.pool_selection.config import SPLIT_SUFFIX
+from src.pool_selection.config import SPLIT_SUFFIX, VARIANTE
 
 RESULTS_PATH = SRC_DIR / "data" / "processed"
-ds_test = RESULTS_PATH / "selection" / SPLIT_SUFFIX / "ds_routing_test.csv"
-moe_test = RESULTS_PATH / "moe" / SPLIT_SUFFIX / "moe_test.csv"
+# A selecao dinamica e o MoE mudam com a variante da pool; os estaticos nao
+ds_test = RESULTS_PATH / "selection" / SPLIT_SUFFIX / VARIANTE / "ds_routing_test.csv"
+moe_test = RESULTS_PATH / "moe" / SPLIT_SUFFIX / VARIANTE / "moe_test.csv"
 static_test = RESULTS_PATH / "static" / SPLIT_SUFFIX / "static_multimodal_test.csv"
 
-OUT_DIR = RESULTS_PATH / "statistical_comparison" / SPLIT_SUFFIX
+OUT_DIR = RESULTS_PATH / "statistical_comparison" / SPLIT_SUFFIX / VARIANTE
 OUT_DIR.mkdir(parents=True, exist_ok=True)
 
 SEED = 42
@@ -108,7 +109,7 @@ def load_data():
     df_ds = df_ds.rename(columns={"KEY": "id", "Sarcasm": "y_true"})
     # Os sorteios do roteamento aleatorio ficam fora do McNemar por split --
     # a comparacao A/B x aleatorio e feita entre splits (aggregate_splits.py)
-    df_ds = df_ds[df_ds["roteamento"].isin(["sem_roteamento", "com_roteamento"])]
+    df_ds = df_ds[df_ds["roteamento"].isin(["sem_roteamento", "com_roteamento", "conflito"])]
     ds_methods = ["OLA", "KNORA-E", "KNORA-U"]
     required_ds = {"id", "y_true", "roteamento", *ds_methods}
     if not required_ds.issubset(df_ds.columns):

@@ -3,10 +3,15 @@ Seleção final da pool de classificadores, balanceando desempenho e diversidade
 '''
 
 import pandas as pd
-from .config import POOL_SIZE, TOP_K_FOR_DIVERSITY
+from .config import POOL_DIVERSITY, POOL_MAX_CONTEXTO, POOL_SIZE, TOP_K_FOR_DIVERSITY
 from .diversity import mean_disagreement
 
-DIVERSITY = 0.3
+# Peso da diversidade -- padrao 0.3; uma variante muda via POOL_DIVERSITY
+DIVERSITY = POOL_DIVERSITY
+
+
+def usa_contexto(candidate_id):
+    return "context" in candidate_id.split("__")[0].split("+")
 
 def select_diverse_pool(results_df, predictions, y):
     """
@@ -23,6 +28,16 @@ def select_diverse_pool(results_df, predictions, y):
         .head(TOP_K_FOR_DIVERSITY)
         .copy()
     )
+
+    # Com limite de contexto, os melhores candidatos sem contexto entram na
+    # disputa mesmo fora do top-K -- senao a pool poderia ficar incompleta
+    if POOL_MAX_CONTEXTO:
+        sem_contexto = (
+            results_df[~results_df["candidate_id"].apply(usa_contexto)]
+            .sort_values(["mean_f1", "std_f1"], ascending=[False, True])
+            .head(POOL_SIZE)
+        )
+        candidates = pd.concat([candidates, sem_contexto]).drop_duplicates("candidate_id")
 
     min_f1 = candidates["mean_f1"].min()
     max_f1 = candidates["mean_f1"].max()
@@ -47,6 +62,11 @@ def select_diverse_pool(results_df, predictions, y):
             cid = row["candidate_id"]
             if cid in selected:
                 continue
+
+            # Limite de membros com contexto (0 = sem limite)
+            if POOL_MAX_CONTEXTO and usa_contexto(cid):
+                if sum(usa_contexto(s) for s in selected) >= POOL_MAX_CONTEXTO:
+                    continue
 
             div = mean_disagreement(cid, selected, predictions, y)
             score = (1 - DIVERSITY) * norm_f1(row["mean_f1"]) + DIVERSITY * div

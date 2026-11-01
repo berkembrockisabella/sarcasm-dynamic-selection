@@ -1,0 +1,5 @@
+split,etapa,segundos_parede,segundos_cpu_aprox,pico_memoria_mb_aprox
+split_08,Escolha da pool da variante div_0.8 (reaproveita a CV),2.0566648000385612,0.9375,147.640625
+split_08,Treinamento da pool congelada,8.831866099964827,8.78125,201.1875
+split_08,"Seleção dinâmica (OLA, KNORA-E, KNORA-U; com/sem roteamento)",121.97601290000603,171.84375,325.84375
+split_08,"Soft-MoE (gate treinado em DSEL, avaliação em TEST)",7.2368519000010565,8.875,1261.41796875

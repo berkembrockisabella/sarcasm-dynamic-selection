@@ -1,0 +1,29 @@
+metodo,grupo,acerto,erro_pool,erro_seletor,n_falas
+Estatico Random forest,A,78.4,7.7,13.9,273
+Estatico Random forest,B,77.4,6.7,15.8,1515
+Estatico Regressao logistica,A,79.9,8.1,12.1,273
+Estatico Regressao logistica,B,76.8,6.9,16.3,1515
+Estatico SVM,A,81.0,8.1,11.0,273
+Estatico SVM,B,79.6,7.0,13.4,1515
+Estatico voto dos 3,A,81.3,8.1,10.6,273
+Estatico voto dos 3,B,79.6,7.0,13.4,1515
+KNORA-E com_roteamento,A,80.6,8.1,11.4,273
+KNORA-E com_roteamento,B,78.8,7.0,14.2,1515
+KNORA-E conflito,A,80.2,8.1,11.7,273
+KNORA-E conflito,B,79.4,7.0,13.6,1515
+KNORA-E sem_roteamento,A,80.2,8.1,11.7,273
+KNORA-E sem_roteamento,B,78.7,7.0,14.3,1515
+KNORA-U com_roteamento,A,81.3,8.1,10.6,273
+KNORA-U com_roteamento,B,79.4,7.0,13.6,1515
+KNORA-U conflito,A,81.0,8.1,11.0,273
+KNORA-U conflito,B,79.5,7.0,13.5,1515
+KNORA-U sem_roteamento,A,81.0,8.1,11.0,273
+KNORA-U sem_roteamento,B,79.4,7.0,13.6,1515
+OLA com_roteamento,A,80.2,8.1,11.7,273
+OLA com_roteamento,B,78.4,7.0,14.6,1515
+OLA conflito,A,78.8,8.1,13.2,273
+OLA conflito,B,78.6,7.0,14.4,1515
+OLA sem_roteamento,A,79.5,8.1,12.5,273
+OLA sem_roteamento,B,78.3,7.0,14.7,1515
+Soft-MoE,A,78.4,8.1,13.6,273
+Soft-MoE,B,76.4,7.0,16.6,1515

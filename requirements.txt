@@ -7,3 +7,5 @@ torchaudio
 sentencepiece
 psutil
 scipy
+opencv-python
+pillow

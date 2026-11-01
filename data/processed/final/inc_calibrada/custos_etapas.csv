@@ -1,0 +1,9 @@
+etapa,n,segundos_parede_media,segundos_parede_dp,segundos_cpu_media,pico_memoria_mb_media
+Escolha da pool da variante inc_calibrada (reaproveita a CV),10,2.1,0.0,1.0,145.6
+"Seleção dinâmica (OLA, KNORA-E, KNORA-U; com/sem roteamento)",10,102.7,15.8,145.6,306.4
+Sensibilidade do k (k = 11),10,14.9,4.3,17.2,303.0
+Sensibilidade do k (k = 15),10,15.1,4.6,17.3,302.2
+Sensibilidade do k (k = 3),10,13.8,1.9,15.3,302.8
+Sensibilidade do k (k = 5),10,14.5,3.6,16.9,303.4
+"Soft-MoE (gate treinado em DSEL, avaliação em TEST)",10,8.9,3.8,10.2,1238.9
+Treinamento da pool congelada,10,7.1,1.6,12.3,193.8

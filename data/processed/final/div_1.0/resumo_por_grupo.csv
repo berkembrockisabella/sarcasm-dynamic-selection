@@ -1,0 +1,39 @@
+metodo,grupo,f1_macro_media,f1_macro_dp
+KNORA-E aleatorio,A,79.8,9.7
+KNORA-E aleatorio,B,78.8,5.2
+KNORA-E com_roteamento,A,80.8,9.8
+KNORA-E com_roteamento,B,78.7,5.2
+KNORA-E conflito,A,80.7,11.5
+KNORA-E conflito,B,79.3,4.6
+KNORA-E conflito_aleatorio,A,80.1,10.7
+KNORA-E conflito_aleatorio,B,78.8,4.7
+KNORA-E sem_roteamento,A,80.7,11.5
+KNORA-E sem_roteamento,B,78.7,5.4
+KNORA-U aleatorio,A,81.6,11.1
+KNORA-U aleatorio,B,79.3,5.1
+KNORA-U com_roteamento,A,82.1,12.5
+KNORA-U com_roteamento,B,79.3,5.0
+KNORA-U conflito,A,81.7,12.0
+KNORA-U conflito,B,79.4,5.2
+KNORA-U conflito_aleatorio,A,82.0,11.2
+KNORA-U conflito_aleatorio,B,79.5,5.2
+KNORA-U sem_roteamento,A,81.0,11.8
+KNORA-U sem_roteamento,B,79.3,5.1
+Melhor membro,A,80.0,11.7
+Melhor membro,B,77.9,7.2
+OLA aleatorio,A,79.9,9.9
+OLA aleatorio,B,78.2,5.7
+OLA com_roteamento,A,81.2,11.6
+OLA com_roteamento,B,78.5,6.4
+OLA conflito,A,79.9,11.6
+OLA conflito,B,78.7,5.5
+OLA conflito_aleatorio,A,80.2,10.7
+OLA conflito_aleatorio,B,78.4,5.9
+OLA sem_roteamento,A,80.6,12.1
+OLA sem_roteamento,B,78.3,5.8
+Oraculo (algum membro acerta),A,,
+Oraculo (algum membro acerta),B,,
+Pior membro,A,75.6,12.5
+Pior membro,B,72.8,7.7
+Voto da pool inteira,A,81.1,11.4
+Voto da pool inteira,B,79.1,5.1

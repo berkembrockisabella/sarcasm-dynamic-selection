@@ -52,7 +52,7 @@ from sklearn.metrics import (
 from sklearn.neighbors import NearestNeighbors
 from sklearn.preprocessing import StandardScaler, normalize
 
-from pool_selection.config import SPLIT_DIR, SPLIT_SUFFIX
+from pool_selection.config import INCONGRUENCIA_PATH, SPLIT_DIR, SPLIT_SUFFIX, VARIANTE
 from pool_selection.feature_loader import FeatureStore
 from pool_training.load_frozen_pool import load_frozen_pool
 
@@ -93,7 +93,7 @@ GRUPOS = [
 # nao sobrescreve o resultado principal
 OUT_DIR = Path(
     "data/processed/selection"
-) / SPLIT_SUFFIX / (f"k_{K}" if K != 7 else "")
+) / SPLIT_SUFFIX / VARIANTE / (f"k_{K}" if K != 7 else "")
 
 
 # ============================================================
@@ -112,14 +112,24 @@ teste = pd.read_csv(
     SPLIT_DIR / "test.csv"
 )
 
+# Original (incongruence.csv) ou calibrada por split -- ver config.py
 grupos = pd.read_csv(
-    "data/processed/incongruence.csv"
+    INCONGRUENCIA_PATH
 )[
     [
         "KEY",
         "grupo",
+        "n_oppositions",
     ]
 ]
+
+# Segundo agrupamento (roteamento "conflito"): ha conflito quando pelo menos
+# um par de modalidades tem polaridades opostas (positiva x negativa).
+# Diferente do A/B, modalidade neutra nao conta como discordancia -- no A/B,
+# 81% do grupo A e "tudo neutro", entao ele separava falta de emocao, nao
+# concordancia
+grupos["grupo_conflito"] = np.where(grupos["n_oppositions"] > 0, "conflito", "sem_conflito")
+grupos = grupos.drop(columns=["n_oppositions"])
 
 
 # ============================================================
@@ -472,6 +482,35 @@ for i in range(
 
 
 # ------------------------------------------------------------
+# Busca de vizinhos dentro de uma particao qualquer do DSEL -- usada pelo
+# roteamento por conflito e pelos controles aleatorios. Mesma logica do
+# roteamento A/B acima: k limitado ao tamanho do grupo
+# ------------------------------------------------------------
+
+def vizinhos_por_particao(particao_dsel, particao_teste):
+    buscas = {}
+    for g in np.unique(particao_dsel):
+        indices = np.where(particao_dsel == g)[0]
+        buscas[g] = (
+            indices,
+            NearestNeighbors(n_neighbors=min(K, len(indices))).fit(X_dsel[indices]),
+        )
+    lista = []
+    for i in range(len(teste)):
+        if particao_teste[i] not in buscas:
+            raise ValueError(f"Grupo {particao_teste[i]} sem instancias no DSEL")
+        indices, busca_g = buscas[particao_teste[i]]
+        locais = busca_g.kneighbors(X_teste[i:i + 1], return_distance=False)[0]
+        lista.append(indices[locais])
+    return lista
+
+
+conflito_dsel = dsel["grupo_conflito"].to_numpy()
+conflito_teste = teste["grupo_conflito"].to_numpy()
+vizinhos["conflito"] = vizinhos_por_particao(conflito_dsel, conflito_teste)
+
+
+# ------------------------------------------------------------
 # Roteamento aleatorio (controle da ablacao E2)
 # ------------------------------------------------------------
 
@@ -511,7 +550,17 @@ for sorteio in range(N_SORTEIOS):
         )[0]
         vizinhos[nome].append(indices[locais])
 
-ROTEAMENTOS = ROTEAMENTOS + NOMES_ALEATORIOS
+# Controle do roteamento por conflito: grupos sorteados com o mesmo tamanho
+# de "conflito" e "sem_conflito" (nome conflito_aleatorio_XX)
+NOMES_ALEATORIOS_CONFLITO = []
+
+for sorteio in range(N_SORTEIOS):
+    gerador = np.random.default_rng(2000 + sorteio)
+    nome = f"conflito_aleatorio_{sorteio:02d}"
+    NOMES_ALEATORIOS_CONFLITO.append(nome)
+    vizinhos[nome] = vizinhos_por_particao(gerador.permutation(conflito_dsel), conflito_teste)
+
+ROTEAMENTOS = ROTEAMENTOS + ["conflito"] + NOMES_ALEATORIOS + NOMES_ALEATORIOS_CONFLITO
 
 
 # ============================================================
@@ -1085,11 +1134,12 @@ resumo = pd.DataFrame(
 # comparacao, porque um sorteio isolado pode ter sorte ou azar
 if NOMES_ALEATORIOS:
     linhas_media = []
-    for metodo in METODOS:
-        nomes = [f"{metodo} {nome}" for nome in NOMES_ALEATORIOS]
-        parte = resumo[resumo["metodo"].isin(nomes)]
-        media = parte.drop(columns=["metodo"]).mean()
-        linhas_media.append({"metodo": f"{metodo} aleatorio", **media.to_dict()})
+    for rotulo, lista in [("aleatorio", NOMES_ALEATORIOS), ("conflito_aleatorio", NOMES_ALEATORIOS_CONFLITO)]:
+        for metodo in METODOS:
+            nomes = [f"{metodo} {nome}" for nome in lista]
+            parte = resumo[resumo["metodo"].isin(nomes)]
+            media = parte.drop(columns=["metodo"]).mean()
+            linhas_media.append({"metodo": f"{metodo} {rotulo}", **media.to_dict()})
     resumo = pd.concat([resumo, pd.DataFrame(linhas_media)], ignore_index=True)
 
 
@@ -1305,6 +1355,22 @@ membros_teste.insert(0, "KEY", teste["KEY"].to_numpy())
 membros_teste.to_csv(
     OUT_DIR
     / "ds_routing_membros_test.csv",
+    index=False,
+)
+
+# Desempenho da pool no DSEL -- criterio para escolher entre variantes da
+# pool sem olhar o teste
+voto_dsel = (pred_dsel.mean(axis=1) > 0.5).astype(int)
+pd.DataFrame([{
+    "variante": VARIANTE or "padrao",
+    "f1_macro_voto_dsel": f1_score(y_dsel, voto_dsel, average="macro", zero_division=0),
+    "acuracia_media_membros_dsel": acuracia_global.mean(),
+    "oraculo_dsel": (pred_dsel == y_dsel[:, None]).any(axis=1).mean(),
+    "n_dsel_conflito": int((conflito_dsel == "conflito").sum()),
+    "n_teste_conflito": int((conflito_teste == "conflito").sum()),
+}]).to_csv(
+    OUT_DIR
+    / "ds_routing_dsel.csv",
     index=False,
 )
 

@@ -1,0 +1,8 @@
+member_id,candidate_id,modalities,classifier,best_params,n_features,model_path
+C01,context+audio__svm,context+audio,svm,"{""model__C"": 10, ""model__gamma"": ""scale"", ""model__kernel"": ""rbf""}",1536,data\results\pool\split_01\frozen_pools\div_0.3_ctx_max4\C01.joblib
+C02,text+context+audio+visual__svm,text+context+audio+visual,svm,"{""model__C"": 1, ""model__gamma"": ""scale"", ""model__kernel"": ""rbf""}",2320,data\results\pool\split_01\frozen_pools\div_0.3_ctx_max4\C02.joblib
+C03,text+context+audio__svm,text+context+audio,svm,"{""model__C"": 1, ""model__gamma"": ""scale"", ""model__kernel"": ""rbf""}",2304,data\results\pool\split_01\frozen_pools\div_0.3_ctx_max4\C03.joblib
+C04,text+context__random_forest,text+context,random_forest,"{""model__max_depth"": null, ""model__max_features"": ""sqrt"", ""model__min_samples_leaf"": 4, ""model__n_estimators"": 500}",1536,data\results\pool\split_01\frozen_pools\div_0.3_ctx_max4\C04.joblib
+C05,text+audio__svm,text+audio,svm,"{""model__C"": 1, ""model__gamma"": ""scale"", ""model__kernel"": ""rbf""}",1536,data\results\pool\split_01\frozen_pools\div_0.3_ctx_max4\C05.joblib
+C06,text+audio+visual__svm,text+audio+visual,svm,"{""model__C"": 1, ""model__gamma"": ""scale"", ""model__kernel"": ""rbf""}",1552,data\results\pool\split_01\frozen_pools\div_0.3_ctx_max4\C06.joblib
+C07,audio+visual__random_forest,audio+visual,random_forest,"{""model__max_depth"": 10, ""model__max_features"": ""log2"", ""model__min_samples_leaf"": 1, ""model__n_estimators"": 100}",784,data\results\pool\split_01\frozen_pools\div_0.3_ctx_max4\C07.joblib
