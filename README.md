@@ -156,6 +156,30 @@ Treinados uma vez no treino e aplicados igual a todas as falas, com **as 4 modal
 
 ---
 
+## Configuração final do experimento principal
+
+Configuração usada em E1–E5. Ela foi definida no protocolo antes de olhar o teste, e nenhuma ablação (E6) a substituiu.
+
+| Componente | Configuração |
+|---|---|
+| **Dados** | MUStARD++: 1202 falas (601 sarcásticas), 27 falantes |
+| **Splits** | 10 splits por falante, ~70% treino / ~15% DSEL / ~15% teste; seeds 8, 18, 30, 45, 46, 48, 70, 96, 100 e 111 (os 10 primeiros com DSEL e teste entre 120 e 240 falas e 40% a 60% de sarcasmo) |
+| **Representações** | Texto e contexto: BART-base (média dos estados ocultos, 768 cada); áudio: wav2vec2-base-960h (média no tempo, 768); rosto: média e desvio das 7 emoções faciais, nº de rostos e ausência (16). Total: 2320 dimensões |
+| **Emoção por modalidade** | Texto e contexto: DeBERTa-v3-large (`Tanneru/Emotion-Classification-DeBERTa-v3-Large`); áudio: emotion2vec+ large; rosto: ViT de expressão facial (extração original). Polaridade pela emoção predominante (argmax) |
+| **Grupos de incongruência** | Originais (`incongruence.csv`, não calibrados). A/B: as 4 modalidades com a mesma polaridade ou não. Conflito: algum par positiva × negativa |
+| **Candidatos da pool** | 45 = 15 combinações de modalidades × 3 classificadores (SVM RBF, regressão logística, random forest com `class_weight="balanced"`) |
+| **Busca de hiperparâmetros** | CV estratificada por falante (5 folds), critério F1-macro. SVM: C ∈ {0,1; 1; 10; 100}, gamma ∈ {scale; 0,01; 0,001}. RL: C ∈ {0,1; 1; 10}, L1 ou L2 (liblinear). RF: 100/300/500 árvores, profundidade {None; 10; 20}, folha mínima {1; 2; 4}, max_features {sqrt; log2} |
+| **Escolha da pool** | Gulosa entre os 15 melhores candidatos: 0,7 × desempenho normalizado + 0,3 × discordância média (diversidade 0,3); 7 membros, treinados no treino inteiro |
+| **Seleção dinâmica** | k = 7 vizinhos no DSEL; espaço = 4 modalidades padronizadas (ajuste só no treino) e normalizadas (L2); OLA, KNORA-E e KNORA-U; roteamentos sem, A/B e conflito, com controles aleatórios de 10 sorteios |
+| **Soft-MoE** | Gate MLP 2320 → 32 → 7 (ReLU, dropout 0,2, softmax) sobre as probabilidades dos 7 membros; treino no DSEL com entropia cruzada binária, Adam (taxa 0,001, weight decay 0,0001), lotes de 32, até 200 épocas e paciência 20; limiar 0,5; sem incongruência |
+| **Estáticos** | SVM, RL e RF com as 4 modalidades (hiperparâmetros da CV da pool) e o voto dos 3 |
+| **Avaliação** | F1-macro no teste (principal), acurácia, precisão e recall; Friedman + Nemenyi (E1) e Wilcoxon pareado + Holm (E2), α = 0,05; semente 42 |
+| **Comando** | `python -m src.run_experiment --split all --include-k-sweep --include-diversity` e depois `python src/aggregate_splits.py` |
+
+As variantes (diversidade 0,8 e 1,0, máximo de 4 membros com contexto, grupos calibrados) ficam como ablação no E6.
+
+---
+
 ## Protocolo experimental
 
 | | Experimento | Como | Estatística |
