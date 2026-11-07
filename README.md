@@ -68,7 +68,7 @@ A divisão é sempre **por falante**: todas as falas de um personagem ficam no m
 
 ## 1. Splits
 
-O experimento final usa **10 splits** (`data/splits/split_00` a `split_09`), gerados por `src/data/create_splits_repetidos.py`.
+O experimento final usa **10 splits** (`data/splits/split_00` a `split_09`), gerados por `src/data/create_splits_repetidos.py`. Mais detalhes: [`src/data/README.md`](src/data/README.md)
 
 - **Seeds percorridos em ordem** (0, 1, 2, …); ficam os 10 primeiros que passam no critério de aceitação: DSEL e teste com **120 a 240 falas** e **40% a 60% de sarcasmo** cada.
 - **Por que o critério:** o MUStARD++ tem só 27 falantes, muito desiguais (CHANDLER sozinho tem 157 falas, 76% sarcásticas). Sem controle, os seeds 0 a 9 geravam DSEL de 49 a 365 falas e teste com 27% a 60% de sarcasmo.
@@ -89,6 +89,8 @@ O experimento final usa **10 splits** (`data/splits/split_00` a `split_09`), ger
 | Áudio | `facebook/wav2vec2-base-960h`, média no tempo | 768 |
 | Rosto | Média e desvio das 7 emoções faciais, nº de rostos e indicador de ausência | 16 |
 
+Detalhes em: [`src/features/README.md`](src/features/README.md)
+
 ## 3. Valência e grupo de incongruência
 
 Para cada modalidade, um classificador de emoções pré-treinado dá a distribuição sobre as emoções. A **valência** é `P(positivas) − P(negativas)`, de −1 a +1. A emoção predominante define a polaridade:
@@ -107,11 +109,11 @@ Para cada modalidade, um classificador de emoções pré-treinado dá a distribu
 - **Grupo B:** pelo menos uma difere (discordam).
 - **Conflito:** pelo menos um par de modalidades com polaridades opostas (positiva × negativa). Neutro não conta como discordância. São 330 falas com conflito e 872 sem; o grupo A/B é bem mais desigual (173 × 1029).
 
-A incongruência **não entra como feature** dos classificadores. Ela só define o grupo usado no roteamento. Detalhes em [`src/incongruence/README.md`](src/incongruence/README.md).
+A incongruência **não entra como feature** dos classificadores. Ela só define o grupo usado no roteamento, mais detalhes em [`src/incongruence/README.md`](src/incongruence/README.md).
 
 ## 4. Pool de 7 especialistas
 
-Refeita em cada split, usando só o treino ([`src/pool_selection/README.md`](src/pool_selection/README.md)):
+Refeita em cada split, usando só o treino. Detalhes em: [`src/pool_selection/README.md`](src/pool_selection/README.md)
 
 1. **45 candidatos:** 15 combinações de modalidades × 3 classificadores (SVM, regressão logística, random forest).
 2. **Validação cruzada** estratificada por falante (5 folds) com busca em grade de hiperparâmetros e F1-macro como critério.
@@ -129,7 +131,7 @@ Composição dos 70 membros (7 por split × 10):
 
 ## 5. Seleção dinâmica
 
-Para cada fala de teste, procuram-se os **k = 7 vizinhos** mais parecidos no DSEL e verifica-se quais membros acertaram esses vizinhos ([`src/selection/README.md`](src/selection/README.md)). O espaço de vizinhança concatena as 4 modalidades, cada uma padronizada (ajustada no treino) e normalizada (L2).
+Para cada fala de teste, procuram-se os **k = 7 vizinhos** mais parecidos no DSEL e verifica-se quais membros acertaram esses vizinhos (detalhes em: [`src/selection/README.md`](src/selection/README.md)). O espaço de vizinhança concatena as 4 modalidades, cada uma padronizada (ajustada no treino) e normalizada (L2).
 
 | Método | Quem decide |
 |---|---|
@@ -147,15 +149,15 @@ Para cada fala de teste, procuram-se os **k = 7 vizinhos** mais parecidos no DSE
 
 ## 6. Soft-MoE
 
-Combina as probabilidades dos mesmos 7 membros com pesos dados por um **gate** ([`src/moe/README.md`](src/moe/README.md)):
+Combina as probabilidades dos mesmos 7 membros com pesos dados por um **gate** (detalhes em: [`src/moe/README.md`](src/moe/README.md)).
 
 - Gate: MLP com entrada das 4 modalidades (2320 dimensões), camada de 32 neurônios, ReLU, dropout 0,2 e softmax sobre os 7 membros (cerca de 74,5 mil parâmetros).
 - Treinado no DSEL com entropia cruzada binária, Adam (taxa 0,001, weight decay 0,0001), lotes de 32, até 200 épocas e paciência de 20.
 - O gate não recebe a incongruência.
 
-## 7. Classificadores estáticos (referência)
+## 7. Classificadores estáticos
 
-Treinados uma vez no treino e aplicados igual a todas as falas, com **as 4 modalidades juntas**: SVM, regressão logística, random forest (hiperparâmetros da validação cruzada da pool) e o voto dos 3.
+Treinados uma vez no treino e aplicados igual a todas as falas, com **as 4 modalidades juntas**: SVM, regressão logística, random forest (hiperparâmetros da validação cruzada da pool) e o voto dos 3. Detalhes em: [`src/static/README.md`](src/static/README.md)
 
 ---
 
