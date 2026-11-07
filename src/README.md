@@ -6,16 +6,16 @@ Implementação do experimento de seleção dinâmica de classificadores com rot
 
 | Módulo | O que faz |
 | :--- | :--- |
+| `analysis/` | Diagnóstico dos extratores de emoção contra a anotação |
 | `data/` | Prepara o MUStARD++, gera os 10 splits por falante e extrai o áudio |
 | `features/embeddings/` | Representações usadas pelos classificadores (BART, wav2vec2, rosto) |
 | `features/valencia/` | Emoção e valência de cada modalidade, incluindo os extratores alternativos e a reextração do rosto do falante |
 | `incongruence/` | Grupos de incongruência (A/B e conflito), originais e calibrados |
 | `pool_selection/` | Validação cruzada dos 45 candidatos, escolha dos 7 membros e variantes da pool |
 | `pool_training/` | Treino e carregamento da pool congelada |
-| `selection/` | Seleção dinâmica (OLA, KNORA-E, KNORA-U) com os roteamentos |
 | `moe/` | Soft-MoE |
+| `selection/` | Seleção dinâmica (OLA, KNORA-E, KNORA-U) com os roteamentos |
 | `static/` | Classificadores estáticos multimodais |
-| `analysis/` | Diagnóstico dos extratores de emoção contra a anotação |
 
 ## Scripts na raiz de `src`
 
