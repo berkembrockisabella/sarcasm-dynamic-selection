@@ -8,6 +8,9 @@ Detecta sarcasmo em falas de séries de comédia usando **texto**, **contexto** 
 - **Protocolo:** 10 splits por falante, testes estatísticos entre splits, ablação do roteamento, sensibilidade a parâmetros, análise de erros, custo computacional e ablações complementares (extratores e pool).
 - **Resultado principal:** a incongruência emocional, como foi possível medi-la, não ajudou a seleção dinâmica; nenhum método superou os estáticos.
 
+## Exemplificação do método proposto
+![Exemplificação do método proposto](diagrama.png)
+
 ---
 
 ## Perguntas de pesquisa
@@ -379,13 +382,13 @@ Mesma regra para as 4 modalidades: valência `V = P(happy) − P(negativas)`, po
 | `src/features/embeddings/` | Representações dos classificadores (BART, wav2vec2, rosto) |
 | `src/features/valencia/` | Emoção e valência por modalidade; extratores alternativos de texto e contexto (`extratores_alternativos.py`); reextração do rosto do falante (`extract_face_tracks.py`, `extract_face_emotions.py`) |
 | `src/incongruence/` | Grupos de incongruência originais (`build_incongruence.py`) e calibrados (`calibrar_polaridade.py`) |
-| `src/pool_selection/` | CV dos 45 candidatos, escolha dos 7 membros, variantes (`reselect_pool.py`) e sensibilidade à diversidade (`compare_diversity.py`); `config.py` define os caminhos por split e variante |
+| `src/pool_selection/` | CV dos 45 candidatos, escolha dos 7 membros (`build_pool.py`), variantes (`reselect_pool.py`) e sensibilidade à diversidade (`compare_diversity.py`); `config.py` define os caminhos por split e variante |
 | `src/pool_training/` | Treino e carregamento da pool congelada |
 | `src/selection/` | Seleção dinâmica com todos os roteamentos (`ds_routing.py`) |
 | `src/moe/` | Soft-MoE |
-| `src/static/` | Estáticos multimodais |
+| `src/static/` | Classificadores estáticos multimodais |
 | `src/analysis/` | Diagnóstico dos extratores contra a anotação |
-| `src/run_experiment.py` | Orquestra um split (`--split 00`) ou todos (`--split all`) |
+| `src/run_experiment.py` | Orquestra todo o experimento com um split (`--split 00`) ou todos (`--split all`) |
 | `src/aggregate_splits.py` | Agrega os 10 splits (E1–E5) de uma configuração |
 | `src/compare_variants.py` | Compara as ablações com a configuração padrão (E6) |
 | `src/statistical_comparison.py` | McNemar + Holm e bootstrap por split (complemento) |
@@ -477,6 +480,7 @@ python src/compare_variants.py
 - Jacobs, Jordan, Nowlan & Hinton (1991). Adaptive Mixtures of Local Experts. *Neural Computation*, 3(1).
 - Ko, Sabourin & Britto (2008). From dynamic classifier selection to dynamic ensemble selection. *Pattern Recognition*, 41(5).
 - Lewis et al. (2020). BART: Denoising Sequence-to-Sequence Pre-training for Natural Language Generation, Translation, and Comprehension. *ACL*.
+- Monteiro et al. (2020). Classifier pool generation based on a two-level diversity approach. *25th International Conference on Pattern Recognition (ICPR)*.
 - Ma et al. (2024). emotion2vec: Self-Supervised Pre-Training for Speech Emotion Representation. *Findings of ACL*.
 - Ray et al. (2022). A Multimodal Corpus for Emotion Recognition in Sarcasm. *LREC*.
 - Woods, Kegelmeyer & Bowyer (1997). Combination of multiple classifiers using local accuracy estimates. *IEEE TPAMI*, 19(4).

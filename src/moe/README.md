@@ -1,4 +1,4 @@
-# Mixture of Experts (MoE)
+# Mixture of Experts (MoE) (`src/moe/`)
 
 Este módulo implementa a abordagem *Mixture of Experts* (MoE), que combina as previsões de classificadores especializados por meio de um mecanismo de roteamento (*gate*), que aprende a determinar a contribuição de cada especialista para uma determinada instância.
 
@@ -34,7 +34,7 @@ Sua arquitetura é formada por:
 * Uma camada totalmente conectada com 32 neurônios;
 * Uma função de ativação ReLU;
 * Uma camada de Dropout com taxa de 0,2;
-* Uma camada de saída com um neurônio para cada especialista da pool.
+* Uma camada de saída com um neurônio para cada especialista da *pool*.
 
 A camada de saída produz **logits**, isto é, pontuações brutas que representam a preferência do gate por cada especialista. A função *Softmax* transforma essas pontuações em pesos não negativos cuja soma é igual a 1.
 
@@ -71,10 +71,11 @@ Os resultados são armazenados no diretório `data/processed/moe/split_XX/`:
 data/
 └── processed/
     └── moe/
-        ├── moe_config.json             configurações utilizadas
-        ├── moe_results.csv             métricas de avaliação final
-        ├── moe_summary.csv             métricas para comparação
-        ├── moe_test.csv                previsões conjunto TEST
-        └── moe_training_history.csv    histórico do treinamento do gate,
-                                        incluindo perdas registradas épocas
+        └── split_XX/
+            ├── moe_config.json             configurações utilizadas
+            ├── moe_results.csv             métricas de avaliação final
+            ├── moe_summary.csv             métricas para comparação
+            ├── moe_test.csv                previsões conjunto TEST
+            └── moe_training_history.csv    histórico do treinamento do gate,
+                                            incluindo perdas registradas épocas
 ```

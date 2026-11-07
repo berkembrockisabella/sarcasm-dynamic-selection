@@ -1,6 +1,6 @@
-# Seleção dinâmica (`src/selection/`)
+# Seleção Dinâmica de Classificadores (`src/selection/`)
 
-`ds_routing.py` escolhe, para cada fala de teste, quais dos 7 membros da pool congelada decidem, com base em falas parecidas do DSEL.
+Este módulo implementa a seleção dinâmica de classificadores (*Dynamic Selection* - DS), utilizando uma pool congelada de 7 especialistas já treinados. Para cada fala de teste, `ds_routing.py` escolhe quais dos especialistas serão utilizados na predição, com base em falas parecidas do DSEL.
 
 ## Como rodar
 
@@ -14,20 +14,22 @@ Ou direto, com o split no ambiente: `SPLIT_ID=00 python -m src.selection.ds_rout
 
 ## Como funciona
 
-1. Carrega treino, DSEL e teste do split e os grupos de incongruência de cada fala.
-2. Calcula as predições dos 7 membros no DSEL e no teste.
-3. Monta o espaço de vizinhança: as 4 modalidades concatenadas, cada uma padronizada (ajustada só no treino) e normalizada (L2).
-4. Acha os k = 7 vizinhos de cada fala de teste no DSEL, conforme o roteamento.
-5. Decide com cada método:
-   - **OLA:** o membro que mais acertou os vizinhos;
-   - **KNORA-E:** votam os que acertaram todos os vizinhos (se nenhum, a vizinhança diminui);
-   - **KNORA-U:** todos votam, com peso igual ao número de vizinhos acertados.
+1. **Carrega os dados:** treino, DSEL e teste do split e os grupos de incongruência de cada fala (`grupo` A ou B, de `data/processed/incongruence.csv`).
+2. **Carrega a pool congelada** (os 7 modelos já treinados) e calcula as predições deles no DSEL e no teste.
+3. **Monta o espaço de vizinhança:** concatena as 4 modalidades (texto, contexto, áudio, rosto), cada uma padronizada (ajustada só no treino) e normalizada (L2), para ter peso parecido na distância.
+4. **Acha os 7 vizinhos** de cada fala de teste dentro do DSEL:
+   - **sem roteamento:** procura no DSEL inteiro;
+   - **com roteamento:** procura só entre as falas do DSEL do mesmo grupo da fala de teste (A: todas as modalidades com a mesma polaridade; B: pelo menos uma difere).
+5. **Escolhe quem decide** olhando quem acertou esses vizinhos:
+   - **OLA (*Overall Local Accuracy*):** o especialista que mais acertou os vizinhos decide sozinho;
+   - **KNORA-E (*K-Nearest Oracles Eliminate*):** votam só os que acertaram **todos** os vizinhos (se nenhum, reduz a vizinhança);
+   - **KNORA-U (*K-Nearest Oracles Union*):** todos votam, com peso igual ao número de vizinhos que acertaram.
 
 ## Roteamentos
 
 | Roteamento | Onde procura os vizinhos |
 |---|---|
-| `sem_roteamento` | No DSEL inteiro |
+| `sem_roteamento` | No conjunto DSEL inteiro |
 | `com_roteamento` | Só no grupo A/B da fala (A: as 4 modalidades com a mesma polaridade) |
 | `conflito` | Só no grupo de conflito da fala (alguma modalidade positiva e outra negativa) |
 | `aleatorio` | Grupos sorteados com o mesmo tamanho de A e B (controle do A/B) |
@@ -35,14 +37,15 @@ Ou direto, com o split no ambiente: `SPLIT_ID=00 python -m src.selection.ds_rout
 
 Os controles aleatórios usam 10 sorteios; o resumo traz cada sorteio e a média.
 
-## Saídas (`data/processed/selection/split_XX/`)
+## Saídas
+Os resultados são armazenados em `data/processed/selection/split_XX/`
 
 | Arquivo | Conteúdo |
 |---|---|
-| `ds_routing_test.csv` | Predição de cada método e roteamento, por fala |
-| `ds_routing_summary.csv` | Métricas no teste, com pior e melhor membro, voto da pool e oráculo |
-| `ds_routing_group.csv` | Métricas por grupo A/B |
-| `ds_routing_membros_test.csv` | Predição de cada membro no teste (análise de erros) |
 | `ds_routing_dsel.csv` | Voto e oráculo no DSEL (critério de escolha entre variantes) |
+| `ds_routing_group.csv` | Métricas por grupo A/B |
+| `ds_routing_membros_test.csv` | Predição de cada método e roteamento, por fala |
+| `ds_routing_summary.csv` | Métricas no teste, com pior e melhor membro, voto da pool e oráculo |
 | `ds_routing_tempo.csv` | Tempo da seleção por fala |
+| `ds_routing_membros_test.csv` | Predição de cada membro no teste (análise de erros) |
 | `k_<K>/` | Mesmas saídas para outros valores de k (sensibilidade) |

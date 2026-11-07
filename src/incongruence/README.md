@@ -1,4 +1,4 @@
-# Incongruência
+# Incongruência (`src/incongruence/`)
 
 Esta pasta define, para cada fala, o **grupo A ou B** que é usado no roteamento da seleção dinâmica.
 

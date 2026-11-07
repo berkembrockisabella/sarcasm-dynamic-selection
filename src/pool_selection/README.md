@@ -1,4 +1,4 @@
-# Pool selection
+# Pool selection (`src/pool_selection/`)
 
 Módulo responsável pela **formação da *pool* de classificadores**. A seleção é realizada uma única vez, somente sobre o conjunto de treinamento e usando apenas as *features* das modalidades.
 
@@ -58,12 +58,14 @@ O processo de seleção de classificadores da *pool* segue o fluxo:
 pool_selection/
 ├── build_pool.py                   orquestra todo o processo de formação da pool
 ├── classifiers.py                  define os classificadores avaliados e sua construção
+├── compare_diversity.py            compara pesos desempenho/diversidade (ablação)
 ├── config.py                       contém caminhos, configurações e espaços de hiperparâmetros
 ├── cross_validation.py             executa a validação cruzada, otimização de hiperparâmetros e geração das predições OOF
 ├── diversity.py                    calcula as métricas de diversidade entre classificadores
 ├── feature_loader.py               carrega e combina as representações das diferentes modalidades
 ├── modality_combinations.py        gera as combinações de modalidades
 ├── select_pool.py                  seleciona os 7 membros finais considerando desempenho e diversidade
+├── reselect_pool.py                refazem a seleção dos 7 membros (ablação)
 └── README.md
 ```
 
@@ -175,14 +177,15 @@ Nesta etapa os modelos finais não são treinados. O resultado é apenas a **def
 data/
 └── results/
     └── pool/
-        └── pool_selection/
-            ├── fold_assignments.csv
-            ├── cv_results.csv
-            ├── fold_metrics.csv
-            ├── oof_predictions.csv
-            ├── pairwise_diversity.csv
-            ├── kappa_error.png
-            └── pool_definition.csv       definição congelada da pool
+        └── split_XX/
+            └── pool_selection/
+                ├── cv_results.csv
+                ├── fold_assignments.csv
+                ├── fold_metrics.csv
+                ├── kappa_error.png
+                ├── oof_predictions.csv
+                ├── pairwise_diversity.csv
+                └── pool_definition.csv       definição congelada da pool
 ```
 
 A definição resultante `pool_definition.csv` será posteriormente utilizada para treinar a pool em `pool_training`, com a mesma composição, classificadores e hiperparâmetros.
