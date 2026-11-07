@@ -103,7 +103,7 @@ Para cada modalidade, um classificador de emoções pré-treinado dá a distribu
 |---|---|
 | Texto e contexto | `Tanneru/Emotion-Classification-DeBERTa-v3-Large` |
 | Áudio | `iic/emotion2vec_plus_large` |
-| Rosto | ViT de expressão facial, média dos rostos por quadro (`visual_emotions.csv`; os scripts dessa extração original não estão no repositório) |
+| Rosto | `mo-thecreator/vit-Facial-Expression-Recognition` (ViT), aplicado às faces detectadas com MTCNN (`visual_emotions.csv`) |
 
 - **Grupo A:** as 4 modalidades têm a mesma polaridade (concordam).
 - **Grupo B:** pelo menos uma difere (discordam).
@@ -170,7 +170,7 @@ Configuração usada em E1–E5. Ela foi definida no protocolo antes de olhar o 
 | **Dados** | MUStARD++: 1202 falas (601 sarcásticas), 27 falantes |
 | **Splits** | 10 splits por falante, ~70% treino / ~15% DSEL / ~15% teste; seeds 8, 18, 30, 45, 46, 48, 70, 96, 100 e 111 (os 10 primeiros com DSEL e teste entre 120 e 240 falas e 40% a 60% de sarcasmo) |
 | **Representações** | Texto e contexto: BART-base (média dos estados ocultos, 768 cada); áudio: wav2vec2-base-960h (média no tempo, 768); rosto: média e desvio das 7 emoções faciais, nº de rostos e ausência (16). Total: 2320 dimensões |
-| **Emoção por modalidade** | Texto e contexto: DeBERTa-v3-large (`Tanneru/Emotion-Classification-DeBERTa-v3-Large`); áudio: emotion2vec+ large; rosto: ViT de expressão facial (extração original). Polaridade pela emoção predominante (argmax) |
+| **Emoção por modalidade** | Texto e contexto: DeBERTa-v3-large (`Tanneru/Emotion-Classification-DeBERTa-v3-Large`); áudio: emotion2vec+ large; rosto: `mo-thecreator/vit-Facial-Expression-Recognition`, aplicado às faces detectadas com MTCNN. Polaridade pela emoção predominante (argmax) |
 | **Grupos de incongruência** | Originais (`incongruence.csv`, não calibrados). A/B: as 4 modalidades com a mesma polaridade ou não. Conflito: algum par positiva × negativa |
 | **Candidatos da pool** | 45 = 15 combinações de modalidades × 3 classificadores (SVM RBF, regressão logística, random forest com `class_weight="balanced"`) |
 | **Busca de hiperparâmetros** | CV estratificada por falante (5 folds), critério F1-macro. SVM: C ∈ {0,1; 1; 10; 100}, gamma ∈ {scale; 0,01; 0,001}. RL: C ∈ {0,1; 1; 10}, L1 ou L2 (liblinear). RF: 100/300/500 árvores, profundidade {None; 10; 20}, folha mínima {1; 2; 4}, max_features {sqrt; log2} |
@@ -324,7 +324,7 @@ Mesma regra para as 4 modalidades: valência `V = P(happy) − P(negativas)`, po
 
 - Candidatos de texto e contexto: DeBERTa atual e `j-hartmann/emotion-english-distilroberta-base` (treinado com dados que incluem o MELD, diálogos de *Friends*); para o contexto, também só a fala anterior. Gerados por `src/features/valencia/extratores_alternativos.py`.
 - Áudio (emotion2vec+) mantém o extrator atual; só o τ é ajustado.
-- **Rosto reextraído só do personagem que fala** (`extract_face_tracks.py` + `extract_face_emotions.py`): YuNet detecta e acompanha os rostos (3 quadros/s, sem atravessar cortes de cena), o SFace dá a identidade de cada rosto e, para cada personagem, um rosto médio (protótipo) refinado iterativamente escolhe a trilha do falante. Se nenhum rosto parece com o personagem, o falante está fora da tela e a fala fica neutra. A emoção vem do mesmo ViT (`trpakov/vit-face-expression`), com média ou pico dos quadros. Na conferência visual das 40 primeiras falas, todas as escolhas por identidade mostraram o personagem certo; escolher o maior rosto acertava cerca de 60%.
+- **Rosto reextraído só do personagem que fala** (`extract_face_tracks.py` + `extract_face_emotions.py`): YuNet detecta e acompanha os rostos (3 quadros/s, sem atravessar cortes de cena), o SFace dá a identidade de cada rosto e, para cada personagem, um rosto médio (protótipo) refinado iterativamente escolhe a trilha do falante. Se nenhum rosto parece com o personagem, o falante está fora da tela e a fala fica neutra. A emoção é estimada pelo (`trpakov/vit-face-expression`), com média ou pico dos quadros. Na conferência visual das 40 primeiras falas, todas as escolhas por identidade mostraram o personagem certo; escolher o maior rosto acertava cerca de 60%.
 - Saída: `data/processed/incongruence_calibrada/<split>.csv`. O roteamento usa esses grupos com `--incongruencia calibrada` (variante `inc_calibrada`; a pool é a mesma).
 
 ### Variantes da pool
@@ -372,7 +372,6 @@ Mesma regra para as 4 modalidades: valência `V = P(happy) − P(negativas)`, po
 - **Pool dominada pelo contexto:** 98,6% dos membros usam o contexto, o que limita a complementaridade que a seleção dinâmica pode explorar.
 - **Sinal de incongruência ruidoso:** os extratores de emoção concordam pouco com a anotação humana (kappa de no máximo cerca de 0,3), e nenhum ajuste melhorou isso fora do treino.
 - **Soft-MoE não determinístico:** varia de 0,3 a 0,4 ponto entre rodadas com a mesma pool.
-- **Extração facial original incompleta:** os scripts que geraram `visual_emotions.csv` não estão no repositório. A reextração do rosto do falante (E6) está completa e documentada, mas não substituiu a original porque não melhorou a concordância com a anotação.
 
 ---
 
@@ -380,7 +379,7 @@ Mesma regra para as 4 modalidades: valência `V = P(happy) − P(negativas)`, po
 
 | Caminho | Função |
 |---|---|
-| `src/data/` | Prepara o MUStARD++ (`prepare_mustard.py`), gera os 10 splits (`create_splits_repetidos.py`) e extrai o áudio |
+| `src/data/` | Prepara o MUStARD++, gera os 10 splits, extrai o áudio e realiza o pré-processamento visual: extração de frames, detecção de faces com MTCNN e reconhecimento de expressões faciais com ViT |
 | `src/features/embeddings/` | Representações dos classificadores (BART, wav2vec2, rosto) |
 | `src/features/valencia/` | Emoção e valência por modalidade; extratores alternativos de texto e contexto (`extratores_alternativos.py`); reextração do rosto do falante (`extract_face_tracks.py`, `extract_face_emotions.py`) |
 | `src/incongruence/` | Grupos de incongruência originais (`build_incongruence.py`) e calibrados (`calibrar_polaridade.py`) |
@@ -418,19 +417,26 @@ Pré-requisitos: Python 3.10+ e FFmpeg. Instale com `pip install -r requirements
 
 ### 1. Preparação dos dados (uma vez)
 
-```
+```bash
 python src/data/prepare_mustard.py
 python src/data/create_splits_repetidos.py
+
+# áudio
 python src/data/extract_audio.py
 
-# emocao e valencia por modalidade, e grupos de incongruencia
+# processamento visual
+python src/data/extract_frames.py
+python src/data/crop_faces_mtcnn.py
+python src/data/visual_emotions.py
+
+# emoção e valência por modalidade, e grupos de incongruência
 python src/features/valencia/text_valence.py
 python src/features/valencia/context_valence.py
-python src/features/valencia/audio_valence.py        # retomavel: apague audio_valence.csv para recalcular
+python src/features/valencia/audio_valence.py        # retomável: apague audio_valence.csv para recalcular
 python src/features/valencia/visual_valence.py
 python src/incongruence/build_incongruence.py
 
-# representacoes dos classificadores
+# representações dos classificadores
 python src/features/embeddings/build_context_text.py
 python src/features/embeddings/extract_text_features.py
 python src/features/embeddings/extract_context_features.py
