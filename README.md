@@ -103,7 +103,7 @@ Para cada modalidade, um classificador de emoções pré-treinado dá a distribu
 |---|---|
 | Texto e contexto | `Tanneru/Emotion-Classification-DeBERTa-v3-Large` |
 | Áudio | `iic/emotion2vec_plus_large` |
-| Rosto | `mo-thecreator/vit-Facial-Expression-Recognition` (ViT), aplicado às faces detectadas com MTCNN (`visual_emotions.csv`) |
+| Rosto | `mo-thecreator/vit-Facial-Expression-Recognition` (ViT), aplicado às faces detectadas com MTCNN |
 
 - **Grupo A:** as 4 modalidades têm a mesma polaridade (concordam).
 - **Grupo B:** pelo menos uma difere (discordam).
