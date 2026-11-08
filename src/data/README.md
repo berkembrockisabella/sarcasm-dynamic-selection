@@ -1,4 +1,4 @@
-# Preparação dos Dados
+# Preparação dos Dados (`src/data/`)
 
 Esta pasta contém os scripts responsáveis pela preparação dos dados do MUStARD++ utilizados nos experimentos.
 
@@ -150,4 +150,4 @@ data/processed/
 └── visual_emotions.csv
 ```
 
-Os arquivos brutos e os arquivos multimídia intermediários de grande volume não devem ser versionados no repositório.
+Os arquivos brutos e os arquivos multimídia intermediários de grande volume não são versionados no repositório.
