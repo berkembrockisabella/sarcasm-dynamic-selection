@@ -26,7 +26,7 @@ Cada especificação de `pool_definition.csv` é instanciada de novo e treinada 
       C01 ... C07
            │
            ▼
-  frozen_pools/base/
+  frozen_pools/
 ```
 
 Por exemplo:

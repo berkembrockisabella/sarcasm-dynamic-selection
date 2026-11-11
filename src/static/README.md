@@ -123,8 +123,10 @@ Contém uma versão padronizada e resumida das métricas utilizadas para compara
 O script pode ser executado a partir da raiz do projeto com:
 
 ```bash
-python -m src.static.static_multimodal
+python -m src.run_experiment --split 00 --only static
 ```
+
+Ou direto, com o split no ambiente: `SPLIT_ID=00 python -m src.static.static_multimodal`. Sem `SPLIT_ID`, o script procura um split único em `data/splits/`, que não existe no protocolo de 10 splits.
 
 ## Papel no experimento
 

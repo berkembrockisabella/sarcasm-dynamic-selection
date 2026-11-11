@@ -19,7 +19,7 @@ Detecta sarcasmo em falas de séries de comédia usando **texto**, **contexto** 
 |---|---|---|
 | **Q1** | A seleção dinâmica supera classificadores estáticos multimodais? | **Não.** O SVM estático e o voto dos 3 estáticos tiveram o maior F1-macro (80,1%); o melhor método dinâmico (KNORA-U) teve 79,2%. Nenhum par de métodos difere pelo pós-teste de Nemenyi. |
 | **Q2** | Rotear a busca de vizinhos pela incongruência melhora a seleção dinâmica? | **Não.** Nem pelo grupo A/B nem pelo conflito positivo × negativo, com extratores originais ou calibrados, em nenhuma variante da pool. Os dois roteamentos empatam com os controles aleatórios; maior diferença de +0,6 ponto (p ajustado = 1,0). |
-| **Q3** | A seleção por competência local se compara a uma combinação aprendida (Mixture of Experts)? | **Empate.** Soft-MoE 78,3%, igual a OLA e KNORA-E, abaixo do KNORA-U (diferença não significativa). |
+| **Q3** | A seleção por competência local se compara a uma combinação aprendida (Mixture of Experts)? | **Empate.** Soft-MoE 78,3%, praticamente igual a OLA e KNORA-E (78,2%), abaixo do KNORA-U (79,2%; diferença não significativa). |
 
 ---
 
@@ -281,11 +281,11 @@ No grupo A, o roteamento A/B tende a ficar 2 a 3 pontos acima no OLA e cerca de 
 |---|---|---|---|
 | Seleção da pool (CV no treino) | 1469 s (~24,5 min) | 21027 s | 3544 MB |
 | Treino da pool congelada | 7,7 s | 14,7 s | 195 MB |
-| Seleção dinâmica (12 roteamentos, 3 métodos) | 52,1 s | 69,7 s | 304 MB |
+| Seleção dinâmica (sem, A/B e conflito + 20 sorteios aleatórios; 3 métodos) | 106,3 s | 161,3 s | 306 MB |
 | Soft-MoE (treino do gate + teste) | 8,4 s | 8,8 s | 1239 MB |
 | Estáticos (reaproveitam a CV da pool) | 4,4 s | 7,3 s | 199 MB |
 
-CPU e memória são aproximados (amostrados a cada 0,5 s, somando processos filhos).
+CPU e memória são aproximados (amostrados a cada 0,5 s, somando processos filhos). A seleção e o treino da pool são a média de 9 splits: o `split_00` não registrou o custo dessas duas etapas.
 
 | Abordagem | Treinos na busca de hiperparâmetros | Treinos finais | Parâmetros treináveis extras |
 |---|---|---|---|
@@ -342,7 +342,7 @@ Mesma regra para as 4 modalidades: valência `V = P(happy) − P(negativas)`, po
 
 ### Resultados das ablações (10 splits)
 
-**Extratores:** nenhum ajuste melhorou a concordância com a anotação fora do treino. A calibração escolheu o DeBERTa no texto em todos os splits, e o j-hartmann não superou. O rosto só do falante teve kappa de 0,10, contra 0,09 do rosto antigo; calibrado, cai no DSEL (0,115 → 0,090) e no teste (0,085 → 0,064). O kappa máximo continua em cerca de 0,29 (texto).
+**Extratores:** fora do treino, nenhum ajuste melhorou a concordância com a anotação de forma consistente. A calibração escolheu o DeBERTa no texto em todos os splits, e o j-hartmann não superou. O texto calibrado sobe no DSEL (kappa 0,263 → 0,294), mas não no teste (0,292 → 0,286); contexto, áudio e rosto caem nos dois. O rosto só do falante (argmax, todas as falas) teve kappa de 0,09, contra 0,10 do rosto antigo; calibrado, o rosto cai no DSEL (0,109 → 0,093) e no teste (0,085 → 0,068) (médias dos 10 splits, `calibracao_escolhas.csv`). O kappa máximo continua em cerca de 0,29 (texto).
 
 **Roteamento:** em nenhuma variante algum dos 12 testes do E2 foi significativo (p de Holm = 1,0).
 
@@ -406,6 +406,7 @@ Cada pasta de `src/` com mais de um script tem o seu próprio README.
 | `data/processed/moe/split_XX/`, `static/split_XX/`, `eval/split_XX/` | Soft-MoE, estáticos, resumo consolidado e custos do split |
 | `data/processed/final/` | Resultados agregados da configuração padrão; subpastas com cada ablação e `comparacao_variantes.csv` |
 | `data/processed/diagnostico/`, `extratores/`, `incongruence_calibrada/` | Diagnóstico e ajuste dos extratores |
+| `data/processed/statistical_comparison/split_XX/` | McNemar + Holm e bootstrap por split (complemento) |
 
 Uma ablação grava nas mesmas pastas com uma subpasta extra (`div_0.8`, `div_1.0`, `div_0.3_ctx_max4`, `inc_calibrada`).
 

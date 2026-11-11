@@ -25,8 +25,9 @@ Esta pasta define, para cada fala, o **grupo A ou B** que é usado no roteamento
 - **Entrada:** `data/processed/{text,context,audio,visual}_valence.csv` (gerados em `src/features/valencia/`).
 - **Saída:** `data/processed/incongruence.csv`, uma linha por fala, com:
   - as 4 valências e as 4 polaridades;
-  - `grupo` (A ou B), que é o único dado usado pelo roteamento em `src/selection/ds_routing.py`;
-  - `inc_*` (diferença de valência entre cada par de modalidades), `n_oppositions` (pares com polaridades opostas) e `deadpan` (áudio e rosto neutros), usados só pela outra linha de experimentos (`src/selection/dcs_*.py`).
+  - `grupo` (A ou B), usado pelo roteamento A/B em `src/selection/ds_routing.py`;
+  - `n_oppositions` (pares com polaridades opostas), usado pelo roteamento por conflito em `src/selection/ds_routing.py` (conflito quando `n_oppositions > 0`);
+  - `inc_*` (diferença de valência entre cada par de modalidades) e `deadpan` (áudio e rosto neutros), calculados mas não usados nos experimentos.
 
 ## Como rodar
 

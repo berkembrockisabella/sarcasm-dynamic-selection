@@ -14,7 +14,7 @@ Ou direto, com o split no ambiente: `SPLIT_ID=00 python -m src.selection.ds_rout
 
 ## Como funciona
 
-1. **Carrega os dados:** treino, DSEL e teste do split e os grupos de incongruência de cada fala (`grupo` A ou B, de `data/processed/incongruence.csv`).
+1. **Carrega os dados:** treino, DSEL e teste do split e os grupos de incongruência de cada fala (`grupo` A ou B e grupo de conflito, de `data/processed/incongruence.csv` ou, com `--incongruencia calibrada`, de `data/processed/incongruence_calibrada/split_XX.csv`).
 2. **Carrega a pool congelada** (os 7 modelos já treinados) e calcula as predições deles no DSEL e no teste.
 3. **Monta o espaço de vizinhança:** concatena as 4 modalidades (texto, contexto, áudio, rosto), cada uma padronizada (ajustada só no treino) e normalizada (L2), para ter peso parecido na distância.
 4. **Acha os 7 vizinhos** de cada fala de teste dentro do DSEL:
@@ -44,7 +44,7 @@ Os resultados são armazenados em `data/processed/selection/split_XX/`
 |---|---|
 | `ds_routing_dsel.csv` | Voto e oráculo no DSEL (critério de escolha entre variantes) |
 | `ds_routing_group.csv` | Métricas por grupo A/B |
-| `ds_routing_membros_test.csv` | Predição de cada método e roteamento, por fala |
+| `ds_routing_test.csv` | Predição de cada método e roteamento, por fala |
 | `ds_routing_summary.csv` | Métricas no teste, com pior e melhor membro, voto da pool e oráculo |
 | `ds_routing_tempo.csv` | Tempo da seleção por fala |
 | `ds_routing_membros_test.csv` | Predição de cada membro no teste (análise de erros) |

@@ -1,7 +1,4 @@
 split,conjunto,n,grupo_A,grupo_A_tudo_neutro,conflito
-unico,train,897,64,28,305
-unico,dsel,158,9,4,72
-unico,test,147,10,8,59
 split_00,train,744,56,19,335
 split_00,dsel,230,13,5,97
 split_00,test,228,19,9,107

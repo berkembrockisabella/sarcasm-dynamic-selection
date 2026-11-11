@@ -119,19 +119,19 @@ Calcula a valência da modalidade visual a partir das informações emocionais e
 
 ### `extract_face_tracks.py`
 
-Realiza o processamento das detecções faciais utilizado na preparação das informações necessárias para a estimativa de valência visual.
+Detecta e acompanha os rostos (YuNet) e escolhe a trilha do personagem que fala (SFace). Usado só na ablação E6 (rosto do falante); a valência visual principal vem de `visual_valence.py`.
 
 ---
 
 ### `extract_face_emotions.py`
 
-Extrai informações emocionais das faces utilizadas posteriormente no cálculo da valência visual.
+Estima a emoção do rosto do falante (`trpakov/vit-face-expression`), com média ou pico dos quadros. Saída em `data/processed/extratores/visual_falante_*.csv`, usada só na calibração (E6).
 
 ---
 
 ### `extratores_alternativos.py`
 
-Reúne métodos alternativos avaliados durante o desenvolvimento para obtenção das informações necessárias ao cálculo das valências.
+Gera as emoções de texto e contexto com `j-hartmann/emotion-english-distilroberta-base` e o contexto só com a fala anterior (DeBERTa e j-hartmann). Saída em `data/processed/extratores/`, usada só na calibração (E6).
 
 ## Fluxo geral
 
