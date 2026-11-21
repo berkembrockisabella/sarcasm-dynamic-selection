@@ -32,20 +32,33 @@ METODOS_DS = ["OLA", "KNORA-E", "KNORA-U"]
 KS_SENSIBILIDADE = [3, 5, 7, 11, 15]
 ALFA = 0.05
 
-# Metodos do E1 -- sem roteamento, para nao misturar com a ablacao (E2).
+# Metodos do E1
 # O oraculo nao entra no Friedman porque so tem acuracia
 METODOS_E1 = [
     "Estatico SVM",
     "Estatico Regressao logistica",
     "Estatico Random forest",
     "Estatico voto dos 3",
-    "Pior membro",
-    "Melhor membro",
-    "Voto da pool inteira",
-    "OLA sem_roteamento",
-    "KNORA-E sem_roteamento",
-    "KNORA-U sem_roteamento",
+    
     "Soft-MoE",
+    
+    "OLA com_roteamento",
+    "OLA sem_roteamento",
+    "OLA conflito",
+    "OLA aleatorio",
+    "OLA conflito_aleatorio",
+    
+    "KNORA-E com_roteamento",
+    "KNORA-E sem_roteamento",
+    "KNORA-E conflito",
+    "KNORA-E aleatorio",
+    "KNORA-E conflito_aleatorio",
+
+    "KNORA-U com_roteamento",
+    "KNORA-U sem_roteamento",
+    "KNORA-U conflito",
+    "KNORA-U aleatorio",
+    "KNORA-U conflito_aleatorio",
 ]
 
 SPLITS = sorted(os.path.basename(p) for p in glob.glob("data/splits/split_*"))

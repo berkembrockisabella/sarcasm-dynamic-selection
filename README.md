@@ -2,24 +2,20 @@
 
 Projeto da disciplina Experiência Criativa: Projeto Transformador II (PUCPR).
 
-Detecta sarcasmo em falas de séries de comédia usando **texto**, **contexto** (falas anteriores), **áudio** e **rosto**. Investiga se a **incongruência emocional entre essas modalidades** ajuda a escolher, fala a fala, qual classificador deve decidir.
+O objetivo é investigar se a **incongruência intermodal** (desacordo de polaridade emocional entre texto, contexto, áudio e rosto) funciona como critério explícito de competência na **Seleção Dinâmica (DS) de classificadores** para detecção multimodal de sarcasmo, em comparação com classificadores estáticos e com uma arquitetura Soft-MoE.
 
-- **Dataset:** [MUStARD++](https://github.com/cfiltnlp/MUStARD_Plus_Plus) — 1202 falas (601 sarcásticas, 601 não), 27 falantes.
-- **Protocolo:** 10 splits por falante, testes estatísticos entre splits, ablação do roteamento, sensibilidade a parâmetros, análise de erros, custo computacional e ablações complementares (extratores e pool).
-- **Resultado principal:** a incongruência emocional, como foi possível medi-la, não ajudou a seleção dinâmica; nenhum método superou os estáticos.
+- **Dataset:** [MUStARD++](https://github.com/cfiltnlp/MUStARD_Plus_Plus) — 1202 falas (601 sarcásticas, 601 não), com vídeo, áudio, transcrição e contexto conversacional anterior a cada fala, 27 falantes.
+- **Resultado principal:** os classificadores estáticos (SVM e voto
+dos três modelos) obtiveram o maior F1-macro médio (80.1).
+A melhor DS foi o KNORA-U, com F1-macro médio entre
+79.2 e 79.3 nas suas variantes, e o Soft-MoE obteve 78.3. Os
+testes estatísticos não indicaram diferenças significativas entre
+os métodos, e o roteamento por incongruência também não
+alterou os resultados de forma significativa. Ainda assim, o
+**oráculo atingiu 91.0 de acurácia**, o que evidencia potencial, mas o seletor não aproveitou.
 
 ## Exemplificação do método proposto
 ![Exemplificação do método proposto](diagrama.png)
-
----
-
-## Perguntas de pesquisa
-
-| | Pergunta | Resposta nos 10 splits |
-|---|---|---|
-| **Q1** | A seleção dinâmica supera classificadores estáticos multimodais? | **Não.** O SVM estático e o voto dos 3 estáticos tiveram o maior F1-macro (80,1%); o melhor método dinâmico (KNORA-U) teve 79,2%. Nenhum par de métodos difere pelo pós-teste de Nemenyi. |
-| **Q2** | Rotear a busca de vizinhos pela incongruência melhora a seleção dinâmica? | **Não.** Nem pelo grupo A/B nem pelo conflito positivo × negativo, com extratores originais ou calibrados, em nenhuma variante da pool. Os dois roteamentos empatam com os controles aleatórios; maior diferença de +0,6 ponto (p ajustado = 1,0). |
-| **Q3** | A seleção por competência local se compara a uma combinação aprendida (Mixture of Experts)? | **Empate.** Soft-MoE 78,3%, praticamente igual a OLA e KNORA-E (78,2%), abaixo do KNORA-U (79,2%; diferença não significativa). |
 
 ---
 
@@ -32,26 +28,26 @@ Detecta sarcasmo em falas de séries de comédia usando **texto**, **contexto** 
                              |
           +------------------+-------------------+
           |                                      |
-   Representacoes                         Valencia emocional
+   Representações                         Valência emocional
    (BART, wav2vec2, rosto)                de cada modalidade
           |                                      |
-   Selecao da pool (CV no TREINO)         Grupo A/B (as 4 concordam ou nao)
-   45 candidatos -> 7 especialistas       e grupo de conflito (pos x neg)
-          |                                      |
-   Pool congelada (treinada no TREINO)           |
+   Seleção da pool (CV no TREINO)         Cálculo de Incongruência
+   45 candidatos -> 7 especialistas              |
+          |                               Grupo A/B (as 4 concordam ou não)
+   Pool congelada (treinada no TREINO)    e grupo de conflito (pos x neg)
           |                                      |
           +-----------+--------------+-----------+
                       |              |
-         Selecao dinamica         Soft-MoE
+         Seleção Dinâmica         Soft-MoE
          (DSEL como consulta)     (gate MLP treinado no DSEL)
          OLA | KNORA-E | KNORA-U
-         sem | A/B | conflito | controles aleatorios
+         sem | A/B | conflito | controles aleatórios
                       |              |
                       +------+-------+
                              |
-          Avaliacao no TESTE x estaticos (SVM, RL, RF, voto)
+          Avaliação no TESTE x estáticos (SVM, LR, RF, voto)
                              |
-          Agregacao dos 10 splits + testes estatisticos
+          Agregação dos 10 splits + testes estatísticos
 ```
 
 ### Papel de cada conjunto
@@ -59,7 +55,7 @@ Detecta sarcasmo em falas de séries de comédia usando **texto**, **contexto** 
 | Conjunto | Papel |
 |---|---|
 | **Treino** | Escolher e treinar os classificadores. Depois eles ficam congelados. |
-| **DSEL** | Base de consulta da seleção dinâmica e treino do gate do MoE. Fica separado do treino porque os classificadores acertariam mais em falas que já viram. |
+| **DSEL** | Base de consulta da seleção dinâmica e treino do gate do MoE. |
 | **Teste** | Só mede o resultado final. Nenhum parâmetro é escolhido com ele. |
 
 A divisão é sempre **por falante**: todas as falas de um personagem ficam no mesmo conjunto.
@@ -161,72 +157,70 @@ Treinados uma vez no treino e aplicados igual a todas as falas, com **as 4 modal
 
 ---
 
-## Configuração final do experimento principal
-
-Configuração usada em E1–E5. Ela foi definida no protocolo antes de olhar o teste, e nenhuma ablação (E6) a substituiu.
+## Protocolo e configuração final do experimento principal
 
 | Componente | Configuração |
 |---|---|
 | **Dados** | MUStARD++: 1202 falas (601 sarcásticas), 27 falantes |
-| **Splits** | 10 splits por falante, ~70% treino / ~15% DSEL / ~15% teste; seeds 8, 18, 30, 45, 46, 48, 70, 96, 100 e 111 (os 10 primeiros com DSEL e teste entre 120 e 240 falas e 40% a 60% de sarcasmo) |
-| **Representações** | Texto e contexto: BART-base (média dos estados ocultos, 768 cada); áudio: wav2vec2-base-960h (média no tempo, 768); rosto: média e desvio das 7 emoções faciais, nº de rostos e ausência (16). Total: 2320 dimensões |
+| **Splits** | 10 splits com `GroupShuffleSplit` por falante, aproximadamente 70% treino (744 a 880 falas, 18 falantes), 15% DSEL (136 a 230 falas, 4 falantes) e 15% teste (126 a 228 falas, 5 falantes); Foram aceitos apenas splits com 120 a 240 instâncias em DSEL e TEST e proporção de sarcasmo entre 40% e 60%. |
+| **Representações** | Texto e contexto: BART-base (média dos estados ocultos, 768 dim cada); áudio: wav2vec2-base-960h (média no tempo, 768 dim); rosto: 16 características - média e desvio-padrão das 7 probabilidades, nº de rostos e indicador de ausência. Total: 2320 dimensões |
 | **Emoção por modalidade** | Texto e contexto: DeBERTa-v3-large (`Tanneru/Emotion-Classification-DeBERTa-v3-Large`); áudio: emotion2vec+ large; rosto: `mo-thecreator/vit-Facial-Expression-Recognition`, aplicado às faces detectadas com MTCNN. Polaridade pela emoção predominante (argmax) |
-| **Grupos de incongruência** | Originais (`incongruence.csv`, não calibrados). A/B: as 4 modalidades com a mesma polaridade ou não. Conflito: algum par positiva × negativa |
-| **Candidatos da pool** | 45 = 15 combinações de modalidades × 3 classificadores (SVM RBF, regressão logística, random forest com `class_weight="balanced"`) |
-| **Busca de hiperparâmetros** | CV estratificada por falante (5 folds), critério F1-macro. SVM: C ∈ {0,1; 1; 10; 100}, gamma ∈ {scale; 0,01; 0,001}. RL: C ∈ {0,1; 1; 10}, L1 ou L2 (liblinear). RF: 100/300/500 árvores, profundidade {None; 10; 20}, folha mínima {1; 2; 4}, max_features {sqrt; log2} |
-| **Escolha da pool** | Gulosa entre os 15 melhores candidatos: 0,7 × desempenho normalizado + 0,3 × discordância média (diversidade 0,3); 7 membros, treinados no treino inteiro |
+| **Pool** | 15 combinações não vazias de modalidades × 3 famílias (RF, LR, SVM) = 45 candidatos, avaliados com `StratifiedGroupKFold` 5-fold e `GridSearchCV` (F1-macro). Seleção gulosa de 7 especialistas com `Score = α·desempenho + (1−α)·disagreement`, α = 0.7. |
 | **Seleção dinâmica** | k = 7 vizinhos no DSEL; espaço = 4 modalidades padronizadas (ajuste só no treino) e normalizadas (L2); OLA, KNORA-E e KNORA-U; roteamentos sem, A/B e conflito, com controles aleatórios de 10 sorteios |
-| **Soft-MoE** | Gate MLP 2320 → 32 → 7 (ReLU, dropout 0,2, softmax) sobre as probabilidades dos 7 membros; treino no DSEL com entropia cruzada binária, Adam (taxa 0,001, weight decay 0,0001), lotes de 32, até 200 épocas e paciência 20; limiar 0,5; sem incongruência |
-| **Estáticos** | SVM, RL e RF com as 4 modalidades (hiperparâmetros da CV da pool) e o voto dos 3 |
-| **Avaliação** | F1-macro no teste (principal), acurácia, precisão e recall; Friedman + Nemenyi (E1) e Wilcoxon pareado + Holm (E2), α = 0,05; semente 42 |
+| **Grupos de incongruência** | A/B (grupo A = as quatro modalidades com a mesma polaridade, 173 instâncias; grupo B = demais, 1029) e por conflito (ao menos um par com polaridades opostas, 330 com conflito e 872 sem). Controles aleatórios usam grupos sorteados do mesmo tamanho (10 sorteios por split).|
+| **Soft-MoE** | Gate MLP (2320 → 32 → 7, ReLU, dropout 0,2, softmax) sobre as probabilidades dos 7 membros; treino no DSEL com entropia cruzada binária, Adam (taxa 0,001, weight decay 0,0001), lotes de 32, até 200 épocas e paciência 20; limiar 0,5; sem incongruência |
+| **Estáticos** | SVM, LR e RF com as 4 modalidades concatenadas (hiperparâmetros da CV da pool) e o voto dos 3 |
+| **Avaliação** | F1-macro no teste (principal), acurácia, precisão e recall; Friedman + Nemenyi e Wilcoxon pareado + Holm, α = 0,05; semente 42 |
 | **Comando** | `python -m src.run_experiment --split all --include-k-sweep --include-diversity` e depois `python src/aggregate_splits.py` |
-
-As variantes (diversidade 0,8 e 1,0, máximo de 4 membros com contexto, grupos calibrados) ficam como ablação no E6.
-
----
-
-## Protocolo experimental
-
-| | Experimento | Como | Estatística |
-|---|---|---|---|
-| **E0** | Base comum | 10 splits; k = 7 e peso de desempenho 0,7 fixados antes de olhar o teste | Média ± desvio, pior e melhor split |
-| **E1** | Comparação principal (Q1, Q3) | Estáticos, pior/melhor membro, voto da pool, OLA/KNORA-E/KNORA-U sem roteamento, Soft-MoE, oráculo | Friedman + pós-teste de Nemenyi (Demšar, 2006) |
-| **E2** | Ablação do roteamento (Q2) | A/B e conflito, cada um contra sem roteamento e contra o seu controle aleatório, nos 3 métodos | Wilcoxon pareado + correção de Holm (12 testes) |
-| **E3** | Sensibilidade | k ∈ {3, 5, 7, 11, 15}; peso do desempenho de 0,0 a 1,0 (avaliado no DSEL) | Descritiva |
-| **E4** | Análise de erros | Erro do seletor (algum membro acertaria) × erro da pool (nenhum acerta), por grupo e classe; diversidade da pool | Descritiva |
-| **E5** | Custo computacional | Tempo, CPU e memória por etapa; nº de treinos e de parâmetros | Descritiva |
-| **E6** | Ablações complementares | Extratores de emoção calibrados (incluindo o rosto só do falante) e variantes da pool; escolha pelo DSEL | Wilcoxon pareado + Holm contra a configuração padrão |
-
-O McNemar com correção de Holm e o bootstrap (IC 95%) por split (`src/statistical_comparison.py`) ficam como complemento.
 
 ---
 
 ## Resultados (10 splits, teste)
 
-Valores em %, média ± desvio entre splits. Todos os números vêm de `data/processed/final/`.
 
-### E1 · Comparação principal
+### Tabela principal (teste final, média ± desvio-padrão em 10 splits por falante)
 
-| Método | F1-macro | Pior–melhor split | Acurácia | Rank médio |
-|---|---|---|---|---|
-| Estático voto dos 3 | 80,1 ± 5,6 | 69,3–85,4 | 80,4 | 3,80 |
-| Estático SVM | 80,1 ± 5,8 | 67,8–85,4 | 80,3 | 4,50 |
-| KNORA-U sem roteamento | 79,2 ± 6,0 | 66,8–86,0 | 79,5 | 4,40 |
-| Voto da pool | 79,2 ± 5,9 | 66,8–86,0 | 79,5 | 4,75 |
-| Melhor membro (pelo DSEL) | 78,6 ± 6,8 | 63,7–85,4 | 78,8 | 6,75 |
-| Soft-MoE | 78,3 ± 5,3 | 67,8–86,6 | 78,6 | 5,65 |
-| OLA sem roteamento | 78,2 ± 6,9 | 63,7–85,4 | 78,4 | 6,35 |
-| KNORA-E sem roteamento | 78,2 ± 6,7 | 64,8–87,2 | 78,5 | 6,15 |
-| Estático random forest | 77,7 ± 6,5 | 65,0–84,9 | 78,1 | 7,95 |
-| Estático regressão logística | 77,4 ± 5,0 | 66,8–83,8 | 77,7 | 7,35 |
-| Pior membro (pelo DSEL) | 75,8 ± 6,3 | 65,0–84,1 | 76,1 | 8,35 |
-| *Oráculo (algum membro acerta)* | — | — | *91,0 ± 4,8* | — |
+| Método                    | F1-macro   | Pior–melhor split | Acurácia | Rank médio |
+| ------------------------- | ---------- | ----------------- | -------- | ---------- |
+| Estático voto dos 3       | 80.1 ± 5.6 | 69.3–85.4         | 80.4     | 7.20       |
+| Estático SVM              | 80.1 ± 5.8 | 67.8–85.4         | 80.3     | 8.45       |
+| KNORA-U · conflito        | 79.3 ± 6.0 | 66.8–86.0         | 79.6     | 7.50       |
+| KNORA-U · sem rot.        | 79.2 ± 6.0 | 66.8–86.0         | 79.5     | 7.60       |
+| KNORA-U · com rot. (A/B)  | 79.2 ± 6.0 | 66.8–86.0         | 79.5     | 8.80       |
+| KNORA-U · aleatório       | 79.2 ± 6.0 | 66.8–86.0         | 79.5     | 7.75       |
+| KNORA-U · conflito aleat. | 79.2 ± 5.9 | 66.8–86.0         | 79.5     | 8.05       |
+| KNORA-E · com rot. (A/B)  | 78.7 ± 6.1 | 65.8–86.0         | 78.9     | 10.70      |
+| KNORA-E · conflito        | 78.5 ± 6.0 | 66.3–85.4         | 78.7     | 11.55      |
+| KNORA-E · conflito aleat. | 78.5 ± 6.1 | 65.8–85.9         | 78.8     | 11.60      |
+| Soft-MoE                  | 78.3 ± 5.3 | 67.8–86.6         | 78.6     | 9.70       |
+| KNORA-E · aleatório       | 78.3 ± 6.4 | 65.4–86.8         | 78.6     | 10.90      |
+| OLA · sem rot.            | 78.2 ± 6.9 | 63.7–85.4         | 78.4     | 11.85      |
+| OLA · com rot. (A/B)      | 78.2 ± 6.8 | 64.3–84.6         | 78.4     | 11.45      |
+| OLA · aleatório           | 78.2 ± 6.6 | 64.1–84.9         | 78.4     | 12.50      |
+| OLA · conflito aleat.     | 78.2 ± 6.6 | 64.2–84.9         | 78.4     | 13.00      |
+| KNORA-E · sem rot.        | 78.2 ± 6.7 | 64.8–87.2         | 78.5     | 11.00      |
+| OLA · conflito            | 78.1 ± 6.6 | 63.7–85.3         | 78.3     | 13.35      |
+| Estático RF               | 77.7 ± 6.5 | 65.0–84.9         | 78.1     | 14.05      |
+| Estático LR               | 77.4 ± 5.0 | 66.8–83.8         | 77.7     | 13.00      |
 
-- **Friedman:** χ² = 21,32, p = 0,019 (11 métodos, 10 splits). **Nemenyi:** distância crítica de 4,77; a maior diferença de rank é 4,55 (voto dos 3 × pior membro), então **nenhum par é significativo**.
-- **A variação entre splits (desvio de ~6 pontos) é maior que a diferença entre métodos (1 a 2 pontos).** O `split_06` é o pior split para todos os métodos.
+**Referências (fora da comparação estatística):**
+
+| Referência     | F1-macro   | Pior–melhor split | Acurácia |
+| -------------- | ---------- | ----------------- | -------- |
+| Voto da pool   | 79.2 ± 5.9 | 66.8–86.0         | 79.5     |
+| Melhor membro  | 78.6 ± 6.8 | 63.7–85.4         | 78.8     |
+| Pior membro    | 75.8 ± 6.3 | 65.0–84.1         | 76.1     |
+| Oráculo (*algum membro acerta*)       | —          | —                 | 91.0     |
+
+- Os classificadores estáticos (SVM e voto majoritário de SVM, LR e RF) tiveram o maior F1-macro médio: **80.1**.
+- A melhor DS foi o **KNORA-U**, com F1-macro entre **79.2 e 79.3** em todas as variantes (inclusive sem roteamento), cerca de 0.9 p.p. acima do Soft-MoE (**78.3**), sem diferença significativa (p = 0.492; Holm = 1.0).
+- Teste de Friedman nos 20 métodos: χ² = 26.61, p = 0.114. Nenhum par superou a distância crítica de Nemenyi (9.38).
+- O **oráculo** atingiu **91.0** de acurácia (93.2 com pools mais diversas), o que mostra margem para melhorar a seleção, mas o seletor atual não a aproveita.
+- Os controles aleatórios (grupos sorteados do mesmo tamanho) reproduziram os valores do roteamento real. Os 12 testes de Wilcoxon (com correção de Holm) deram p ajustado = 1.0, então a incongruência atuou apenas como restrição da vizinhança, sem informação extra sobre competência.
 - Os métodos dinâmicos ficam perto do melhor membro e do voto da pool (78,2 a 79,2), longe do oráculo.
+- A variação entre splits (desvio-padrão de 5 a 7 p.p.) é maior que a diferença entre métodos.
 
-### E2 · Ablação do roteamento
+### Efeito do roteamento por incongruência
 
 | Método | Comparação | Δ F1 (pp) | Vitórias / empates / derrotas | p | p (Holm) |
 |---|---|---|---|---|---|
@@ -253,12 +247,30 @@ F1-macro por grupo no teste (exploratório; o grupo A tem cerca de 27 falas por 
 
 No grupo A, o roteamento A/B tende a ficar 2 a 3 pontos acima no OLA e cerca de 2 pontos acima no KNORA-E. Os desvios são de 9 a 11 pontos, e essa diferença não foi testada.
 
-### E3 · Sensibilidade
+
+### Por que o roteamento não ajudou
+
+1. **O sinal de incongruência é ruidoso.** A polaridade estimada por modalidade concorda pouco com a emoção explícita anotada no MUStARD++ (kappa de no máximo 0.27, no texto). Os extratores classificam como neutras cerca de metade das falas em que os anotadores viram emoção.
+
+   | Modalidade | Concordância (%) | Kappa | Neutro (%)* |
+   | ---------- | ---------------- | ----- | ----------- |
+   | Texto      | 55.7             | 0.27  | 57.6        |
+   | Contexto   | 40.9             | 0.06  | 52.8        |
+   | Áudio      | 51.8             | 0.24  | 42.8        |
+   | Rosto      | 41.8             | 0.10  | 46.2        |
+
+   \* Percentual de saídas neutras quando a anotação indica emoção.
+
+   Das 173 instâncias do grupo A, 141 (81%) estão nele porque as quatro modalidades foram classificadas como neutras, e não porque expressam a mesma emoção. Na prática, o agrupamento A/B separa falas sem emoção detectada das demais, e não congruentes de incongruentes. Ajustes testados (limiar τ sobre a valência e reextração do rosto só do falante com `trpakov/vit-face-expression`) não melhoraram a concordância de forma consistente fora do TRAIN.
+
+2. **A pool tem pouca diversidade.** O kappa entre membros ficou entre 0.67 e 0.83 por split, e 98.6% dos membros usam o contexto. Aumentar o peso de diversidade (α = 0.2 e 0) elevou o oráculo de 91.0 para até 93.2, mas o KNORA-U variou no máximo 0.4 ponto e nenhuma variante diferiu da configuração padrão (Wilcoxon com Holm, p ajustado = 1.0). Os novos acertos do oráculo vêm de classificadores que a estimativa de competência local raramente escolhe.
+
+### Sensibilidade
 
 - **k:** entre 3 e 15, o F1-macro médio varia no máximo 0,7 ponto em cada método e roteamento (ex.: KNORA-U sem roteamento de 79,0 a 79,3).
 - **Peso do desempenho na pool:** de 0,0 a 1,0, o F1-macro do voto da pool no DSEL fica entre 78,2 e 78,6, enquanto a discordância entre membros cai de 17,6% para 12,6%. Os 11 pesos geram de 2 a 6 pools diferentes por split.
 
-### E4 · Análise de erros
+### Análise de erros
 
 | Método | Acerto | Erro do seletor | Erro da pool |
 |---|---|---|---|
@@ -275,7 +287,7 @@ No grupo A, o roteamento A/B tende a ficar 2 a 3 pontos acima no OLA e cerca de 
 - **Pool pouco diversa:** kappa médio entre pares de membros de 0,67 a 0,83 por split; discordância de 8,7% a 16,0%.
 - **Espaço para o seletor:** cerca de 12% das falas seriam acertadas por algum membro, mas o método escolhe errado.
 
-### E5 · Custo computacional
+### Custo computacional
 
 | Etapa (por split) | Tempo | CPU | Pico de memória |
 |---|---|---|---|
@@ -285,19 +297,17 @@ No grupo A, o roteamento A/B tende a ficar 2 a 3 pontos acima no OLA e cerca de 
 | Soft-MoE (treino do gate + teste) | 8,4 s | 8,8 s | 1239 MB |
 | Estáticos (reaproveitam a CV da pool) | 4,4 s | 7,3 s | 199 MB |
 
-CPU e memória são aproximados (amostrados a cada 0,5 s, somando processos filhos). A seleção e o treino da pool são a média de 9 splits: o `split_00` não registrou o custo dessas duas etapas.
-
 | Abordagem | Treinos na busca de hiperparâmetros | Treinos finais | Parâmetros treináveis extras |
 |---|---|---|---|
 | Estáticos | 378 | 3 | 0 |
 | Pool + seleção dinâmica | 5670 | 7 | 0 |
 | Pool + Soft-MoE | 5670 | 7 | 74503 |
 
-A decisão da seleção dinâmica custa cerca de 0,05 ms por fala.
+A decisão da seleção dinâmica custa cerca de 0,05 ms por fala. O Soft-MoE acrescenta 74503 parâmetros treináveis.
 
 ---
 
-## E6 · Ablações complementares
+## Ablações complementares
 
 Feitas depois da primeira rodada dos 10 splits, para entender por que o roteamento não ajudou. A configuração principal (pool padrão e grupos originais) não muda; cada ablação altera um fator por vez.
 
@@ -344,7 +354,7 @@ Mesma regra para as 4 modalidades: valência `V = P(happy) − P(negativas)`, po
 
 **Extratores:** fora do treino, nenhum ajuste melhorou a concordância com a anotação de forma consistente. A calibração escolheu o DeBERTa no texto em todos os splits, e o j-hartmann não superou. O texto calibrado sobe no DSEL (kappa 0,263 → 0,294), mas não no teste (0,292 → 0,286); contexto, áudio e rosto caem nos dois. O rosto só do falante (argmax, todas as falas) teve kappa de 0,09, contra 0,10 do rosto antigo; calibrado, o rosto cai no DSEL (0,109 → 0,093) e no teste (0,085 → 0,068) (médias dos 10 splits, `calibracao_escolhas.csv`). O kappa máximo continua em cerca de 0,29 (texto).
 
-**Roteamento:** em nenhuma variante algum dos 12 testes do E2 foi significativo (p de Holm = 1,0).
+**Roteamento:** em nenhuma variante algum dos 12 testes foi significativo (p de Holm = 1,0).
 
 **Variantes da pool:**
 
@@ -357,21 +367,22 @@ Mesma regra para as 4 modalidades: valência `V = P(happy) − P(negativas)`, po
 | Incongruência calibrada (mesma pool) | 78,3 | 91,0 | 79,2 | 77,9 |
 
 - Nenhuma variante difere da padrão (Wilcoxon + Holm, p ajustado = 1,0).
-- Com os grupos calibrados (incluindo o rosto do falante), o roteamento também não muda: no E2, nenhum teste significativo e diferenças de −0,3 a +0,6 ponto.
+- Com os grupos calibrados (incluindo o rosto do falante), o roteamento também não muda: nenhum teste significativo e diferenças de −0,3 a +0,6 ponto.
 - Mais diversidade sobe o oráculo, mas a seleção dinâmica não aproveita: os membros sem contexto são mais fracos.
 - **Decisão:** a pool padrão continua como principal (fixada antes dos resultados); as variantes ficam como ablação. A diferença no DSEL a favor da diversidade 1,0 (0,3 ponto) está dentro do ruído.
 - O Soft-MoE varia de 0,3 a 0,4 ponto entre rodadas com a mesma pool, porque o treino do gate não é determinístico.
 
 ---
 
-## Limitações
+## Limitações e trabalhos futuros
 
 - **Poucos falantes:** o MUStARD++ tem só 27 falantes, muito desiguais; mesmo com o critério de aceitação, o split pesa mais que o método.
-- **Poder estatístico:** com 10 splits, os testes têm pouco poder para diferenças de 1 a 2 pontos. "Não significativo" não prova que os métodos são equivalentes.
+- **Poder estatístico:** com 10 splits, os testes têm pouco poder para diferenças de 1 a 2 pontos. "Não significativo" não implica que os métodos são equivalentes.
 - **Grupo A pequeno:** 16 a 49 falas no teste por split; os resultados por grupo são descritivos.
 - **Pool dominada pelo contexto:** 98,6% dos membros usam o contexto, o que limita a complementaridade que a seleção dinâmica pode explorar.
 - **Sinal de incongruência ruidoso:** os extratores de emoção concordam pouco com a anotação humana (kappa de no máximo cerca de 0,3), e nenhum ajuste melhorou isso fora do treino.
 - **Soft-MoE não determinístico:** varia de 0,3 a 0,4 ponto entre rodadas com a mesma pool.
+- Trabalhos futuros: melhorar o seletor, buscar alternativas à extração de emoções e explorar a incongruência como entrada do gate do MoE.
 
 ---
 
@@ -390,8 +401,8 @@ Mesma regra para as 4 modalidades: valência `V = P(happy) − P(negativas)`, po
 | `src/static/` | Classificadores estáticos multimodais |
 | `src/analysis/` | Diagnóstico dos extratores contra a anotação |
 | `src/run_experiment.py` | Orquestra todo o experimento com um split (`--split 00`) ou todos (`--split all`) |
-| `src/aggregate_splits.py` | Agrega os 10 splits (E1–E5) de uma configuração |
-| `src/compare_variants.py` | Compara as ablações com a configuração padrão (E6) |
+| `src/aggregate_splits.py` | Agrega os 10 splits de uma configuração |
+| `src/compare_variants.py` | Compara as ablações com a configuração padrão |
 | `src/statistical_comparison.py` | McNemar + Holm e bootstrap por split (complemento) |
 
 Cada pasta de `src/` com mais de um script tem o seu próprio README.
@@ -445,7 +456,7 @@ python src/features/embeddings/extract_audio_features.py
 python src/features/embeddings/build_visual_features.py
 ```
 
-### 2. Experimento principal (E1–E5)
+### 2. Experimento principal
 
 ```
 python -m src.run_experiment --split all --include-k-sweep --include-diversity
@@ -454,7 +465,7 @@ python src/aggregate_splits.py
 
 A seleção da pool é a etapa demorada (cerca de 25 min por split na máquina usada). A execução é retomável: pools já treinadas são reaproveitadas. `--only ds moe static` roda só as famílias escolhidas e `--sem-estatistica` pula o McNemar/bootstrap por split (cerca de 5 min por split).
 
-### 3. Ablações complementares (E6)
+### 3. Ablações complementares
 
 ```
 # variantes da pool (reaproveitam a CV de cada split)
